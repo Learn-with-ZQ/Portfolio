@@ -10,10 +10,13 @@ import {
   Clock,
   Layers,
 } from "lucide-react";
+import { JsonLd } from "@/components/seo/json-ld";
 import { GitHubIcon } from "@/components/ui/social-icons";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { socialLinks } from "@/data/social";
 import { formatDateRange, formatDuration } from "@/lib/format";
+import { createPageMetadata } from "@/lib/metadata";
+import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
@@ -31,10 +34,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
-  return {
+
+  return createPageMetadata({
     title: project.name,
     description: project.summary,
-  };
+    path: `/projects/${project.slug}`,
+    keywords: [project.name, ...project.technologies, "Muhammad Zaid Qasim"],
+  });
 }
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
@@ -45,9 +51,21 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
   const githubProfile = socialLinks.find((link) => link.icon === "github");
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Projects", path: "/projects" },
+        { name: project.name, path: `/projects/${project.slug}` },
+      ]),
+      getProjectSchema(project),
+    ],
+  };
 
   return (
     <>
+      <JsonLd data={projectSchema} />
       <div className="bg-grid relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16">
         <div
           aria-hidden="true"

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { contactInfo } from "@/data/contact";
 import { socialLinks } from "@/data/social";
@@ -8,11 +8,12 @@ import { SocialIcons } from "@/components/ui/social-icons";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Contact",
   description:
     "Get in touch with Muhammad Zaid Qasim — email, phone, and social links. Open to roles and collaborations in backend, .NET, and full-stack development.",
-};
+  path: "/contact",
+});
 
 const contactRows = [
   {

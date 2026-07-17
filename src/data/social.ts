@@ -1,24 +1,25 @@
+import { seoConfig } from "@/lib/seo";
 import type { SocialLink } from "@/types";
 
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    url: "https://github.com/Learn-with-ZQ",
+    url: seoConfig.socialUrls.github,
     icon: "github",
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/m-zaid-qasim",
+    url: seoConfig.socialUrls.linkedin,
     icon: "linkedin",
   },
   {
     name: "HackerRank",
-    url: "https://www.hackerrank.com/profile/learnwithzq",
+    url: seoConfig.socialUrls.hackerrank,
     icon: "hackerrank",
   },
   {
     name: "Email",
-    url: "mailto:zaidqasim1234@gmail.com",
+    url: seoConfig.socialUrls.email,
     icon: "mail",
   },
 ];

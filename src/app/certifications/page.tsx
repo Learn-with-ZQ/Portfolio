@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { Award, ExternalLink, Star } from "lucide-react";
 import { certifications } from "@/data/certifications";
 import { PageHeader } from "@/components/common/page-header";
@@ -6,11 +6,12 @@ import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Certifications",
   description:
     "Certifications and credentials of Muhammad Zaid Qasim — HackerRank C# certification plus 5-star Python, 4-star Problem Solving, and 3-star SQL badges.",
-};
+  path: "/certifications",
+});
 
 function StarRating({ count }: { count: number }) {
   return (

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { Building2, CheckCircle2, MapPin } from "lucide-react";
 import { experiences } from "@/data/experience";
 import { formatDateRange, formatDuration } from "@/lib/format";
@@ -7,11 +7,12 @@ import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Experience",
   description:
     "Professional experience of Muhammad Zaid Qasim — Software Developer at E-Creatorz, deployed as Resident Engineer at IoBM, building ERP, CMS, and banking systems.",
-};
+  path: "/experience",
+});
 
 export default function ExperiencePage() {
   return (

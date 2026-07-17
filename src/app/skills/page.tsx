@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   Braces,
   Code2,
@@ -15,11 +15,12 @@ import { Section } from "@/components/ui/section";
 import { SkillBar } from "@/components/skills/skill-bar";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Skills",
   description:
     "Technical proficiency of Muhammad Zaid Qasim across backend, database, mobile, frontend, tooling, and soft skills — from .NET Core to SQL Server optimization.",
-};
+  path: "/skills",
+});
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   server: Server,

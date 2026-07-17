@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { MessageSquareQuote, Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 import { PageHeader } from "@/components/common/page-header";
@@ -6,11 +6,12 @@ import { Section } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Testimonials",
   description:
     "What managers, colleagues, mentors, and clients say about working with Muhammad Zaid Qasim.",
-};
+  path: "/testimonials",
+});
 
 export default function TestimonialsPage() {
   return (

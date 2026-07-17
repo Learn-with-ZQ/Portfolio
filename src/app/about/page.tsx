@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Compass, Target } from "lucide-react";
 import { journey, mission, profile, vision } from "@/data/profile";
+import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About",
   description:
     "Professional biography of Muhammad Zaid Qasim — Software Developer at E-Creatorz, Resident Engineer at IoBM, and MS Data Science student at NED University.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

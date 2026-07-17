@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { Trophy, Users2 } from "lucide-react";
 import { achievements } from "@/data/achievements";
 import { PageHeader } from "@/components/common/page-header";
@@ -6,11 +6,12 @@ import { Section, SectionHeading } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Achievements",
   description:
     "Competition wins and leadership roles of Muhammad Zaid Qasim — AWS Hackathon winner, programming competition finalist, and conference leadership.",
-};
+  path: "/achievements",
+});
 
 export default function AchievementsPage() {
   const competitions = achievements.filter((item) => item.category === "Competition");
