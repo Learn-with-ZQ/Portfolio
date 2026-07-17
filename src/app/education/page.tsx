@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { BookOpen, GraduationCap, MapPin, Trophy } from "lucide-react";
 import { educationList } from "@/data/education";
 import { formatDateRange } from "@/lib/format";
@@ -7,11 +7,12 @@ import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Education",
   description:
     "Academic background of Muhammad Zaid Qasim — MS Data Science at NED University and BS Computer Science at PAF-KIET, Karachi.",
-};
+  path: "/education",
+});
 
 export default function EducationPage() {
   return (

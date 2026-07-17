@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   ArrowRight,
   CheckCircle2,
@@ -15,11 +15,12 @@ import { Section } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Services",
   description:
     "Services offered by Muhammad Zaid Qasim — backend and API development, database optimization, enterprise web applications, cross-platform mobile apps, and production support.",
-};
+  path: "/services",
+});
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   server: Server,

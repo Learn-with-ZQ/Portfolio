@@ -3,9 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { siteConfig } from "@/lib/site";
-import { profile } from "@/data/profile";
-import { socialLinks } from "@/data/social";
+import { JsonLd } from "@/components/seo/json-ld";
+import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
+import { getRootSchemaGraph } from "@/lib/schema";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,70 +20,73 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteVerification = getSiteVerification();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: getMetadataBase(),
   title: {
-    default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
+    default: seoConfig.defaultTitle,
+    template: seoConfig.titleTemplate,
   },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  alternates: { canonical: "./" },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.locale,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [{ url: siteConfig.ogImage, width: 960, height: 1280, alt: siteConfig.name }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
+  description: seoConfig.defaultDescription,
+  keywords: [...seoConfig.keywords],
+  authors: [
+    {
+      name: seoConfig.author.name,
+      url: seoConfig.socialUrls.linkedin,
+    },
+  ],
+  creator: seoConfig.author.name,
+  publisher: seoConfig.publisher.name,
+  category: seoConfig.category,
+  alternates: {
+    canonical: "./",
+    languages: {
+      [seoConfig.language]: "./",
+    },
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  ...(siteVerification ? { verification: siteVerification } : {}),
+  openGraph: {
+    type: "website",
+    locale: seoConfig.locale,
+    url: seoConfig.siteUrl,
+    siteName: seoConfig.siteName,
+    title: seoConfig.defaultTitle,
+    description: seoConfig.defaultDescription,
+    images: [
+      {
+        url: seoConfig.defaultOgImage,
+        width: seoConfig.defaultOgImageWidth,
+        height: seoConfig.defaultOgImageHeight,
+        alt: seoConfig.siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoConfig.defaultTitle,
+    description: seoConfig.defaultDescription,
+    images: [seoConfig.defaultOgImage],
+    ...(seoConfig.twitterHandle
+      ? { creator: seoConfig.twitterHandle, site: seoConfig.twitterHandle }
+      : {}),
   },
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  jobTitle: profile.role,
-  worksFor: { "@type": "Organization", name: profile.company },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Karachi",
-    addressCountry: "PK",
-  },
-  url: siteConfig.url,
-  image: `${siteConfig.url}${profile.avatar}`,
-  sameAs: socialLinks
-    .filter((link) => link.icon !== "mail")
-    .map((link) => link.url),
-  knowsAbout: [
-    "C#",
-    ".NET Core",
-    "ASP.NET",
-    "SQL Server",
-    "Entity Framework",
-    "React Native",
-    ".NET MAUI",
-    "REST APIs",
-    "Data Science",
-  ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "PAF-KIET (Karachi Institute of Economics and Technology)",
-  },
-};
+const rootSchemaGraph = getRootSchemaGraph();
 
 export default function RootLayout({
   children,
@@ -97,10 +100,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
+        <JsonLd data={rootSchemaGraph} />
         <Providers>
           <a
             href="#main-content"

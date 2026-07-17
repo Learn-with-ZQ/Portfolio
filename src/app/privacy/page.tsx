@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/motion/reveal";
 import { contactInfo } from "@/data/contact";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
     "Privacy policy for the portfolio website of Muhammad Zaid Qasim — no cookies, no tracking, no data collection.",
-};
+  path: "/privacy",
+});
 
 const sections = [
   {
