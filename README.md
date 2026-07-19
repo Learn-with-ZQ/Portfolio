@@ -24,19 +24,19 @@ npm run lint       # eslint
 
 All portfolio content is hardcoded in `src/data/`:
 
-| File | Contents |
-|---|---|
-| `profile.ts` | Name, role, bio, tagline, stats, journey timeline |
-| `experience.ts` | Work experience and responsibilities |
-| `projects.ts` | Projects (set `featured: true` to pin on the home page) |
-| `skills.ts` | Skill categories with proficiency levels |
-| `education.ts` | Degrees and coursework |
-| `certifications.ts` | Certifications and badges |
-| `achievements.ts` | Competition wins and leadership roles |
-| `services.ts` | Services offered |
-| `testimonials.ts` | Testimonials (empty array renders a graceful empty state) |
-| `social.ts` / `contact.ts` | Social links and contact details |
-| `navigation.ts` | Header and footer navigation |
+| File                       | Contents                                                  |
+| -------------------------- | --------------------------------------------------------- |
+| `profile.ts`               | Name, role, bio, tagline, stats, journey timeline         |
+| `experience.ts`            | Work experience and responsibilities                      |
+| `projects.ts`              | Projects (set `featured: true` to pin on the home page)   |
+| `skills.ts`                | Skill categories with proficiency levels                  |
+| `education.ts`             | Degrees and coursework                                    |
+| `certifications.ts`        | Certifications and badges                                 |
+| `achievements.ts`          | Competition wins and leadership roles                     |
+| `services.ts`              | Services offered                                          |
+| `testimonials.ts`          | Testimonials (empty array renders a graceful empty state) |
+| `social.ts` / `contact.ts` | Social links and contact details                          |
+| `navigation.ts`            | Header and footer navigation                              |
 
 Site-wide SEO settings (URL, title, description) live in `src/lib/site.ts`.
 Set `NEXT_PUBLIC_SITE_URL` in production to your real domain.
@@ -50,16 +50,20 @@ Follow [docs/CONTACT_FORM_SETUP.md](docs/CONTACT_FORM_SETUP.md) to create the
 sheet and set `CONTACT_WEBHOOK_URL` (see `.env.example`). No Google API key or
 app password is required.
 
-## Testimonials
+## Testimonials and Google sign-in
 
-Testimonials use a dedicated Auth.js / NextAuth Google OAuth flow with a separate
-server-side route at `/api/testimonials`. The route verifies the authenticated
-session, validates the submission, and forwards the payload to a separate Google
-Apps Script endpoint configured with `TESTIMONIAL_WEBHOOK_URL`.
+Testimonials are submitted by authenticated Google users only. The browser never
+supplies trusted identity fields: `/api/testimonials` reads them from the server
+session, validates the form and optional reference document, then forwards the
+submission to `TESTIMONIAL_WEBHOOK_URL`. This must be a dedicated Apps Script
+deployment and must not be the contact webhook.
 
-Follow [docs/TESTIMONIAL_FORM_SETUP.md](docs/TESTIMONIAL_FORM_SETUP.md) to create
-the dedicated testimonial sheet and Apps Script deployment. Only approved rows
-should be manually promoted into `src/data/testimonials.ts` for public display.
+1. Create Google OAuth credentials and add `http://localhost:3000/api/auth/callback/google` plus your production callback URL.
+2. Set `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `NEXTAUTH_SECRET`, `NEXTAUTH_URL`, and `TESTIMONIAL_WEBHOOK_URL` in your environment.
+3. Follow [docs/TESTIMONIAL_FORM_SETUP.md](docs/TESTIMONIAL_FORM_SETUP.md) to configure the separate spreadsheet, Drive folder, and Apps Script deployment.
+
+Every submitted testimonial begins as `Pending`. Review it in the spreadsheet,
+then manually add approved public entries to `src/data/testimonials.ts`.
 
 ## Structure
 

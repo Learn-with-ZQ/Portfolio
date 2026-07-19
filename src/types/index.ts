@@ -126,25 +126,11 @@ export interface Testimonial {
   name: string;
   subject: string;
   message: string;
-  rating: number;
+  rating: 1 | 2 | 3 | 4 | 5;
   profileImageUrl?: string;
-  provider: "google";
-  approvedAt?: string;
-}
-
-export interface TestimonialSubmission {
-  googleUserId: string;
-  provider: string;
-  name: string;
-  email: string;
-  profileImageUrl?: string;
-  phone: string;
-  subject: string;
-  message: string;
-  rating: number;
-  uploadedFileUrl?: string;
-  approvalStatus: "Pending" | "Approved" | "Rejected";
   createdAt?: string;
+  referenceDocumentUrl?: string;
+  verificationStatus: "Verified";
 }
 
 export interface NavLink {
