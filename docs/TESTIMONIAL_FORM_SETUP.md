@@ -38,26 +38,51 @@ The Apps Script should:
 { "ok": true }
 ```
 
+## Deployment
+
+Create a new standalone Apps Script project, paste the code below, and deploy it
+as a Web App. Copy that distinct deployment URL into `TESTIMONIAL_WEBHOOK_URL`.
+Do not use the contact form deployment.
+
 ## Example Apps Script code
 
 ```javascript
 function doPost(e) {
   try {
-    const payload = JSON.parse(e.postData.contents || '{}');
+    const payload = JSON.parse(e.postData.contents || "{}");
 
-    if (!payload.googleUserId || !payload.name || !payload.email || !payload.phone || !payload.subject || !payload.message || !payload.rating) {
-      return ContentService.createTextOutput(JSON.stringify({ ok: false, error: 'Missing required fields.' })).setMimeType(ContentService.MimeType.JSON);
+    if (
+      !payload.googleUserId ||
+      !payload.name ||
+      !payload.email ||
+      !payload.phone ||
+      !payload.subject ||
+      !payload.message ||
+      !payload.rating
+    ) {
+      return ContentService.createTextOutput(
+        JSON.stringify({ ok: false, error: "Missing required fields." }),
+      ).setMimeType(ContentService.MimeType.JSON);
     }
 
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Testimonials');
-    const folderId = PropertiesService.getScriptProperties().getProperty('TESTIMONIAL_DOCUMENT_FOLDER_ID');
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Testimonials");
+    const folderId = PropertiesService.getScriptProperties().getProperty(
+      "TESTIMONIAL_DOCUMENT_FOLDER_ID",
+    );
 
-    let uploadedFileUrl = '';
+    let uploadedFileUrl = "";
 
     if (payload.fileBase64 && payload.fileName && payload.fileType) {
-      const blob = Utilities.newBlob(Utilities.base64Decode(payload.fileBase64), payload.fileType, payload.fileName);
-      const fileName = `${Date.now()}_${payload.fileName}`;
-      const folder = folderId ? DriveApp.getFolderById(folderId) : DriveApp.getRootFolder();
+      const blob = Utilities.newBlob(
+        Utilities.base64Decode(payload.fileBase64),
+        payload.fileType,
+        payload.fileName,
+      );
+      const safeName = payload.fileName.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const fileName = `${Date.now()}_${Utilities.getUuid()}_${safeName}`;
+      const folder = folderId
+        ? DriveApp.getFolderById(folderId)
+        : DriveApp.getRootFolder();
       const file = folder.createFile(blob.setName(fileName));
       uploadedFileUrl = file.getUrl();
     }
@@ -72,15 +97,19 @@ function doPost(e) {
       payload.message,
       payload.rating,
       uploadedFileUrl,
-      payload.provider || 'google',
-      'Pending'
+      payload.provider || "google",
+      "Pending",
     ];
 
     sheet.appendRow(row);
 
-    return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(
+      ContentService.MimeType.JSON,
+    );
   } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ ok: false, error: error.message })).setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({ ok: false, error: error.message }),
+    ).setMimeType(ContentService.MimeType.JSON);
   }
 }
 ```
@@ -92,3 +121,6 @@ Set the following script properties inside Apps Script:
 - `TESTIMONIAL_DOCUMENT_FOLDER_ID`
 
 This property should point to the Drive folder where uploaded reference documents are stored.
+
+Keep this Drive configuration in Apps Script properties only; never add the
+folder ID to Next.js environment variables.
