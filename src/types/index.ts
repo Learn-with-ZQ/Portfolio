@@ -124,9 +124,27 @@ export interface Service {
 export interface Testimonial {
   id: string;
   name: string;
-  role: string;
-  company: string;
-  quote: string;
+  subject: string;
+  message: string;
+  rating: number;
+  profileImageUrl?: string;
+  provider: "google";
+  approvedAt?: string;
+}
+
+export interface TestimonialSubmission {
+  googleUserId: string;
+  provider: string;
+  name: string;
+  email: string;
+  profileImageUrl?: string;
+  phone: string;
+  subject: string;
+  message: string;
+  rating: number;
+  uploadedFileUrl?: string;
+  approvalStatus: "Pending" | "Approved" | "Rejected";
+  createdAt?: string;
 }
 
 export interface NavLink {

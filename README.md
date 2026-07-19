@@ -50,6 +50,17 @@ Follow [docs/CONTACT_FORM_SETUP.md](docs/CONTACT_FORM_SETUP.md) to create the
 sheet and set `CONTACT_WEBHOOK_URL` (see `.env.example`). No Google API key or
 app password is required.
 
+## Testimonials
+
+Testimonials use a dedicated Auth.js / NextAuth Google OAuth flow with a separate
+server-side route at `/api/testimonials`. The route verifies the authenticated
+session, validates the submission, and forwards the payload to a separate Google
+Apps Script endpoint configured with `TESTIMONIAL_WEBHOOK_URL`.
+
+Follow [docs/TESTIMONIAL_FORM_SETUP.md](docs/TESTIMONIAL_FORM_SETUP.md) to create
+the dedicated testimonial sheet and Apps Script deployment. Only approved rows
+should be manually promoted into `src/data/testimonials.ts` for public display.
+
 ## Structure
 
 ```
