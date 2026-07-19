@@ -26,19 +26,17 @@ export default function AboutPage() {
       <Section className="pt-0 sm:pt-4">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal direction="right">
-            <div className="relative mx-auto max-w-sm lg:sticky lg:top-28">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-border-strong"
-              />
-              <Image
-                src={profile.avatar}
-                alt={`Portrait of ${profile.name}`}
-                width={640}
-                height={853}
-                sizes="(max-width: 1024px) 24rem, 26rem"
-                className="relative h-auto w-full rounded-[2rem] border border-border object-cover"
-              />
+            <div className="mx-auto max-w-sm lg:sticky lg:top-28">
+              <div className="overflow-hidden rounded-[2rem] border border-border-strong bg-card">
+                <Image
+                  src={profile.avatar}
+                  alt={`Portrait of ${profile.name}`}
+                  width={640}
+                  height={853}
+                  sizes="(max-width: 1024px) 24rem, 26rem"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
               <div className="mt-8 flex flex-wrap gap-2">
                 {profile.highlights.map((highlight) => (
                   <Badge key={highlight} variant="primary">
