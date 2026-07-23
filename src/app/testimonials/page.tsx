@@ -1,5 +1,5 @@
 import { MessageSquareQuote } from "lucide-react";
-import { testimonials } from "@/data/testimonials";
+import { getTestimonials } from "@/lib/testimonials";
 import { auth, signIn } from "@/lib/auth";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
@@ -21,7 +21,10 @@ async function signInWithGoogle() {
 }
 
 export default async function TestimonialsPage() {
-  const user = (await auth())?.user;
+  const [user, testimonials] = await Promise.all([
+    auth().then((session) => session?.user),
+    getTestimonials(),
+  ]);
   const authedUser =
     user?.id && user.email
       ? {

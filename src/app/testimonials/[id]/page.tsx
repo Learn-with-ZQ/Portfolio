@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { BadgeCheck, FileText, Star } from "lucide-react";
-import { testimonials } from "@/data/testimonials";
+import { getTestimonials } from "@/lib/testimonials";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Badge } from "@/components/ui/badge";
@@ -12,11 +12,16 @@ interface TestimonialDetailProps {
   params: Promise<{ id: string }>;
 }
 
-export function generateStaticParams() {
+// Testimonials are read live from the sheet; allow ids not known at build time.
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const testimonials = await getTestimonials();
   return testimonials.map(({ id }) => ({ id }));
 }
 export async function generateMetadata({ params }: TestimonialDetailProps) {
   const { id } = await params;
+  const testimonials = await getTestimonials();
   const testimonial = testimonials.find((entry) => entry.id === id);
   return createPageMetadata({
     title: testimonial ? `${testimonial.name}'s Testimonial` : "Testimonial",
@@ -27,6 +32,7 @@ export async function generateMetadata({ params }: TestimonialDetailProps) {
 
 export default async function TestimonialDetailPage({ params }: TestimonialDetailProps) {
   const { id } = await params;
+  const testimonials = await getTestimonials();
   const testimonial = testimonials.find((entry) => entry.id === id);
   if (!testimonial) notFound();
   const initials = testimonial.name
