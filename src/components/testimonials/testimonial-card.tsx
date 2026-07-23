@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BadgeCheck, ChevronRight, Star } from "lucide-react";
+import { BadgeCheck, ChevronRight, Paperclip, Star } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -53,16 +53,27 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         ))}
         <span className="text-muted ml-1 text-sm">{testimonial.rating}/5</span>
       </div>
-      <Link
-        href={`/testimonials/${testimonial.id}`}
-        className="text-primary mt-6 inline-flex items-center gap-1 text-sm font-medium hover:underline"
-      >
-        Read testimonial{" "}
-        <ChevronRight
-          className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-          aria-hidden="true"
-        />
-      </Link>
+      <div className="mt-6 flex items-center justify-between gap-3">
+        <Link
+          href={`/testimonials/${testimonial.id}`}
+          className="text-primary inline-flex items-center gap-1 text-sm font-medium hover:underline"
+        >
+          Read testimonial{" "}
+          <ChevronRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </Link>
+        {testimonial.referenceDocumentUrl && (
+          <span
+            className="text-muted inline-flex items-center gap-1 text-xs"
+            title="Reference document attached"
+          >
+            <Paperclip className="h-3.5 w-3.5" aria-hidden="true" />
+            Reference
+          </span>
+        )}
+      </div>
     </Card>
   );
 }
