@@ -1,20 +1,38 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { CheckCircle2, FileText, Loader2, Send, TriangleAlert, X } from "lucide-react";
+import {
+  CheckCircle2,
+  FileText,
+  Loader2,
+  LogIn,
+  Send,
+  TriangleAlert,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { StarRating } from "./star-rating";
 
-interface TestimonialFormProps {
-  user: { name: string; email: string; image?: string | null };
+interface TestimonialUser {
+  name: string;
+  email: string;
+  image?: string | null;
 }
+
+interface TestimonialFormProps {
+  /** Authenticated Google user, or null when signed out (locked preview). */
+  user: TestimonialUser | null;
+  /** Server action that starts the Google sign-in flow. */
+  signInAction?: () => Promise<void>;
+}
+
 type FormState = { phone: string; subject: string; message: string };
 type FormErrors = Partial<Record<keyof FormState | "rating" | "file", string>>;
 const initialForm: FormState = { phone: "", subject: "", message: "" };
 const inputStyles =
-  "card-surface w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary";
+  "card-surface w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary disabled:cursor-not-allowed disabled:opacity-60";
 
 function initials(name: string) {
   return name
@@ -26,7 +44,8 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-export function TestimonialForm({ user }: TestimonialFormProps) {
+export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
+  const locked = !user;
   const [form, setForm] = useState<FormState>(initialForm);
   const [rating, setRating] = useState(0);
   const [file, setFile] = useState<File | null>(null);
@@ -68,6 +87,7 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (locked) return;
     const nextErrors = validate();
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
@@ -117,29 +137,9 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
       </Card>
     );
 
-  return (
-    <Card className="p-6 sm:p-8">
-      <div className="flex items-center gap-3">
-        {user.image ? (
-          <span
-            role="img"
-            aria-label="Your Google profile image"
-            className="h-11 w-11 rounded-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${user.image})` }}
-          />
-        ) : (
-          <span className="bg-primary-soft text-primary flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold">
-            {initials(user.name)}
-          </span>
-        )}
-        <div>
-          <p className="font-semibold">Share your experience</p>
-          <p className="text-muted text-sm">
-            Your identity is verified through Google before publication.
-          </p>
-        </div>
-      </div>
-      <form className="mt-7" onSubmit={handleSubmit} noValidate>
+  const fields = (
+    <>
+      <fieldset disabled={locked} className="contents">
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor="testimonial-name" className="mb-2 block text-sm font-medium">
@@ -147,9 +147,10 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
             </label>
             <input
               id="testimonial-name"
-              value={user.name}
+              value={user?.name ?? ""}
               readOnly
-              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm"
+              placeholder="Filled from your Google account"
+              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm disabled:opacity-60"
             />
           </div>
           <div>
@@ -158,9 +159,10 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
             </label>
             <input
               id="testimonial-email"
-              value={user.email}
+              value={user?.email ?? ""}
               readOnly
-              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm"
+              placeholder="Filled from your Google account"
+              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm disabled:opacity-60"
             />
           </div>
         </div>
@@ -216,7 +218,7 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
           <textarea
             id="testimonial-message"
             name="message"
-            rows={6}
+            rows={3}
             placeholder="Share your experience working together…"
             value={form.message}
             onChange={handleChange}
@@ -229,58 +231,63 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
             </p>
           )}
         </div>
-        <div className="mt-5">
-          <p className="mb-2 text-sm font-medium">Rating</p>
-          <StarRating
-            value={rating}
-            onChange={(value) => {
-              setRating(value);
-              setErrors((current) => ({ ...current, rating: undefined }));
-            }}
-            disabled={status === "sending"}
-          />
-          {errors.rating && (
-            <p role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.rating}
-            </p>
-          )}
-        </div>
-        <div className="mt-5">
-          <label htmlFor="testimonial-file" className="mb-2 block text-sm font-medium">
-            Reference letter{" "}
-            <span className="text-muted font-normal">
-              (optional, PDF/DOC/DOCX, 5 MB max)
-            </span>
-          </label>
-          <input
-            id="testimonial-file"
-            type="file"
-            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            onChange={handleFile}
-            className="sr-only"
-          />
-          <label
-            htmlFor="testimonial-file"
-            className="border-border text-muted hover:border-primary hover:text-primary flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm"
-          >
-            <FileText className="h-4 w-4" aria-hidden="true" />
-            {file ? file.name : "Choose a reference document"}
-          </label>
-          {file && (
-            <button
-              type="button"
-              onClick={() => setFile(null)}
-              className="text-muted hover:text-foreground mt-2 inline-flex items-center gap-1 text-xs"
+        <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <div>
+            <p className="mb-2 text-sm font-medium">Rating</p>
+            <StarRating
+              value={rating}
+              onChange={(value) => {
+                setRating(value);
+                setErrors((current) => ({ ...current, rating: undefined }));
+              }}
+              disabled={locked || status === "sending"}
+            />
+            {errors.rating && (
+              <p role="alert" className="mt-1.5 text-xs text-red-500">
+                {errors.rating}
+              </p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="testimonial-file" className="mb-2 block text-sm font-medium">
+              Reference letter{" "}
+              <span className="text-muted font-normal">(optional, PDF/DOC/DOCX)</span>
+            </label>
+            <input
+              id="testimonial-file"
+              type="file"
+              accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              onChange={handleFile}
+              className="sr-only"
+            />
+            <label
+              htmlFor="testimonial-file"
+              className={cn(
+                "border-border text-muted flex items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm",
+                locked
+                  ? "cursor-not-allowed opacity-60"
+                  : "hover:border-primary hover:text-primary cursor-pointer",
+              )}
             >
-              <X className="h-3.5 w-3.5" aria-hidden="true" />
-              Remove file
-            </button>
-          )}
-          {errors.file && (
-            <p role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.file}
-            </p>
-          )}
+              <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="truncate">{file ? file.name : "Choose a document"}</span>
+            </label>
+            {file && (
+              <button
+                type="button"
+                onClick={() => setFile(null)}
+                className="text-muted hover:text-foreground mt-2 inline-flex items-center gap-1 text-xs"
+              >
+                <X className="h-3.5 w-3.5" aria-hidden="true" />
+                Remove file
+              </button>
+            )}
+            {errors.file && (
+              <p role="alert" className="mt-1.5 text-xs text-red-500">
+                {errors.file}
+              </p>
+            )}
+          </div>
         </div>
         <input
           name="company"
@@ -289,34 +296,103 @@ export function TestimonialForm({ user }: TestimonialFormProps) {
           className="sr-only"
           aria-hidden="true"
         />
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Button type="submit" size="lg" disabled={status === "sending"}>
-            {status === "sending" ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-                Sending…
-              </>
-            ) : (
-              <>
-                <Send className="h-4 w-4" aria-hidden="true" />
-                Submit for review
-              </>
-            )}
-          </Button>
-          <p className="text-muted text-xs">
-            Only approved testimonials are published publicly.
+      </fieldset>
+      {!locked && (
+        <>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Button type="submit" size="lg" disabled={status === "sending"}>
+              {status === "sending" ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                  Sending…
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                  Submit for review
+                </>
+              )}
+            </Button>
+            <p className="text-muted text-xs">
+              Only approved testimonials are published publicly.
+            </p>
+          </div>
+          {status === "error" && (
+            <p
+              role="alert"
+              className="mt-4 flex items-start gap-2 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500"
+            >
+              <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>{errorMessage}</span>
+            </p>
+          )}
+        </>
+      )}
+    </>
+  );
+
+  return (
+    <Card className="p-6 sm:p-8">
+      <div className="flex items-center gap-3">
+        {user?.image ? (
+          <span
+            role="img"
+            aria-label="Your Google profile image"
+            className="h-11 w-11 rounded-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${user.image})` }}
+          />
+        ) : (
+          <span className="bg-primary-soft text-primary flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold">
+            {user ? initials(user.name) : "?"}
+          </span>
+        )}
+        <div>
+          <p className="font-semibold">Share your experience</p>
+          <p className="text-muted text-sm">
+            Your identity is verified through Google before publication.
           </p>
         </div>
-        {status === "error" && (
-          <p
-            role="alert"
-            className="mt-4 flex items-start gap-2 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500"
-          >
-            <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-            <span>{errorMessage}</span>
+      </div>
+
+      {locked && (
+        <div className="border-primary/30 bg-primary-soft mt-6 flex flex-col gap-4 rounded-xl border border-dashed p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
+          <p className="text-sm leading-relaxed">
+            To keep testimonials authentic, sign in with Google to enable the form. Your
+            name and email are filled in automatically once you sign in.
           </p>
-        )}
-      </form>
+          {signInAction && (
+            <form action={signInAction} className="shrink-0">
+              <Button type="submit">
+                <LogIn className="h-4 w-4" aria-hidden="true" />
+                Sign in with Google
+              </Button>
+            </form>
+          )}
+        </div>
+      )}
+
+      {locked ? (
+        <div className="mt-7">
+          {fields}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            {signInAction && (
+              <form action={signInAction}>
+                <Button type="submit" size="lg">
+                  <LogIn className="h-4 w-4" aria-hidden="true" />
+                  Sign in to submit
+                </Button>
+              </form>
+            )}
+            <p className="text-muted text-xs">
+              Only approved testimonials are published publicly.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <form className="mt-7" onSubmit={handleSubmit} noValidate>
+          {fields}
+        </form>
+      )}
     </Card>
   );
 }
