@@ -55,9 +55,9 @@ export async function getTestimonials(): Promise<Testimonial[]> {
   if (!url) return manualTestimonials;
 
   try {
-    const res = await fetch(url, {
-      // Re-fetch from the sheet at most once a minute (ISR).
-      next: { revalidate: 60 },
+    const res = await fetch(url.trim(), {
+      // Always read the latest approved rows straight from the sheet.
+      cache: "no-store",
       redirect: "follow",
     });
     if (!res.ok) return manualTestimonials;
