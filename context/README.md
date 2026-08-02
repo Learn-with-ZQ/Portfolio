@@ -1,20 +1,20 @@
 # AI Context Folder
 
-This folder exists to give future AI assistants a fast, high-signal map of the project.
+This folder gives future AI assistants a fast, high-signal map of the current portfolio project.
 
 ## Purpose
 
 - Reduce repeated codebase scanning
-- Capture the architectural shape of the site
-- Summarize routes, components, styling, and deployment
+- Capture the current architecture and route surface
+- Summarize reusable UI, auth-backed flows, styling, and deployment
 - Keep the project understandable without copying source files
 
 ## How to use it
 
 - Read this folder before reading the app source
 - Use it as the first-pass mental model
-- Cross-check only when a detail needs implementation evidence
+- Cross-check implementation details only when needed
 
 ## Maintenance rule
 
-Update these docs whenever the project structure, routes, assets, content model, or deployment setup changes.
+Update these docs whenever the project structure, routes, auth flow, content model, assets, or deployment setup changes.

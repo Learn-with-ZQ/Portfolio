@@ -131,12 +131,24 @@
   - Dependencies: `projects`, `ProjectCard`, `ButtonLink`
   - Used by: `/projects`
 
-## Contact
+## Contact and testimonials
 - `ContactForm`
   - Purpose: User-facing contact form with validation, honeypot spam defense, and webhook submit
   - Props: none
   - Dependencies: `contactInfo`, `Button`, `cn`
   - Used by: `/contact`
+
+- `TestimonialForm`
+  - Purpose: Google-authenticated testimonial submission form with rating, message, and optional reference file
+  - Props: `user`, `signInAction`
+  - Dependencies: `Button`, `auth`, `fetch`, `lucide-react`
+  - Used by: `/testimonials`
+
+- `TestimonialCard`
+  - Purpose: Displays a testimonial with rating, subject, message, optional document link, and profile image
+  - Props: `testimonial`
+  - Dependencies: `Badge`-style layout, `lucide-react`
+  - Used by: `/testimonials` and testimonial detail pages
 
 ## SEO
 - `JsonLd`
