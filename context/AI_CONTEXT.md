@@ -3,7 +3,7 @@
 ## Project purpose
 - Personal portfolio website for Muhammad Zaid Qasim
 - Showcases experience, projects, skills, services, education, certifications, achievements, and testimonials
-- Includes a contact form that POSTs to a webhook-backed Google Apps Script
+- Includes both a contact form and an auth-protected testimonial submission flow
 
 ## Main technologies
 - Next.js 15 App Router
@@ -13,6 +13,7 @@
 - Framer Motion
 - Lucide React
 - next-themes
+- next-auth with Google OAuth
 
 ## Framework / language
 - Framework: Next.js 15
@@ -34,48 +35,52 @@
 ## Deployment
 - Default target: Vercel
 - Site URL defaults to `https://muhammad-zaid-qasim.vercel.app`
-- Environment variables are expected for production URL and contact form forwarding
+- Requires environment variables for site URL, contact webhook, Google OAuth, NextAuth, and testimonial webhook
 
 ## Folder organization
-- `src/app/`: route pages and app-wide layout/metadata
-- `src/components/`: reusable UI, layout, home sections, motion, projects, SEO, contact
-- `src/data/`: all portfolio content, navigation, profile, projects, skills, social, contact
-- `src/lib/`: SEO/metadata/schema/site helpers and shared formatting utilities
+- `src/app/`: route pages, app-wide layout, metadata routes, and API handlers
+- `src/components/`: reusable UI, layout, home sections, motion, projects, testimonials, SEO, and contact
+- `src/data/`: portfolio content, navigation, profile, projects, skills, social, contact, and testimonials
+- `src/lib/`: auth, SEO, metadata, schema, testimonial loading, and shared helpers
 - `src/types/`: shared TypeScript interfaces
 - `public/`: static assets such as images and resume PDF
 
 ## Important reusable components
-- `Header`: responsive site navigation and download-resume CTA
-- `Footer`: footer navigation and address/links block
-- `ThemeToggle`: dark/light/system switch
+- `Header`: responsive site navigation and resume download CTA
+- `Footer`: footer navigation and contact information
+- `ThemeToggle`: light/dark/system switch
 - `PageHeader`: reusable page intro header
-- `Reveal`: animation wrapper for scroll reveal effects
-- `ContactForm`: client-side contact form with honeypot and API submission
+- `Reveal`: animation wrapper for scroll-reveal effects
+- `ContactForm`: client-side contact form with honeypot and webhook submission
+- `TestimonialForm` / `TestimonialCard`: Google-authenticated testimonial submission and display
 - `ProjectCard` / `ProjectsExplorer`: project listing UI
 - UI primitives: `Container`, `Section`, `Badge`, `Button`, `Card`
 
 ## Coding conventions
 - Content is mostly static and centralized in `src/data/`
 - Route pages are thin orchestration layers; components render fields from data files
-- Use server components by default; only add client components where needed
+- Server components are the default; client components are used only where interactivity is needed
 - Use path aliases such as `@/...` for imports
 - SEO metadata is centralized through `src/lib/metadata.ts` and `src/lib/seo.ts`
 
 ## Important design decisions
-- All portfolio content is data-driven rather than CMS-backed
-- The site avoids authentication and database dependencies
-- The contact flow is webhook-based, not backed by a local server or database
+- Portfolio content is data-driven rather than CMS-backed
+- The site avoids a database and keeps business logic lightweight
+- Contact and testimonial flows are webhook-based rather than backed by a local server or database
+- Testimonials are rendered from a Google Sheet-backed flow and can fall back to the manual list in `src/data/testimonials.ts`
 - Dynamic project detail pages use `generateStaticParams()` for static generation
 
 ## Known limitations
 - No analytics pipeline
-- No persistent backend or database
-- Contact form depends on a configured `CONTACT_WEBHOOK_URL`
-- SEO/site domain is currently defaulted to the Vercel subdomain unless overridden
+- No persistent application database
+- Contact form depends on `CONTACT_WEBHOOK_URL`
+- Testimonial submission depends on `TESTIMONIAL_WEBHOOK_URL` and Google OAuth credentials
+- SEO/site domain is defaulted to the Vercel subdomain unless overridden
 
 ## Overall project flow
-1. Request hits a route under `src/app/`
-2. The route page imports data from `src/data/` and renders section components
-3. Shared layout (`layout.tsx`) injects sitewide metadata, header, footer, and JSON-LD
+1. A request enters a route under `src/app/`
+2. The page imports content from `src/data/` and renders section components
+3. The shared layout injects sitewide metadata, header, footer, and JSON-LD
 4. The contact page uses `ContactForm`, which POSTs to `/api/contact`
-5. `/api/contact` validates input, blocks obvious spam, and forwards the payload to the configured webhook
+5. The testimonials page uses `TestimonialForm`, which signs in through Google and POSTs to `/api/testimonials`
+6. The testimonials API validates the payload, blocks obvious spam, and forwards it to the configured webhook

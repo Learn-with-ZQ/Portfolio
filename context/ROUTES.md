@@ -12,7 +12,8 @@
 - `/education`: education timeline and credentials
 - `/certifications`: certifications and badges
 - `/achievements`: awards and wins
-- `/testimonials`: testimonials section
+- `/testimonials`: testimonials section with Google sign-in and testimonial submission form
+- `/testimonials/[id]`: dynamic testimonial detail page
 - `/contact`: contact form and contact details
 - `/privacy`: privacy policy page
 
@@ -22,12 +23,14 @@
 - Mobile navigation is handled by the header component and closes on route change
 
 ## Internal links
-- Primary internal CTA destinations are `/projects`, `/skills`, `/contact`, and `/about`
+- Primary internal CTA destinations are `/projects`, `/skills`, `/contact`, `/about`, and `/testimonials`
 - Project detail pages link back to `/projects`
+- Testimonial cards link to `/testimonials/[id]`
 - Resume download uses `profile.resumeUrl` from data
 
 ## Dynamic routes
 - `src/app/projects/[slug]/page.tsx` renders a project detail page
+- `src/app/testimonials/[id]/page.tsx` renders a testimonial detail page
 - `generateStaticParams()` prebuilds all known project slugs from `src/data/projects.ts`
 
 ## 404 / error handling
@@ -35,6 +38,7 @@
 - `src/app/error.tsx` provides a route-level error UI
 - `src/app/loading.tsx` handles the loading state shell
 
-## API route
+## API routes
 - `/api/contact`: validates payloads and forwards them to `CONTACT_WEBHOOK_URL`
-- Includes a hidden honeypot field and request size/format validation
+- `/api/testimonials`: requires a Google-authenticated session and forwards verified testimonials to `TESTIMONIAL_WEBHOOK_URL`
+- `/api/auth/[...nextauth]`: NextAuth endpoint for Google sign-in and session handling

@@ -11,6 +11,7 @@
 - Tailwind CSS 4
 - Framer Motion
 - `next-themes`
+- `next-auth`
 - `lucide-react`
 - `clsx`
 - `tailwind-merge`
