@@ -14,7 +14,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="card-surface group flex h-full flex-col rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl"
+      className="group flex h-full flex-col rounded-[1.3rem] border border-border/70 bg-card/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-card"
     >
       <div className="flex items-start justify-between gap-3">
         <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
@@ -29,7 +29,9 @@ export function ProjectCard({ project }: { project: Project }) {
       <h3 className="mt-4 text-lg font-semibold transition-colors group-hover:text-primary">
         {project.name}
       </h3>
-      <p className="mt-1 text-xs font-medium text-muted">{project.context}</p>
+      <p className="mt-1 text-xs font-medium uppercase tracking-[0.28em] text-muted">
+        {project.context}
+      </p>
       <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">
         {project.summary}
       </p>

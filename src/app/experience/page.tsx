@@ -23,18 +23,18 @@ export default function ExperiencePage() {
         description="A timeline of roles, responsibilities, and impact — enterprise systems serving thousands of users."
       />
       <Section className="pt-0 sm:pt-0">
-        <ol className="relative space-y-12 border-l border-border pl-8">
+        <ol className="relative space-y-8 border-l border-border/70 pl-8">
           {experiences.map((experience, index) => (
             <Reveal key={experience.id} delay={index * 0.05}>
               <li className="relative">
                 <span
                   aria-hidden="true"
-                  className="absolute top-2 -left-[2.45rem] flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background"
+                  className="absolute top-3 -left-[2.45rem] flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 </span>
 
-                <div className="card-surface rounded-2xl p-6 sm:p-8">
+                <div className="surface-panel rounded-[1.6rem] p-6 sm:p-8">
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                     <p className="font-mono text-sm font-semibold text-primary">
                       {formatDateRange(experience.startDate, experience.endDate)}
@@ -47,7 +47,7 @@ export default function ExperiencePage() {
                     ) : null}
                   </div>
 
-                  <h2 className="mt-3 text-2xl font-bold tracking-tight">
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight">
                     {experience.role}
                   </h2>
                   <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-muted">
@@ -70,7 +70,7 @@ export default function ExperiencePage() {
                     {experience.summary}
                   </p>
 
-                  <h3 className="mt-6 text-sm font-semibold tracking-wider uppercase">
+                  <h3 className="mt-6 text-sm font-semibold tracking-[0.28em] uppercase">
                     Key Responsibilities
                   </h3>
                   <ul className="mt-4 space-y-3">
@@ -87,7 +87,7 @@ export default function ExperiencePage() {
                     ))}
                   </ul>
 
-                  <h3 className="mt-6 text-sm font-semibold tracking-wider uppercase">
+                  <h3 className="mt-6 text-sm font-semibold tracking-[0.28em] uppercase">
                     Technologies
                   </h3>
                   <div className="mt-3 flex flex-wrap gap-2">

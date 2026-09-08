@@ -24,21 +24,21 @@ export function SkillsPreview() {
   );
 
   return (
-    <Section className="border-y border-border bg-card/40">
+    <Section className="py-8 sm:py-10 lg:py-12">
       <Reveal>
         <SectionHeading
-          eyebrow="Expertise"
-          title="What I Work With"
-          description="A backend-heavy toolkit built through years of enterprise delivery — from .NET APIs and SQL Server tuning to cross-platform mobile apps."
+          eyebrow="Capability stack"
+          title="Built to ship, support, and scale"
+          description="A focused snapshot of the tools and systems I use to turn complex requirements into dependable software."
         />
       </Reveal>
-      <Stagger className="grid gap-6 sm:grid-cols-2">
+      <Stagger className="grid gap-6 lg:grid-cols-2">
         {categories.map((category) => {
           const Icon = iconMap[category.icon] ?? Code2;
           return (
-            <StaggerItem key={category.id} className="card-surface rounded-2xl p-6">
+            <StaggerItem key={category.id} className="section-shell rounded-[1.7rem] p-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-soft text-primary">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <h3 className="text-lg font-semibold">{category.title}</h3>

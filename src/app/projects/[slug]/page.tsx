@@ -130,7 +130,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           <aside>
             <Reveal delay={0.1}>
-              <div className="card-surface space-y-6 rounded-2xl p-6 lg:sticky lg:top-28">
+              <div className="surface-panel space-y-6 rounded-[1.8rem] p-6 lg:sticky lg:top-28">
                 <div>
                   <h2 className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
                     <Building2 className="h-4 w-4 text-primary" aria-hidden="true" />
@@ -189,7 +189,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="card-surface mt-16 flex flex-col items-start justify-between gap-4 rounded-2xl p-6 sm:flex-row sm:items-center">
+          <div className="section-shell mt-16 flex flex-col items-start justify-between gap-4 rounded-[2rem] p-6 sm:flex-row sm:items-center">
             <div>
               <p className="text-sm text-muted">Next project</p>
               <p className="mt-1 text-lg font-semibold">{nextProject.name}</p>

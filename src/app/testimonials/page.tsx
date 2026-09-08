@@ -42,7 +42,22 @@ export default async function TestimonialsPage() {
         description="What managers, colleagues, mentors, and clients say about working with me."
       />
       <Section className="pt-0 sm:pt-0">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div className="section-shell rounded-[2rem] p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr] lg:items-end">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
+                Social proof
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                The kind of feedback that reflects how I work under pressure and in production.
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-relaxed text-muted">
+              These are reflections from colleagues, mentors, and collaborators who have seen the work up close.
+            </p>
+          </div>
+        </div>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           {/* Left: view testimonials — compact sidebar, scrolls internally when long */}
           <div className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-1">
             {testimonials.length > 0 ? (
@@ -54,7 +69,7 @@ export default async function TestimonialsPage() {
                 ))}
               </Stagger>
             ) : (
-              <div className="card-surface flex flex-col items-center justify-center rounded-3xl px-6 py-16 text-center sm:px-12">
+              <div className="surface-panel flex flex-col items-center justify-center rounded-[1.8rem] px-6 py-16 text-center sm:px-12">
                 <span className="bg-primary-soft text-primary flex h-14 w-14 items-center justify-center rounded-2xl">
                   <MessageSquareQuote className="h-7 w-7" aria-hidden="true" />
                 </span>

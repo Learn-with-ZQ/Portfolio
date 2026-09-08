@@ -24,66 +24,83 @@ export default function AboutPage() {
       />
 
       <Section className="pt-0 sm:pt-4">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal direction="right">
-            <div className="relative mx-auto max-w-sm lg:sticky lg:top-28">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-border-strong"
-              />
-              <Image
-                src={profile.avatar}
-                alt={`Portrait of ${profile.name}`}
-                width={640}
-                height={853}
-                sizes="(max-width: 1024px) 24rem, 26rem"
-                className="relative h-auto w-full rounded-[2rem] border border-border object-cover"
-              />
-              <div className="mt-8 flex flex-wrap gap-2">
-                {profile.highlights.map((highlight) => (
-                  <Badge key={highlight} variant="primary">
-                    {highlight}
-                  </Badge>
-                ))}
+            <div className="space-y-6">
+              <div className="section-shell rounded-[2rem] p-6 sm:p-8 lg:sticky lg:top-28">
+                <div className="relative mx-auto max-w-sm">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-border-strong"
+                  />
+                  <Image
+                    src={profile.avatar}
+                    alt={`Portrait of ${profile.name}`}
+                    width={640}
+                    height={853}
+                    sizes="(max-width: 1024px) 24rem, 26rem"
+                    className="relative h-auto w-full rounded-[2rem] border border-border object-cover"
+                  />
+                </div>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {profile.highlights.map((highlight) => (
+                    <Badge key={highlight} variant="primary">
+                      {highlight}
+                    </Badge>
+                  ))}
+                </div>
               </div>
+
+              <Stagger className="grid gap-6 sm:grid-cols-2">
+                <StaggerItem className="surface-panel rounded-[1.6rem] p-6 sm:p-8">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                      <Target className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold">Mission</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                        {mission}
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+                <StaggerItem className="surface-panel rounded-[1.6rem] p-6 sm:p-8">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                      <Compass className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold">Vision</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                        {vision}
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              </Stagger>
             </div>
           </Reveal>
 
-          <div>
-            <Reveal>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          <Reveal>
+            <div className="section-shell rounded-[2rem] p-8 sm:p-10">
+              <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
                 Professional Biography
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+                Building reliable systems that serve real people.
               </h2>
-            </Reveal>
-            {profile.longBio.map((paragraph, index) => (
-              <Reveal key={index} delay={index * 0.06}>
-                <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
+              {profile.longBio.map((paragraph, index) => (
+                <p key={index} className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
                   {paragraph}
                 </p>
-              </Reveal>
-            ))}
-
-            <Stagger className="mt-10 grid gap-6 sm:grid-cols-2">
-              <StaggerItem className="card-surface rounded-2xl p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Target className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-base font-semibold">Mission</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{mission}</p>
-              </StaggerItem>
-              <StaggerItem className="card-surface rounded-2xl p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <Compass className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-base font-semibold">Vision</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{vision}</p>
-              </StaggerItem>
-            </Stagger>
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section className="border-t border-border/60">
         <Reveal>
           <SectionHeading
             eyebrow="Timeline"
@@ -91,21 +108,23 @@ export default function AboutPage() {
             description="From first semester to enterprise production systems — the milestones that shaped how I build software."
           />
         </Reveal>
-        <ol className="relative space-y-10 border-l border-border pl-8 sm:space-y-12">
+        <ol className="relative space-y-8 border-l border-border/70 pl-8 sm:space-y-10">
           {journey.map((event, index) => (
             <Reveal key={event.year} delay={index * 0.05}>
               <li className="relative">
                 <span
                   aria-hidden="true"
-                  className="absolute top-1 -left-[2.45rem] flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background"
+                  className="absolute top-3 -left-[2.45rem] flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 </span>
-                <p className="font-mono text-sm font-semibold text-primary">{event.year}</p>
-                <h3 className="mt-1 text-lg font-semibold">{event.title}</h3>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-                  {event.description}
-                </p>
+                <div className="surface-panel rounded-[1.5rem] p-6 sm:p-8">
+                  <p className="font-mono text-sm font-semibold text-primary">{event.year}</p>
+                  <h3 className="mt-2 text-lg font-semibold">{event.title}</h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                    {event.description}
+                  </p>
+                </div>
               </li>
             </Reveal>
           ))}

@@ -7,23 +7,20 @@ export function CallToAction() {
   return (
     <Section>
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-border-strong px-6 py-14 text-center sm:px-12 sm:py-20">
+        <div className="page-shell relative overflow-hidden rounded-[2.2rem] px-6 py-14 text-center sm:px-12 sm:py-20">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-brand opacity-[0.07]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.24),transparent_60%)]"
           />
-          <div
-            aria-hidden="true"
-            className="absolute -top-24 left-1/2 h-56 w-[28rem] max-w-full -translate-x-1/2 rounded-full opacity-25 blur-3xl"
-            style={{ background: "linear-gradient(120deg, var(--primary), var(--accent))" }}
-          />
-          <div className="relative">
-            <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-              Have a project in mind? <span className="text-gradient">Let&apos;s talk.</span>
+          <div className="relative mx-auto max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">
+              Ready to build something memorable?
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-4xl lg:text-5xl">
+              Let&apos;s design the next chapter of your product.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              I&apos;m open to roles and collaborations where clean architecture,
-              reliability, and real business value matter.
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              I&apos;m available for product engineering, thoughtful collaboration, and polished digital experiences that perform well in the real world.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <ButtonLink href="/contact" size="lg">

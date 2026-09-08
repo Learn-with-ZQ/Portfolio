@@ -29,11 +29,36 @@ export function ProjectsExplorer() {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="section-shell rounded-[2rem] p-6 sm:p-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
+              Selected work
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              A compact view of the systems, platforms, and products I&apos;ve helped shape.
+            </h2>
+          </div>
+          <div className="relative w-full sm:w-72">
+            <Search
+              className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-muted"
+              aria-hidden="true"
+            />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search projects or tech…"
+              aria-label="Search projects"
+              className="surface-panel h-11 w-full rounded-full pr-4 pl-11 text-sm outline-none placeholder:text-muted focus:border-primary"
+            />
+          </div>
+        </div>
+
         <div
           role="group"
           aria-label="Filter projects by category"
-          className="flex flex-wrap gap-2"
+          className="mt-6 flex flex-wrap gap-2"
         >
           {projectCategories.map((item) => (
             <button
@@ -51,21 +76,6 @@ export function ProjectsExplorer() {
               {item}
             </button>
           ))}
-        </div>
-
-        <div className="relative sm:w-72">
-          <Search
-            className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-muted"
-            aria-hidden="true"
-          />
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search projects or tech…"
-            aria-label="Search projects"
-            className="card-surface h-11 w-full rounded-full pr-4 pl-11 text-sm outline-none placeholder:text-muted focus:border-primary"
-          />
         </div>
       </div>
 
@@ -92,7 +102,7 @@ export function ProjectsExplorer() {
       </motion.div>
 
       {filtered.length === 0 ? (
-        <div className="card-surface mt-6 flex flex-col items-center rounded-2xl px-6 py-16 text-center">
+        <div className="surface-panel mt-6 flex flex-col items-center rounded-[1.8rem] px-6 py-16 text-center">
           <SearchX className="h-10 w-10 text-muted" aria-hidden="true" />
           <h3 className="mt-4 text-lg font-semibold">No projects found</h3>
           <p className="mt-2 max-w-sm text-sm text-muted">

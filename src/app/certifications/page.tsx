@@ -44,7 +44,7 @@ export default function CertificationsPage() {
           {certifications.map((certification) => (
             <StaggerItem
               key={certification.id}
-              className="card-surface flex h-full flex-col rounded-2xl p-6 sm:p-8"
+              className="surface-panel flex h-full flex-col rounded-[1.6rem] p-6 sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">

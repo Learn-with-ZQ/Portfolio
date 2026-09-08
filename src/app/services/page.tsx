@@ -40,13 +40,23 @@ export default function ServicesPage() {
         description="Practical engineering services grounded in real enterprise delivery — from APIs and databases to mobile apps and production support."
       />
       <Section className="pt-0 sm:pt-0">
-        <Stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="section-shell rounded-[2rem] p-6 sm:p-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
+              Services
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              Engineering support for systems that need to be reliable, scalable, and maintainable.
+            </h2>
+          </div>
+        </div>
+        <Stagger className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Server;
             return (
               <StaggerItem
                 key={service.id}
-                className="card-surface flex h-full flex-col rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl sm:p-8"
+                className="surface-panel flex h-full flex-col rounded-[1.6rem] p-6 hover:-translate-y-1 sm:p-8"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
                   <Icon className="h-6 w-6" aria-hidden="true" />

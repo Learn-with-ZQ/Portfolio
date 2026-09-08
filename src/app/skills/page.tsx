@@ -42,13 +42,23 @@ export default function SkillsPage() {
         description="Technical proficiency across backend, database, mobile, frontend, and tooling — built through years of enterprise delivery."
       />
       <Section className="pt-0 sm:pt-0">
-        <Stagger className="grid gap-6 md:grid-cols-2">
+        <div className="section-shell rounded-[2rem] p-6 sm:p-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
+              Capability map
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              A practical stack shaped by enterprise delivery, product thinking, and production support.
+            </h2>
+          </div>
+        </div>
+        <Stagger className="mt-8 grid gap-6 md:grid-cols-2">
           {skillCategories.map((category) => {
             const Icon = iconMap[category.icon] ?? Code2;
             return (
               <StaggerItem
                 key={category.id}
-                className="card-surface rounded-2xl p-6 sm:p-8"
+                className="surface-panel rounded-[1.6rem] p-6 sm:p-8"
               >
                 <div className="flex items-center gap-3">
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">

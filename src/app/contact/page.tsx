@@ -44,9 +44,9 @@ export default function ContactPage() {
         description="Have a question or an opportunity? Send a message — I usually respond within a day."
       />
       <Section className="pt-0 sm:pt-0">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
-            <div className="card-surface rounded-2xl p-6 sm:p-8">
+            <div className="section-shell rounded-[2rem] p-6 sm:p-8">
               <h2 className="text-xl font-bold tracking-tight">Send a message</h2>
               <p className="mt-2 text-sm text-muted">
                 Fill in the form and your message lands straight in my inbox tray —
@@ -59,7 +59,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="card-surface rounded-2xl p-6 sm:p-8 lg:sticky lg:top-28">
+            <div className="surface-panel rounded-[1.8rem] p-6 sm:p-8 lg:sticky lg:top-28">
               <h2 className="text-xl font-bold tracking-tight">Reach me directly</h2>
               <ul className="mt-6 space-y-5">
                 {contactRows.map((row) => (

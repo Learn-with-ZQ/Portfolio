@@ -48,13 +48,13 @@ export function Header() {
         backgroundColor: isScrolled || isMenuOpen ? "var(--header-bg)" : "transparent",
       }}
     >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-1.5 sm:px-2.5 lg:px-3 xl:px-3.5">
         <Link
           href="/"
-          className="group flex items-center gap-2 text-lg font-bold tracking-tight"
+          className="group flex items-center gap-2 text-lg font-semibold tracking-tight"
           aria-label="Muhammad Zaid Qasim — Home"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand font-mono text-sm text-white transition-transform duration-300 group-hover:rotate-6">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground font-mono text-sm text-background transition-transform duration-300 group-hover:rotate-6">
             ZQ
           </span>
           <span className="hidden sm:inline">
@@ -94,7 +94,7 @@ export function Header() {
           <a
             href={profile.resumeUrl}
             download
-            className="hidden h-10 items-center gap-2 rounded-full bg-gradient-brand px-5 text-sm font-medium text-white transition-all hover:brightness-110 md:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-foreground md:inline-flex"
           >
             <FileDown className="h-4 w-4" aria-hidden="true" />
             Resume
@@ -106,7 +106,7 @@ export function Header() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-primary hover:text-primary lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/70 text-muted transition-colors hover:border-primary hover:text-primary lg:hidden"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -122,7 +122,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="overflow-hidden border-t border-border backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-border/80 backdrop-blur-xl lg:hidden"
             style={{ backgroundColor: "var(--header-bg)" }}
           >
             <ul className="max-h-[calc(100dvh-4rem)] space-y-1 overflow-y-auto px-4 py-4 sm:px-6">
@@ -146,7 +146,7 @@ export function Header() {
                 <a
                   href={profile.resumeUrl}
                   download
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-4 py-3 text-base font-medium text-white"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-medium text-white"
                 >
                   <FileDown className="h-4 w-4" aria-hidden="true" />
                   Download Resume

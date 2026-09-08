@@ -30,15 +30,15 @@ export function Journey() {
     <Section>
       <Reveal>
         <SectionHeading
-          eyebrow="The Story"
-          title="Professional Journey"
-          description="Where I am, what I'm learning, and where I'm headed."
+          eyebrow="The story"
+          title="A practice shaped by delivery and curiosity"
+          description="The milestones, roles, and ambitions that continue to define how I build."
         />
       </Reveal>
-      <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {storyCards.map((card) => (
-          <StaggerItem key={card.title} className="card-surface rounded-2xl p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
+          <StaggerItem key={card.title} className="section-shell rounded-[1.7rem] p-6">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
               <card.icon className="h-5 w-5" aria-hidden="true" />
             </span>
             <h3 className="mt-4 text-base font-semibold">{card.title}</h3>

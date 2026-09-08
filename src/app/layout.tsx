@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { PageTransition } from "@/components/layout/page-transition";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
 import { getRootSchemaGraph } from "@/lib/schema";
@@ -110,7 +111,7 @@ export default function RootLayout({
           </a>
           <Header />
           <main id="main-content" className="flex-1">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
         </Providers>

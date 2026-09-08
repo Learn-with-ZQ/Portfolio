@@ -67,7 +67,7 @@ export function SocialIcons({ links, className, iconClassName }: SocialIconsProp
               title={link.name}
               {...(isMail ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary",
+                "flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-foreground hover:text-foreground",
                 iconClassName,
               )}
             >

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const directions = {
@@ -27,14 +27,15 @@ export function Reveal({
   once = true,
 }: RevealProps) {
   const offset = directions[direction];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, ...offset }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, ...offset }}
+      whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0, y: 0 }}
       viewport={{ once, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -63,11 +64,13 @@ interface StaggerProps {
 }
 
 export function Stagger({ children, className }: StaggerProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={className}
       variants={staggerContainer}
-      initial="hidden"
+      initial={shouldReduceMotion ? "visible" : "hidden"}
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
     >
@@ -83,8 +86,15 @@ export function StaggerItem({
   children: React.ReactNode;
   className?: string;
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <motion.div className={cn(className)} variants={staggerChild}>
+    <motion.div
+      className={cn(className)}
+      variants={staggerChild}
+      initial={shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
+      whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01, transition: { duration: 0.2 } }}
+    >
       {children}
     </motion.div>
   );

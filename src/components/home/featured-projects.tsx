@@ -12,12 +12,12 @@ export function FeaturedProjects() {
     <Section id="featured-projects">
       <Reveal>
         <SectionHeading
-          eyebrow="Portfolio"
-          title="Featured Projects"
-          description="Enterprise platforms, banking workflows, and research work — a selection of what I've built and maintain."
+          eyebrow="Selected work"
+          title="Systems built for scale, clarity, and trust"
+          description="A curated view into the products, platforms, and engineering work that shaped my practice."
         />
       </Reveal>
-      <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+      <Stagger className="grid gap-6 lg:grid-cols-2">
         {featured.map((project) => (
           <StaggerItem key={project.slug} className="h-full">
             <ProjectCard project={project} />

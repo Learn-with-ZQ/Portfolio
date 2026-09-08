@@ -37,7 +37,7 @@ export default function AchievementsPage() {
           {competitions.map((achievement) => (
             <StaggerItem
               key={achievement.id}
-              className="card-surface rounded-2xl p-6 sm:p-8"
+              className="surface-panel rounded-[1.6rem] p-6 sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
@@ -73,7 +73,7 @@ export default function AchievementsPage() {
           {leadership.map((achievement) => (
             <StaggerItem
               key={achievement.id}
-              className="card-surface rounded-2xl p-6 sm:p-8"
+              className="surface-panel rounded-[1.6rem] p-6 sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent">

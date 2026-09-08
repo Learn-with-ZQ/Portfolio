@@ -9,7 +9,7 @@ interface SectionProps {
 
 export function Section({ id, className, children }: SectionProps) {
   return (
-    <section id={id} className={cn("py-16 sm:py-20 lg:py-24", className)}>
+    <section id={id} className={cn("py-4 sm:py-6 lg:py-8", className)}>
       <Container>{children}</Container>
     </section>
   );
@@ -33,17 +33,17 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-10 max-w-2xl sm:mb-14",
+        "mb-5 max-w-2xl sm:mb-6",
         align === "center" && "mx-auto text-center",
         className,
       )}
     >
       {eyebrow ? (
-        <p className="mb-3 text-sm font-semibold tracking-widest text-primary uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-primary uppercase">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+      <h2 className="text-3xl font-semibold leading-[1.05] tracking-[-0.02em] text-balance sm:text-4xl">
         {title}
       </h2>
       {description ? (

@@ -26,7 +26,7 @@ const initialState: FormState = {
 };
 
 const inputStyles =
-  "card-surface w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary";
+  "surface-panel w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -90,7 +90,7 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="flex flex-col items-center rounded-2xl bg-primary-soft px-6 py-12 text-center"
+        className="flex flex-col items-center rounded-[1.8rem] bg-primary-soft px-6 py-12 text-center"
       >
         <CheckCircle2 className="h-12 w-12 text-primary" aria-hidden="true" />
         <h3 className="mt-4 text-xl font-bold tracking-tight">Message received!</h3>
