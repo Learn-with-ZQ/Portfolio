@@ -1,10 +1,9 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { Trophy, Users2 } from "lucide-react";
 import { achievements } from "@/data/achievements";
+import type { Achievement } from "@/types";
 import { PageHeader } from "@/components/common/page-header";
 import { Section, SectionHeading } from "@/components/ui/section";
-import { Badge } from "@/components/ui/badge";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { RecordRow } from "@/components/ui/record-row";
 
 export const metadata = createPageMetadata({
   title: "Achievements",
@@ -13,6 +12,28 @@ export const metadata = createPageMetadata({
   path: "/achievements",
 });
 
+function AchievementList({ items }: { items: Achievement[] }) {
+  return (
+    <ol>
+      {items.map((achievement) => (
+        <RecordRow
+          as="li"
+          key={achievement.id}
+          aside={
+            <p className="font-mono text-sm tabular-nums text-ink-muted">{achievement.year}</p>
+          }
+        >
+          <h3 className="type-h3">{achievement.title}</h3>
+          <p className="type-body mt-1 text-ink">{achievement.event}</p>
+          {achievement.description ? (
+            <p className="type-body mt-2 text-ink-muted">{achievement.description}</p>
+          ) : null}
+        </RecordRow>
+      ))}
+    </ol>
+  );
+}
+
 export default function AchievementsPage() {
   const competitions = achievements.filter((item) => item.category === "Competition");
   const leadership = achievements.filter((item) => item.category === "Leadership");
@@ -20,79 +41,26 @@ export default function AchievementsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Recognition"
         title="Achievements"
         description="Competition wins, hackathon trophies, and leadership roles across tech and community events."
       />
 
-      <Section className="pt-0 sm:pt-0">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Competitions"
-            title="Competition Wins"
-            description="Hackathons and programming contests where I placed."
-          />
-        </Reveal>
-        <Stagger className="grid gap-6 sm:grid-cols-2">
-          {competitions.map((achievement) => (
-            <StaggerItem
-              key={achievement.id}
-              className="surface-panel rounded-[1.6rem] p-6 sm:p-8"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Trophy className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <Badge variant="outline">{achievement.year}</Badge>
-              </div>
-              <h3 className="mt-5 text-lg font-bold tracking-tight">
-                {achievement.title}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-primary">
-                {achievement.event}
-              </p>
-              {achievement.description ? (
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {achievement.description}
-                </p>
-              ) : null}
-            </StaggerItem>
-          ))}
-        </Stagger>
+      <Section labelledBy="competitions-title">
+        <SectionHeading
+          id="competitions-title"
+          title="Competition wins"
+          description="Hackathons and programming contests where I placed."
+        />
+        <AchievementList items={competitions} />
       </Section>
 
-      <Section className="border-t border-border">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Leadership"
-            title="Leadership & Community"
-            description="Conference leadership, event organization, and community roles."
-          />
-        </Reveal>
-        <Stagger className="grid gap-6 sm:grid-cols-2">
-          {leadership.map((achievement) => (
-            <StaggerItem
-              key={achievement.id}
-              className="surface-panel rounded-[1.6rem] p-6 sm:p-8"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <Users2 className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <Badge variant="outline">{achievement.year}</Badge>
-              </div>
-              <h3 className="mt-5 text-lg font-bold tracking-tight">
-                {achievement.title}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-accent">{achievement.event}</p>
-              {achievement.description ? (
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {achievement.description}
-                </p>
-              ) : null}
-            </StaggerItem>
-          ))}
-        </Stagger>
+      <Section rule labelledBy="leadership-title">
+        <SectionHeading
+          id="leadership-title"
+          title="Leadership and community"
+          description="Conference leadership, event organization, and community roles."
+        />
+        <AchievementList items={leadership} />
       </Section>
     </>
   );

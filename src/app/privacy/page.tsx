@@ -1,7 +1,6 @@
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
-import { Reveal } from "@/components/motion/reveal";
 import { contactInfo } from "@/data/contact";
 
 export const metadata = createPageMetadata({
@@ -38,34 +37,27 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Legal"
         title="Privacy Policy"
         description="The short version: this site collects nothing about you."
       />
-      <Section className="pt-0 sm:pt-0">
-        <div className="max-w-3xl space-y-8">
-          {sections.map((section, index) => (
-            <Reveal key={section.title} delay={index * 0.04}>
-              <div>
-                <h2 className="text-xl font-bold tracking-tight">{section.title}</h2>
-                <p className="mt-3 text-base leading-relaxed text-muted">
-                  {section.body}
-                </p>
-              </div>
-            </Reveal>
+      <Section>
+        <div className="max-w-[68ch]">
+          {sections.map((section) => (
+            <section
+              key={section.title}
+              className="border-t border-rule py-8 first:border-t-0 first:pt-0"
+            >
+              <h2 className="type-h3">{section.title}</h2>
+              <p className="type-body mt-3 text-ink-muted">{section.body}</p>
+            </section>
           ))}
-          <Reveal delay={0.2}>
-            <p className="border-t border-border pt-6 text-sm text-muted">
-              Questions about this policy? Email me at{" "}
-              <a
-                href={`mailto:${contactInfo.email}`}
-                className="font-medium text-primary hover:underline"
-              >
-                {contactInfo.email}
-              </a>
-              .
-            </p>
-          </Reveal>
+          <p className="type-meta border-t border-rule pt-6 text-ink-muted">
+            Questions about this policy? Email me at{" "}
+            <a href={`mailto:${contactInfo.email}`} className="link">
+              {contactInfo.email}
+            </a>
+            .
+          </p>
         </div>
       </Section>
     </>

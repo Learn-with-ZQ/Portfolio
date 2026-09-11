@@ -1,26 +1,24 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[0.02em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium transition-[background-color,border-color,color] duration-150 disabled:pointer-events-none disabled:opacity-50";
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-primary text-primary-foreground hover:bg-foreground",
-  secondary:
-    "bg-primary-soft text-primary border border-border hover:bg-card hover:text-foreground",
-  outline:
-    "border border-border-strong bg-background/70 text-foreground hover:border-foreground hover:bg-card",
-  ghost: "text-muted hover:text-foreground hover:bg-primary-soft",
+  // Gradient + foreground come from theme tokens (.btn-primary in globals.css),
+  // so the label stays readable in both themes.
+  primary: "btn-primary",
+  secondary: "border border-rule-strong text-ink hover:border-ink hover:bg-surface",
+  ghost: "text-ink-muted hover:bg-surface hover:text-ink",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-sm",
-  lg: "h-12 px-8 text-base",
+  sm: "h-10 px-4 text-sm",
+  md: "h-11 px-5 text-[0.9375rem]",
+  lg: "h-12 px-6 text-base",
 };
 
 interface ButtonBaseProps {

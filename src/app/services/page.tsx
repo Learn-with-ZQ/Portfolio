@@ -1,19 +1,8 @@
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Database,
-  Globe,
-  Lightbulb,
-  Server,
-  Shield,
-  Smartphone,
-} from "lucide-react";
 import { services } from "@/data/services";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
 export const metadata = createPageMetadata({
   title: "Services",
@@ -22,78 +11,41 @@ export const metadata = createPageMetadata({
   path: "/services",
 });
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  server: Server,
-  database: Database,
-  globe: Globe,
-  smartphone: Smartphone,
-  shield: Shield,
-  lightbulb: Lightbulb,
-};
-
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        eyebrow="What I Offer"
         title="Services"
         description="Practical engineering services grounded in real enterprise delivery — from APIs and databases to mobile apps and production support."
       />
-      <Section className="pt-0 sm:pt-0">
-        <div className="section-shell rounded-[2rem] p-6 sm:p-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
-              Services
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Engineering support for systems that need to be reliable, scalable, and maintainable.
-            </h2>
-          </div>
-        </div>
-        {/* Three across only from xl: at lg it left 222px of measure for
-            descriptions running to 170 characters. */}
-        <Stagger className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => {
-            const Icon = iconMap[service.icon] ?? Server;
-            return (
-              <StaggerItem
-                key={service.id}
-                className="surface-panel flex h-full flex-col rounded-[1.6rem] p-6 hover:-translate-y-1 sm:p-8"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h2 className="mt-5 text-lg font-bold tracking-tight">
-                  {service.title}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {service.description}
-                </p>
-                <ul className="mt-5 space-y-2.5 border-t border-border pt-5">
-                  {service.deliverables.map((deliverable) => (
-                    <li key={deliverable} className="flex items-start gap-2.5">
-                      <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted">{deliverable}</span>
-                    </li>
-                  ))}
-                </ul>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
+      <Section>
+        {/* Three across only from xl: at lg it left 222px of measure. */}
+        <ul className="grid gap-x-10 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <li key={service.id} className="min-w-0 border-t border-rule pt-6">
+              <h2 className="type-h3">{service.title}</h2>
+              <p className="type-body mt-3 text-ink-muted">{service.description}</p>
+              <ul className="list-rule mt-5 space-y-2">
+                {service.deliverables.map((deliverable) => (
+                  <li key={deliverable} className="type-meta text-ink">
+                    {deliverable}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-        <Reveal className="mt-12 text-center" delay={0.1}>
-          <p className="text-base text-muted">
+      <Section rule labelledBy="services-cta-title" className="bg-surface">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <h2 id="services-cta-title" className="type-h2 max-w-xl text-balance">
             Need something built — or rescued in production?
-          </p>
-          <ButtonLink href="/contact" size="lg" className="mt-4">
-            Start a Conversation
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </h2>
+          <ButtonLink href="/contact" size="lg">
+            Start a conversation
           </ButtonLink>
-        </Reveal>
+        </div>
       </Section>
     </>
   );

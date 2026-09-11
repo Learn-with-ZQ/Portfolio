@@ -1,11 +1,11 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BadgeCheck, FileText, Star } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
 import { getTestimonials } from "@/lib/testimonials";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
-import { Badge } from "@/components/ui/badge";
-import { ButtonLink } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Status } from "@/components/ui/badge";
+import { Rating } from "@/components/ui/rating";
 import { Section } from "@/components/ui/section";
 
 interface TestimonialDetailProps {
@@ -42,76 +42,69 @@ export default async function TestimonialDetailPage({ params }: TestimonialDetai
     .map((part) => part[0])
     .join("")
     .toUpperCase();
+
   return (
     <>
       <PageHeader
-        eyebrow="Verified testimonial"
         title={testimonial.subject}
         description={`A recommendation from ${testimonial.name}.`}
+        meta={
+          <Link
+            href="/testimonials"
+            className="type-meta inline-flex min-h-9 items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            All testimonials
+          </Link>
+        }
       />
-      <Section className="pt-0">
-        <Card className="mx-auto max-w-3xl p-6 sm:p-10">
-          <div className="flex items-center gap-4">
+      <Section>
+        <article className="max-w-3xl">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Rating value={testimonial.rating} size="md" />
+            <Status tone="verified" emphasis>
+              Verified via Google
+            </Status>
+            {testimonial.createdAt ? (
+              <span className="type-meta text-ink-muted">Submitted {testimonial.createdAt}</span>
+            ) : null}
+          </div>
+
+          <blockquote className="mt-8 border-l-2 border-verdigris pl-6">
+            <p className="type-body text-ink">&ldquo;{testimonial.message}&rdquo;</p>
+          </blockquote>
+
+          <div className="mt-8 flex items-center gap-4">
             {testimonial.profileImageUrl ? (
               <span
                 role="img"
                 aria-label={`${testimonial.name}'s profile image`}
-                className="h-14 w-14 rounded-full bg-cover bg-center"
+                className="h-12 w-12 shrink-0 rounded-full border border-rule bg-cover bg-center"
                 style={{ backgroundImage: `url(${testimonial.profileImageUrl})` }}
               />
             ) : (
-              <span className="bg-primary-soft text-primary flex h-14 w-14 items-center justify-center rounded-full text-lg font-semibold">
+              <span
+                aria-hidden="true"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-rule bg-surface font-semibold text-ink-muted"
+              >
                 {initials}
               </span>
             )}
-            <div>
-              <p className="font-semibold">{testimonial.name}</p>
-              <Badge className="mt-1">
-                <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                Verified via Google
-              </Badge>
-            </div>
+            <p className="font-medium text-ink">{testimonial.name}</p>
           </div>
-          <div
-            className="mt-7 flex items-center gap-1"
-            aria-label={`${testimonial.rating} out of 5 stars`}
-          >
-            {Array.from({ length: 5 }, (_, index) => (
-              <Star
-                key={index}
-                className={
-                  index < testimonial.rating
-                    ? "h-5 w-5 fill-amber-400 text-amber-400"
-                    : "text-border h-5 w-5"
-                }
-                aria-hidden="true"
-              />
-            ))}
-            <span className="text-muted ml-2 text-sm">{testimonial.rating}/5</span>
-          </div>
-          <blockquote className="text-muted mt-7 text-lg leading-relaxed">
-            &ldquo;{testimonial.message}&rdquo;
-          </blockquote>
-          {testimonial.createdAt && (
-            <p className="text-muted mt-6 text-sm">Submitted {testimonial.createdAt}</p>
-          )}
-          {testimonial.referenceDocumentUrl && (
+
+          {testimonial.referenceDocumentUrl ? (
             <a
               href={testimonial.referenceDocumentUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-primary mt-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
+              className="link type-meta mt-6 inline-flex items-center gap-2 font-medium"
             >
               <FileText className="h-4 w-4" aria-hidden="true" />
               Reference document available
             </a>
-          )}
-          <div className="mt-8">
-            <ButtonLink href="/testimonials" variant="outline">
-              Back to testimonials
-            </ButtonLink>
-          </div>
-        </Card>
+          ) : null}
+        </article>
       </Section>
     </>
   );

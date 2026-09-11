@@ -1,161 +1,241 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, FileDown } from "lucide-react";
+import { ChevronDown, FileDown, Menu, X } from "lucide-react";
 import { mainNav, moreNav } from "@/data/navigation";
 import { profile } from "@/data/profile";
+import type { NavLink } from "@/types";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+// The wordmark already links home, so the desktop bar leaves "Home" out.
+const desktopLinks = mainNav.filter((link) => link.href !== "/");
+
+// Tabs sit on the header's bottom rule; the active one gets a verdigris bar.
+const tabStyles =
+  "flex h-16 items-center border-b-2 border-transparent px-3 text-[0.9375rem] text-ink-muted transition-colors hover:text-ink";
+const tabActiveStyles = "border-verdigris text-ink";
+
+function useIsActive() {
+  const pathname = usePathname();
+  return (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+}
+
+function MoreMenu({ links }: { links: NavLink[] }) {
+  const pathname = usePathname();
+  const isActive = useIsActive();
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLLIElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const containsActive = links.some((link) => isActive(link.href));
+
+  return (
+    <li ref={containerRef} className="relative">
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpen((value) => !value)}
+        className={cn(tabStyles, "gap-1", containsActive && tabActiveStyles)}
+      >
+        More
+        <ChevronDown
+          className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
+          aria-hidden="true"
+        />
+      </button>
+      {open ? (
+        <ul id={menuId} className="surface absolute top-full left-0 z-50 mt-px min-w-52 py-1.5">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className="flex h-11 items-center border-l-2 border-transparent px-4 text-[0.9375rem] text-ink-muted transition-colors hover:bg-surface hover:text-ink aria-[current=page]:border-verdigris aria-[current=page]:text-ink"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </li>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isActive = useIsActive();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  // Mobile menu: lock scroll, move focus in, trap Tab, close on Escape and
+  // return focus to the toggle, and close if the viewport grows past `lg`.
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    if (!isMenuOpen) return;
+    const menu = menuRef.current;
+    document.body.style.overflow = "hidden";
+    menu?.querySelector<HTMLElement>("a[href]")?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab" || !menu) return;
+      const items = [
+        toggleRef.current,
+        ...Array.from(menu.querySelectorAll<HTMLElement>("a[href], button")),
+      ].filter((element): element is HTMLElement => Boolean(element));
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setIsMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
     };
   }, [isMenuOpen]);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
-
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        isScrolled || isMenuOpen
-          ? "border-b border-border backdrop-blur-xl"
-          : "border-b border-transparent",
-      )}
-      style={{
-        backgroundColor: isScrolled || isMenuOpen ? "var(--header-bg)" : "transparent",
-      }}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
+    <header className="sticky top-0 z-40 border-b border-rule bg-ground">
+      <div className="mx-auto flex h-16 w-full max-w-[96rem] items-center gap-6 px-5 sm:px-8 lg:gap-8 lg:px-12">
         <Link
           href="/"
-          className="group flex items-center gap-2 text-lg font-semibold tracking-tight"
-          aria-label="Muhammad Zaid Qasim — Home"
+          aria-label={`${profile.name}, home`}
+          className="wordmark flex h-11 shrink-0 items-center text-lg text-ink"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground font-mono text-sm text-background transition-transform duration-300 group-hover:rotate-6">
-            ZQ
-          </span>
-          <span className="hidden sm:inline">
-            Zaid<span className="text-gradient">Qasim</span>
-          </span>
+          Zaid Qasim
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {mainNav.map((link) => (
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center">
+            {desktopLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  className={cn(
-                    "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    isActive(link.href)
-                      ? "text-primary"
-                      : "text-muted hover:text-foreground",
-                  )}
+                  className={cn(tabStyles, isActive(link.href) && tabActiveStyles)}
                 >
-                  {isActive(link.href) && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 rounded-full bg-primary-soft"
-                      transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-                    />
-                  )}
-                  <span className="relative">{link.label}</span>
+                  {link.label}
                 </Link>
               </li>
             ))}
+            <MoreMenu links={moreNav} />
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <a
+        <div className="ml-auto flex items-center gap-2">
+          <ButtonLink
             href={profile.resumeUrl}
             download
-            className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-foreground md:inline-flex"
+            variant="secondary"
+            size="sm"
+            className="hidden md:inline-flex"
           >
             <FileDown className="h-4 w-4" aria-hidden="true" />
             Resume
-          </a>
+          </ButtonLink>
           <ThemeToggle />
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/70 text-muted transition-colors hover:border-primary hover:text-primary lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-rule text-ink transition-colors hover:border-rule-strong lg:hidden"
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.nav
-            id="mobile-menu"
-            aria-label="Mobile navigation"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="overflow-hidden border-t border-border/80 backdrop-blur-xl lg:hidden"
-            style={{ backgroundColor: "var(--header-bg)" }}
-          >
-            <ul className="max-h-[calc(100dvh-4rem)] space-y-1 overflow-y-auto px-4 py-4 sm:px-6">
+      {isMenuOpen ? (
+        <div
+          ref={menuRef}
+          id="mobile-menu"
+          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-rule bg-ground lg:hidden"
+        >
+          <nav aria-label="Mobile" className="mx-auto w-full max-w-[96rem] px-5 pt-2 pb-10 sm:px-8">
+            <ul>
               {[...mainNav, ...moreNav].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     aria-current={isActive(link.href) ? "page" : undefined}
-                    className={cn(
-                      "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
-                      isActive(link.href)
-                        ? "bg-primary-soft text-primary"
-                        : "text-muted hover:bg-card-hover hover:text-foreground",
-                    )}
+                    className="flex h-12 items-center border-b border-l-2 border-rule border-l-transparent pl-3 text-[1.0625rem] text-ink-muted transition-colors hover:text-ink aria-[current=page]:border-l-verdigris aria-[current=page]:text-ink"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
-                <a
-                  href={profile.resumeUrl}
-                  download
-                  className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-medium text-primary-foreground"
-                >
-                  <FileDown className="h-4 w-4" aria-hidden="true" />
-                  Download Resume
-                </a>
-              </li>
             </ul>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+            <ButtonLink
+              href={profile.resumeUrl}
+              download
+              variant="secondary"
+              size="lg"
+              className="mt-8 w-full"
+            >
+              <FileDown className="h-4 w-4" aria-hidden="true" />
+              Download resume
+            </ButtonLink>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

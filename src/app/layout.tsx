@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { PageTransition } from "@/components/layout/page-transition";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
 import { getRootSchemaGraph } from "@/lib/schema";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Variable Archivo with the width axis, so display headings can use the
+// expanded cut (see the type-* classes in globals.css).
+const archivo = Archivo({
+  variable: "--typeface-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Only for real values: dates, durations, counts, identifiers.
+const plexMono = IBM_Plex_Mono({
+  variable: "--typeface-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -98,20 +102,20 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <JsonLd data={rootSchemaGraph} />
         <Providers>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-primary-foreground"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ground"
           >
             Skip to main content
           </a>
           <Header />
           <main id="main-content" className="flex-1">
-            <PageTransition>{children}</PageTransition>
+            {children}
           </main>
           <Footer />
         </Providers>

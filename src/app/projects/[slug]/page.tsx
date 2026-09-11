@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Building2,
-  Calendar,
-  CheckCircle2,
-  Clock,
-  Layers,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { GitHubIcon } from "@/components/ui/social-icons";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { authorizationFlow, getProjectBySlug, projects } from "@/data/projects";
 import { socialLinks } from "@/data/social";
 import { formatDateRange, formatDuration } from "@/lib/format";
 import { createPageMetadata } from "@/lib/metadata";
 import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema";
-import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
+import { PageHeader } from "@/components/common/page-header";
+import { AuthorizationSchematic } from "@/components/home/authorization-schematic";
+import { Section } from "@/components/ui/section";
+import { Badge, Status } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
-import { Reveal } from "@/components/motion/reveal";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -51,6 +44,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
   const githubProfile = socialLinks.find((link) => link.icon === "github");
+  const ongoing = project.endDate === null;
   const projectSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,137 +60,120 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <JsonLd data={projectSchema} />
-      <div className="relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <Container className="relative">
-          <Reveal>
+      <PageHeader
+        title={project.name}
+        description={project.summary}
+        meta={
+          <div className="flex flex-col items-start gap-4">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-primary"
+              className="type-meta inline-flex min-h-9 items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-              All Projects
+              All projects
             </Link>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Badge variant="primary">{project.category}</Badge>
-              {project.endDate === null ? <Badge variant="accent">Ongoing</Badge> : null}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <span className="type-meta text-ink-muted">{project.category}</span>
+              <Status tone={ongoing ? "pending" : "verified"}>
+                {ongoing ? "Ongoing" : "Completed"}
+              </Status>
             </div>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-              {project.name}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              {project.summary}
-            </p>
-          </Reveal>
-        </Container>
-      </div>
+          </div>
+        }
+      />
 
-      <Container className="pb-16 sm:pb-24">
-        {/* 0.6fr left the meta sidebar at ~210px of text on a 1024 screen. */}
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.9fr]">
-          <div className="min-w-0">
-            <Reveal>
-              <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
+          <article className="min-w-0">
+            <h2 className="type-h2">Overview</h2>
+            <div className="mt-5 space-y-5">
               {project.description.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="mt-4 text-base leading-relaxed text-muted sm:text-lg"
-                >
+                <p key={index} className="type-body text-ink-muted">
                   {paragraph}
                 </p>
               ))}
-            </Reveal>
+            </div>
 
-            <Reveal delay={0.08}>
-              <h2 className="mt-12 text-2xl font-bold tracking-tight">Key Highlights</h2>
-              <ul className="mt-5 space-y-3">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="flex items-start gap-3">
-                    <CheckCircle2
-                      className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                      aria-hidden="true"
-                    />
-                    <span className="text-base leading-relaxed text-muted">
-                      {highlight}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
+            {project.slug === authorizationFlow.projectSlug ? (
+              <AuthorizationSchematic className="mt-10 max-w-xl" linkToProject={false} />
+            ) : null}
 
-          <aside>
-            <Reveal delay={0.1}>
-              <div className="surface-panel space-y-6 rounded-[1.8rem] p-6 lg:sticky lg:top-28">
+            <h2 className="type-h2 mt-12">Key highlights</h2>
+            <ul className="list-rule mt-5 space-y-3">
+              {project.highlights.map((highlight) => (
+                <li key={highlight} className="type-body text-ink">
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          {/* The sticky panel is the aside's only child, so it can't slide over anything. */}
+          <aside className="min-w-0">
+            <div className="surface-quiet p-6 lg:sticky lg:top-24">
+              <h2 className="sr-only">Project details</h2>
+              <dl className="space-y-5">
                 <div>
-                  <h2 className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-                    <Building2 className="h-4 w-4 text-primary" aria-hidden="true" />
-                    Context
-                  </h2>
-                  <p className="mt-2 text-sm text-muted">{project.context}</p>
+                  <dt className="type-meta text-ink-muted">Context</dt>
+                  <dd className="mt-1 text-ink">{project.context}</dd>
                 </div>
                 <div>
-                  <h2 className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-                    <Calendar className="h-4 w-4 text-primary" aria-hidden="true" />
-                    Timeline
-                  </h2>
-                  <p className="mt-2 text-sm text-muted">
+                  <dt className="type-meta text-ink-muted">Timeline</dt>
+                  <dd className="mt-1 font-mono text-sm tabular-nums text-ink">
                     {formatDateRange(project.startDate, project.endDate)}
-                  </p>
+                  </dd>
                 </div>
                 <div>
-                  <h2 className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-                    <Clock className="h-4 w-4 text-primary" aria-hidden="true" />
-                    Duration
-                  </h2>
-                  <p className="mt-2 text-sm text-muted">
+                  <dt className="type-meta text-ink-muted">Duration</dt>
+                  <dd className="mt-1 font-mono text-sm tabular-nums text-ink">
                     {formatDuration(project.startDate, project.endDate)}
-                  </p>
+                  </dd>
                 </div>
                 <div>
-                  <h2 className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-                    <Layers className="h-4 w-4 text-primary" aria-hidden="true" />
-                    Technologies
-                  </h2>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech}>{tech}</Badge>
-                    ))}
-                  </div>
+                  <dt className="type-meta text-ink-muted">Technologies</dt>
+                  <dd className="mt-2">
+                    <ul className="flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <li key={tech}>
+                          <Badge>{tech}</Badge>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
                 </div>
-                {project.category !== "Academic" ? (
-                  <p className="border-t border-border pt-4 text-xs leading-relaxed text-muted">
-                    This is a proprietary enterprise system — source code and live
-                    access are restricted by the client.
-                  </p>
-                ) : githubProfile ? (
-                  <a
+              </dl>
+              {project.category !== "Academic" ? (
+                <p className="type-meta mt-6 border-t border-rule pt-5 text-ink-muted">
+                  This is a proprietary enterprise system — source code and live access are
+                  restricted by the client.
+                </p>
+              ) : githubProfile ? (
+                <div className="mt-6 border-t border-rule pt-5">
+                  <ButtonLink
                     href={githubProfile.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-full border border-border-strong px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+                    external
+                    variant="secondary"
+                    className="w-full"
                   >
                     <GitHubIcon className="h-4 w-4" />
-                    Visit My GitHub
-                  </a>
-                ) : null}
-              </div>
-            </Reveal>
+                    Visit my GitHub
+                  </ButtonLink>
+                </div>
+              ) : null}
+            </div>
           </aside>
         </div>
 
-        <Reveal delay={0.1}>
-          <div className="section-shell mt-16 flex flex-col items-start justify-between gap-4 rounded-[2rem] p-6 sm:flex-row sm:items-center">
-            <div>
-              <p className="text-sm text-muted">Next project</p>
-              <p className="mt-1 text-lg font-semibold">{nextProject.name}</p>
-            </div>
-            <ButtonLink href={`/projects/${nextProject.slug}`} variant="outline">
-              View Project
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </ButtonLink>
+        <div className="mt-16 flex flex-col gap-4 border-t border-rule pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="type-meta text-ink-muted">Next project</p>
+            <p className="type-h3 mt-1">{nextProject.name}</p>
           </div>
-        </Reveal>
-      </Container>
+          <ButtonLink href={`/projects/${nextProject.slug}`} variant="secondary">
+            View project
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }

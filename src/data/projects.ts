@@ -209,6 +209,22 @@ export const projects: Project[] = [
 
 export const projectCategories = ["All", "Enterprise", "Mobile", "Academic"] as const;
 
+/**
+ * The Net 2 Bank approval pipeline, drawn as the home-page schematic and on
+ * the project page. Duties come from the project description above; the
+ * diagram shows a transaction with the first three stages cleared.
+ */
+export const authorizationFlow = {
+  projectSlug: "net-2-bank",
+  transactionTypes: ["IBFT", "IFT", "Cheque"],
+  stages: [
+    { role: "Maker", duty: "Creates the transaction", state: "Created" },
+    { role: "Checker", duty: "Verifies the details", state: "Verified" },
+    { role: "Signatory", duty: "Approves the transfer", state: "Approved" },
+    { role: "Releasor", duty: "Executes it to core banking", state: "Awaiting release" },
+  ],
+} as const;
+
 export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured);
 }

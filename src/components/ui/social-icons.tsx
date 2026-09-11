@@ -55,7 +55,7 @@ interface SocialIconsProps {
 
 export function SocialIcons({ links, className, iconClassName }: SocialIconsProps) {
   return (
-    <ul className={cn("flex items-center gap-3", className)}>
+    <ul className={cn("flex flex-wrap items-center gap-2", className)}>
       {links.map((link) => {
         const Icon = iconMap[link.icon];
         const isMail = link.icon === "mail";
@@ -67,7 +67,7 @@ export function SocialIcons({ links, className, iconClassName }: SocialIconsProp
               title={link.name}
               {...(isMail ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-foreground hover:text-foreground",
+                "flex h-11 w-11 items-center justify-center rounded-md border border-rule text-ink-muted transition-colors hover:border-rule-strong hover:text-ink",
                 iconClassName,
               )}
             >

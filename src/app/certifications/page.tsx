@@ -1,10 +1,9 @@
+import { ExternalLink } from "lucide-react";
 import { createPageMetadata } from "@/lib/metadata";
-import { Award, ExternalLink, Star } from "lucide-react";
 import { certifications } from "@/data/certifications";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
-import { Badge } from "@/components/ui/badge";
-import { Stagger, StaggerItem } from "@/components/motion/reveal";
+import { Rating } from "@/components/ui/rating";
 
 export const metadata = createPageMetadata({
   title: "Certifications",
@@ -13,65 +12,37 @@ export const metadata = createPageMetadata({
   path: "/certifications",
 });
 
-function StarRating({ count }: { count: number }) {
-  return (
-    <span
-      className="inline-flex items-center gap-0.5"
-      role="img"
-      aria-label={`${count} star rating`}
-    >
-      {Array.from({ length: count }, (_, index) => (
-        <Star
-          key={index}
-          className="h-4 w-4 fill-amber-400 text-amber-400"
-          aria-hidden="true"
-        />
-      ))}
-    </span>
-  );
-}
-
 export default function CertificationsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Credentials"
         title="Certifications"
         description="Verified certifications and skill badges earned on HackerRank."
       />
-      <Section className="pt-0 sm:pt-0">
-        <Stagger className="grid gap-6 sm:grid-cols-2">
+      <Section>
+        <ul className="grid gap-5 sm:grid-cols-2">
           {certifications.map((certification) => (
-            <StaggerItem
-              key={certification.id}
-              className="surface-panel flex h-full flex-col rounded-[1.6rem] p-6 sm:p-8"
-            >
+            <li key={certification.id} className="surface flex min-w-0 flex-col p-6">
               <div className="flex items-start justify-between gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Award className="h-6 w-6" aria-hidden="true" />
+                <h2 className="type-h3">{certification.name}</h2>
+                <span className="font-mono text-sm tabular-nums text-ink-muted">
+                  {certification.year}
                 </span>
-                <Badge variant="outline">{certification.year}</Badge>
               </div>
-
-              <h2 className="mt-5 text-xl font-bold tracking-tight">
-                {certification.name}
-              </h2>
-              <p className="mt-1 text-sm text-muted">
+              <p className="type-meta mt-1 text-ink-muted">
                 Issued by{" "}
                 <a
                   href={certification.issuerUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-primary hover:underline"
+                  className="link"
                 >
                   {certification.issuer}
                 </a>
               </p>
 
               {certification.stars ? (
-                <div className="mt-3">
-                  <StarRating count={certification.stars} />
-                </div>
+                <Rating value={certification.stars} className="mt-4" />
               ) : null}
 
               {certification.credentialUrl ? (
@@ -79,15 +50,15 @@ export default function CertificationsPage() {
                   href={certification.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-primary hover:underline"
+                  className="link type-meta mt-auto inline-flex items-center gap-1.5 self-start pt-6 font-medium"
                 >
-                  View Credential
-                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  View credential
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               ) : null}
-            </StaggerItem>
+            </li>
           ))}
-        </Stagger>
+        </ul>
       </Section>
     </>
   );

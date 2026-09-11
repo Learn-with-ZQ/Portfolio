@@ -4,53 +4,68 @@ import { Container } from "@/components/ui/container";
 interface SectionProps {
   id?: string;
   className?: string;
+  /** Adds a top rule — use for every section after the first on a page. */
+  rule?: boolean;
+  spacing?: "default" | "tight";
+  labelledBy?: string;
   children: React.ReactNode;
 }
 
-export function Section({ id, className, children }: SectionProps) {
+export function Section({
+  id,
+  className,
+  rule = false,
+  spacing = "default",
+  labelledBy,
+  children,
+}: SectionProps) {
   return (
-    <section id={id} className={cn("py-4 sm:py-6 lg:py-8", className)}>
+    <section
+      id={id}
+      aria-labelledby={labelledBy}
+      className={cn(
+        spacing === "tight" ? "py-12 sm:py-14" : "py-16 sm:py-20 lg:py-24",
+        rule && "border-t border-rule",
+        className,
+      )}
+    >
       <Container>{children}</Container>
     </section>
   );
 }
 
 interface SectionHeadingProps {
-  eyebrow?: string;
+  id?: string;
   title: string;
   description?: string;
-  align?: "left" | "center";
+  /** A link or control aligned with the heading, e.g. "All projects". */
+  action?: React.ReactNode;
   className?: string;
 }
 
 export function SectionHeading({
-  eyebrow,
+  id,
   title,
   description,
-  align = "left",
+  action,
   className,
 }: SectionHeadingProps) {
   return (
     <div
       className={cn(
-        "mb-5 max-w-2xl sm:mb-6",
-        align === "center" && "mx-auto text-center",
+        "mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10",
         className,
       )}
     >
-      {eyebrow ? (
-        <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-primary uppercase">
-          {eyebrow}
-        </p>
-      ) : null}
-      <h2 className="text-3xl font-semibold leading-[1.05] tracking-[-0.02em] text-balance sm:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-          {description}
-        </p>
-      ) : null}
+      <div className="max-w-2xl">
+        <h2 id={id} className="type-h2 text-balance">
+          {title}
+        </h2>
+        {description ? (
+          <p className="type-body mt-3 text-ink-muted">{description}</p>
+        ) : null}
+      </div>
+      {action ? <div className="shrink-0">{action}</div> : null}
     </div>
   );
 }

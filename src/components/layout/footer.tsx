@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
 import { footerNav } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import { contactInfo } from "@/data/contact";
@@ -7,69 +6,59 @@ import { socialLinks } from "@/data/social";
 import { SocialIcons } from "@/components/ui/social-icons";
 import { Container } from "@/components/ui/container";
 
+const quietLink =
+  "inline-flex min-h-9 items-center text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline";
+
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/70 bg-background/70">
-      <Container className="py-8 sm:py-10">
-        <div className="rounded-[1.3rem] border border-border/70 bg-card/70 p-6 sm:p-8 lg:p-10">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.7fr_repeat(3,1fr)]">
-            <div>
-              <Link href="/" className="text-lg font-semibold tracking-tight">
-                Zaid<span className="text-gradient">Qasim</span>
-              </Link>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-                {profile.role} · {profile.location}. Building secure, scalable
-                enterprise web &amp; mobile applications.
-              </p>
-              <SocialIcons links={socialLinks} className="mt-5" />
-            </div>
-
-            {footerNav.map((group) => (
-              <nav key={group.title} aria-label={`Footer — ${group.title}`}>
-                <h2 className="text-sm font-semibold tracking-[0.28em] text-foreground uppercase">
-                  {group.title}
-                </h2>
-                <ul className="mt-4 space-y-2.5">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-muted transition-colors hover:text-primary"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ))}
+    <footer className="border-t border-rule bg-surface">
+      <Container className="py-14">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+          <div>
+            <Link href="/" className="wordmark inline-flex min-h-11 items-center text-lg text-ink">
+              Zaid Qasim
+            </Link>
+            <p className="type-meta mt-3 max-w-xs text-ink-muted">
+              {profile.role} in {profile.location}. Building secure, scalable
+              enterprise web and mobile applications.
+            </p>
+            <SocialIcons links={socialLinks} className="mt-5" />
           </div>
 
-          <div className="mt-10 flex flex-col gap-3 border-t border-border/70 pt-6 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-          <a
-            href={`mailto:${contactInfo.email}`}
-            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
-          >
-            <Mail className="h-4 w-4" aria-hidden="true" />
-            {contactInfo.email}
-          </a>
-          <a
-            href={`tel:${contactInfo.phone}`}
-            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
-          >
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            {contactInfo.phoneDisplay}
-          </a>
-          <span className="inline-flex items-center gap-2">
-            <MapPin className="h-4 w-4" aria-hidden="true" />
-            {contactInfo.location}
-          </span>
+          {footerNav.map((group) => (
+            <nav key={group.title} aria-label={`${group.title} links`}>
+              <h2 className="type-meta font-semibold text-ink">{group.title}</h2>
+              <ul className="type-meta mt-2">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={quietLink}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
 
-          <p className="mt-6 text-sm text-muted">
-            © {year} {profile.name}. Built with Next.js, TypeScript &amp; Tailwind CSS.
+        <div className="type-meta mt-12 flex flex-col gap-4 border-t border-rule pt-6 text-ink-muted md:flex-row md:items-center md:justify-between">
+          <ul className="flex flex-wrap gap-x-6">
+            <li>
+              <a href={`mailto:${contactInfo.email}`} className={quietLink}>
+                {contactInfo.email}
+              </a>
+            </li>
+            <li>
+              <a href={`tel:${contactInfo.phone}`} className={quietLink}>
+                {contactInfo.phoneDisplay}
+              </a>
+            </li>
+            <li className="inline-flex min-h-9 items-center">{contactInfo.location}</li>
+          </ul>
+          <p>
+            © {year} {profile.name}. Built with Next.js, TypeScript and Tailwind CSS.
           </p>
         </div>
       </Container>

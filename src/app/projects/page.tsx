@@ -14,11 +14,10 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Portfolio"
         title="Projects"
         description="Selected work across enterprise systems, mobile banking, and academic research — search, filter, and explore each one."
       />
-      <Section className="pt-0 sm:pt-0">
+      <Section>
         <ProjectsExplorer />
       </Section>
     </>

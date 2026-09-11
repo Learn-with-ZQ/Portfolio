@@ -9,9 +9,10 @@ interface StarRatingProps {
   disabled?: boolean;
 }
 
+/** Rating input — 44px targets, neutral ink stars. */
 export function StarRating({ value, onChange, disabled = false }: StarRatingProps) {
   return (
-    <div className="flex items-center gap-1" role="radiogroup" aria-label="Rating">
+    <div className="flex items-center" role="radiogroup" aria-label="Rating">
       {[1, 2, 3, 4, 5].map((rating) => (
         <button
           key={rating}
@@ -21,10 +22,10 @@ export function StarRating({ value, onChange, disabled = false }: StarRatingProp
           aria-label={`${rating} ${rating === 1 ? "star" : "stars"}`}
           disabled={disabled}
           onClick={() => onChange(rating)}
-          className="text-muted focus-visible:outline-primary rounded p-1 transition-colors hover:text-amber-400 focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="flex h-11 w-11 items-center justify-center rounded-md text-rule-strong transition-colors hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Star
-            className={cn("h-6 w-6", rating <= value && "fill-amber-400 text-amber-400")}
+            className={cn("h-6 w-6", rating <= value && "fill-ink text-ink")}
             aria-hidden="true"
           />
         </button>

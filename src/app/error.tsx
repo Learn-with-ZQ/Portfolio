@@ -11,23 +11,16 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-[70vh] items-center pt-16">
-      <Container className="py-20 text-center">
-        <p className="text-gradient font-mono text-6xl font-bold">Oops</p>
-        <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
-          Something went wrong
-        </h1>
-        <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted">
-          An unexpected error occurred while rendering this page. Try again — if it
-          keeps happening, please let me know.
-        </p>
-        <div className="mt-8 flex justify-center">
-          <Button size="lg" onClick={reset}>
-            <RefreshCw className="h-4 w-4" aria-hidden="true" />
-            Try Again
-          </Button>
-        </div>
-      </Container>
-    </div>
+    <Container className="py-20 sm:py-28">
+      <h1 className="type-h1 max-w-2xl text-balance">Something went wrong</h1>
+      <p className="type-body mt-4 text-ink-muted">
+        An unexpected error occurred while rendering this page. Try again — if it keeps
+        happening, please let me know.
+      </p>
+      <Button size="lg" onClick={reset} className="mt-8">
+        <RefreshCw className="h-4 w-4" aria-hidden="true" />
+        Try again
+      </Button>
+    </Container>
   );
 }

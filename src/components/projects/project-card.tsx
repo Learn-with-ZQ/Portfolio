@@ -1,54 +1,46 @@
 import Link from "next/link";
-import { ArrowUpRight, FolderGit2 } from "lucide-react";
 import type { Project } from "@/types";
-import { Badge } from "@/components/ui/badge";
+import { Badge, Status } from "@/components/ui/badge";
 import { formatDateRange } from "@/lib/format";
 
-const categoryVariant = {
-  Enterprise: "primary",
-  Mobile: "accent",
-  Academic: "outline",
-} as const;
-
 export function ProjectCard({ project }: { project: Project }) {
+  const ongoing = project.endDate === null;
+  const shownTech = project.technologies.slice(0, 3);
+  const hiddenTech = project.technologies.length - shownTech.length;
+
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group flex h-full flex-col rounded-[1.3rem] border border-border/70 bg-card/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-card"
+      className="surface group flex h-full flex-col p-6 transition-colors hover:border-rule-strong"
     >
-      <div className="flex items-start justify-between gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
-          <FolderGit2 className="h-5 w-5" aria-hidden="true" />
-        </span>
-        <ArrowUpRight
-          className="h-5 w-5 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
-          aria-hidden="true"
-        />
+      <div className="flex items-center justify-between gap-4">
+        <span className="type-meta text-ink-muted">{project.category}</span>
+        <Status tone={ongoing ? "pending" : "verified"}>
+          {ongoing ? "Ongoing" : "Completed"}
+        </Status>
       </div>
 
-      <h3 className="mt-4 text-lg font-semibold transition-colors group-hover:text-primary">
+      <h3 className="type-h3 mt-4 text-ink decoration-1 underline-offset-4 group-hover:underline">
         {project.name}
       </h3>
-      <p className="mt-1 text-xs font-medium uppercase tracking-[0.28em] text-muted">
-        {project.context}
-      </p>
-      <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">
-        {project.summary}
-      </p>
+      <p className="type-meta mt-1 text-ink-muted">{project.context}</p>
+      <p className="type-body mt-4 line-clamp-3 flex-1 text-ink-muted">{project.summary}</p>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        <Badge variant={categoryVariant[project.category]}>{project.category}</Badge>
-        {project.technologies.slice(0, 3).map((tech) => (
-          <Badge key={tech}>{tech}</Badge>
-        ))}
-        {project.technologies.length > 3 ? (
-          <Badge>+{project.technologies.length - 3}</Badge>
-        ) : null}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-rule pt-4">
+        <ul aria-label="Technologies" className="flex flex-wrap items-center gap-1.5">
+          {shownTech.map((tech) => (
+            <li key={tech}>
+              <Badge>{tech}</Badge>
+            </li>
+          ))}
+          {hiddenTech > 0 ? (
+            <li className="type-meta text-ink-muted">+{hiddenTech} more</li>
+          ) : null}
+        </ul>
+        <span className="font-mono text-xs tabular-nums text-ink-muted">
+          {formatDateRange(project.startDate, project.endDate)}
+        </span>
       </div>
-
-      <p className="mt-4 font-mono text-xs text-muted">
-        {formatDateRange(project.startDate, project.endDate)}
-      </p>
     </Link>
   );
 }

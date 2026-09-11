@@ -1,32 +1,25 @@
 import { Container } from "@/components/ui/container";
-import { Reveal } from "@/components/motion/reveal";
 
 interface PageHeaderProps {
-  eyebrow: string;
   title: string;
   description?: string;
+  /** Informational context above the title (status, category, back link). */
+  meta?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
+/** One header per page — unbounded, closed by a rule. No decorative eyebrow. */
+export function PageHeader({ title, description, meta, children }: PageHeaderProps) {
   return (
-    <div className="relative overflow-hidden pt-24 pb-10 sm:pt-28 sm:pb-12">
-      <Container className="relative">
-        <Reveal>
-          <div className="section-shell rounded-[2rem] border border-border/70 p-8 sm:p-10 lg:p-14">
-            <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-primary uppercase">
-              {eyebrow}
-            </p>
-            <h1 className="max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.03em] text-balance sm:text-5xl lg:text-6xl">
-              {title}
-            </h1>
-            {description ? (
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-                {description}
-              </p>
-            ) : null}
-          </div>
-        </Reveal>
+    <header className="border-b border-rule">
+      <Container className="pt-14 pb-12 sm:pt-16 lg:pt-20 lg:pb-14">
+        {meta ? <div className="mb-5">{meta}</div> : null}
+        <h1 className="type-h1 max-w-4xl text-balance">{title}</h1>
+        {description ? (
+          <p className="type-body mt-4 text-ink-muted">{description}</p>
+        ) : null}
+        {children}
       </Container>
-    </div>
+    </header>
   );
 }

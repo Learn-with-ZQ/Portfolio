@@ -1,11 +1,10 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { BookOpen, GraduationCap, MapPin, Trophy } from "lucide-react";
 import { educationList } from "@/data/education";
 import { formatDateRange } from "@/lib/format";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
-import { Badge } from "@/components/ui/badge";
-import { Stagger, StaggerItem } from "@/components/motion/reveal";
+import { RecordRow } from "@/components/ui/record-row";
+import { Badge, Status } from "@/components/ui/badge";
 
 export const metadata = createPageMetadata({
   title: "Education",
@@ -18,63 +17,51 @@ export default function EducationPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Academics"
         title="Education"
         description="Degrees, coursework, and the academic foundation behind my engineering work."
       />
-      <Section className="pt-0 sm:pt-0">
-        <Stagger className="grid gap-6 lg:grid-cols-2">
+      <Section>
+        <ol>
           {educationList.map((education) => (
-            <StaggerItem
+            <RecordRow
+              as="li"
               key={education.id}
-              className="surface-panel flex h-full flex-col rounded-[1.6rem] p-6 sm:p-8"
+              className="first:border-t-0 first:pt-0"
+              aside={
+                <div className="space-y-2">
+                  <p className="font-mono text-sm tabular-nums text-ink">
+                    {formatDateRange(education.startDate, education.endDate)}
+                  </p>
+                  {education.endDate === null ? (
+                    <Status tone="pending">In progress</Status>
+                  ) : (
+                    <Status tone="verified">Completed</Status>
+                  )}
+                </div>
+              }
             >
-              <div className="flex items-start justify-between gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <GraduationCap className="h-6 w-6" aria-hidden="true" />
-                </span>
-                {education.endDate === null ? (
-                  <Badge variant="primary">In Progress</Badge>
-                ) : (
-                  <Badge variant="accent">Completed</Badge>
-                )}
-              </div>
-
-              <h2 className="mt-5 text-xl font-bold tracking-tight">
-                {education.degree}
-              </h2>
-              <p className="mt-2 text-base font-medium text-muted">
-                {education.institute}
-              </p>
-              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-muted">
-                <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4" aria-hidden="true" />
-                  {education.location}
-                </span>
-                <span className="font-mono">
-                  {formatDateRange(education.startDate, education.endDate)}
-                </span>
-              </div>
+              <h2 className="type-h2">{education.degree}</h2>
+              <p className="type-body mt-2 text-ink">{education.institute}</p>
+              <p className="type-meta mt-1 text-ink-muted">{education.location}</p>
 
               {education.cgpa ? (
-                <p className="mt-4 inline-flex w-max items-center gap-2 rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent">
-                  <Trophy className="h-4 w-4" aria-hidden="true" />
-                  CGPA {education.cgpa}
-                </p>
+                <dl className="mt-6 flex items-baseline gap-3">
+                  <dt className="type-meta text-ink-muted">CGPA</dt>
+                  <dd className="font-mono tabular-nums text-ink">{education.cgpa}</dd>
+                </dl>
               ) : null}
 
-              <h3 className="mt-6 flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-                <BookOpen className="h-4 w-4 text-primary" aria-hidden="true" />
-                Relevant Coursework
-              </h3>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <h3 className="type-h3 mt-8">Relevant coursework</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {education.coursework.map((course) => (
-                  <Badge key={course}>{course}</Badge>
+                  <li key={course}>
+                    <Badge>{course}</Badge>
+                  </li>
                 ))}
-              </div>
-            </StaggerItem>
+              </ul>
+            </RecordRow>
           ))}
-        </Stagger>
+        </ol>
       </Section>
     </>
   );

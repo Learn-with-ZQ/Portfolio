@@ -1,9 +1,7 @@
-import { MessageSquareQuote } from "lucide-react";
 import { getTestimonials } from "@/lib/testimonials";
 import { auth, signIn } from "@/lib/auth";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
-import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { TestimonialCard } from "@/components/testimonials/testimonial-card";
 import { TestimonialForm } from "@/components/testimonials/testimonial-form";
 import { Section } from "@/components/ui/section";
@@ -37,57 +35,46 @@ export default async function TestimonialsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Kind Words"
         title="Testimonials"
         description="What managers, colleagues, mentors, and clients say about working with me."
       />
-      <Section className="pt-0 sm:pt-0">
-        <div className="section-shell rounded-[2rem] p-6 sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr] lg:items-end">
-            <div>
-              <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
-                Social proof
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-                The kind of feedback that reflects how I work under pressure and in production.
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm leading-relaxed text-muted">
-              These are reflections from colleagues, mentors, and collaborators who have seen the work up close.
+
+      {/* The proof comes first and gets the full width; the form follows. */}
+      <Section labelledBy="published-title">
+        <h2 id="published-title" className="sr-only">
+          Published testimonials
+        </h2>
+        {testimonials.length > 0 ? (
+          <ul className="grid gap-5 md:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <li key={testimonial.id} className="min-w-0">
+                <TestimonialCard testimonial={testimonial} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="surface-quiet px-6 py-12 sm:px-10">
+            <h3 className="type-h3">Testimonials are on their way</h3>
+            <p className="type-body mt-2 text-ink-muted">
+              I&apos;m currently collecting words from the managers, mentors, and teammates
+              I&apos;ve worked with.
             </p>
           </div>
-        </div>
-        <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          {/* Left: view testimonials — compact sidebar, scrolls internally when long */}
-          <div className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-1">
-            {testimonials.length > 0 ? (
-              <Stagger className="grid gap-6">
-                {testimonials.map((testimonial) => (
-                  <StaggerItem key={testimonial.id}>
-                    <TestimonialCard testimonial={testimonial} />
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            ) : (
-              <div className="surface-panel flex flex-col items-center justify-center rounded-[1.8rem] px-6 py-16 text-center sm:px-12">
-                <span className="bg-primary-soft text-primary flex h-14 w-14 items-center justify-center rounded-2xl">
-                  <MessageSquareQuote className="h-7 w-7" aria-hidden="true" />
-                </span>
-                <h2 className="mt-6 text-2xl font-bold tracking-tight">
-                  Testimonials are on their way
-                </h2>
-                <p className="text-muted mt-3 max-w-md text-base leading-relaxed">
-                  I&apos;m currently collecting words from the managers, mentors, and
-                  teammates I&apos;ve worked with.
-                </p>
-              </div>
-            )}
-          </div>
+        )}
+      </Section>
 
-          {/* Right: give a testimonial */}
+      <Section rule labelledBy="share-title" className="bg-surface">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
           <div>
-            <TestimonialForm user={authedUser} signInAction={signInWithGoogle} />
+            <h2 id="share-title" className="type-h2">
+              Share your experience
+            </h2>
+            <p className="type-body mt-3 text-ink-muted">
+              Your identity is verified through Google before publication. Only approved
+              testimonials are published publicly.
+            </p>
           </div>
+          <TestimonialForm user={authedUser} signInAction={signInWithGoogle} />
         </div>
       </Section>
     </>

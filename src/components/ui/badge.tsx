@@ -1,32 +1,59 @@
 import { cn } from "@/lib/utils";
 
-type BadgeVariant = "default" | "primary" | "accent" | "outline";
-
-const variantStyles: Record<BadgeVariant, string> = {
-  default: "bg-card-hover/80 text-muted border border-border/70",
-  primary: "bg-primary-soft text-primary border border-primary/20",
-  accent: "bg-accent-soft text-accent border border-accent/20",
-  outline: "border border-border-strong text-muted bg-background/40",
-};
-
 interface BadgeProps {
-  variant?: BadgeVariant;
   className?: string;
   children: React.ReactNode;
 }
 
-export function Badge({ variant = "default", className, children }: BadgeProps) {
+/** A neutral tag — technologies, coursework, skills. Never carries status colour. */
+export function Badge({ className, children }: BadgeProps) {
   return (
     <span
       className={cn(
-        // No `whitespace-nowrap`: a long label (e.g. "SQL Server · Stored
-        // Procedures · Query Optimization") would set a min-content width wider
-        // than its grid track and push the whole page into horizontal scroll.
-        "inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium shadow-sm",
-        variantStyles[variant],
+        // No `whitespace-nowrap`: long labels must be able to wrap (UI.md R7).
+        "inline-flex items-center rounded-md border border-rule px-2 py-0.5 text-[0.8125rem] leading-5 text-ink-muted",
         className,
       )}
     >
+      {children}
+    </span>
+  );
+}
+
+type StatusTone = "verified" | "pending" | "neutral";
+
+const dotStyles: Record<StatusTone, string> = {
+  verified: "bg-verdigris",
+  pending: "bg-brass",
+  neutral: "bg-ink-muted",
+};
+
+const emphasisStyles: Record<StatusTone, string> = {
+  verified: "text-verdigris",
+  pending: "text-brass-text",
+  neutral: "text-ink",
+};
+
+interface StatusProps {
+  /** verified = shipped / completed / live; pending = in progress; neutral = everything else. */
+  tone?: StatusTone;
+  /** Colour the label too, not just the dot. Use sparingly. */
+  emphasis?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}
+
+/** A status label. The text carries the meaning; the dot only reinforces it. */
+export function Status({ tone = "neutral", emphasis = false, className, children }: StatusProps) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-2 text-sm leading-5",
+        emphasis ? cn("font-medium", emphasisStyles[tone]) : "text-ink-muted",
+        className,
+      )}
+    >
+      <span aria-hidden="true" className={cn("h-2 w-2 shrink-0 rounded-full", dotStyles[tone])} />
       {children}
     </span>
   );

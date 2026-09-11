@@ -1,18 +1,8 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import {
-  CheckCircle2,
-  FileText,
-  Loader2,
-  LogIn,
-  Send,
-  TriangleAlert,
-  X,
-} from "lucide-react";
+import { CheckCircle2, FileText, Loader2, LogIn, Send, TriangleAlert, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import { StarRating } from "./star-rating";
 
 interface TestimonialUser {
@@ -31,17 +21,14 @@ interface TestimonialFormProps {
 type FormState = { phone: string; subject: string; message: string };
 type FormErrors = Partial<Record<keyof FormState | "rating" | "file", string>>;
 const initialForm: FormState = { phone: "", subject: "", message: "" };
-const inputStyles =
-  "surface-panel w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary disabled:cursor-not-allowed disabled:opacity-60";
 
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="type-meta mt-1.5 text-error">
+      {message}
+    </p>
+  );
 }
 
 export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
@@ -120,186 +107,191 @@ export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
 
   if (status === "success")
     return (
-      <Card className="bg-primary-soft flex flex-col items-center px-6 py-12 text-center">
-        <CheckCircle2 className="text-primary h-12 w-12" aria-hidden="true" />
-        <h3 className="mt-4 text-xl font-bold tracking-tight">Testimonial received!</h3>
-        <p className="text-muted mt-2 max-w-sm text-sm leading-relaxed">
+      <div role="status" className="surface flex flex-col items-start p-6 sm:p-8">
+        <CheckCircle2 className="h-8 w-8 text-verdigris" aria-hidden="true" />
+        <h3 className="type-h3 mt-4">Testimonial received!</h3>
+        <p className="type-body mt-2 text-ink-muted">
           Thank you for sharing your experience. Your verified testimonial is awaiting
           review.
         </p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="border-border-strong hover:border-primary hover:text-primary mt-6 rounded-full border px-5 py-2 text-sm font-medium transition-colors"
-        >
+        <Button variant="secondary" className="mt-6" onClick={() => setStatus("idle")}>
           Submit another testimonial
-        </button>
-      </Card>
+        </Button>
+      </div>
     );
 
   const fields = (
-    <>
-      <fieldset disabled={locked} className="contents">
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <label htmlFor="testimonial-name" className="mb-2 block text-sm font-medium">
-              Name
-            </label>
-            <input
-              id="testimonial-name"
-              value={user?.name ?? ""}
-              readOnly
-              placeholder="Filled from your Google account"
-              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm disabled:opacity-60"
-            />
-          </div>
-          <div>
-            <label htmlFor="testimonial-email" className="mb-2 block text-sm font-medium">
-              Email
-            </label>
-            <input
-              id="testimonial-email"
-              value={user?.email ?? ""}
-              readOnly
-              placeholder="Filled from your Google account"
-              className="border-border bg-muted/40 text-muted h-11 w-full rounded-xl border px-4 text-sm disabled:opacity-60"
-            />
-          </div>
-        </div>
-        <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <div>
-            <label htmlFor="testimonial-phone" className="mb-2 block text-sm font-medium">
-              Phone number
-            </label>
-            <input
-              id="testimonial-phone"
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              placeholder="+92 300 0000000"
-              value={form.phone}
-              onChange={handleChange}
-              aria-invalid={Boolean(errors.phone)}
-              className={cn(inputStyles, errors.phone && "border-red-500")}
-            />
-            {errors.phone && (
-              <p role="alert" className="mt-1.5 text-xs text-red-500">
-                {errors.phone}
-              </p>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor="testimonial-subject"
-              className="mb-2 block text-sm font-medium"
-            >
-              Subject
-            </label>
-            <input
-              id="testimonial-subject"
-              name="subject"
-              placeholder="Project collaboration"
-              value={form.subject}
-              onChange={handleChange}
-              aria-invalid={Boolean(errors.subject)}
-              className={cn(inputStyles, errors.subject && "border-red-500")}
-            />
-            {errors.subject && (
-              <p role="alert" className="mt-1.5 text-xs text-red-500">
-                {errors.subject}
-              </p>
-            )}
-          </div>
-        </div>
-        <div className="mt-5">
-          <label htmlFor="testimonial-message" className="mb-2 block text-sm font-medium">
-            Testimonial
+    <fieldset disabled={locked} className="contents">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="testimonial-name" className="field-label">
+            Name
           </label>
-          <textarea
-            id="testimonial-message"
-            name="message"
-            rows={3}
-            placeholder="Share your experience working together…"
-            value={form.message}
-            onChange={handleChange}
-            aria-invalid={Boolean(errors.message)}
-            className={cn(inputStyles, "resize-y", errors.message && "border-red-500")}
+          <input
+            id="testimonial-name"
+            value={user?.name ?? ""}
+            readOnly
+            placeholder="Filled from your Google account"
+            className="field"
           />
-          {errors.message && (
-            <p role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.message}
-            </p>
-          )}
         </div>
-        <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <div>
-            <p className="mb-2 text-sm font-medium">Rating</p>
-            <StarRating
-              value={rating}
-              onChange={(value) => {
-                setRating(value);
-                setErrors((current) => ({ ...current, rating: undefined }));
-              }}
-              disabled={locked || status === "sending"}
-            />
-            {errors.rating && (
-              <p role="alert" className="mt-1.5 text-xs text-red-500">
-                {errors.rating}
-              </p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="testimonial-file" className="mb-2 block text-sm font-medium">
-              Reference letter{" "}
-              <span className="text-muted font-normal">(optional, PDF/DOC/DOCX)</span>
-            </label>
-            <input
-              id="testimonial-file"
-              type="file"
-              accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              onChange={handleFile}
-              className="sr-only"
-            />
-            <label
-              htmlFor="testimonial-file"
-              className={cn(
-                "border-border text-muted flex items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm",
-                locked
-                  ? "cursor-not-allowed opacity-60"
-                  : "hover:border-primary hover:text-primary cursor-pointer",
-              )}
-            >
-              <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="truncate">{file ? file.name : "Choose a document"}</span>
-            </label>
-            {file && (
-              <button
-                type="button"
-                onClick={() => setFile(null)}
-                className="text-muted hover:text-foreground mt-2 inline-flex items-center gap-1 text-xs"
-              >
-                <X className="h-3.5 w-3.5" aria-hidden="true" />
-                Remove file
-              </button>
-            )}
-            {errors.file && (
-              <p role="alert" className="mt-1.5 text-xs text-red-500">
-                {errors.file}
-              </p>
-            )}
-          </div>
+        <div>
+          <label htmlFor="testimonial-email" className="field-label">
+            Email
+          </label>
+          <input
+            id="testimonial-email"
+            value={user?.email ?? ""}
+            readOnly
+            placeholder="Filled from your Google account"
+            className="field"
+          />
         </div>
-        <input
-          name="company"
-          tabIndex={-1}
-          autoComplete="off"
-          className="sr-only"
-          aria-hidden="true"
+      </div>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="testimonial-phone" className="field-label">
+            Phone number
+          </label>
+          <input
+            id="testimonial-phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="+92 300 0000000"
+            value={form.phone}
+            onChange={handleChange}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? "testimonial-phone-error" : undefined}
+            className="field"
+          />
+          <FieldError id="testimonial-phone-error" message={errors.phone} />
+        </div>
+        <div>
+          <label htmlFor="testimonial-subject" className="field-label">
+            Subject
+          </label>
+          <input
+            id="testimonial-subject"
+            name="subject"
+            placeholder="Project collaboration"
+            value={form.subject}
+            onChange={handleChange}
+            aria-invalid={Boolean(errors.subject)}
+            aria-describedby={errors.subject ? "testimonial-subject-error" : undefined}
+            className="field"
+          />
+          <FieldError id="testimonial-subject-error" message={errors.subject} />
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <label htmlFor="testimonial-message" className="field-label">
+          Testimonial
+        </label>
+        <textarea
+          id="testimonial-message"
+          name="message"
+          rows={4}
+          placeholder="Share your experience working together…"
+          value={form.message}
+          onChange={handleChange}
+          aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? "testimonial-message-error" : undefined}
+          className="field resize-y"
         />
-      </fieldset>
-      {!locked && (
+        <FieldError id="testimonial-message-error" message={errors.message} />
+      </div>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+        <div>
+          <p className="field-label" id="testimonial-rating-label">
+            Rating
+          </p>
+          <StarRating
+            value={rating}
+            onChange={(value) => {
+              setRating(value);
+              setErrors((current) => ({ ...current, rating: undefined }));
+            }}
+            disabled={locked || status === "sending"}
+          />
+          <FieldError id="testimonial-rating-error" message={errors.rating} />
+        </div>
+        <div>
+          <label htmlFor="testimonial-file" className="field-label">
+            Reference letter{" "}
+            <span className="font-normal text-ink-muted">(optional, PDF/DOC/DOCX)</span>
+          </label>
+          {/* The real input is visually hidden; the label below shows its focus ring. */}
+          <input
+            id="testimonial-file"
+            type="file"
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            onChange={handleFile}
+            aria-describedby={errors.file ? "testimonial-file-error" : undefined}
+            className="peer sr-only"
+          />
+          <label
+            htmlFor="testimonial-file"
+            className={
+              locked
+                ? "flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-dashed border-rule-strong px-3.5 text-[0.9375rem] text-ink-muted opacity-60"
+                : "flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-dashed border-rule-strong px-3.5 text-[0.9375rem] text-ink-muted transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-verdigris hover:border-ink hover:text-ink"
+            }
+          >
+            <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span className="truncate">{file ? file.name : "Choose a document"}</span>
+          </label>
+          {file ? (
+            <button
+              type="button"
+              onClick={() => setFile(null)}
+              className="type-meta mt-1 inline-flex min-h-9 items-center gap-1 text-ink-muted hover:text-ink"
+            >
+              <X className="h-3.5 w-3.5" aria-hidden="true" />
+              Remove file
+            </button>
+          ) : null}
+          <FieldError id="testimonial-file-error" message={errors.file} />
+        </div>
+      </div>
+
+      <input
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        className="sr-only"
+        aria-hidden="true"
+      />
+    </fieldset>
+  );
+
+  return (
+    <div className="surface p-6 sm:p-8">
+      {locked ? (
         <>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mb-7 flex flex-col gap-4 rounded-lg border border-dashed border-rule-strong p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <p className="type-meta text-ink">
+              To keep testimonials authentic, sign in with Google to enable the form. Your
+              name and email are filled in automatically once you sign in.
+            </p>
+            {signInAction ? (
+              <form action={signInAction} className="shrink-0">
+                <Button type="submit">
+                  <LogIn className="h-4 w-4" aria-hidden="true" />
+                  Sign in with Google
+                </Button>
+              </form>
+            ) : null}
+          </div>
+          {fields}
+        </>
+      ) : (
+        <form onSubmit={handleSubmit} noValidate>
+          {fields}
+          <div className="mt-7">
             <Button type="submit" size="lg" disabled={status === "sending"}>
               {status === "sending" ? (
                 <>
@@ -313,86 +305,18 @@ export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
                 </>
               )}
             </Button>
-            <p className="text-muted text-xs">
-              Only approved testimonials are published publicly.
-            </p>
           </div>
-          {status === "error" && (
+          {status === "error" ? (
             <p
               role="alert"
-              className="mt-4 flex items-start gap-2 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500"
+              className="type-meta mt-5 flex items-start gap-2 rounded-lg border border-error/50 px-4 py-3 text-error"
             >
               <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
               <span>{errorMessage}</span>
             </p>
-          )}
-        </>
-      )}
-    </>
-  );
-
-  return (
-    <Card className="p-6 sm:p-8">
-      <div className="flex items-center gap-3">
-        {user?.image ? (
-          <span
-            role="img"
-            aria-label="Your Google profile image"
-            className="h-11 w-11 rounded-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${user.image})` }}
-          />
-        ) : (
-          <span className="bg-primary-soft text-primary flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold">
-            {user ? initials(user.name) : "?"}
-          </span>
-        )}
-        <div>
-          <p className="font-semibold">Share your experience</p>
-          <p className="text-muted text-sm">
-            Your identity is verified through Google before publication.
-          </p>
-        </div>
-      </div>
-
-      {locked && (
-        <div className="border-primary/30 bg-primary-soft mt-6 flex flex-col gap-4 rounded-xl border border-dashed p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
-          <p className="text-sm leading-relaxed">
-            To keep testimonials authentic, sign in with Google to enable the form. Your
-            name and email are filled in automatically once you sign in.
-          </p>
-          {signInAction && (
-            <form action={signInAction} className="shrink-0">
-              <Button type="submit">
-                <LogIn className="h-4 w-4" aria-hidden="true" />
-                Sign in with Google
-              </Button>
-            </form>
-          )}
-        </div>
-      )}
-
-      {locked ? (
-        <div className="mt-7">
-          {fields}
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            {signInAction && (
-              <form action={signInAction}>
-                <Button type="submit" size="lg">
-                  <LogIn className="h-4 w-4" aria-hidden="true" />
-                  Sign in to submit
-                </Button>
-              </form>
-            )}
-            <p className="text-muted text-xs">
-              Only approved testimonials are published publicly.
-            </p>
-          </div>
-        </div>
-      ) : (
-        <form className="mt-7" onSubmit={handleSubmit} noValidate>
-          {fields}
+          ) : null}
         </form>
       )}
-    </Card>
+    </div>
   );
 }

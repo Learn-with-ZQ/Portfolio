@@ -31,14 +31,15 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={cycleTheme}
-      aria-label={`Theme: ${current}. Click to change.`}
+      aria-label={`Theme: ${current}. Change theme.`}
       title={`Theme: ${current}`}
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-primary hover:text-primary",
+        "flex h-11 w-11 items-center justify-center rounded-md border border-rule text-ink-muted transition-colors hover:border-rule-strong hover:text-ink",
         className,
       )}
     >
-      {mounted ? <Icon className="h-[18px] w-[18px]" /> : <span className="h-[18px] w-[18px]" />}
+      {/* Same-size placeholder before mount, so nothing shifts or flashes. */}
+      {mounted ? <Icon className="h-[18px] w-[18px]" aria-hidden="true" /> : <span className="h-[18px] w-[18px]" />}
     </button>
   );
 }

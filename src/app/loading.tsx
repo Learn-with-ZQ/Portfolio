@@ -1,16 +1,15 @@
+import { Container } from "@/components/ui/container";
+
 export default function Loading() {
   return (
-    <div
-      className="flex min-h-[70vh] items-center justify-center pt-16"
-      role="status"
-      aria-label="Loading page"
-    >
-      <div className="flex flex-col items-center gap-4">
-        <span className="flex h-12 w-12 animate-pulse items-center justify-center rounded-2xl bg-primary font-mono text-sm font-bold text-primary-foreground">
-          ZQ
-        </span>
-        <span className="text-sm text-muted">Loading…</span>
-      </div>
+    <div role="status" aria-label="Loading page">
+      <Container className="py-24">
+        {/* Brass: in progress. Stops moving under reduced motion. */}
+        <div className="h-0.5 w-48 overflow-hidden rounded-full bg-rule">
+          <div className="loading-bar h-full w-1/3 rounded-full bg-brass" />
+        </div>
+        <p className="type-meta mt-4 text-ink-muted">Loading…</p>
+      </Container>
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { CheckCircle2, Loader2, Send, TriangleAlert } from "lucide-react";
 import { contactInfo } from "@/data/contact";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 interface FormState {
   name: string;
@@ -25,8 +24,14 @@ const initialState: FormState = {
   message: "",
 };
 
-const inputStyles =
-  "surface-panel w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-muted focus:border-primary";
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="type-meta mt-1.5 text-error">
+      {message}
+    </p>
+  );
+}
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -88,32 +93,25 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div
-        role="status"
-        className="flex flex-col items-center rounded-[1.8rem] bg-primary-soft px-6 py-12 text-center"
-      >
-        <CheckCircle2 className="h-12 w-12 text-primary" aria-hidden="true" />
-        <h3 className="mt-4 text-xl font-bold tracking-tight">Message received!</h3>
-        <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
-          Thanks for reaching out — your message has been recorded and I&apos;ll get
-          back to you soon.
+      <div role="status" className="surface-quiet flex flex-col items-start p-6">
+        <CheckCircle2 className="h-8 w-8 text-verdigris" aria-hidden="true" />
+        <h3 className="type-h3 mt-4">Message received!</h3>
+        <p className="type-body mt-2 text-ink-muted">
+          Thanks for reaching out — your message has been recorded and I&apos;ll get back to
+          you soon.
         </p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="mt-6 rounded-full border border-border-strong px-5 py-2 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
-        >
+        <Button variant="secondary" className="mt-6" onClick={() => setStatus("idle")}>
           Send another message
-        </button>
+        </Button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
+    <form onSubmit={handleSubmit} noValidate className="relative">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-name" className="mb-2 block text-sm font-medium">
+          <label htmlFor="contact-name" className="field-label">
             Name
           </label>
           <input
@@ -126,17 +124,13 @@ export function ContactForm() {
             onChange={handleChange}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "contact-name-error" : undefined}
-            className={cn(inputStyles, errors.name && "border-red-500")}
+            className="field"
           />
-          {errors.name ? (
-            <p id="contact-name-error" role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.name}
-            </p>
-          ) : null}
+          <FieldError id="contact-name-error" message={errors.name} />
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="mb-2 block text-sm font-medium">
+          <label htmlFor="contact-email" className="field-label">
             Email
           </label>
           <input
@@ -149,20 +143,16 @@ export function ContactForm() {
             onChange={handleChange}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "contact-email-error" : undefined}
-            className={cn(inputStyles, errors.email && "border-red-500")}
+            className="field"
           />
-          {errors.email ? (
-            <p id="contact-email-error" role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.email}
-            </p>
-          ) : null}
+          <FieldError id="contact-email-error" message={errors.email} />
         </div>
       </div>
 
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-phone" className="mb-2 block text-sm font-medium">
-            Phone <span className="font-normal text-muted">(optional)</span>
+          <label htmlFor="contact-phone" className="field-label">
+            Phone <span className="font-normal text-ink-muted">(optional)</span>
           </label>
           <input
             id="contact-phone"
@@ -174,18 +164,14 @@ export function ContactForm() {
             onChange={handleChange}
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? "contact-phone-error" : undefined}
-            className={cn(inputStyles, errors.phone && "border-red-500")}
+            className="field"
           />
-          {errors.phone ? (
-            <p id="contact-phone-error" role="alert" className="mt-1.5 text-xs text-red-500">
-              {errors.phone}
-            </p>
-          ) : null}
+          <FieldError id="contact-phone-error" message={errors.phone} />
         </div>
 
         <div>
-          <label htmlFor="contact-subject" className="mb-2 block text-sm font-medium">
-            Subject <span className="font-normal text-muted">(optional)</span>
+          <label htmlFor="contact-subject" className="field-label">
+            Subject <span className="font-normal text-ink-muted">(optional)</span>
           </label>
           <input
             id="contact-subject"
@@ -194,13 +180,13 @@ export function ContactForm() {
             placeholder="What is this about?"
             value={form.subject}
             onChange={handleChange}
-            className={inputStyles}
+            className="field"
           />
         </div>
       </div>
 
       <div className="mt-5">
-        <label htmlFor="contact-message" className="mb-2 block text-sm font-medium">
+        <label htmlFor="contact-message" className="field-label">
           Message
         </label>
         <textarea
@@ -212,13 +198,9 @@ export function ContactForm() {
           onChange={handleChange}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
-          className={cn(inputStyles, "resize-y", errors.message && "border-red-500")}
+          className="field resize-y"
         />
-        {errors.message ? (
-          <p id="contact-message-error" role="alert" className="mt-1.5 text-xs text-red-500">
-            {errors.message}
-          </p>
-        ) : null}
+        <FieldError id="contact-message-error" message={errors.message} />
       </div>
 
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
@@ -234,7 +216,7 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-4">
+      <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
         <Button type="submit" size="lg" disabled={status === "sending"}>
           {status === "sending" ? (
             <>
@@ -244,11 +226,11 @@ export function ContactForm() {
           ) : (
             <>
               <Send className="h-4 w-4" aria-hidden="true" />
-              Send Message
+              Send message
             </>
           )}
         </Button>
-        <p className="text-xs text-muted">
+        <p className="type-meta text-ink-muted">
           Your message is recorded securely — no account or email app needed.
         </p>
       </div>
@@ -256,7 +238,7 @@ export function ContactForm() {
       {status === "error" ? (
         <p
           role="alert"
-          className="mt-4 flex items-start gap-2 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500"
+          className="type-meta mt-5 flex items-start gap-2 rounded-lg border border-error/50 px-4 py-3 text-error"
         >
           <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <span>

@@ -1,20 +1,8 @@
-import { ArrowRight, Braces, Code2, Database, Layout, Server, Smartphone, Users, Wrench } from "lucide-react";
+import Link from "next/link";
 import { skillCategories } from "@/data/skills";
 import { Section, SectionHeading } from "@/components/ui/section";
-import { ButtonLink } from "@/components/ui/button";
+import { RecordRow } from "@/components/ui/record-row";
 import { Badge } from "@/components/ui/badge";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  server: Server,
-  code: Code2,
-  database: Database,
-  smartphone: Smartphone,
-  layout: Layout,
-  braces: Braces,
-  wrench: Wrench,
-  users: Users,
-};
 
 const previewCategoryIds = ["backend", "database", "mobile", "concepts"];
 
@@ -24,40 +12,33 @@ export function SkillsPreview() {
   );
 
   return (
-    <Section className="py-8 sm:py-10 lg:py-12">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Capability stack"
-          title="Built to ship, support, and scale"
-          description="A focused snapshot of the tools and systems I use to turn complex requirements into dependable software."
-        />
-      </Reveal>
-      <Stagger className="grid gap-6 lg:grid-cols-2">
-        {categories.map((category) => {
-          const Icon = iconMap[category.icon] ?? Code2;
-          return (
-            <StaggerItem key={category.id} className="section-shell rounded-[1.7rem] p-6">
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="text-lg font-semibold">{category.title}</h3>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <Badge key={skill.name}>{skill.name}</Badge>
-                ))}
-              </div>
-            </StaggerItem>
-          );
-        })}
-      </Stagger>
-      <Reveal className="mt-10 text-center" delay={0.1}>
-        <ButtonLink href="/skills" variant="outline" size="lg">
-          See All Skills
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </ButtonLink>
-      </Reveal>
+    <Section rule labelledBy="capabilities-title">
+      <SectionHeading
+        id="capabilities-title"
+        title="Capabilities"
+        description="A focused snapshot of the tools and systems I use to turn complex requirements into dependable software."
+        action={
+          <Link href="/skills" className="link type-meta font-medium">
+            Full skills breakdown
+          </Link>
+        }
+      />
+      <div>
+        {categories.map((category) => (
+          <RecordRow
+            key={category.id}
+            aside={<h3 className="type-h3">{category.title}</h3>}
+          >
+            <ul className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <li key={skill.name}>
+                  <Badge>{skill.name}</Badge>
+                </li>
+              ))}
+            </ul>
+          </RecordRow>
+        ))}
+      </div>
     </Section>
   );
 }

@@ -1,12 +1,10 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { Mail, MapPin, Phone } from "lucide-react";
 import { contactInfo } from "@/data/contact";
 import { socialLinks } from "@/data/social";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { SocialIcons } from "@/components/ui/social-icons";
 import { ContactForm } from "@/components/contact/contact-form";
-import { Reveal } from "@/components/motion/reveal";
 
 export const metadata = createPageMetadata({
   title: "Contact",
@@ -16,80 +14,56 @@ export const metadata = createPageMetadata({
 });
 
 const contactRows = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: contactInfo.email,
-    href: `mailto:${contactInfo.email}`,
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: contactInfo.phoneDisplay,
-    href: `tel:${contactInfo.phone}`,
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: contactInfo.location,
-  },
+  { label: "Email", value: contactInfo.email, href: `mailto:${contactInfo.email}` },
+  { label: "Phone", value: contactInfo.phoneDisplay, href: `tel:${contactInfo.phone}` },
+  { label: "Location", value: contactInfo.location },
 ];
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Get In Touch"
         title="Contact"
         description="Have a question or an opportunity? Send a message — I usually respond within a day."
       />
-      <Section className="pt-0 sm:pt-0">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <Reveal>
-            <div className="section-shell rounded-[2rem] p-6 sm:p-8">
-              <h2 className="text-xl font-bold tracking-tight">Send a message</h2>
-              <p className="mt-2 text-sm text-muted">
-                Fill in the form and your message lands straight in my inbox tray —
-                I&apos;ll reply to the email (or phone number) you leave here.
-              </p>
-              <div className="mt-6">
-                <ContactForm />
-              </div>
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+          <div className="surface min-w-0 p-6 sm:p-8">
+            <h2 className="type-h3">Send a message</h2>
+            <p className="type-meta mt-1.5 max-w-[60ch] text-ink-muted">
+              Fill in the form and your message lands straight in my inbox tray — I&apos;ll
+              reply to the email (or phone number) you leave here.
+            </p>
+            <div className="mt-6">
+              <ContactForm />
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.1}>
-            <div className="surface-panel rounded-[1.8rem] p-6 sm:p-8 lg:sticky lg:top-28">
-              <h2 className="text-xl font-bold tracking-tight">Reach me directly</h2>
-              <ul className="mt-6 space-y-5">
-                {contactRows.map((row) => (
-                  <li key={row.label} className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                      <row.icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-muted">{row.label}</p>
-                      {row.href ? (
-                        <a
-                          href={row.href}
-                          className="mt-0.5 block font-medium break-all transition-colors hover:text-primary"
-                        >
-                          {row.value}
-                        </a>
-                      ) : (
-                        <p className="mt-0.5 font-medium">{row.value}</p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-
-              <h3 className="mt-8 text-sm font-semibold tracking-wider uppercase">
-                Find me online
-              </h3>
-              <SocialIcons links={socialLinks} className="mt-4" />
-            </div>
-          </Reveal>
+          <aside aria-labelledby="direct-title" className="min-w-0">
+            <h2 id="direct-title" className="type-h3">
+              Reach me directly
+            </h2>
+            <dl className="mt-4">
+              {contactRows.map((row) => (
+                <div key={row.label} className="border-t border-rule py-4">
+                  <dt className="type-meta text-ink-muted">{row.label}</dt>
+                  <dd className="mt-1 [overflow-wrap:anywhere]">
+                    {row.href ? (
+                      <a href={row.href} className="link">
+                        {row.value}
+                      </a>
+                    ) : (
+                      <span className="text-ink">{row.value}</span>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <h2 className="type-meta border-t border-rule pt-5 font-semibold text-ink">
+              Find me online
+            </h2>
+            <SocialIcons links={socialLinks} className="mt-3" />
+          </aside>
         </div>
       </Section>
     </>
