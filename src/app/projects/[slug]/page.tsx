@@ -66,12 +66,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <JsonLd data={projectSchema} />
-      <div className="bg-grid relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <div
-          aria-hidden="true"
-          className="absolute top-0 left-1/2 h-72 w-[36rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-3xl"
-          style={{ background: "linear-gradient(120deg, var(--primary), var(--accent))" }}
-        />
+      <div className="relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16">
         <Container className="relative">
           <Reveal>
             <Link
@@ -96,8 +91,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       </div>
 
       <Container className="pb-16 sm:pb-24">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr]">
-          <div>
+        {/* 0.6fr left the meta sidebar at ~210px of text on a 1024 screen. */}
+        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.9fr]">
+          <div className="min-w-0">
             <Reveal>
               <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
               {project.description.map((paragraph, index) => (

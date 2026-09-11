@@ -35,9 +35,10 @@ export function Journey() {
           description="The milestones, roles, and ambitions that continue to define how I build."
         />
       </Reveal>
-      <Stagger className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {/* Four across left ~228px of measure — about 30 characters a line. */}
+      <Stagger className="grid gap-6 md:grid-cols-2">
         {storyCards.map((card) => (
-          <StaggerItem key={card.title} className="section-shell rounded-[1.7rem] p-6">
+          <StaggerItem key={card.title} className="section-shell min-w-0 rounded-[1.7rem] p-6">
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
               <card.icon className="h-5 w-5" aria-hidden="true" />
             </span>

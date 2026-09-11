@@ -1,14 +1,15 @@
 import type { Testimonial } from "@/types";
 
 /**
- * Approved testimonials shown publicly on the site.
+ * Fallback testimonials.
  *
- * IMPORTANT: the site renders ONLY this array — it does NOT read the Google
- * Sheet. Deleting rows in the sheet has no effect here, and adding an entry
- * here is what makes a testimonial appear on the site.
+ * The site normally reads approved testimonials live from the "Portfolio
+ * Testimonials" Google Sheet (see src/lib/testimonials.ts). This array is used
+ * only when TESTIMONIAL_WEBHOOK_URL is unset, the sheet can't be reached, or it
+ * returns no approved rows.
  *
- * Workflow: submissions land in the "Portfolio Testimonials" Google Sheet with
- * Approval Status = Pending. To publish one, review it, then add an entry below.
+ * To publish a testimonial, set its Approval Status to "Approved" in the
+ * sheet — no code change needed. Add entries here only as an offline fallback.
  *
  * Field mapping (Sheet column -> field):
  *   Name              -> name

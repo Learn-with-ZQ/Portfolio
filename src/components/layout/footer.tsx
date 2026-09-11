@@ -14,12 +14,12 @@ export function Footer() {
     <footer className="border-t border-border/70 bg-background/70">
       <Container className="py-8 sm:py-10">
         <div className="rounded-[1.3rem] border border-border/70 bg-card/70 p-6 sm:p-8 lg:p-10">
-          <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.7fr_repeat(3,1fr)]">
             <div>
               <Link href="/" className="text-lg font-semibold tracking-tight">
                 Zaid<span className="text-gradient">Qasim</span>
               </Link>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
                 {profile.role} · {profile.location}. Building secure, scalable
                 enterprise web &amp; mobile applications.
               </p>

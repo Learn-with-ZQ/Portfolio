@@ -9,12 +9,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <div className="relative overflow-hidden bg-grid pt-24 pb-10 sm:pt-28 sm:pb-12">
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-1/2 h-72 w-[36rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "linear-gradient(120deg, var(--primary), var(--accent))" }}
-      />
+    <div className="relative overflow-hidden pt-24 pb-10 sm:pt-28 sm:pb-12">
       <Container className="relative">
         <Reveal>
           <div className="section-shell rounded-[2rem] border border-border/70 p-8 sm:p-10 lg:p-14">

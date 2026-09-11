@@ -11,7 +11,7 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   return (
-    <div className="bg-grid flex min-h-[70vh] items-center pt-16">
+    <div className="flex min-h-[70vh] items-center pt-16">
       <Container className="py-20 text-center">
         <p className="text-gradient font-mono text-6xl font-bold">Oops</p>
         <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">

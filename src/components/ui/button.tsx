@@ -9,7 +9,7 @@ const baseStyles =
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-white hover:bg-foreground",
+    "bg-primary text-primary-foreground hover:bg-foreground",
   secondary:
     "bg-primary-soft text-primary border border-border hover:bg-card hover:text-foreground",
   outline:

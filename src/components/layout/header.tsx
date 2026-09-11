@@ -48,7 +48,7 @@ export function Header() {
         backgroundColor: isScrolled || isMenuOpen ? "var(--header-bg)" : "transparent",
       }}
     >
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-1.5 sm:px-2.5 lg:px-3 xl:px-3.5">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link
           href="/"
           className="group flex items-center gap-2 text-lg font-semibold tracking-tight"
@@ -94,7 +94,7 @@ export function Header() {
           <a
             href={profile.resumeUrl}
             download
-            className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-foreground md:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-foreground md:inline-flex"
           >
             <FileDown className="h-4 w-4" aria-hidden="true" />
             Resume
@@ -146,7 +146,7 @@ export function Header() {
                 <a
                   href={profile.resumeUrl}
                   download
-                  className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-medium text-white"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-medium text-primary-foreground"
                 >
                   <FileDown className="h-4 w-4" aria-hidden="true" />
                   Download Resume

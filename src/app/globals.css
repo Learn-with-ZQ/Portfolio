@@ -5,16 +5,17 @@
 :root {
   --background: #f5f2ea;
   --foreground: #111827;
-  --muted: #64748b;
+  --muted: #4d5665;
   --card: rgba(255, 255, 255, 0.9);
   --card-hover: rgba(255, 255, 255, 0.98);
   --border: rgba(17, 24, 39, 0.08);
   --border-strong: rgba(17, 24, 39, 0.14);
   --primary: #111827;
+  --primary-foreground: #ffffff;
   --primary-soft: rgba(17, 24, 39, 0.08);
   --accent: #2563eb;
   --accent-soft: rgba(37, 99, 235, 0.1);
-  --ring: rgba(37, 99, 235, 0.3);
+  --ring: #1d4ed8;
   --glow: rgba(37, 99, 235, 0.12);
   --grid-line: rgba(17, 24, 39, 0.05);
   --header-bg: rgba(245, 242, 234, 0.86);
@@ -22,10 +23,10 @@
   --surface-strong: rgba(255, 255, 255, 0.96);
   --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
   --shadow-elevated: 0 18px 46px rgba(15, 23, 42, 0.09);
-  --radius-sm: 0.9rem;
-  --radius-md: 1.1rem;
-  --radius-lg: 1.45rem;
-  --radius-xl: 1.95rem;
+  /* Namespaced away from Tailwind's own --radius-* theme scale, which these
+     would otherwise shadow — inflating every rounded-sm/md/lg/xl utility. */
+  --panel-radius: 1.45rem;
+  --panel-radius-lg: 1.95rem;
 }
 
 html.dark {
@@ -37,10 +38,11 @@ html.dark {
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.14);
   --primary: #f8fafc;
+  --primary-foreground: #060a11;
   --primary-soft: rgba(248, 250, 252, 0.1);
   --accent: #60a5fa;
   --accent-soft: rgba(96, 165, 250, 0.14);
-  --ring: rgba(96, 165, 250, 0.35);
+  --ring: #60a5fa;
   --glow: rgba(96, 165, 250, 0.12);
   --grid-line: rgba(255, 255, 255, 0.04);
   --header-bg: rgba(6, 10, 17, 0.86);
@@ -59,6 +61,7 @@ html.dark {
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-primary-soft: var(--primary-soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
@@ -76,137 +79,106 @@ html.dark {
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100%;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    z-index: -1;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
 }
 
-body {
-  min-height: 100%;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-feature-settings: "cv11", "ss01";
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  z-index: -1;
-}
-
-::selection {
-  background: var(--primary);
-  color: #ffffff;
-}
-
+/* Unlayered on purpose: the focus indicator must win over any utility.
+   It sets outline only — outlines follow the element's own border-radius,
+   so pill buttons keep their shape while focused. */
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-.bg-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
+@layer components {
+  .text-gradient {
+    color: var(--accent);
+    background: none;
+  }
 
-.text-gradient {
-  color: var(--accent);
-  background: none;
-}
+  .bg-gradient-brand {
+    background: var(--primary);
+  }
 
-.bg-gradient-brand {
-  background: var(--primary);
-}
+  .glow-primary {
+    box-shadow: 0 0 80px var(--glow);
+  }
 
-.glow-primary {
-  box-shadow: 0 0 80px var(--glow);
-}
+  .surface-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--panel-radius);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+    transition:
+      border-color 0.3s ease,
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
 
-.surface-panel {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(10px);
-  transition:
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
+  .surface-panel:hover {
+    background: var(--card-hover);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-elevated);
+  }
 
-.surface-panel:hover {
-  background: var(--card-hover);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-elevated);
-}
+  .glass-panel {
+    background: color-mix(in srgb, var(--card) 82%, transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--panel-radius-lg);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(12px);
+  }
 
-.glass-panel {
-  background: color-mix(in srgb, var(--card) 82%, transparent);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-}
+  .page-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--card);
+    box-shadow: var(--shadow-soft);
+  }
 
-.page-shell {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  background: var(--card);
-  box-shadow: var(--shadow-soft);
-}
-
-.page-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, color-mix(in srgb, var(--primary) 14%, transparent), transparent 42%);
-  pointer-events: none;
-}
-
-.page-shell::after {
-  content: none;
-}
-
-.page-shell > * {
-  position: relative;
-  z-index: 1;
-}
-
-.section-shell {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 1.1rem;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  box-shadow: none;
-}
-
-.section-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, var(--glow), transparent 45%);
-  pointer-events: none;
-}
-
-.section-shell > * {
-  position: relative;
-  z-index: 1;
+  .section-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 1.1rem;
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    box-shadow: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

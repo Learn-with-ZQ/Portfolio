@@ -8,10 +8,6 @@ export function CallToAction() {
     <Section>
       <Reveal>
         <div className="page-shell relative overflow-hidden rounded-[2.2rem] px-6 py-14 text-center sm:px-12 sm:py-20">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.24),transparent_60%)]"
-          />
           <div className="relative mx-auto max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">
               Ready to build something memorable?

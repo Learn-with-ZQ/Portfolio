@@ -50,7 +50,9 @@ export default function ServicesPage() {
             </h2>
           </div>
         </div>
-        <Stagger className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Three across only from xl: at lg it left 222px of measure for
+            descriptions running to 170 characters. */}
+        <Stagger className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Server;
             return (

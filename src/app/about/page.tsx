@@ -24,65 +24,36 @@ export default function AboutPage() {
       />
 
       <Section className="pt-0 sm:pt-4">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <Reveal direction="right">
-            <div className="space-y-6">
-              <div className="section-shell rounded-[2rem] p-6 sm:p-8 lg:sticky lg:top-28">
-                <div className="relative mx-auto max-w-sm">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-border-strong"
-                  />
-                  <Image
-                    src={profile.avatar}
-                    alt={`Portrait of ${profile.name}`}
-                    width={640}
-                    height={853}
-                    sizes="(max-width: 1024px) 24rem, 26rem"
-                    className="relative h-auto w-full rounded-[2rem] border border-border object-cover"
-                  />
-                </div>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {profile.highlights.map((highlight) => (
-                    <Badge key={highlight} variant="primary">
-                      {highlight}
-                    </Badge>
-                  ))}
-                </div>
+        {/* The portrait rail is sticky, so it must be the only thing in its
+            column — anything below it in the same flow gets slid over. */}
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal direction="right" className="min-w-0">
+            <div className="section-shell rounded-[2rem] p-6 sm:p-8 lg:sticky lg:top-28">
+              <div className="relative mx-auto max-w-sm">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-border-strong"
+                />
+                <Image
+                  src={profile.avatar}
+                  alt={`Portrait of ${profile.name}`}
+                  width={640}
+                  height={853}
+                  sizes="(max-width: 1024px) 24rem, 26rem"
+                  className="relative h-auto w-full rounded-[2rem] border border-border object-cover"
+                />
               </div>
-
-              <Stagger className="grid gap-6 sm:grid-cols-2">
-                <StaggerItem className="surface-panel rounded-[1.6rem] p-6 sm:p-8">
-                  <div className="flex items-start gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                      <Target className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <h3 className="text-base font-semibold">Mission</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                        {mission}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-                <StaggerItem className="surface-panel rounded-[1.6rem] p-6 sm:p-8">
-                  <div className="flex items-start gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
-                      <Compass className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <h3 className="text-base font-semibold">Vision</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                        {vision}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              </Stagger>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {profile.highlights.map((highlight) => (
+                  <Badge key={highlight} variant="primary">
+                    {highlight}
+                  </Badge>
+                ))}
+              </div>
             </div>
           </Reveal>
 
-          <Reveal>
+          <Reveal className="min-w-0">
             <div className="section-shell rounded-[2rem] p-8 sm:p-10">
               <p className="text-sm font-semibold tracking-[0.28em] text-primary uppercase">
                 Professional Biography
@@ -98,6 +69,37 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
+
+        {/* Full width: inside the 0.9fr rail these two dropped to ~84px of
+            text, roughly ten characters per line. */}
+        <Stagger className="mt-8 grid gap-6 md:grid-cols-2">
+          <StaggerItem className="surface-panel min-w-0 rounded-[1.6rem] p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                <Target className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold">Mission</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                  {mission}
+                </p>
+              </div>
+            </div>
+          </StaggerItem>
+          <StaggerItem className="surface-panel min-w-0 rounded-[1.6rem] p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                <Compass className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold">Vision</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                  {vision}
+                </p>
+              </div>
+            </div>
+          </StaggerItem>
+        </Stagger>
       </Section>
 
       <Section className="border-t border-border/60">

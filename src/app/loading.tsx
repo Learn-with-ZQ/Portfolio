@@ -6,7 +6,7 @@ export default function Loading() {
       aria-label="Loading page"
     >
       <div className="flex flex-col items-center gap-4">
-        <span className="bg-gradient-brand flex h-12 w-12 animate-pulse items-center justify-center rounded-2xl font-mono text-sm font-bold text-white">
+        <span className="flex h-12 w-12 animate-pulse items-center justify-center rounded-2xl bg-primary font-mono text-sm font-bold text-primary-foreground">
           ZQ
         </span>
         <span className="text-sm text-muted">Loading…</span>
