@@ -12,11 +12,13 @@ interface PageHeaderProps {
 export function PageHeader({ title, description, meta, children }: PageHeaderProps) {
   return (
     <header className="border-b border-rule">
-      <Container className="pt-14 pb-12 sm:pt-16 lg:pt-20 lg:pb-14">
-        {meta ? <div className="mb-5">{meta}</div> : null}
-        <h1 className="type-h1 max-w-4xl text-balance">{title}</h1>
+      <Container className="pt-10 pb-10 lg:pt-14 lg:pb-12">
+        {meta ? <div className="rise-in mb-5">{meta}</div> : null}
+        <h1 className="type-h1 rise-in max-w-4xl text-balance [--rise-delay:60ms]">{title}</h1>
         {description ? (
-          <p className="type-body mt-4 text-ink-muted">{description}</p>
+          <p className="type-body rise-in mt-4 text-ink-muted [--rise-delay:140ms]">
+            {description}
+          </p>
         ) : null}
         {children}
       </Container>

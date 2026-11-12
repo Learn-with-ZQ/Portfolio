@@ -98,6 +98,25 @@ export function getBreadcrumbSchema(items: BreadcrumbItem[]) {
 }
 
 export function getProjectSchema(project: Project) {
+  const { paper } = project;
+  if (paper) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      headline: paper.title,
+      name: paper.title,
+      description: project.summary,
+      url: absoluteUrl(`/projects/${project.slug}`),
+      author: paper.authors.map((author) =>
+        author.self ? { "@id": personSchemaId } : { "@type": "Person", name: author.name },
+      ),
+      keywords: project.technologies.join(", "),
+      // Presented, not yet in published proceedings — so no datePublished.
+      dateCreated: paper.presented,
+      about: `Presented at ${paper.venueShort}, ${paper.venue}`,
+    };
+  }
+
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",

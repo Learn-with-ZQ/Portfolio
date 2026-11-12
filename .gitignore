@@ -42,3 +42,12 @@ next-env.d.ts
 
 #claude
 /.claude/
+
+# private notes and AI-assistant files
+# (removed from the repo in 7806486; the current versions live in .claude/)
+/AGENTS.md
+/CLAUDE.md
+/SEOReport.md
+/context/
+/docs/
+/.agents/

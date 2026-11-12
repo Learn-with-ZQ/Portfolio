@@ -2,6 +2,46 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "from-alarm-to-action",
+    name: "From Alarm to Action",
+    category: "Research",
+    context: "NED University · Conference paper, AIIE 2026",
+    summary:
+      "Conference paper on whether an open-weight LLM can explain machine-failure alarms faithfully: machine learning predicts the failure, SHAP shows why, the LLM writes the maintenance report, and code verifies it.",
+    description: [
+      "Predictive maintenance models can warn that a machine is likely to fail, but they rarely say why or what to do about it. In this paper, written with Abrar Saleem during my MS at NED University and presented at AIIE 2026, we tested whether a large language model can turn model evidence into a maintenance report without distorting it.",
+      "The design keeps the roles apart: code predicts and decides, the LLM explains, and code checks. A calibrated gradient-boosting model raises a cost-based alarm, four failure-type models rank the likely cause, SHAP identifies the readings behind the score, and knowledge cards supply the permitted actions. Granite-3.1-8B, an open-weight model, writes a structured report from that evidence, and an eleven-check verifier tests every report against it.",
+      "We locked 250 test cases from the AI4I 2020 benchmark before any report existed, then scored 2,000 LLM reports across eight conditions automatically, against both the evidence and the dataset's ground truth. With evidence, the LLM's reports were as faithful as a deterministic template. Given raw readings alone, the same model named the true failure type for only 46% of real alarms. Grounding made the LLM a faithful explainer, not a diagnostician.",
+    ],
+    highlights: [
+      "2,000 LLM reports in eight conditions, scored on 250 test cases locked before any report was generated",
+      "The full method matched a deterministic template on numerical fidelity, evidence faithfulness and failure-type correctness (100% each)",
+      "Knowledge cards raised action appropriateness from 31.7% to 100%",
+      "Given deliberately swapped evidence, the LLM followed the evidence in all 100 cases",
+      "Showed the limit of rule-based verification: it catches invented content, but passed reports that described a reading in the wrong direction (2.8–7.2%)",
+    ],
+    technologies: [
+      "Python",
+      "scikit-learn",
+      "SHAP",
+      "Hugging Face Transformers",
+      "Granite-3.1-8B",
+      "Jupyter",
+      "Kaggle",
+    ],
+    startDate: "2026-10",
+    endDate: "2026-11",
+    featured: true,
+    paper: {
+      title:
+        "From Alarm to Action: Explaining Why Machines Fail and What to Do, Using Machine Learning, Explainable AI and Large Language Models",
+      authors: [{ name: "Abrar Saleem" }, { name: "Zaid Qasim", self: true }],
+      venue: "International Conference on AI and IoT for Engineering",
+      venueShort: "AIIE 2026",
+      presented: "2026-11-11",
+    },
+  },
+  {
     slug: "net-2-bank",
     name: "Net 2 Bank",
     category: "Mobile",
@@ -68,7 +108,9 @@ export const projects: Project[] = [
     technologies: ["ASP.NET", "SQL Server", "C#"],
     startDate: "2023-05",
     endDate: null,
-    featured: true,
+    // Not in "Selected work": chapter 02 of the home-page story already covers
+    // it, and the selected-work grid holds four.
+    featured: false,
   },
   {
     slug: "edu-smartz-student-portal",
@@ -122,16 +164,17 @@ export const projects: Project[] = [
     category: "Academic",
     context: "Final Year Project · PAF-KIET",
     summary:
-      "Intelligent space optimization system for the NP-hard 2D Bin Packing Problem — combining optimization algorithms with image recognition for hand-drawn object input.",
+      "Intelligent space optimization system for the NP-hard 2D Bin Packing Problem — objects are entered by dimension or drawn by hand, then packed by optimization algorithms.",
     description: [
       "My Final Year Project tackled the Two-Dimensional Bin Packing Problem (2D-BPP) — an NP-hard optimization problem with real applications in logistics, manufacturing, and space planning.",
       "The system arranges user-defined objects to maximize container space utilization, generating optimized placement strategies through optimization algorithms.",
-      "What makes it distinctive is the input method: integrated image recognition identifies hand-drawn objects, so users can sketch shapes and have the system recognize, measure, and pack them automatically.",
+      "What makes it distinctive is the input method. Users can enter the dimensions of a standard shape — a line, triangle, rectangle, circle or square — or draw an object by hand. Any custom drawing is treated as a hand-drawn image, which integrated image recognition identifies and measures before packing.",
     ],
     highlights: [
       "Research on the NP-hard 2D Bin Packing Problem",
       "Optimization algorithms for placement strategy generation",
-      "Image recognition for hand-drawn object input",
+      "Two input modes: dimensions for standard shapes, or a freehand drawing",
+      "Image recognition to identify and measure hand-drawn objects",
       "ASP.NET front end with Python optimization engine",
     ],
     technologies: ["ASP.NET", "Python", "Image Recognition"],
@@ -207,7 +250,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const projectCategories = ["All", "Enterprise", "Mobile", "Academic"] as const;
+export const projectCategories = ["All", "Enterprise", "Mobile", "Academic", "Research"] as const;
 
 /**
  * The Net 2 Bank approval pipeline, drawn as the home-page schematic and on
@@ -217,11 +260,37 @@ export const projectCategories = ["All", "Enterprise", "Mobile", "Academic"] as 
 export const authorizationFlow = {
   projectSlug: "net-2-bank",
   transactionTypes: ["IBFT", "IFT", "Cheque"],
+  // `state` is the static diagram's label; `activeLabel` / `doneLabel` are the
+  // scroll-driven one's, while the stage is in progress and once it's cleared.
   stages: [
-    { role: "Maker", duty: "Creates the transaction", state: "Created" },
-    { role: "Checker", duty: "Verifies the details", state: "Verified" },
-    { role: "Signatory", duty: "Approves the transfer", state: "Approved" },
-    { role: "Releasor", duty: "Executes it to core banking", state: "Awaiting release" },
+    {
+      role: "Maker",
+      duty: "Creates the transaction",
+      state: "Created",
+      activeLabel: "Creating",
+      doneLabel: "Created",
+    },
+    {
+      role: "Checker",
+      duty: "Verifies the details",
+      state: "Verified",
+      activeLabel: "Verifying",
+      doneLabel: "Verified",
+    },
+    {
+      role: "Signatory",
+      duty: "Approves the transfer",
+      state: "Approved",
+      activeLabel: "Approving",
+      doneLabel: "Approved",
+    },
+    {
+      role: "Releasor",
+      duty: "Executes it to core banking",
+      state: "Awaiting release",
+      activeLabel: "Releasing",
+      doneLabel: "Released",
+    },
   ],
 } as const;
 

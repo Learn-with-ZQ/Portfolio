@@ -41,17 +41,19 @@ export default function PrivacyPage() {
         description="The short version: this site collects nothing about you."
       />
       <Section>
-        <div className="max-w-[68ch]">
+        {/* Two columns from xl, so the policy doesn't sit in a narrow strip
+            with the rest of a wide screen empty. */}
+        <div className="max-w-[68ch] xl:grid xl:max-w-none xl:grid-cols-2 xl:gap-x-16">
           {sections.map((section) => (
             <section
               key={section.title}
-              className="border-t border-rule py-8 first:border-t-0 first:pt-0"
+              className="reveal border-t border-rule py-8 first:border-t-0 first:pt-0 xl:[&:nth-child(2)]:border-t-0 xl:[&:nth-child(2)]:pt-0"
             >
               <h2 className="type-h3">{section.title}</h2>
               <p className="type-body mt-3 text-ink-muted">{section.body}</p>
             </section>
           ))}
-          <p className="type-meta border-t border-rule pt-6 text-ink-muted">
+          <p className="type-meta border-t border-rule pt-6 text-ink-muted xl:col-span-2">
             Questions about this policy? Email me at{" "}
             <a href={`mailto:${contactInfo.email}`} className="link">
               {contactInfo.email}

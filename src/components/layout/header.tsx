@@ -9,15 +9,16 @@ import { profile } from "@/data/profile";
 import type { NavLink } from "@/types";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { ButtonLink } from "@/components/ui/button";
+import { containerClass } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 
 // The wordmark already links home, so the desktop bar leaves "Home" out.
 const desktopLinks = mainNav.filter((link) => link.href !== "/");
 
-// Tabs sit on the header's bottom rule; the active one gets a verdigris bar.
+// Tabs sit on the header's bottom rule; the active one gets a primary bar.
 const tabStyles =
   "flex h-16 items-center border-b-2 border-transparent px-3 text-[0.9375rem] text-ink-muted transition-colors hover:text-ink";
-const tabActiveStyles = "border-verdigris text-ink";
+const tabActiveStyles = "border-primary text-ink";
 
 function useIsActive() {
   const pathname = usePathname();
@@ -80,7 +81,7 @@ function MoreMenu({ links }: { links: NavLink[] }) {
               <Link
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className="flex h-11 items-center border-l-2 border-transparent px-4 text-[0.9375rem] text-ink-muted transition-colors hover:bg-surface hover:text-ink aria-[current=page]:border-verdigris aria-[current=page]:text-ink"
+                className="flex h-11 items-center border-l-2 border-transparent px-4 text-[0.9375rem] text-ink-muted transition-colors hover:bg-surface hover:text-ink aria-[current=page]:border-primary aria-[current=page]:text-ink"
               >
                 {link.label}
               </Link>
@@ -147,7 +148,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-ground">
-      <div className="mx-auto flex h-16 w-full max-w-[96rem] items-center gap-6 px-5 sm:px-8 lg:gap-8 lg:px-12">
+      <div className={cn(containerClass, "flex h-16 items-center gap-6 lg:gap-8")}>
         <Link
           href="/"
           aria-label={`${profile.name}, home`}
@@ -209,14 +210,14 @@ export function Header() {
           id="mobile-menu"
           className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-rule bg-ground lg:hidden"
         >
-          <nav aria-label="Mobile" className="mx-auto w-full max-w-[96rem] px-5 pt-2 pb-10 sm:px-8">
+          <nav aria-label="Mobile" className={cn(containerClass, "pt-2 pb-10")}>
             <ul>
               {[...mainNav, ...moreNav].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     aria-current={isActive(link.href) ? "page" : undefined}
-                    className="flex h-12 items-center border-b border-l-2 border-rule border-l-transparent pl-3 text-[1.0625rem] text-ink-muted transition-colors hover:text-ink aria-[current=page]:border-l-verdigris aria-[current=page]:text-ink"
+                    className="flex h-12 items-center border-b border-l-2 border-rule border-l-transparent pl-3 text-[1.0625rem] text-ink-muted transition-colors hover:text-ink aria-[current=page]:border-l-primary aria-[current=page]:text-ink"
                   >
                     {link.label}
                   </Link>

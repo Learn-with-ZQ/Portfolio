@@ -62,7 +62,23 @@ export interface Experience {
   technologies: string[];
 }
 
-export type ProjectCategory = "Enterprise" | "Mobile" | "Academic";
+export type ProjectCategory = "Enterprise" | "Mobile" | "Academic" | "Research";
+
+export interface PaperAuthor {
+  name: string;
+  /** The portfolio owner — linked to the Person schema rather than repeated. */
+  self?: boolean;
+}
+
+/** A project that is also a conference paper. */
+export interface Paper {
+  title: string;
+  authors: PaperAuthor[];
+  venue: string;
+  venueShort: string;
+  /** ISO date the paper was presented, e.g. "2026-11-11". */
+  presented: string;
+}
 
 export interface Project {
   slug: string;
@@ -78,6 +94,7 @@ export interface Project {
   featured: boolean;
   liveUrl?: string;
   githubUrl?: string;
+  paper?: Paper;
 }
 
 export interface Education {
@@ -102,7 +119,7 @@ export interface Certification {
   stars?: number;
 }
 
-export type AchievementCategory = "Competition" | "Leadership";
+export type AchievementCategory = "Research" | "Competition" | "Leadership";
 
 export interface Achievement {
   id: string;
@@ -111,6 +128,7 @@ export interface Achievement {
   year: string;
   category: AchievementCategory;
   description?: string;
+  link?: { href: string; label: string };
 }
 
 export interface Service {
@@ -142,4 +160,33 @@ export interface TimelineEvent {
   year: string;
   title: string;
   description: string;
+  /** Still under way — drawn in pending rather than primary. */
+  inProgress?: boolean;
+}
+
+export interface StoryStep {
+  title: string;
+  body: string;
+}
+
+export interface StoryChapterMeta {
+  id: string;
+  /** Position in the story, e.g. "01". */
+  number: string;
+  title: string;
+  context: string;
+  link?: { href: string; label: string };
+}
+
+export interface StoryChapter extends StoryChapterMeta {
+  /** Accessible summary of the pinned diagram — the steps carry the detail. */
+  stageLabel: string;
+  steps: StoryStep[];
+}
+
+export interface EnterpriseSystem {
+  id: string;
+  name: string;
+  stack: string;
+  modules: string[];
 }

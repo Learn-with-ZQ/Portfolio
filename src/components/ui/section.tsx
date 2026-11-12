@@ -24,7 +24,9 @@ export function Section({
       id={id}
       aria-labelledby={labelledBy}
       className={cn(
-        spacing === "tight" ? "py-12 sm:py-14" : "py-16 sm:py-20 lg:py-24",
+        // Was py-16/20/24: on a full-width page that read as dead bands
+        // between sections (user report, 2026-11-11). Now 48px, 56px on desktop.
+        spacing === "tight" ? "py-8 sm:py-10" : "py-12 lg:py-14",
         rule && "border-t border-rule",
         className,
       )}
@@ -53,7 +55,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10",
+        "reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10",
         className,
       )}
     >

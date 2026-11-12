@@ -11,12 +11,12 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="surface group flex h-full flex-col p-6 transition-colors hover:border-rule-strong"
+      className="surface group reveal flex h-full flex-col p-6 transition-colors hover:border-rule-strong"
     >
       <div className="flex items-center justify-between gap-4">
         <span className="type-meta text-ink-muted">{project.category}</span>
         <Status tone={ongoing ? "pending" : "verified"}>
-          {ongoing ? "Ongoing" : "Completed"}
+          {ongoing ? "Ongoing" : project.paper ? "Presented" : "Completed"}
         </Status>
       </div>
 

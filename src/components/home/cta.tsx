@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/button";
 export function CallToAction() {
   return (
     <Section rule labelledBy="cta-title" className="bg-surface">
-      <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+      <div className="reveal mx-auto flex max-w-2xl flex-col items-center text-center">
         <h2 id="cta-title" className="type-h2 text-balance">
           Let&apos;s design the next chapter of your product.
         </h2>

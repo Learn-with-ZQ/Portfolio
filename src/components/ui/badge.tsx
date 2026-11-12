@@ -23,14 +23,14 @@ export function Badge({ className, children }: BadgeProps) {
 type StatusTone = "verified" | "pending" | "neutral";
 
 const dotStyles: Record<StatusTone, string> = {
-  verified: "bg-verdigris",
-  pending: "bg-brass",
+  verified: "bg-primary",
+  pending: "bg-pending",
   neutral: "bg-ink-muted",
 };
 
 const emphasisStyles: Record<StatusTone, string> = {
-  verified: "text-verdigris",
-  pending: "text-brass-text",
+  verified: "text-primary",
+  pending: "text-pending-text",
   neutral: "text-ink",
 };
 

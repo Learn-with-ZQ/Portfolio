@@ -22,7 +22,7 @@ export default function ServicesPage() {
         {/* Three across only from xl: at lg it left 222px of measure. */}
         <ul className="grid gap-x-10 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
-            <li key={service.id} className="min-w-0 border-t border-rule pt-6">
+            <li key={service.id} className="reveal min-w-0 border-t border-rule pt-6">
               <h2 className="type-h3">{service.title}</h2>
               <p className="type-body mt-3 text-ink-muted">{service.description}</p>
               <ul className="list-rule mt-5 space-y-2">
@@ -38,7 +38,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section rule labelledBy="services-cta-title" className="bg-surface">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="reveal flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <h2 id="services-cta-title" className="type-h2 max-w-xl text-balance">
             Need something built — or rescued in production?
           </h2>

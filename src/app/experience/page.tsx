@@ -38,6 +38,19 @@ export default function ExperiencePage() {
                   {experience.endDate === null ? <Status>Current role</Status> : null}
                 </div>
               }
+              sideClassName="mt-10"
+              side={
+                <>
+                  <h3 className="type-h3">Key responsibilities</h3>
+                  <ul className="list-rule mt-4 space-y-3">
+                    {experience.responsibilities.map((item) => (
+                      <li key={item} className="type-body reveal text-ink-muted">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              }
             >
               <h2 className="type-h2">{experience.role}</h2>
               <p className="type-body mt-2">
@@ -49,15 +62,6 @@ export default function ExperiencePage() {
               ) : null}
 
               <p className="type-body mt-6 text-ink-muted">{experience.summary}</p>
-
-              <h3 className="type-h3 mt-10">Key responsibilities</h3>
-              <ul className="list-rule mt-4 space-y-3">
-                {experience.responsibilities.map((item) => (
-                  <li key={item} className="type-body text-ink-muted">
-                    {item}
-                  </li>
-                ))}
-              </ul>
 
               <h3 className="type-h3 mt-10">Technologies</h3>
               <ul className="mt-4 flex flex-wrap gap-2">

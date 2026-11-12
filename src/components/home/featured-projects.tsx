@@ -7,7 +7,7 @@ export function FeaturedProjects() {
   const featured = getFeaturedProjects();
 
   return (
-    <Section id="featured-projects" labelledBy="featured-title">
+    <Section id="featured-projects" labelledBy="featured-title" rule>
       <SectionHeading
         id="featured-title"
         title="Selected work"

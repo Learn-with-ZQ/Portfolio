@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { GitHubIcon } from "@/components/ui/social-icons";
 import { authorizationFlow, getProjectBySlug, projects } from "@/data/projects";
 import { socialLinks } from "@/data/social";
-import { formatDateRange, formatDuration } from "@/lib/format";
+import { formatDateRange, formatDay, formatDuration } from "@/lib/format";
 import { createPageMetadata } from "@/lib/metadata";
 import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema";
 import { PageHeader } from "@/components/common/page-header";
@@ -75,7 +75,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <span className="type-meta text-ink-muted">{project.category}</span>
               <Status tone={ongoing ? "pending" : "verified"}>
-                {ongoing ? "Ongoing" : "Completed"}
+                {ongoing ? "Ongoing" : project.paper ? "Presented" : "Completed"}
               </Status>
             </div>
           </div>
@@ -84,28 +84,35 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
-          <article className="min-w-0">
-            <h2 className="type-h2">Overview</h2>
-            <div className="mt-5 space-y-5">
-              {project.description.map((paragraph, index) => (
-                <p key={index} className="type-body text-ink-muted">
-                  {paragraph}
-                </p>
-              ))}
+          {/* From 2xl, Overview and Key highlights sit side by side: the text
+              stops at 68ch, so a single column left a wide empty gap before
+              the details panel on large screens (user report, 2026-11-11). */}
+          <article className="min-w-0 2xl:grid 2xl:grid-cols-2 2xl:gap-x-12">
+            <div className="min-w-0">
+              <h2 className="type-h2">Overview</h2>
+              <div className="mt-5 space-y-5">
+                {project.description.map((paragraph, index) => (
+                  <p key={index} className="type-body reveal text-ink-muted">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {project.slug === authorizationFlow.projectSlug ? (
+                <AuthorizationSchematic className="mt-10 max-w-xl" linkToProject={false} />
+              ) : null}
             </div>
 
-            {project.slug === authorizationFlow.projectSlug ? (
-              <AuthorizationSchematic className="mt-10 max-w-xl" linkToProject={false} />
-            ) : null}
-
-            <h2 className="type-h2 mt-12">Key highlights</h2>
-            <ul className="list-rule mt-5 space-y-3">
-              {project.highlights.map((highlight) => (
-                <li key={highlight} className="type-body text-ink">
-                  {highlight}
-                </li>
-              ))}
-            </ul>
+            <div className="min-w-0">
+              <h2 className="type-h2 mt-12 2xl:mt-0">Key highlights</h2>
+              <ul className="list-rule mt-5 space-y-3">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight} className="type-body reveal text-ink">
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </article>
 
           {/* The sticky panel is the aside's only child, so it can't slide over anything. */}
@@ -113,23 +120,46 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <div className="surface-quiet p-6 lg:sticky lg:top-24">
               <h2 className="sr-only">Project details</h2>
               <dl className="space-y-5">
-                <div>
+                <div className="reveal">
                   <dt className="type-meta text-ink-muted">Context</dt>
                   <dd className="mt-1 text-ink">{project.context}</dd>
                 </div>
-                <div>
+                {project.paper ? (
+                  <>
+                    <div className="reveal">
+                      <dt className="type-meta text-ink-muted">Paper</dt>
+                      <dd className="mt-1 text-ink">{project.paper.title}</dd>
+                    </div>
+                    <div className="reveal">
+                      <dt className="type-meta text-ink-muted">Authors</dt>
+                      <dd className="mt-1 text-ink">
+                        {project.paper.authors.map((author) => author.name).join(", ")}
+                      </dd>
+                    </div>
+                    <div className="reveal">
+                      <dt className="type-meta text-ink-muted">Presented at</dt>
+                      <dd className="mt-1 text-ink">
+                        {project.paper.venueShort}, {project.paper.venue}
+                        <span className="mt-1 block font-mono text-sm tabular-nums text-ink-muted">
+                          {formatDay(project.paper.presented)}
+                        </span>
+                      </dd>
+                    </div>
+                  </>
+                ) : null}
+                <div className="reveal">
                   <dt className="type-meta text-ink-muted">Timeline</dt>
                   <dd className="mt-1 font-mono text-sm tabular-nums text-ink">
                     {formatDateRange(project.startDate, project.endDate)}
                   </dd>
                 </div>
-                <div>
+                <div className="reveal">
                   <dt className="type-meta text-ink-muted">Duration</dt>
                   <dd className="mt-1 font-mono text-sm tabular-nums text-ink">
                     {formatDuration(project.startDate, project.endDate)}
                   </dd>
                 </div>
-                <div>
+                <div className="reveal">
                   <dt className="type-meta text-ink-muted">Technologies</dt>
                   <dd className="mt-2">
                     <ul className="flex flex-wrap gap-1.5">
@@ -142,13 +172,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </dd>
                 </div>
               </dl>
-              {project.category !== "Academic" ? (
-                <p className="type-meta mt-6 border-t border-rule pt-5 text-ink-muted">
+              {project.category === "Research" ? null : project.category !== "Academic" ? (
+                <p className="type-meta reveal mt-6 border-t border-rule pt-5 text-ink-muted">
                   This is a proprietary enterprise system — source code and live access are
                   restricted by the client.
                 </p>
               ) : githubProfile ? (
-                <div className="mt-6 border-t border-rule pt-5">
+                <div className="reveal mt-6 border-t border-rule pt-5">
                   <ButtonLink
                     href={githubProfile.url}
                     external
@@ -164,7 +194,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </aside>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-rule pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="reveal mt-12 flex flex-col gap-4 border-t border-rule pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="type-meta text-ink-muted">Next project</p>
             <p className="type-h3 mt-1">{nextProject.name}</p>

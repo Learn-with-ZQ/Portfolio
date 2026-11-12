@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createPageMetadata } from "@/lib/metadata";
 import { achievements } from "@/data/achievements";
 import type { Achievement } from "@/types";
@@ -8,7 +9,7 @@ import { RecordRow } from "@/components/ui/record-row";
 export const metadata = createPageMetadata({
   title: "Achievements",
   description:
-    "Competition wins and leadership roles of Muhammad Zaid Qasim — AWS Hackathon winner, programming competition finalist, and conference leadership.",
+    "Research, competition wins and leadership roles of Muhammad Zaid Qasim — AIIE 2026 conference paper, AWS Hackathon winner, programming competition finalist, and conference leadership.",
   path: "/achievements",
 });
 
@@ -22,12 +23,27 @@ function AchievementList({ items }: { items: Achievement[] }) {
           aside={
             <p className="font-mono text-sm tabular-nums text-ink-muted">{achievement.year}</p>
           }
+          sideClassName="mt-2"
+          side={
+            achievement.description || achievement.link ? (
+              <>
+                {achievement.description ? (
+                  <p className="type-body text-ink-muted">{achievement.description}</p>
+                ) : null}
+                {achievement.link ? (
+                  <Link
+                    href={achievement.link.href}
+                    className="link type-meta mt-3 inline-block font-medium"
+                  >
+                    {achievement.link.label}
+                  </Link>
+                ) : null}
+              </>
+            ) : undefined
+          }
         >
           <h3 className="type-h3">{achievement.title}</h3>
           <p className="type-body mt-1 text-ink">{achievement.event}</p>
-          {achievement.description ? (
-            <p className="type-body mt-2 text-ink-muted">{achievement.description}</p>
-          ) : null}
         </RecordRow>
       ))}
     </ol>
@@ -35,6 +51,7 @@ function AchievementList({ items }: { items: Achievement[] }) {
 }
 
 export default function AchievementsPage() {
+  const research = achievements.filter((item) => item.category === "Research");
   const competitions = achievements.filter((item) => item.category === "Competition");
   const leadership = achievements.filter((item) => item.category === "Leadership");
 
@@ -42,10 +59,19 @@ export default function AchievementsPage() {
     <>
       <PageHeader
         title="Achievements"
-        description="Competition wins, hackathon trophies, and leadership roles across tech and community events."
+        description="Research, competition wins, hackathon trophies, and leadership roles across tech and community events."
       />
 
-      <Section labelledBy="competitions-title">
+      <Section labelledBy="research-title">
+        <SectionHeading
+          id="research-title"
+          title="Research"
+          description="Conference papers I have co-authored and presented."
+        />
+        <AchievementList items={research} />
+      </Section>
+
+      <Section rule labelledBy="competitions-title">
         <SectionHeading
           id="competitions-title"
           title="Competition wins"

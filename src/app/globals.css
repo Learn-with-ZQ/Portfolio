@@ -7,72 +7,76 @@
   @theme below — never a raw hex — so light and dark stay one system.
   Every text/background pair was measured; the numbers are in .claude/UI.md.
 */
+/*
+  Blue palette, 2026-11-11 (replaced the verdigris/brass palette; the tokens
+  were renamed verdigris -> primary and brass -> pending at the same time).
+*/
 :root {
   color-scheme: light;
 
-  --ground: #eef1ee;
-  --surface: #f7f9f7;
+  --ground: #f3f6fa;
+  --surface: #f9fbfe;
   --surface-elevated: #ffffff;
 
-  --ink: #17201d;
-  --ink-muted: #52615b;
+  --ink: #10233f;
+  --ink-muted: #52657a;
 
   /* Decorative separators and surface edges (~1.4:1 — visible, not heavy). */
-  --rule: rgba(23, 32, 29, 0.18);
+  --rule: rgba(16, 35, 63, 0.16);
   /* Boundaries that identify a control, e.g. inputs: >= 3:1 on every surface. */
-  --rule-strong: #7c8983;
+  --rule-strong: #71839a;
 
-  /* Verdigris = shipped, verified, live. Brass = in progress, pending. */
-  --verdigris: #176b55;
-  --verdigris-deep: #125542;
-  --brass: #a66b16;
-  /* #a66b16 is only 3.9:1 as text; this keeps the hue at >= 5.1:1. */
-  --brass-text: #8c5a12;
-  --error: #b54747;
+  /* Primary = verified, live, the call to action. Pending = in progress. */
+  --primary: #1d4ed8;
+  --primary-deep: #163fa8;
+  --pending: #b45309;
+  /* #b45309 is 4.39:1 on the hero's #e8f0ff end; this stays >= 4.9:1 everywhere. */
+  --pending-text: #a84d08;
+  --error: #b42318;
 
-  --ring: var(--verdigris);
+  --ring: var(--primary);
 
-  --cta-from: #176b55;
-  --cta-to: #125542;
-  --cta-hover: #125542;
+  /* White text: 6.7:1 at #1d4ed8, 9.1:1 at #163fa8. */
+  --cta-from: #1d4ed8;
+  --cta-to: #163fa8;
+  --cta-hover: #163fa8;
   --primary-foreground: #ffffff;
 
-  --hero-from: #eef1ee;
-  --hero-to: #e5ece8;
-  --schematic-grid: rgba(23, 32, 29, 0.06);
+  --hero-from: #f3f6fa;
+  --hero-to: #e8f0ff;
+  --schematic-grid: rgba(16, 35, 63, 0.06);
 }
 
 html.dark {
   color-scheme: dark;
 
-  --ground: #0b1110;
-  --surface: #121b18;
-  --surface-elevated: #17221e;
+  --ground: #08111f;
+  --surface: #101c2e;
+  --surface-elevated: #16243a;
 
-  --ink: #f1f5f2;
-  --ink-muted: #9aa9a2;
+  --ink: #eff6ff;
+  --ink-muted: #a9b7cc;
 
-  --rule: rgba(241, 245, 242, 0.18);
-  --rule-strong: #63726c;
+  --rule: rgba(239, 246, 255, 0.16);
+  --rule-strong: #64748b;
 
-  --verdigris: #4fa88b;
-  /* 3.2:1 on ground — fills and gradients only, never text. */
-  --verdigris-deep: #286e5a;
-  --brass: #d19a3c;
-  --brass-text: #d19a3c;
-  --error: #e07a7a;
+  --primary: #72a7ff;
+  /* 3.6:1 with dark text — fills and borders only, never behind text. */
+  --primary-deep: #2b65d9;
+  --pending: #f6b94c;
+  --pending-text: #f6b94c;
+  --error: #f97066;
 
-  /* The #4fa88b -> #286e5a ramp can't carry text at both ends (dark text falls
-     to 3.2:1, white to 2.9:1). #3c8c73 is the deepest stop that keeps dark
-     text >= 4.5:1 across the whole button. */
-  --cta-from: #4fa88b;
-  --cta-to: #3c8c73;
-  --cta-hover: #5cb497;
-  --primary-foreground: #0b1110;
+  /* The #72a7ff -> #2b65d9 ramp can't carry dark text at the deep end (3.6:1).
+     #447ce6 is the deepest stop that keeps dark text >= 4.5:1 (4.75:1). */
+  --cta-from: #72a7ff;
+  --cta-to: #447ce6;
+  --cta-hover: #8db8ff;
+  --primary-foreground: #08111f;
 
-  --hero-from: #0b1110;
-  --hero-to: #10221c;
-  --schematic-grid: rgba(241, 245, 242, 0.05);
+  --hero-from: #08111f;
+  --hero-to: #0d1d36;
+  --schematic-grid: rgba(239, 246, 255, 0.05);
 }
 
 @theme inline {
@@ -83,10 +87,10 @@ html.dark {
   --color-ink-muted: var(--ink-muted);
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
-  --color-verdigris: var(--verdigris);
-  --color-verdigris-deep: var(--verdigris-deep);
-  --color-brass: var(--brass);
-  --color-brass-text: var(--brass-text);
+  --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-pending: var(--pending);
+  --color-pending-text: var(--pending-text);
   --color-error: var(--error);
   --color-primary-foreground: var(--primary-foreground);
 
@@ -117,7 +121,7 @@ html.dark {
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--verdigris) 28%, transparent);
+    background-color: color-mix(in srgb, var(--primary) 28%, transparent);
     color: var(--ink);
   }
 }
@@ -210,7 +214,7 @@ html.dark {
   }
 
   .link {
-    color: var(--verdigris);
+    color: var(--primary);
     text-decoration-line: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
@@ -280,6 +284,102 @@ html.dark {
     background-color: var(--ink-muted);
   }
 
+  /* ---------- Scrollytelling chapters (home), desktop ---------- */
+  /* --stage-h is the pinned diagram's height, set by useScrollSteps. The
+     diagram pins centred in the space below the 4rem header (never closer
+     than 1rem under it), and the step column gets just enough bottom padding
+     for the last step to reach the diagram's centre before it unpins.
+     13svh is half a step slot (lg:min-h-[26svh] in scrolly-layout.tsx). */
+  @media (width >= 64rem) {
+    .scrolly-pin {
+      position: sticky;
+      top: max(5rem, calc(50svh + 2rem - var(--stage-h, 100svh) / 2));
+    }
+
+    .scrolly-steps {
+      padding-bottom: max(0px, calc(var(--stage-h, 0px) / 2 - 13svh));
+    }
+  }
+
+  /* ---------- Motion: entrance on load, reveal on scroll ---------- */
+  /* Both keyframes define only `from` (R16), so the resting style is the
+     finished state: with reduced motion, or in a browser without scroll-driven
+     animations, content simply shows — nothing is ever hidden waiting for JS.
+     Never put these on a sticky element, or on anything the story engine
+     measures (step slots, path-chapter rows): a transform moves its rect. */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Page titles and hero: a short rise as the page loads. Stagger with
+       [--rise-delay:80ms]. */
+    .rise-in {
+      animation: rise-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: var(--rise-delay, 0ms);
+    }
+
+    /* Content: two layered animations.
+       1. rise-in on load, staggered by position among its siblings — so what
+          is already on screen animates too (short pages like Education or
+          Contact otherwise showed no motion at all below the title).
+       2. A scroll-driven fade-and-rise over the first 30vh of entering the
+          viewport (no JS). Listed second, it sits on top: below the fold it
+          holds content at opacity 0 until scrolled to; on screen it is past
+          its range and passes rise-in through (its implicit `to` keyframe is
+          the underlying value — verified in Chromium). The range was 180px
+          with a 1.5rem rise; it became 30vh and 0.75rem so the bottom of the
+          screen reads as a soft, light fade (user request, 2026-11-12).
+          Anything within 30vh of the page's end could never finish, so keep
+          .reveal off the footer's bottom bar. */
+    .reveal {
+      animation: rise-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: var(--rise-delay, 120ms);
+    }
+
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation:
+          rise-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both,
+          reveal-rise linear both;
+        animation-delay: var(--rise-delay, 120ms), 0s;
+        animation-timeline: auto, view();
+        animation-range: normal, entry 0% entry 30vh;
+      }
+    }
+
+    /* Stagger: siblings (rows, paragraphs, list items) and cards inside list
+       items. Capped so the last on-screen item has started within ~0.5s. */
+    .reveal:nth-child(2),
+    li:nth-child(2) > .reveal {
+      --rise-delay: 190ms;
+    }
+    .reveal:nth-child(3),
+    li:nth-child(3) > .reveal {
+      --rise-delay: 260ms;
+    }
+    .reveal:nth-child(4),
+    li:nth-child(4) > .reveal {
+      --rise-delay: 330ms;
+    }
+    .reveal:nth-child(5),
+    li:nth-child(5) > .reveal {
+      --rise-delay: 400ms;
+    }
+    .reveal:nth-child(n + 6),
+    li:nth-child(n + 6) > .reveal {
+      --rise-delay: 470ms;
+    }
+  }
+
+  /* ---------- Space Optimizer diagram: the measuring sweep ---------- */
+  /* Resting style is the end of the sweep (gone), per R16. packing-stage.tsx
+     sets data-scan on its third step, plus --scan-distance / --scan-duration. */
+  .scan-beam {
+    opacity: 0;
+    transform: translateY(var(--scan-distance, 0px));
+  }
+
+  .scan-beam[data-scan="true"] {
+    animation: scan-sweep var(--scan-duration, 1100ms) ease-in-out;
+  }
+
   /* ---------- Authorization schematic (home hero, Net 2 Bank) ---------- */
   /* The only grid on the site: it belongs to the engineering diagram. */
   .schematic {
@@ -301,14 +401,19 @@ html.dark {
     animation: schematic-node-in 480ms ease-out calc(var(--i, 0) * 520ms + 300ms) backwards;
   }
 
+  /* Same treatment as the home-page story (authorization-stage.tsx): solid
+     border, 3px leading edge, 12% tint — the old 60% border / 7% tint barely
+     showed on the dark navy panel. */
   .schematic-node[data-state="done"] {
-    border-color: color-mix(in srgb, var(--verdigris) 60%, var(--rule-strong));
-    background-color: color-mix(in srgb, var(--verdigris) 7%, var(--surface-elevated));
+    border-color: var(--primary);
+    background-color: color-mix(in srgb, var(--primary) 12%, var(--surface-elevated));
+    box-shadow: inset 3px 0 0 var(--primary);
   }
 
   .schematic-node[data-state="active"] {
-    border-color: var(--brass);
-    background-color: color-mix(in srgb, var(--brass) 8%, var(--surface-elevated));
+    border-color: var(--pending);
+    background-color: color-mix(in srgb, var(--pending) 8%, var(--surface-elevated));
+    box-shadow: inset 3px 0 0 var(--pending);
   }
 
   .schematic-state {
@@ -322,11 +427,11 @@ html.dark {
   }
 
   .schematic-node[data-state="done"] .schematic-state {
-    color: var(--verdigris);
+    color: var(--primary);
   }
 
   .schematic-node[data-state="active"] .schematic-state {
-    color: var(--brass-text);
+    color: var(--pending-text);
   }
 
   .schematic-connector {
@@ -334,7 +439,7 @@ html.dark {
     width: 1px;
     height: 1rem;
     margin-left: 1.4rem;
-    background-color: var(--verdigris);
+    background-color: var(--primary);
     transform-origin: top;
     animation: schematic-draw 260ms ease-out calc(var(--i, 0) * 520ms + 640ms) backwards;
   }
@@ -346,6 +451,27 @@ html.dark {
 
 /* Each keyframe only has a `from`: the element's own style is the end state,
    so with motion off (or before JS) the diagram simply shows its final state. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@keyframes scan-sweep {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes schematic-node-in {
   from {
     border-color: var(--rule);
@@ -385,6 +511,9 @@ html.dark {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    /* Staggered diagrams (story chapters) would otherwise still wait out
+       their delays before jumping to the end state. */
+    transition-delay: 0s !important;
   }
 
   /* Drop the stagger delays too, so the end state shows immediately. */

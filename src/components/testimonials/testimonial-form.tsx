@@ -108,7 +108,7 @@ export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
   if (status === "success")
     return (
       <div role="status" className="surface flex flex-col items-start p-6 sm:p-8">
-        <CheckCircle2 className="h-8 w-8 text-verdigris" aria-hidden="true" />
+        <CheckCircle2 className="h-8 w-8 text-primary" aria-hidden="true" />
         <h3 className="type-h3 mt-4">Testimonial received!</h3>
         <p className="type-body mt-2 text-ink-muted">
           Thank you for sharing your experience. Your verified testimonial is awaiting
@@ -238,7 +238,7 @@ export function TestimonialForm({ user, signInAction }: TestimonialFormProps) {
             className={
               locked
                 ? "flex min-h-11 cursor-not-allowed items-center gap-2 rounded-lg border border-dashed border-rule-strong px-3.5 text-[0.9375rem] text-ink-muted opacity-60"
-                : "flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-dashed border-rule-strong px-3.5 text-[0.9375rem] text-ink-muted transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-verdigris hover:border-ink hover:text-ink"
+                : "flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-dashed border-rule-strong px-3.5 text-[0.9375rem] text-ink-muted transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary hover:border-ink hover:text-ink"
             }
           >
             <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />

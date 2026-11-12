@@ -53,7 +53,7 @@ export default async function TestimonialsPage() {
             ))}
           </ul>
         ) : (
-          <div className="surface-quiet px-6 py-12 sm:px-10">
+          <div className="surface-quiet reveal px-6 py-12 sm:px-10">
             <h3 className="type-h3">Testimonials are on their way</h3>
             <p className="type-body mt-2 text-ink-muted">
               I&apos;m currently collecting words from the managers, mentors, and teammates
@@ -64,7 +64,7 @@ export default async function TestimonialsPage() {
       </Section>
 
       <Section rule labelledBy="share-title" className="bg-surface">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+        <div className="reveal grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
           <div>
             <h2 id="share-title" className="type-h2">
               Share your experience

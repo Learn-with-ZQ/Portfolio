@@ -12,8 +12,8 @@ interface AuthorizationSchematicProps {
 
 /**
  * The Maker → Checker → Signatory → Releasor approval chain from Net 2 Bank,
- * drawn as an engineering diagram. Cleared stages are verdigris, the stage in
- * progress is brass. The nodes activate in sequence once on load (pure CSS,
+ * drawn as an engineering diagram. Cleared stages are primary, the stage in
+ * progress is pending. The nodes activate in sequence once on load (pure CSS,
  * see globals.css); with reduced motion they simply show the final state.
  */
 export function AuthorizationSchematic({
@@ -77,7 +77,7 @@ export function AuthorizationSchematic({
                 </div>
                 <span className="schematic-state col-start-2 sm:col-start-3 sm:row-start-1">
                   {active ? (
-                    <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brass" />
+                    <span aria-hidden="true" className="h-2 w-2 rounded-full bg-pending" />
                   ) : (
                     <Check aria-hidden="true" className="h-3.5 w-3.5" />
                   )}

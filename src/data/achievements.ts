@@ -2,6 +2,16 @@ import type { Achievement } from "@/types";
 
 export const achievements: Achievement[] = [
   {
+    id: "aiie-2026-paper",
+    title: "Paper presented — From Alarm to Action",
+    event: "AIIE 2026, International Conference on AI and IoT for Engineering",
+    year: "2026",
+    category: "Research",
+    description:
+      "Co-authored with Abrar Saleem and presented at the conference: a pre-specified evaluation of whether an open-weight large language model can explain predictive-maintenance alarms faithfully, scored on 2,000 reports.",
+    link: { href: "/projects/from-alarm-to-action", label: "Read about the paper" },
+  },
+  {
     id: "aws-hackathon",
     title: "Winner — Master Mind Category",
     event: "AWS Hackathon",

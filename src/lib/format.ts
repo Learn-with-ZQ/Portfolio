@@ -18,6 +18,12 @@ export function formatMonth(isoMonth: string): string {
   return `${MONTHS[month - 1]} ${year}`;
 }
 
+/** "2026-11-11" → "11 Nov 2026". */
+export function formatDay(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  return `${day} ${MONTHS[month - 1]} ${year}`;
+}
+
 export function formatDateRange(start: string, end: string | null): string {
   return `${formatMonth(start)} — ${end ? formatMonth(end) : "Present"}`;
 }

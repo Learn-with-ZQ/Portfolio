@@ -37,7 +37,7 @@ export function ProjectsExplorer() {
         <div
           role="group"
           aria-label="Filter projects by category"
-          className="flex w-full gap-1 rounded-lg border border-rule-strong p-1 sm:inline-flex sm:w-auto"
+          className="flex w-full flex-wrap gap-1 rounded-lg border border-rule-strong p-1 sm:inline-flex sm:w-auto sm:flex-nowrap"
         >
           {projectCategories.map((item) => (
             <button

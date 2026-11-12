@@ -59,7 +59,7 @@ export default async function TestimonialDetailPage({ params }: TestimonialDetai
         }
       />
       <Section>
-        <article className="max-w-3xl">
+        <article className="reveal max-w-3xl">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <Rating value={testimonial.rating} size="md" />
             <Status tone="verified" emphasis>
@@ -70,7 +70,7 @@ export default async function TestimonialDetailPage({ params }: TestimonialDetai
             ) : null}
           </div>
 
-          <blockquote className="mt-8 border-l-2 border-verdigris pl-6">
+          <blockquote className="mt-8 border-l-2 border-primary pl-6">
             <p className="type-body text-ink">&ldquo;{testimonial.message}&rdquo;</p>
           </blockquote>
 

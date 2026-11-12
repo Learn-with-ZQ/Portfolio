@@ -22,7 +22,7 @@ export default function CertificationsPage() {
       <Section>
         <ul className="grid gap-5 sm:grid-cols-2">
           {certifications.map((certification) => (
-            <li key={certification.id} className="surface flex min-w-0 flex-col p-6">
+            <li key={certification.id} className="surface reveal flex min-w-0 flex-col p-6">
               <div className="flex items-start justify-between gap-4">
                 <h2 className="type-h3">{certification.name}</h2>
                 <span className="font-mono text-sm tabular-nums text-ink-muted">

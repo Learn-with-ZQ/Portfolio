@@ -31,16 +31,19 @@ export default function SkillsPage() {
       <Section>
         <div>
           {skillCategories.map((category) => (
+            // Each skill line fades on its own (not the whole category), so the
+            // bottom of the screen reads as a smooth light gradient.
             <RecordRow
               key={category.id}
+              reveal={false}
               className="first:border-t-0 first:pt-0"
-              aside={<h2 className="type-h3">{category.title}</h2>}
+              aside={<h2 className="type-h3 reveal">{category.title}</h2>}
             >
               <ul className="grid gap-x-10 sm:grid-cols-2">
                 {category.skills.map((skill) => (
                   <li
                     key={skill.name}
-                    className="flex items-baseline justify-between gap-4 border-b border-rule py-2.5"
+                    className="reveal flex items-baseline justify-between gap-4 border-b border-rule py-2.5"
                   >
                     <span className="text-ink">{skill.name}</span>
                     <span className="type-meta shrink-0 text-ink-muted">

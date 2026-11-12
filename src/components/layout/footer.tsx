@@ -16,7 +16,7 @@ export function Footer() {
     <footer className="border-t border-rule bg-surface">
       <Container className="py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
-          <div>
+          <div className="reveal">
             <Link href="/" className="wordmark inline-flex min-h-11 items-center text-lg text-ink">
               Zaid Qasim
             </Link>
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
 
           {footerNav.map((group) => (
-            <nav key={group.title} aria-label={`${group.title} links`}>
+            <nav key={group.title} aria-label={`${group.title} links`} className="reveal">
               <h2 className="type-meta font-semibold text-ink">{group.title}</h2>
               <ul className="type-meta mt-2">
                 {group.links.map((link) => (

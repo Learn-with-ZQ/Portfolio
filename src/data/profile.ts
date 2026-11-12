@@ -72,6 +72,13 @@ export const journey: TimelineEvent[] = [
     title: "Started MS in Data Science",
     description:
       "Enrolled at NED University of Engineering and Technology to extend my engineering depth into statistics, machine learning, and data science.",
+    inProgress: true,
+  },
+  {
+    year: "2026",
+    title: "Presented a Conference Paper at AIIE 2026",
+    description:
+      "Co-authored and presented “From Alarm to Action”: machine learning predicts a machine failure, SHAP shows why, and a large language model explains what to do, with every report checked by code.",
   },
 ];
 

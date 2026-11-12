@@ -2,8 +2,8 @@ import Image from "next/image";
 import { FileDown } from "lucide-react";
 import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/social";
-import { AuthorizationSchematic } from "@/components/home/authorization-schematic";
 import { Stats } from "@/components/home/stats";
+import { StoryIndex } from "@/components/story/story-index";
 import { Status } from "@/components/ui/badge";
 import { SocialIcons } from "@/components/ui/social-icons";
 import { ButtonLink } from "@/components/ui/button";
@@ -12,10 +12,10 @@ import { Container } from "@/components/ui/container";
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="hero-band border-b border-rule">
-      <Container className="pt-12 pb-12 sm:pt-16 lg:pt-20">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-16">
+      <Container className="pt-10 pb-10 lg:pt-14 lg:pb-12">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
           <div className="min-w-0">
-            <div className="flex items-center gap-3">
+            <div className="rise-in flex items-center gap-3">
               <Image
                 src={profile.avatar}
                 alt={`Portrait of ${profile.name}`}
@@ -27,15 +27,15 @@ export function Hero() {
               <Status tone="verified">{profile.availability}</Status>
             </div>
 
-            <h1 id="hero-title" className="type-display mt-8 text-balance">
+            <h1 id="hero-title" className="type-display rise-in mt-8 text-balance [--rise-delay:70ms]">
               {profile.name}
             </h1>
-            <p className="type-h3 mt-5 max-w-[34ch] font-medium text-balance text-ink">
+            <p className="type-h3 rise-in mt-5 max-w-[34ch] font-medium text-balance text-ink [--rise-delay:140ms]">
               {profile.role} at {profile.company}, deployed as {profile.deployment}
             </p>
-            <p className="type-body mt-4 text-ink-muted">{profile.tagline}</p>
+            <p className="type-body rise-in mt-4 text-ink-muted [--rise-delay:200ms]">{profile.tagline}</p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="rise-in mt-8 flex flex-wrap gap-3 [--rise-delay:260ms]">
               <ButtonLink href="/projects" size="lg">
                 View my work
               </ButtonLink>
@@ -45,13 +45,13 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <SocialIcons links={socialLinks} className="mt-8" />
+            <SocialIcons links={socialLinks} className="rise-in mt-8 [--rise-delay:320ms]" />
           </div>
 
-          <AuthorizationSchematic />
+          <StoryIndex />
         </div>
 
-        <div className="mt-14 lg:mt-16">
+        <div className="rise-in mt-10 lg:mt-12 [--rise-delay:380ms]">
           <Stats />
         </div>
       </Container>

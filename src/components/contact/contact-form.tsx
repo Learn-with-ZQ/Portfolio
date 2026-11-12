@@ -94,7 +94,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div role="status" className="surface-quiet flex flex-col items-start p-6">
-        <CheckCircle2 className="h-8 w-8 text-verdigris" aria-hidden="true" />
+        <CheckCircle2 className="h-8 w-8 text-primary" aria-hidden="true" />
         <h3 className="type-h3 mt-4">Message received!</h3>
         <p className="type-body mt-2 text-ink-muted">
           Thanks for reaching out — your message has been recorded and I&apos;ll get back to

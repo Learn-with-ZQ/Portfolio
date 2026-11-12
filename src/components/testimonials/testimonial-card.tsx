@@ -16,7 +16,7 @@ function initialsOf(name: string) {
 
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className="surface flex h-full flex-col p-6">
+    <article className="surface reveal flex h-full flex-col p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Rating value={testimonial.rating} />
         <Status tone="verified" emphasis>

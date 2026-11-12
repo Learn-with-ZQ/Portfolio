@@ -39,6 +39,18 @@ export default function EducationPage() {
                   )}
                 </div>
               }
+              side={
+                <>
+                  <h3 className="type-h3">Relevant coursework</h3>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {education.coursework.map((course) => (
+                      <li key={course}>
+                        <Badge>{course}</Badge>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              }
             >
               <h2 className="type-h2">{education.degree}</h2>
               <p className="type-body mt-2 text-ink">{education.institute}</p>
@@ -50,15 +62,6 @@ export default function EducationPage() {
                   <dd className="font-mono tabular-nums text-ink">{education.cgpa}</dd>
                 </dl>
               ) : null}
-
-              <h3 className="type-h3 mt-8">Relevant coursework</h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {education.coursework.map((course) => (
-                  <li key={course}>
-                    <Badge>{course}</Badge>
-                  </li>
-                ))}
-              </ul>
             </RecordRow>
           ))}
         </ol>
