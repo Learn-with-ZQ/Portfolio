@@ -13,7 +13,11 @@ export const metadata = createPageMetadata({
 const sections = [
   {
     title: "What this site collects",
-    body: "Almost nothing. This portfolio has no analytics scripts, no cookies, and no tracking of any kind. Your visit is not recorded. The only data this site ever receives is what you type into the contact form yourself.",
+    body: "Almost nothing. This portfolio has no analytics scripts, no cookies, and no tracking of any kind. Your visit is not recorded. The only data this site ever receives is what you type into the contact form or the chat assistant yourself.",
+  },
+  {
+    title: "Chat assistant",
+    body: "The mascot in the corner opens a chat that answers questions about me. When you ask something, your question and the conversation so far are sent to Google's Gemini API to generate the answer. This site does not store the conversation, and it disappears when you leave. Google processes it under its Gemini API terms and may use it to improve its products, so please don't type personal or sensitive information into the chat.",
   },
   {
     title: "Contact form",

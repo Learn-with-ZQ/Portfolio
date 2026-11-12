@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Assistant } from "@/components/assistant/assistant";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
 import { getRootSchemaGraph } from "@/lib/schema";
@@ -118,6 +119,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Assistant />
         </Providers>
       </body>
     </html>

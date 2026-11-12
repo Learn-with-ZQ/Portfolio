@@ -43,7 +43,9 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="type-meta mt-12 flex flex-col gap-4 border-t border-rule pt-6 text-ink-muted md:flex-row md:items-center md:justify-between">
+        {/* The right padding keeps the copyright clear of the corner mascot
+            (components/assistant/assistant.tsx): 64px on phones, 96px from md. */}
+        <div className="type-meta mt-12 flex flex-col gap-4 border-t border-rule pt-6 pr-20 text-ink-muted md:flex-row md:items-center md:justify-between md:pr-28">
           <ul className="flex flex-wrap gap-x-6">
             <li>
               <a href={`mailto:${contactInfo.email}`} className={quietLink}>

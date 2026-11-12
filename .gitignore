@@ -51,3 +51,6 @@ next-env.d.ts
 /context/
 /docs/
 /.agents/
+
+# page-mascot source sheets (the built webp atlases live in public/mascots/)
+/characters/

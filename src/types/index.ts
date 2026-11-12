@@ -190,3 +190,54 @@ export interface EnterpriseSystem {
   stack: string;
   modules: string[];
 }
+
+/** The two 3×3 sprite sheets behind the corner mascot. */
+export interface MascotSheets {
+  /** Served path of the nine head directions. */
+  directions: string;
+  /** Served path of the nine expressions shown when it is clicked. */
+  reactions: string;
+}
+
+/** Copy for the chat assistant the corner mascot opens. */
+export interface AssistantContent {
+  mascot: MascotSheets;
+  /** Accessible name of the mascot button. */
+  launcherLabel: string;
+  title: string;
+  /** One line under the title. */
+  subtitle: string;
+  greeting: string;
+  /** Shown before the visitor has asked anything. */
+  starterQuestions: string[];
+  /**
+   * Fixed openers: when the visitor's question matches, the reply starts with
+   * this exact line, then Gemini's normal answer follows.
+   */
+  quips: { match: RegExp; opener: string }[];
+  inputLabel: string;
+  inputPlaceholder: string;
+  /** Under the input: answers are generated and can be wrong. */
+  disclaimer: string;
+  errors: {
+    /** No GEMINI_API_KEY on the server. */
+    unavailable: string;
+    /** Rate limited, here or by Gemini. */
+    busy: string;
+    /** Anything else. */
+    failed: string;
+  };
+}
+
+/** One turn of the chat, as sent to /api/chat. */
+export interface ChatTurn {
+  role: "user" | "assistant";
+  text: string;
+}
+
+/** What /api/chat returns on success. */
+export interface ChatReply {
+  answer: string;
+  /** Up to three follow-up questions to offer next. */
+  suggestions: string[];
+}
