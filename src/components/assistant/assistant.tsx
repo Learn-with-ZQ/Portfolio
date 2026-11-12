@@ -1,15 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
-import type { FormEvent, KeyboardEvent, ReactNode } from "react";
-import { ArrowUp, X } from "lucide-react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent, PointerEvent, ReactNode } from "react";
+import { ArrowUp, MessageCircle, X } from "lucide-react";
 import { Mascot } from "@/components/assistant/mascot";
 import { assistant } from "@/data/assistant";
 import { cn } from "@/lib/utils";
 import type { ChatReply, ChatTurn } from "@/types";
 
 const MAX_QUESTION = 500;
+
+// Browser storage: where the visitor dropped the mascot, and whether the
+// speech bubble has done its job (chat opened, or bubble dismissed).
+const SPOT_KEY = "assistant-spot";
+const NUDGE_KEY = "assistant-nudge";
+const NUDGE_DELAY_MS = 1500;
+
+/**
+ * Where the mascot sits, as 0–1 across the space it can move in, so it keeps
+ * its place when the window is resized. (1, 1) is the bottom-right corner.
+ */
+type Spot = { fx: number; fy: number };
+const CORNER: Spot = { fx: 1, fy: 1 };
+
+const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
+
+function readSpot(): Spot | null {
+  try {
+    const saved = JSON.parse(localStorage.getItem(SPOT_KEY) ?? "null") as Partial<Spot> | null;
+    if (typeof saved?.fx === "number" && typeof saved.fy === "number") {
+      return { fx: clamp01(saved.fx), fy: clamp01(saved.fy) };
+    }
+  } catch {
+    // Storage blocked or garbled: use the corner.
+  }
+  return null;
+}
+
+function store(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Storage blocked: it just won't be remembered.
+  }
+}
+
+/**
+ * Distance from the edge the mascot is anchored to. In a fixed element `100%`
+ * is the viewport, so this follows the window without any resize handling.
+ * --dock-m (gutter) and --dock-size (mascot) are set per breakpoint.
+ */
+const along = (f: number) =>
+  `calc(var(--dock-m) + ${f.toFixed(4)} * (100% - var(--dock-size) - 2 * var(--dock-m)))`;
 
 // Site paths, the résumé, web links and email addresses in an answer become links.
 const LINK_PATTERN =
@@ -83,9 +126,10 @@ function Bubble({ role, children }: { role: ChatTurn["role"]; children: ReactNod
 }
 
 /**
- * The mascot in the bottom-right corner of every page. Clicking it opens a
- * chat that answers questions about Zaid (POST /api/chat → Gemini, grounded
- * in src/data/knowledge.md) and suggests questions to ask.
+ * The mascot on every page (bottom-right until the visitor drags it somewhere
+ * else). Clicking it opens a chat that answers questions about Zaid (POST
+ * /api/chat → Gemini, grounded in src/data/knowledge.md) and suggests
+ * questions to ask. A chat badge and, until first use, a speech bubble say so.
  */
 export function Assistant() {
   const [open, setOpen] = useState(false);
@@ -94,6 +138,9 @@ export function Assistant() {
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [spot, setSpot] = useState<Spot>(CORNER);
+  const [dragging, setDragging] = useState(false);
+  const [nudge, setNudge] = useState(false);
 
   const panelId = useId();
   const titleId = useId();
@@ -102,6 +149,30 @@ export function Assistant() {
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<AbortController | null>(null);
+  const spotRef = useRef<Spot>(CORNER);
+  const stopDragRef = useRef<(() => void) | null>(null);
+  const draggedRef = useRef(false);
+
+  // Before the first paint, so a moved mascot never flashes in the corner.
+  useLayoutEffect(() => {
+    const saved = readSpot();
+    if (saved) {
+      spotRef.current = saved;
+      setSpot(saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    let seen = false;
+    try {
+      seen = localStorage.getItem(NUDGE_KEY) !== null;
+    } catch {
+      // Storage blocked: show the bubble.
+    }
+    if (seen) return;
+    const timer = window.setTimeout(() => setNudge(true), NUDGE_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -113,12 +184,104 @@ export function Assistant() {
     if (log) log.scrollTop = turns.length || loading || error ? log.scrollHeight : 0;
   }, [turns, loading, error, open]);
 
-  useEffect(() => () => requestRef.current?.abort(), []);
+  useEffect(
+    () => () => {
+      requestRef.current?.abort();
+      stopDragRef.current?.();
+    },
+    [],
+  );
 
   const close = () => {
     setOpen(false);
     launcherRef.current?.focus();
   };
+
+  const retireNudge = () => {
+    setNudge(false);
+    store(NUDGE_KEY, "seen");
+  };
+
+  const openChat = () => {
+    setOpen(true);
+    retireNudge();
+  };
+
+  // Dragging: a press on the mascot that travels a few pixels becomes a move,
+  // not a click. The spot is kept as fractions (see `Spot`) and remembered.
+  // Listens on the window for the rest of the press: a quick drag leaves the
+  // mascot before it has moved, and pointer capture would retarget the click.
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    draggedRef.current = false;
+    if (event.button !== 0 || !launcherRef.current?.contains(event.target as Node)) return;
+    stopDragRef.current?.();
+
+    const dock = event.currentTarget;
+    const box = dock.getBoundingClientRect();
+    const size = dock.offsetWidth;
+    const margin = parseFloat(getComputedStyle(dock).getPropertyValue("--dock-m")) || 12;
+    const { pointerId, clientX: startX, clientY: startY } = event;
+    const grabX = startX - box.left;
+    const grabY = startY - box.top;
+    const slop = event.pointerType === "touch" ? 10 : 5;
+    let moved = false;
+
+    const move = (e: globalThis.PointerEvent) => {
+      if (e.pointerId !== pointerId) return;
+      if (!moved) {
+        if (Math.hypot(e.clientX - startX, e.clientY - startY) < slop) return;
+        moved = true;
+        setDragging(true);
+      }
+      const freeX = document.documentElement.clientWidth - size - 2 * margin;
+      const freeY = window.innerHeight - size - 2 * margin;
+      const next = {
+        fx: freeX > 0 ? clamp01((e.clientX - grabX - margin) / freeX) : 1,
+        fy: freeY > 0 ? clamp01((e.clientY - grabY - margin) / freeY) : 1,
+      };
+      spotRef.current = next;
+      setSpot(next);
+    };
+
+    const stop = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", end);
+      window.removeEventListener("pointercancel", end);
+      stopDragRef.current = null;
+    };
+
+    const end = (e: globalThis.PointerEvent) => {
+      if (e.pointerId !== pointerId) return;
+      stop();
+      if (!moved) return;
+      draggedRef.current = true;
+      setDragging(false);
+      store(SPOT_KEY, JSON.stringify(spotRef.current));
+    };
+
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
+    stopDragRef.current = stop;
+  };
+
+  // Anchor to the nearest edges, so the panel and bubble open towards the
+  // middle of the screen, wherever the mascot is.
+  const right = spot.fx >= 0.5;
+  const bottom = spot.fy >= 0.5;
+  const placement = {
+    "--dock-x": along(right ? 1 - spot.fx : spot.fx),
+    "--dock-y": along(bottom ? 1 - spot.fy : spot.fy),
+    // Room for the panel between the mascot and the far edge (header clear).
+    "--panel-max": `calc(100% - var(--dock-y) - var(--dock-size) - 0.75rem - ${bottom ? "5rem" : "var(--dock-m)"})`,
+    // Room for the bubble between the mascot and the near edge.
+    "--bubble-max": `calc(var(--dock-m) + ${(right ? spot.fx : 1 - spot.fx).toFixed(4)} * (100vw - var(--dock-size) - 2 * var(--dock-m)) - 1.5rem)`,
+  } as CSSProperties;
+  const dockEdges: CSSProperties = {
+    ...(right ? { right: "var(--dock-x)" } : { left: "var(--dock-x)" }),
+    ...(bottom ? { bottom: "var(--dock-y)" } : { top: "var(--dock-y)" }),
+  };
+  const panelEdge = "calc(var(--dock-y) + var(--dock-size) + 0.75rem)";
 
   async function ask(question: string) {
     const text = question.trim().slice(0, MAX_QUESTION);
@@ -190,14 +353,22 @@ export function Assistant() {
   const navigate = () => closeOnSmallScreens(close);
 
   return (
-    <div className="pointer-events-none fixed right-3 bottom-3 z-30 flex flex-col items-end gap-3 md:right-4 md:bottom-4 print:hidden">
+    // Mascot 64px with 12px gutters on phones, 96px with 16px from md.
+    <div
+      style={placement}
+      className="contents [--dock-m:12px] [--dock-size:64px] md:[--dock-m:16px] md:[--dock-size:96px] print:hidden"
+    >
       {open ? (
         <section
           id={panelId}
           role="dialog"
           aria-labelledby={titleId}
           onKeyDown={onKeyDown}
-          className="surface pointer-events-auto flex max-h-[calc(100svh-11rem)] w-[calc(100vw-1.5rem)] flex-col overflow-hidden md:max-h-[min(36rem,calc(100svh-13rem))] md:w-[24rem]"
+          style={bottom ? { bottom: panelEdge } : { top: panelEdge }}
+          className={cn(
+            "surface fixed right-3 left-3 z-30 flex max-h-(--panel-max) flex-col overflow-hidden md:w-[24rem] md:max-h-[min(36rem,var(--panel-max))]",
+            right ? "md:right-(--dock-x) md:left-auto" : "md:right-auto md:left-(--dock-x)",
+          )}
         >
           <header className="flex items-start justify-between gap-3 border-b border-rule py-2 pr-2 pl-4">
             <div className="py-1">
@@ -290,21 +461,80 @@ export function Assistant() {
         </section>
       ) : null}
 
-      {/* 96px from md up; scaled to 64px on phones, sized so the panel sits right above it. */}
-      <div className="rise-in pointer-events-auto [--rise-delay:500ms] max-md:h-16 max-md:w-16 max-md:[&>button]:origin-top-left max-md:[&>button]:scale-[0.6667]">
+      <div
+        style={dockEdges}
+        onPointerDown={onPointerDown}
+        onClickCapture={(event) => {
+          // The click that ends a drag must not toggle the chat.
+          if (!draggedRef.current) return;
+          draggedRef.current = false;
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        className="rise-in fixed z-30 h-(--dock-size) w-(--dock-size) [--rise-delay:500ms]"
+      >
+        {nudge && !open && !dragging ? (
+          <div
+            className={cn(
+              "surface rise-in absolute top-1/2 flex w-max max-w-[min(16rem,var(--bubble-max))] -translate-y-1/2 items-start",
+              right ? "right-full mr-3" : "left-full ml-3",
+            )}
+          >
+            <button type="button" onClick={openChat} className="min-w-0 flex-1 py-2 pl-3 text-left">
+              <span className="type-meta block text-ink">{assistant.nudge.text}</span>
+              <span className="mt-0.5 block text-xs text-ink-muted">{assistant.nudge.hint}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                retireNudge();
+                launcherRef.current?.focus();
+              }}
+              aria-label={assistant.nudge.dismissLabel}
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-ink-muted transition-colors hover:text-ink"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+            {/* The bubble's tail, pointing at the mascot. */}
+            <span
+              aria-hidden="true"
+              className={cn(
+                "absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-rule bg-surface-elevated",
+                right ? "-right-[6px] border-t border-r" : "-left-[6px] border-b border-l",
+              )}
+            />
+          </div>
+        ) : null}
+
+        {/* 96px, scaled to 64px on phones; touch-none so a drag doesn't scroll the page. */}
         <Mascot
           ref={launcherRef}
           directions={assistant.mascot.directions}
           reactions={assistant.mascot.reactions}
           size={96}
+          className="touch-none max-md:origin-top-left max-md:scale-[0.6667]"
           ariaLabel={open ? `Close chat: ${assistant.launcherLabel}` : assistant.launcherLabel}
           expanded={open}
           controls={open ? panelId : undefined}
+          dragging={dragging}
           onActivate={() => {
             if (open) close();
-            else setOpen(true);
+            else openChat();
           }}
         />
+
+        {/* Chat badge on the corner facing the page, so the mascot reads as a chat. */}
+        {!open ? (
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute top-0 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-ground bg-primary text-primary-foreground md:h-7 md:w-7",
+              right ? "left-0" : "right-0",
+            )}
+          >
+            <MessageCircle className="h-3 w-3 md:h-3.5 md:w-3.5" />
+          </span>
+        ) : null}
       </div>
     </div>
   );

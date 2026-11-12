@@ -1,8 +1,9 @@
 /*
  * Adapted from page-mascot 0.1.0 (https://github.com/nilbuild/page-mascot),
  * src/mascot.tsx. Changes: hover and keyboard focus show an expression (a tap
- * on touch screens), a click opens the chat (`onActivate`), and the button
- * carries its own aria-label / aria-expanded / aria-controls.
+ * on touch screens), a click opens the chat (`onActivate`), `dragging` shows
+ * the dizzy face while the visitor moves it, and the button carries its own
+ * aria-label / aria-expanded / aria-controls.
  *
  * MIT License
  *
@@ -118,6 +119,8 @@ export interface MascotProps {
   onActivate?: () => void;
   expanded?: boolean;
   controls?: string;
+  /** Being dragged to a new spot: shows the dizzy face until dropped. */
+  dragging?: boolean;
   ref?: Ref<HTMLButtonElement>;
 }
 
@@ -130,6 +133,7 @@ export function Mascot({
   onActivate,
   expanded,
   controls,
+  dragging = false,
   ref,
 }: MascotProps) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -239,6 +243,8 @@ export function Mascot({
     else if (ref) ref.current = node;
   };
 
+  const shown: Reaction | null = dragging ? "dizzy" : reaction;
+
   // Inline styles so the file drops into any project without a CSS framework.
   return (
     <button
@@ -289,7 +295,7 @@ export function Mascot({
             ...layer,
             backgroundImage: `url(${directions})`,
             ...cell(DIRECTIONS.indexOf(direction)),
-            opacity: reaction ? 0 : 1,
+            opacity: shown ? 0 : 1,
           }}
         />
         {/* Always mounted so the sheet is fetched up front, never on the first click. */}
@@ -297,8 +303,8 @@ export function Mascot({
           style={{
             ...layer,
             backgroundImage: `url(${reactions})`,
-            ...cell(REACTIONS.indexOf(reaction ?? "blink")),
-            opacity: reaction ? 1 : 0,
+            ...cell(REACTIONS.indexOf(shown ?? "blink")),
+            opacity: shown ? 1 : 0,
           }}
         />
       </span>

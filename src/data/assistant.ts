@@ -22,6 +22,11 @@ export const assistant: AssistantContent = {
   subtitle: "AI answers from this portfolio",
   greeting:
     "Hi! I'm Zaid's portfolio assistant. Ask me about his work, projects, skills or how to reach him.",
+  nudge: {
+    text: "Hi! Ask me anything about Zaid.",
+    hint: "Click me to chat, or drag me anywhere.",
+    dismissLabel: "Dismiss",
+  },
   starterQuestions: [
     "What does Zaid do at IoBM?",
     "What is his main tech stack?",

@@ -3,7 +3,6 @@
 // shoulders so the body never jumps between sheets, writes 600px webp sheets.
 // Usage: node scripts/build-mascot.cjs characters/zaid public/mascots zaid
 const sharp = require("sharp");
-const [srcDir, outDir, name] = process.argv.slice(2);
 const C = 200; // output cell size (96px CSS at 2x)
 
 async function keyed(file) {
@@ -46,7 +45,8 @@ function measure(sheet, col, row) {
   return { x0, y0, n, bottom, top, left: l, right: r, width: r - l + 1, cx: (l + r) / 2 };
 }
 
-(async () => {
+async function main() {
+  const [srcDir, outDir, name] = process.argv.slice(2);
   const sheets = {};
   for (const kind of ["directions", "reactions"]) sheets[kind] = await keyed(`${srcDir}/${kind}.png`);
   const cells = [];
@@ -81,4 +81,8 @@ function measure(sheet, col, row) {
       .composite(tiles).webp({ quality: 84, alphaQuality: 95, effort: 6 }).toFile(`${outDir}/${name}-${kind}.webp`);
   }
   console.log("written");
-})();
+}
+
+// scripts/build-favicon.cjs reuses the keying.
+module.exports = { keyed };
+if (require.main === module) main();

@@ -208,6 +208,11 @@ export interface AssistantContent {
   /** One line under the title. */
   subtitle: string;
   greeting: string;
+  /**
+   * Speech bubble beside the mascot until the visitor opens the chat or
+   * dismisses it, so it is clear the mascot is a chat (and can be moved).
+   */
+  nudge: { text: string; hint: string; dismissLabel: string };
   /** Shown before the visitor has asked anything. */
   starterQuestions: string[];
   /**
