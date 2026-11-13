@@ -6,18 +6,22 @@ import { contactInfo } from "@/data/contact";
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "Privacy policy for the portfolio website of Muhammad Zaid Qasim — no cookies, no tracking, no data collection.",
+    "Privacy policy for the portfolio website of Muhammad Zaid Qasim — no cookies, anonymous visit statistics only.",
   path: "/privacy",
 });
 
 const sections = [
   {
     title: "What this site collects",
-    body: "Almost nothing. This portfolio has no analytics scripts, no cookies, and no tracking of any kind. Your visit is not recorded. The only data this site ever receives is what you type into the contact form or the chat assistant yourself.",
+    body: "Very little. This site uses no cookies and does not identify you. Beyond the anonymous visit statistics below, the only data it receives is what you type into the contact form or the chat assistant yourself.",
+  },
+  {
+    title: "Visit statistics",
+    body: "This site uses Vercel Web Analytics to count visits: which pages are viewed, the site that linked you here, and your country, browser, operating system and device type. It uses no cookies, does not store anything on your device, and cannot follow you to other sites. Visitors are counted with a short-lived anonymous identifier that resets every day, so I see totals, not individual people.",
   },
   {
     title: "Chat assistant",
-    body: "The mascot in the corner opens a chat that answers questions about me. When you ask something, your question and the conversation so far are sent to Google's Gemini API to generate the answer. This site does not store the conversation, and it disappears when you leave. Google processes it under its Gemini API terms and may use it to improve its products, so please don't type personal or sensitive information into the chat.",
+    body: "The mascot in the corner opens a chat that answers questions about me. When you ask something, your question and the conversation so far are sent to Google's Gemini API to generate the answer. This site does not store the conversation, and it disappears when you leave. Google processes it under its Gemini API terms and may use it to improve its products, so please don't type personal or sensitive information into the chat. Your browser also remembers where you dragged the mascot and whether you closed its speech bubble; that stays on your device and is never sent anywhere.",
   },
   {
     title: "Contact form",
@@ -33,7 +37,7 @@ const sections = [
   },
   {
     title: "Changes to this policy",
-    body: "If the site ever changes in a way that affects your privacy — for example, by adding analytics — this page will be updated first.",
+    body: "If the site ever changes in a way that affects your privacy, this page will be updated first.",
   },
 ];
 
@@ -42,7 +46,7 @@ export default function PrivacyPage() {
     <>
       <PageHeader
         title="Privacy Policy"
-        description="The short version: this site collects nothing about you."
+        description="The short version: no cookies, anonymous visit counts, nothing that identifies you."
       />
       <Section>
         {/* Two columns from xl, so the policy doesn't sit in a narrow strip
