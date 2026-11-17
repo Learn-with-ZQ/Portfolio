@@ -51,14 +51,14 @@ export const enterpriseChapter: StoryChapter = {
   id: "enterprise",
   number: "02",
   title: "The systems a university runs on",
-  context: "Edu-Smartz and Ebiz-Smartz, deployed at IoBM",
+  context: "Edu-Smartz and Ebiz-Smartz, in production at IoBM",
   link: { href: "/experience", label: "Read the full role" },
   stageLabel:
     "Diagram of the modules in three production systems at IoBM: the Edu-Smartz campus management system, the Ebiz-Smartz ERP, and the student and faculty portals.",
   steps: [
     {
       title: "Fifteen-plus modules in production",
-      body: "As a Resident Engineer at IoBM, I build and maintain the campus management system, the ERP, and the student and faculty portals — used every day by thousands of students and staff.",
+      body: "At E-Creatorz I build and maintain the campus management system, the ERP, and the student and faculty portals that IoBM runs on — used every day by thousands of students and staff.",
     },
     {
       title: "Edu-Smartz CMS",
@@ -74,7 +74,7 @@ export const enterpriseChapter: StoryChapter = {
     },
     {
       title: "Kept healthy in production",
-      body: "I resolve production issues through root-cause analysis to keep downtime low, working directly with the academic, finance, HR and administrative teams who depend on these systems.",
+      body: "I resolve production issues through root-cause analysis and query tuning to keep downtime low, working with QA, business stakeholders and the teams who depend on these systems.",
     },
   ],
 };

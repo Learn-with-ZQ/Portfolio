@@ -1,5 +1,5 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { services } from "@/data/services";
+import { getServices } from "@/lib/content";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
@@ -11,7 +11,8 @@ export const metadata = createPageMetadata({
   path: "/services",
 });
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <>
       <PageHeader

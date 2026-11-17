@@ -5,26 +5,26 @@ This file is everything the portfolio chat assistant knows. It answers only from
 ## At a glance
 
 - **Name:** Muhammad Zaid Qasim (goes by Zaid)
-- **Role:** Software Developer at E-Creatorz, deployed as Resident Engineer at IoBM
+- **Role:** Software Developer at E-Creatorz (Karachi), since May 2023
 - **Location:** Karachi, Pakistan
 - **Availability:** Available for opportunities
 - **In one line:** I design, build, and maintain secure, scalable enterprise web and mobile applications with .NET, SQL Server, React Native, and .NET MAUI.
-- **Résumé:** /Muhammad_Zaid_Qasim_Resume.pdf (PDF download)
-- **Years of Experience:** 3+
+- **Résumé:** /Muhammad_Zaid_Qasim_Resume.pdf (PDF — opens in the browser, with a download button there)
+- **Years of Experience:** 3.5 years of commercial experience (the site shows 3+)
 - **ERP / CMS Modules Delivered:** 15+
-- **Projects Completed:** 9+
+- **Projects:** 10 on the site — 5 completed (including the AIIE 2026 paper) and 5 ongoing in production
 - **HackerRank Certifications:** 4
 - **Focus areas:** .NET Core · Clean Architecture; SQL Server · Stored Procedures · Query Optimization; React Native · .NET MAUI; JWT Auth · RESTful APIs · Production Support
 
 ## Biography
 
-Software Developer at E-Creatorz, deployed as a Resident Engineer at IoBM — building ERP systems, campus management platforms, and banking workflow applications used by thousands of people every day.
+Software Developer at E-Creatorz — building ERP systems, campus management platforms, and banking workflow applications used by thousands of people every day.
 
-I am a Software Developer with 3+ years of experience designing, developing, and maintaining enterprise-grade web and mobile applications using C#, .NET, ASP.NET Core, ASP.NET MVC, Web APIs, SQL Server, Entity Framework, React Native, and .NET MAUI.
+I am a Software Developer with 3.5 years of commercial experience building enterprise applications with C#, .NET, ASP.NET Core, ASP.NET MVC, Web APIs, Entity Framework, and Microsoft SQL Server — across banking, ERP, campus management, HR, and healthcare.
 
-Currently I work at E-Creatorz as a .NET Developer, deployed as a Resident Engineer at IoBM (Institute of Business Management), where I contribute to the development and maintenance of ERP systems, campus management systems, faculty and student portals, and banking workflow applications.
+At E-Creatorz I develop and maintain ERP systems, a campus management system, faculty and student portals, and banking workflow applications, and build their mobile features with .NET MAUI and React Native.
 
-My work centres on maintainable enterprise systems — clean separation of concerns, stored-procedure data access, robust authentication, and thoughtful API design. I have delivered 15+ ERP/CMS modules serving thousands of students and staff, and I take pride in production support done right: root-cause analysis, performance tuning, and reliability.
+My strongest ground is SQL Server: complex queries, stored procedures, indexing, and execution-plan analysis to find and fix performance bottlenecks. I have contributed to 15+ ERP/CMS modules serving thousands of students and staff, and I take pride in production support done right: root-cause analysis, performance tuning, and reliability. I apply Dependency Injection, SOLID principles, design patterns, asynchronous programming, and layered architecture, and I use GitHub Copilot, Cursor, and Claude for AI-assisted development and debugging.
 
 Alongside delivery, I am pursuing a Master's in Data Science at NED University, extending my backend depth into analytics and machine learning, and I stay active in community leadership and public speaking.
 
@@ -37,31 +37,41 @@ Alongside delivery, I am pursuing a Master's in Data Science at NED University, 
 
 ### Software Developer — E-Creatorz
 
-- **Deployment:** Resident Engineer at IoBM (Institute of Business Management)
+- **Company:** E-Creatorz (Pvt.) Ltd.
 - **Location:** Karachi, Pakistan
 - **Dates:** May 2023 – present
-- **Technologies:** C#, .NET, ASP.NET WebForms, ASP.NET MVC, REST APIs, Entity Framework, SQL Server, React Native, .NET MAUI
+- **Technologies:** C#, .NET, ASP.NET Core, ASP.NET MVC, ASP.NET WebForms, REST APIs, Entity Framework, LINQ, SQL Server, IIS, React Native, .NET MAUI
 
-Supporting enterprise-level academic and administrative systems as a Resident Engineer at IoBM — from campus management and ERP modules to cross-platform mobile apps and banking workflows.
+Building and maintaining enterprise applications for banking, ERP, campus management, HR, and healthcare — C#, .NET, and SQL Server on the back end, .NET MAUI and React Native on mobile.
 
 Responsibilities:
 
-- Designed, developed, and maintained enterprise web applications using C#, .NET, WebForms, MVC, REST APIs, and Entity Framework.
-- Designed and optimized SQL Server databases, stored procedures, and queries to improve application performance and reporting efficiency.
-- Contributed to Campus Management System (CMS) modules: student registration, academic management, reporting, surveys, fee management, and trusted-device authentication.
-- Developed and maintained ERP modules covering Payroll, Human Resource Management, Supply Chain Management, and Hospital Management systems.
-- Enhanced faculty and student portal features: attendance tracking, assessment results, academic monitoring, student ledger, roadmap, and course management.
-- Developed cross-platform mobile applications using .NET MAUI and React Native.
-- Implemented secure banking transaction workflows in React Native using Maker, Checker, Signatory, and Releasor authorization.
-- Resolved production issues through root-cause analysis, improving application stability and minimizing downtime.
-- Collaborated with academic, finance, HR, and administrative teams to gather requirements and improve system reliability.
-- Successfully delivered 15+ ERP/CMS modules serving thousands of students and staff.
+- Design, develop, maintain, and optimize enterprise applications using C#, .NET, ASP.NET Core, ASP.NET MVC, WebForms, RESTful APIs, Entity Framework, LINQ, and Microsoft SQL Server.
+- Develop and optimize complex SQL queries, stored procedures, indexes, and database operations, analyzing execution plans to find performance bottlenecks and improve response times.
+- Independently investigate and resolve production database performance issues through query optimization, stored procedure tuning, and structured root-cause analysis.
+- Troubleshoot application, API, database, and integration issues across existing and legacy codebases, shipping reliable enhancements without disrupting business-critical functionality.
+- Work across the software development lifecycle: requirements analysis, implementation, debugging, deployment, performance optimization, production support, and maintenance.
+- Apply Dependency Injection, SOLID principles, design patterns, asynchronous programming, middleware, and layered application architecture.
+- Develop and maintain ERP and Campus Management System modules: student registration, academic management, fee management, attendance, assessments, reporting, surveys, Payroll, HRM, Supply Chain Management, and Hospital Management.
+- Develop and integrate RESTful APIs and banking transaction workflows with Maker, Checker, Signatory, and Releasor authorization.
+- Support enterprise applications hosted on IIS, working with QA, business stakeholders, and cross-functional teams to investigate production issues and deliver lasting fixes.
+- Build cross-platform mobile features with .NET MAUI and React Native, integrating backend APIs and enterprise authentication workflows.
+- Use Postman, Swagger, Visual Studio, GitHub Copilot, Cursor, and Claude for API testing, debugging, code exploration, and AI-assisted development.
+- Contributed to 15+ ERP and Campus Management modules serving thousands of students and staff.
 
-### The systems he works on at IoBM
+Messaging and distributed systems (knowledge, not production work on this site): Apache Kafka, RabbitMQ, message queues, event-driven architecture, asynchronous processing.
+
+### The systems he works on (in production at IoBM)
 
 - **Edu-Smartz CMS** (ASP.NET WebForms, SQL Server): Student registration, Academic management, Fee management, Reporting, Surveys, Trusted-device auth
 - **Ebiz-Smartz ERP** (ASP.NET, SQL Server): Payroll, Human resources, Supply chain, Purchase requisition, Hospital management
 - **Student and faculty portals** (.NET, .NET MAUI): Attendance, Assessment results, Student ledger, Degree roadmap, Course management, LMS, Academic tracking
+
+## Teaching
+
+- **Instructor at Bano Qabil** (a skills-training programme in Pakistan) for **Essentials for AI & Prompt Mastery**: https://banoqabil.pk/courses/essentials-for-ai-prompt-mastery-6a649b54f6e4ae8688bff8a5
+- A five-month, no-code course, 4 hours a week, for students with basic computer literacy. It covers how large language models and image models work (conceptually), prompt engineering from fundamentals to few-shot and chain-of-thought prompting, using ChatGPT, Claude and Gemini for research and writing, image, video and audio tools, no-code automation (Zapier, Make), custom GPTs, AI ethics, bias, misinformation and privacy, and a capstone project.
+- He likes sharing technical knowledge; the start date of his teaching isn't on the site.
 
 ## Projects
 
@@ -131,7 +141,7 @@ Transaction types: IBFT, IFT, Cheque (inter-bank funds transfer, intra-bank fund
 
 - **Page:** /projects/edu-smartz-cms
 - **Category:** Enterprise
-- **Context:** E-Creatorz · Deployed at IoBM
+- **Context:** E-Creatorz · In production at IoBM
 - **Dates:** May 2023 – present (ongoing)
 - **Technologies:** ASP.NET, WebForms, SQL Server, C#
 
@@ -139,7 +149,7 @@ Enterprise campus management platform covering student registration, fee managem
 
 Edu-Smartz CMS is the campus management backbone at IoBM — the system through which students register, fees are managed, surveys run, and academic operations flow.
 
-I contribute to the development and maintenance of its core modules, working directly with the academic, finance, and administrative teams who depend on it daily.
+I contribute to the development and maintenance of its core modules, working with QA and the business stakeholders who depend on it daily.
 
 My work spans student registration, academic management, reporting, fee management, surveys, and trusted-device authentication — features serving thousands of students and staff.
 
@@ -325,7 +335,7 @@ Levels are tiers: Expert, Advanced, Proficient, Familiar.
 ## Education
 
 - **Master of Science in Data Science**, NED University of Engineering and Technology, Karachi, Pakistan — Jan 2026 – present (in progress). Coursework: Statistics for Data Science, Data Science Tools & Techniques, Machine Learning.
-- **Bachelor of Science in Computer Science**, PAF-KIET (Karachi Institute of Economics and Technology), Main Campus Korangi Creek, Karachi, Pakistan — Sep 2020 – Jun 2024. Coursework: Data Structures & Algorithms, Database Management Systems (DBMS), Machine Learning, Computer Organization & Architecture, Entity Framework & MVC, Data Science.
+- **Bachelor of Science in Computer Science**, PAF-KIET (Karachi Institute of Economics and Technology), Main Campus Korangi Creek, Karachi, Pakistan — Sep 2020 – Jun 2024. Coursework: Data Structures & Algorithms, Database Management Systems (DBMS), Machine Learning & Data Science, Computer Organization & Architecture, Entity Framework & MVC, a Blockchain research paper, and research on the NP-hard Two-Dimensional Bin Packing Problem.
 
 ## Certifications
 
@@ -349,7 +359,7 @@ Levels are tiers: Expert, Advanced, Proficient, Familiar.
 ## Journey
 
 - **2020 — Started BS Computer Science.** Began my Computer Science journey at PAF-KIET, Karachi — building foundations in data structures, algorithms, databases, and software engineering.
-- **2023 — Joined E-Creatorz as Software Developer.** Started building enterprise systems professionally — deployed as a Resident Engineer at IoBM, working on campus management, ERP, and portal systems.
+- **2023 — Joined E-Creatorz as Software Developer.** Started building enterprise systems professionally — campus management, ERP, and portal systems.
 - **2024 — Graduated & Shipped Final Year Project.** Completed my BSCS degree and delivered Space Optimizer — an intelligent 2D bin-packing research project combining optimization algorithms with image recognition.
 - **2025 — Banking & Mobile Workflows.** Built secure banking transaction workflows in React Native — Maker, Checker, Signatory, and Releasor authorization for IBFT, IFT, and cheque-based transactions.
 - **2026 — Started MS in Data Science.** Enrolled at NED University of Engineering and Technology to extend my engineering depth into statistics, machine learning, and data science.

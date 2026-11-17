@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/types";
 import { Badge, Status } from "@/components/ui/badge";
+import { ProjectMotif } from "@/components/projects/project-motif";
 import { formatDateRange } from "@/lib/format";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -13,9 +14,10 @@ export function ProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.slug}`}
       className="surface group reveal flex h-full flex-col p-6 transition-colors hover:border-rule-strong"
     >
+      <ProjectMotif project={project} className="mb-5" />
       <div className="flex items-center justify-between gap-4">
         <span className="type-meta text-ink-muted">{project.category}</span>
-        <Status tone={ongoing ? "pending" : "verified"}>
+        <Status tone={ongoing ? "pending" : project.paper ? "research" : "verified"}>
           {ongoing ? "Ongoing" : project.paper ? "Presented" : "Completed"}
         </Status>
       </div>
@@ -37,7 +39,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <li className="type-meta text-ink-muted">+{hiddenTech} more</li>
           ) : null}
         </ul>
-        <span className="font-mono text-xs tabular-nums text-ink-muted">
+        <span className="font-mono text-[0.8125rem] tabular-nums text-ink-muted">
           {formatDateRange(project.startDate, project.endDate)}
         </span>
       </div>

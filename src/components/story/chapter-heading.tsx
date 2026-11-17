@@ -17,7 +17,10 @@ export function ChapterHeading({ chapter, headingId }: ChapterHeadingProps) {
         {chapter.title}
       </h2>
       {chapter.link ? (
-        <Link href={chapter.link.href} className="link type-meta mt-4 inline-block font-medium">
+        <Link
+          href={chapter.link.href}
+          className="link type-meta mt-3 inline-flex min-h-11 items-center font-medium"
+        >
           {chapter.link.label}
         </Link>
       ) : null}

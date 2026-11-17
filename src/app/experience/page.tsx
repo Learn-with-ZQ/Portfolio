@@ -1,5 +1,5 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { experiences } from "@/data/experience";
+import { getExperiences } from "@/lib/content";
 import { formatDateRange, formatDuration } from "@/lib/format";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
@@ -9,11 +9,12 @@ import { Badge, Status } from "@/components/ui/badge";
 export const metadata = createPageMetadata({
   title: "Experience",
   description:
-    "Professional experience of Muhammad Zaid Qasim — Software Developer at E-Creatorz, deployed as Resident Engineer at IoBM, building ERP, CMS, and banking systems.",
+    "Professional experience of Muhammad Zaid Qasim — Software Developer at E-Creatorz since 2023, building ERP, campus management, and banking systems with .NET and SQL Server.",
   path: "/experience",
 });
 
-export default function ExperiencePage() {
+export default async function ExperiencePage() {
+  const experiences = await getExperiences();
   return (
     <>
       <PageHeader

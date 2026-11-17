@@ -4,6 +4,7 @@ import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Assistant } from "@/components/assistant/assistant";
+import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
@@ -121,6 +122,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <Assistant />
+          <SmoothScroll />
         </Providers>
         {/* Vercel Web Analytics: cookie-free page views; a no-op outside Vercel. */}
         <Analytics />

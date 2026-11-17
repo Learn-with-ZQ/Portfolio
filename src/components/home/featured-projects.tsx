@@ -1,21 +1,24 @@
-import Link from "next/link";
-import { getFeaturedProjects, projects } from "@/data/projects";
+import { getProjects } from "@/lib/content";
 import { ProjectCard } from "@/components/projects/project-card";
+import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionHeading } from "@/components/ui/section";
 
-export function FeaturedProjects() {
-  const featured = getFeaturedProjects();
+export async function FeaturedProjects() {
+  const projects = await getProjects();
+  const featured = projects.filter((project) => project.featured);
 
   return (
-    <Section id="featured-projects" labelledBy="featured-title" rule>
+    // Right after the hero, on the light ground (audit A4).
+    <Section id="featured-projects" labelledBy="featured-title">
       <SectionHeading
         id="featured-title"
         title="Selected work"
-        description="A curated view into the products, platforms, and engineering work that shaped my practice."
+        description={`${featured.length} projects that show how I work. The other ${projects.length - featured.length} are on the projects page.`}
         action={
-          <Link href="/projects" className="link type-meta font-medium">
+          // A 40px button, not a 15px-tall text link (audit A5).
+          <ButtonLink href="/projects" variant="secondary" size="sm">
             All {projects.length} projects
-          </Link>
+          </ButtonLink>
         }
       />
       <ul className="grid gap-5 lg:grid-cols-2">

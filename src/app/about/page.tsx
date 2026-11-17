@@ -1,19 +1,24 @@
 import Image from "next/image";
-import { journey, mission, profile, vision } from "@/data/profile";
+import { getJourney, getProfile, getStatement } from "@/lib/content";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Stats } from "@/components/home/stats";
 import { Section, SectionHeading } from "@/components/ui/section";
-import { RecordRow } from "@/components/ui/record-row";
+import { JourneyTimeline } from "@/components/story/journey-timeline";
 
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "Professional biography of Muhammad Zaid Qasim — Software Developer at E-Creatorz, Resident Engineer at IoBM, and MS Data Science student at NED University.",
+    "Professional biography of Muhammad Zaid Qasim — Software Developer at E-Creatorz and MS Data Science student at NED University.",
   path: "/about",
 });
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [profile, journey, { mission, vision }] = await Promise.all([
+    getProfile(),
+    getJourney(),
+    getStatement(),
+  ]);
   return (
     <>
       <PageHeader title="Engineering with purpose" description={profile.shortBio} />
@@ -94,21 +99,9 @@ export default function AboutPage() {
           title="My journey so far"
           description="From first semester to enterprise production systems — the milestones that shaped how I build software."
         />
-        <ol>
-          {journey.map((event) => (
-            <RecordRow
-              as="li"
-              key={`${event.year}-${event.title}`}
-              aside={
-                <p className="font-mono text-sm tabular-nums text-ink-muted">{event.year}</p>
-              }
-              sideClassName="mt-2"
-              side={<p className="type-body text-ink-muted">{event.description}</p>}
-            >
-              <h3 className="type-h3">{event.title}</h3>
-            </RecordRow>
-          ))}
-        </ol>
+        {/* The same rail timeline as the home page's path chapter (user,
+            2026-11-17: "where is its line?" — these were plain rows). */}
+        <JourneyTimeline journey={journey} />
       </Section>
     </>
   );

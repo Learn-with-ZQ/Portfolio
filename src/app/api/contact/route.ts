@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { PORTFOLIO_API_BASE } from "@/lib/portfolio-api";
 
 interface ContactPayload {
   name: string;
@@ -49,9 +50,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.error("CONTACT_WEBHOOK_URL is not configured.");
+  // Messages are saved in the Portfolio database through the API (since
+  // 2026-11-17; before that, a Google Sheet). Visitors don't sign in: the
+  // site's server proves itself with the site key, which only it knows.
+  const siteKey = process.env.PORTFOLIO_API_SITE_KEY;
+  if (!PORTFOLIO_API_BASE || !siteKey) {
+    console.error("PORTFOLIO_API_URL or PORTFOLIO_API_SITE_KEY is not configured.");
     return NextResponse.json(
       { error: "The contact form is not configured yet." },
       { status: 503 },
@@ -59,36 +63,34 @@ export async function POST(request: Request) {
   }
 
   try {
-    const response = await fetch(webhookUrl, {
+    const response = await fetch(`${PORTFOLIO_API_BASE}/api/messages`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...payload, submittedAt: new Date().toISOString() }),
-      redirect: "follow",
+      headers: { "Content-Type": "application/json", "X-Site-Key": siteKey },
+      body: JSON.stringify(payload),
+      cache: "no-store",
       signal: AbortSignal.timeout(10_000),
     });
 
-    if (!response.ok) {
-      throw new Error(`Webhook responded with ${response.status}`);
-    }
+    if (response.status === 201) return NextResponse.json({ ok: true });
 
-    // Apps Script reports its own errors as HTTP 200 HTML pages, so a status
-    // check is not enough — require the script's JSON success payload.
-    const responseText = await response.text();
-    let result: { ok?: boolean } | null = null;
-    try {
-      result = JSON.parse(responseText);
-    } catch {
-      throw new Error(
-        `Webhook returned non-JSON response: ${responseText.slice(0, 300)}`,
+    if (response.status === 400) {
+      const result = (await response.json().catch(() => null)) as { message?: string } | null;
+      return NextResponse.json(
+        { error: result?.message ?? "Please check the form and try again." },
+        { status: 400 },
       );
     }
-    if (result?.ok !== true) {
-      throw new Error(`Webhook reported failure: ${responseText.slice(0, 300)}`);
+
+    if (response.status === 429) {
+      return NextResponse.json(
+        { error: "Too many messages right now. Try again in a minute." },
+        { status: 429 },
+      );
     }
 
-    return NextResponse.json({ ok: true });
+    throw new Error(`The API answered ${response.status}`);
   } catch (error) {
-    console.error("Contact form forwarding failed:", error);
+    console.error("Contact form saving failed:", error);
     return NextResponse.json(
       { error: "Could not record your message. Please try again later." },
       { status: 502 },

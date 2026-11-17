@@ -1,4 +1,5 @@
 import { createPageMetadata } from "@/lib/metadata";
+import { getProjects } from "@/lib/content";
 import { PageHeader } from "@/components/common/page-header";
 import { ProjectsExplorer } from "@/components/projects/projects-explorer";
 import { Section } from "@/components/ui/section";
@@ -10,7 +11,8 @@ export const metadata = createPageMetadata({
   path: "/projects",
 });
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
   return (
     <>
       <PageHeader
@@ -18,7 +20,7 @@ export default function ProjectsPage() {
         description="Selected work across enterprise systems, mobile banking, and academic research — search, filter, and explore each one."
       />
       <Section>
-        <ProjectsExplorer />
+        <ProjectsExplorer projects={projects} />
       </Section>
     </>
   );

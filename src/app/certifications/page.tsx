@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { createPageMetadata } from "@/lib/metadata";
-import { certifications } from "@/data/certifications";
+import { getCertifications } from "@/lib/content";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { Rating } from "@/components/ui/rating";
@@ -12,7 +12,8 @@ export const metadata = createPageMetadata({
   path: "/certifications",
 });
 
-export default function CertificationsPage() {
+export default async function CertificationsPage() {
+  const certifications = await getCertifications();
   return (
     <>
       <PageHeader

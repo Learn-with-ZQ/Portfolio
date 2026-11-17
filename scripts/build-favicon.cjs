@@ -8,7 +8,7 @@ const fs = require("node:fs");
 const sharp = require("sharp");
 const { keyed } = require("./build-mascot.cjs");
 
-const BLUE = "#1D4ED8"; // --primary (light)
+const BLUE = "#D4A72C"; // --cta gold (Navy and gold palette, 2026-11-17)
 const BIG = 512;
 
 const svg = (body) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${BIG}" height="${BIG}">${body}</svg>`);

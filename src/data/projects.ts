@@ -68,12 +68,12 @@ export const projects: Project[] = [
     slug: "edu-smartz-cms",
     name: "Edu-Smartz Campus Management System",
     category: "Enterprise",
-    context: "E-Creatorz · Deployed at IoBM",
+    context: "E-Creatorz · In production at IoBM",
     summary:
       "Enterprise campus management platform covering student registration, fee management, reporting, surveys, trusted-device authentication, and academic operations.",
     description: [
       "Edu-Smartz CMS is the campus management backbone at IoBM — the system through which students register, fees are managed, surveys run, and academic operations flow.",
-      "I contribute to the development and maintenance of its core modules, working directly with the academic, finance, and administrative teams who depend on it daily.",
+      "I contribute to the development and maintenance of its core modules, working with QA and the business stakeholders who depend on it daily.",
       "My work spans student registration, academic management, reporting, fee management, surveys, and trusted-device authentication — features serving thousands of students and staff.",
     ],
     highlights: [

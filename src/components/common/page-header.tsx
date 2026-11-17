@@ -8,10 +8,12 @@ interface PageHeaderProps {
   children?: React.ReactNode;
 }
 
-/** One header per page — unbounded, closed by a rule. No decorative eyebrow. */
+/** One header per page — unbounded, closed by a rule. No decorative eyebrow.
+ *  Dark in both themes, so every inner page opens in the same dark frame as
+ *  the home hero, and its content reads on the light ground below (UI.md §3). */
 export function PageHeader({ title, description, meta, children }: PageHeaderProps) {
   return (
-    <header className="border-b border-rule">
+    <header className="band-dark border-b border-rule">
       <Container className="pt-10 pb-10 lg:pt-14 lg:pb-12">
         {meta ? <div className="rise-in mb-5">{meta}</div> : null}
         <h1 className="type-h1 rise-in max-w-4xl text-balance [--rise-delay:60ms]">{title}</h1>

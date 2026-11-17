@@ -1,5 +1,12 @@
 import { Container } from "@/components/ui/container";
 
+/**
+ * Only this route renders on request (it reads the Google session), so
+ * only it gets a loading state. Don't move this back to `app/`: a root
+ * `loading.tsx` wraps every page in a Suspense boundary, and the prerendered
+ * HTML of every static page then ships this fallback in <main> with the real
+ * content in a hidden block that a script swaps in (found 2026-11-16).
+ */
 export default function Loading() {
   return (
     <div role="status" aria-label="Loading page">

@@ -8,75 +8,104 @@
   Every text/background pair was measured; the numbers are in .claude/UI.md.
 */
 /*
-  Blue palette, 2026-11-11 (replaced the verdigris/brass palette; the tokens
-  were renamed verdigris -> primary and brass -> pending at the same time).
+  Palette: Navy and gold, 2026-11-17 (chosen by Zaid over "Blueprint" from
+  full-page mockups; replaced the same day's obsidian/cyan palette, which he
+  found didn't look good). Each colour has one meaning:
+    primary  (gold)   — something you can act on, and the signal moving
+                        through a diagram. Never headings or decoration.
+    live     (green)  — completed, shipped, in production, verified.
+    pending  (teal)   — in progress. (Not amber: it would read as gold.)
+    research (violet) — AI, data science and research only.
+  Gold as TEXT on the light ground is a deep `#7A5C0E`; the bright `#D4A72C`
+  is only a button fill (`--cta`), always with navy text. Every pair below is
+  >= 4.5:1 as text and >= 3:1 as a boundary on every surface of its context
+  (measured; UI.md §3).
 */
 :root {
   color-scheme: light;
 
-  --ground: #f3f6fa;
-  --surface: #f9fbfe;
+  /* Clean white reading surfaces. */
+  --ground: #f5f6f7;
+  --surface: #ebedf0;
   --surface-elevated: #ffffff;
 
-  --ink: #10233f;
-  --ink-muted: #52657a;
+  --ink: #0e1a2b;
+  --ink-muted: #545e6b;
 
-  /* Decorative separators and surface edges (~1.4:1 — visible, not heavy). */
-  --rule: rgba(16, 35, 63, 0.16);
+  /* Decorative separators and surface edges — visible, not heavy. */
+  --rule: rgba(14, 26, 43, 0.14);
   /* Boundaries that identify a control, e.g. inputs: >= 3:1 on every surface. */
-  --rule-strong: #71839a;
+  --rule-strong: #7b8592;
 
-  /* Primary = verified, live, the call to action. Pending = in progress. */
-  --primary: #1d4ed8;
-  --primary-deep: #163fa8;
-  --pending: #b45309;
-  /* #b45309 is 4.39:1 on the hero's #e8f0ff end; this stays >= 4.9:1 everywhere. */
-  --pending-text: #a84d08;
+  --primary: #7a5c0e;
+  --primary-deep: #6b500c;
+  --live: #166534;
+  --research: #5b4bc4;
+  --pending: #0f766e;
+  --pending-text: #0f766e;
   --error: #b42318;
 
   --ring: var(--primary);
 
-  /* White text: 6.7:1 at #1d4ed8, 9.1:1 at #163fa8. */
-  --cta-from: #1d4ed8;
-  --cta-to: #163fa8;
-  --cta-hover: #163fa8;
-  --primary-foreground: #ffffff;
+  /* Solid gold, navy text: 7.7:1, 9.1:1 on hover. */
+  --cta: #d4a72c;
+  --cta-hover: #e0b84a;
+  --primary-foreground: #0b1b33;
 
-  --hero-from: #f3f6fa;
-  --hero-to: #e8f0ff;
-  --schematic-grid: rgba(16, 35, 63, 0.06);
+  --schematic-grid: rgba(14, 26, 43, 0.06);
 }
 
-html.dark {
+/*
+  Dark values. `html.dark` is the dark theme; `.band-dark` is a section that is
+  dark in BOTH themes (header, hero, the three system chapters, page headers,
+  the closing call to action, footer). Components only read these variables,
+  so a band needs no per-component styling: its children re-colour themselves.
+*/
+html.dark,
+.band-dark {
   color-scheme: dark;
 
-  --ground: #08111f;
-  --surface: #101c2e;
-  --surface-elevated: #16243a;
+  --ink: #f1f3f6;
+  --ink-muted: #a9b4c4;
 
-  --ink: #eff6ff;
-  --ink-muted: #a9b7cc;
+  --rule: rgba(241, 243, 246, 0.14);
+  --rule-strong: #6e7d93;
 
-  --rule: rgba(239, 246, 255, 0.16);
-  --rule-strong: #64748b;
-
-  --primary: #72a7ff;
-  /* 3.6:1 with dark text — fills and borders only, never behind text. */
-  --primary-deep: #2b65d9;
-  --pending: #f6b94c;
-  --pending-text: #f6b94c;
+  --primary: #e8c35a;
+  /* Fills and borders only — never behind text. */
+  --primary-deep: #b8901f;
+  --live: #4ade80;
+  --research: #b3a6ff;
+  --pending: #5eead4;
+  --pending-text: #5eead4;
   --error: #f97066;
 
-  /* The #72a7ff -> #2b65d9 ramp can't carry dark text at the deep end (3.6:1).
-     #447ce6 is the deepest stop that keeps dark text >= 4.5:1 (4.75:1). */
-  --cta-from: #72a7ff;
-  --cta-to: #447ce6;
-  --cta-hover: #8db8ff;
-  --primary-foreground: #08111f;
+  /* Re-declared so it resolves against this element's --primary: a custom
+     property holding var() is computed where it's declared, so the :root
+     value would carry the light-theme gold into a dark band (UI.md R20). */
+  --ring: var(--primary);
 
-  --hero-from: #08111f;
-  --hero-to: #0d1d36;
-  --schematic-grid: rgba(239, 246, 255, 0.05);
+  /* Navy text on gold: 7.7:1, 10.2:1 on hover. */
+  --cta: #d4a72c;
+  --cta-hover: #e8c35a;
+  --primary-foreground: #0b1b33;
+
+  --schematic-grid: rgba(241, 243, 246, 0.05);
+}
+
+/* Dark theme, reading tier: a lifted navy, so the deeper navy bands still read
+   as a separate layer; the rules between sections do the rest. */
+html.dark {
+  --ground: #0f223f;
+  --surface: #13294b;
+  --surface-elevated: #183158;
+}
+
+/* The bands: deep navy, with lifted navy panels. */
+.band-dark {
+  --ground: #0b1b33;
+  --surface: #0f2240;
+  --surface-elevated: #13284a;
 }
 
 @theme inline {
@@ -89,10 +118,14 @@ html.dark {
   --color-rule-strong: var(--rule-strong);
   --color-primary: var(--primary);
   --color-primary-deep: var(--primary-deep);
+  --color-live: var(--live);
+  --color-research: var(--research);
   --color-pending: var(--pending);
   --color-pending-text: var(--pending-text);
   --color-error: var(--error);
   --color-primary-foreground: var(--primary-foreground);
+  /* Button gold: the fill to put --primary-foreground text on (R1). */
+  --color-cta: var(--cta);
 
   --font-sans: var(--typeface-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--typeface-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -118,6 +151,27 @@ html.dark {
     font-size: 1.0625rem;
     line-height: 1.65;
     font-kerning: normal;
+  }
+
+  /* Lenis (components/providers/smooth-scroll.tsx), from lenis/dist/lenis.css
+     1.3.27 — copied, not imported, so the package's export map doesn't matter. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+  }
+
+  .lenis [data-lenis-prevent],
+  .lenis [data-lenis-prevent-wheel],
+  .lenis [data-lenis-prevent-touch] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
   }
 
   ::selection {
@@ -197,19 +251,20 @@ html.dark {
     border-radius: 10px;
   }
 
-  .hero-band {
-    background-image: linear-gradient(135deg, var(--hero-from) 0%, var(--hero-to) 100%);
+  /* A section that stays dark in both themes (tokens above). Here, not on the
+     token rule, so utilities like bg-transparent can still override it. */
+  .band-dark {
+    background-color: var(--ground);
+    color: var(--ink);
   }
 
   /* ---------- Actions ---------- */
   .btn-primary {
-    background-color: var(--cta-to);
-    background-image: linear-gradient(135deg, var(--cta-from) 0%, var(--cta-to) 100%);
+    background-color: var(--cta);
     color: var(--primary-foreground);
   }
 
   .btn-primary:hover {
-    background-image: none;
     background-color: var(--cta-hover);
   }
 

@@ -1,11 +1,12 @@
 import type { Profile, Stat, TimelineEvent } from "@/types";
+import { certifications } from "@/data/certifications";
+import { projects } from "@/data/projects";
 
 export const profile: Profile = {
   name: "Muhammad Zaid Qasim",
   firstName: "Zaid",
   role: "Software Developer",
   company: "E-Creatorz",
-  deployment: "Resident Engineer at IoBM",
   location: "Karachi, Pakistan",
   avatar: "/images/profile.jpg",
   resumeUrl: "/Muhammad_Zaid_Qasim_Resume.pdf",
@@ -19,11 +20,11 @@ export const profile: Profile = {
     "Mobile App Developer",
   ],
   shortBio:
-    "Software Developer at E-Creatorz, deployed as a Resident Engineer at IoBM — building ERP systems, campus management platforms, and banking workflow applications used by thousands of people every day.",
+    "Software Developer at E-Creatorz — building ERP systems, campus management platforms, and banking workflow applications used by thousands of people every day.",
   longBio: [
-    "I am a Software Developer with 3+ years of experience designing, developing, and maintaining enterprise-grade web and mobile applications using C#, .NET, ASP.NET Core, ASP.NET MVC, Web APIs, SQL Server, Entity Framework, React Native, and .NET MAUI.",
-    "Currently I work at E-Creatorz as a .NET Developer, deployed as a Resident Engineer at IoBM (Institute of Business Management), where I contribute to the development and maintenance of ERP systems, campus management systems, faculty and student portals, and banking workflow applications.",
-    "My work centres on maintainable enterprise systems — clean separation of concerns, stored-procedure data access, robust authentication, and thoughtful API design. I have delivered 15+ ERP/CMS modules serving thousands of students and staff, and I take pride in production support done right: root-cause analysis, performance tuning, and reliability.",
+    "I am a Software Developer with 3.5 years of commercial experience building enterprise applications with C#, .NET, ASP.NET Core, ASP.NET MVC, Web APIs, Entity Framework, and Microsoft SQL Server — across banking, ERP, campus management, HR, and healthcare.",
+    "At E-Creatorz I develop and maintain ERP systems, a campus management system, faculty and student portals, and banking workflow applications, and build their mobile features with .NET MAUI and React Native.",
+    "My strongest ground is SQL Server: complex queries, stored procedures, indexing, and execution-plan analysis to find and fix performance bottlenecks. I have contributed to 15+ ERP/CMS modules serving thousands of students and staff, and I take pride in production support done right: root-cause analysis, performance tuning, and reliability.",
     "Alongside delivery, I am pursuing a Master's in Data Science at NED University, extending my backend depth into analytics and machine learning, and I stay active in community leadership and public speaking.",
   ],
   highlights: [
@@ -35,11 +36,18 @@ export const profile: Profile = {
   availability: "Available for opportunities",
 };
 
+// Counts are derived from the lists they describe, so they always match what
+// the site shows ("Projects Completed: 9+" once sat beside "All 10 projects",
+// with 5 of the 10 still ongoing). Keep knowledge.md in step.
 export const stats: Stat[] = [
   { value: 3, suffix: "+", label: "Years of Experience" },
   { value: 15, suffix: "+", label: "ERP / CMS Modules Delivered" },
-  { value: 9, suffix: "+", label: "Projects Completed" },
-  { value: 4, suffix: "", label: "HackerRank Certifications" },
+  { value: projects.length, suffix: "", label: "Projects" },
+  {
+    value: certifications.filter((c) => c.issuer === "HackerRank").length,
+    suffix: "",
+    label: "HackerRank Certifications",
+  },
 ];
 
 export const journey: TimelineEvent[] = [
@@ -53,7 +61,7 @@ export const journey: TimelineEvent[] = [
     year: "2023",
     title: "Joined E-Creatorz as Software Developer",
     description:
-      "Started building enterprise systems professionally — deployed as a Resident Engineer at IoBM, working on campus management, ERP, and portal systems.",
+      "Started building enterprise systems professionally — campus management, ERP, and portal systems.",
   },
   {
     year: "2024",

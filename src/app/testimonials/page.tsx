@@ -1,4 +1,7 @@
-import { getTestimonials } from "@/lib/testimonials";
+import { headers } from "next/headers";
+import type { MyTestimonial } from "@/types";
+import { getMyTestimonial, getTestimonials } from "@/lib/testimonials";
+import { getGoogleIdToken, hasFreshGoogleToken } from "@/lib/google-token";
 import { auth, signIn } from "@/lib/auth";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
@@ -32,6 +35,26 @@ export default async function TestimonialsPage() {
         }
       : null;
 
+  // A signed-in visitor sees their own testimonial, read with their Google ID
+  // token. The token lasts an hour while the session lasts weeks, so a stale
+  // (or pre-2026-11-17) session asks them to sign in again instead.
+  let existing: MyTestimonial | null = null;
+  let needsReauth = false;
+  let loadFailed = false;
+  if (authedUser) {
+    const idToken = hasFreshGoogleToken(user?.googleTokenExpiresAt)
+      ? await getGoogleIdToken(await headers())
+      : null;
+    if (!idToken) {
+      needsReauth = true;
+    } else {
+      const mine = await getMyTestimonial(idToken);
+      if (mine.kind === "found") existing = mine.testimonial;
+      else if (mine.kind === "reauth") needsReauth = true;
+      else if (mine.kind === "unavailable") loadFailed = true;
+    }
+  }
+
   return (
     <>
       <PageHeader
@@ -53,11 +76,17 @@ export default async function TestimonialsPage() {
             ))}
           </ul>
         ) : (
+          // Mostly seen by people who were sent this link to write one, so the
+          // empty state points them at the form.
           <div className="surface-quiet reveal px-6 py-12 sm:px-10">
-            <h3 className="type-h3">Testimonials are on their way</h3>
+            <h3 className="type-h3">No testimonials published yet</h3>
             <p className="type-body mt-2 text-ink-muted">
-              I&apos;m currently collecting words from the managers, mentors, and teammates
-              I&apos;ve worked with.
+              If we&apos;ve worked together, you can{" "}
+              <a href="#share-title" className="link">
+                add yours below
+              </a>
+              . It&apos;s published once your Google sign-in is verified and I&apos;ve approved
+              it.
             </p>
           </div>
         )}
@@ -71,10 +100,16 @@ export default async function TestimonialsPage() {
             </h2>
             <p className="type-body mt-3 text-ink-muted">
               Your identity is verified through Google before publication. Only approved
-              testimonials are published publicly.
+              testimonials are published, and you can come back to edit yours.
             </p>
           </div>
-          <TestimonialForm user={authedUser} signInAction={signInWithGoogle} />
+          <TestimonialForm
+            user={authedUser}
+            signInAction={signInWithGoogle}
+            existing={existing}
+            needsReauth={needsReauth}
+            loadFailed={loadFailed}
+          />
         </div>
       </Section>
     </>

@@ -1,6 +1,5 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { contactInfo } from "@/data/contact";
-import { socialLinks } from "@/data/social";
+import { getContactInfo, getSocialLinks } from "@/lib/content";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
 import { SocialIcons } from "@/components/ui/social-icons";
@@ -13,13 +12,14 @@ export const metadata = createPageMetadata({
   path: "/contact",
 });
 
-const contactRows = [
-  { label: "Email", value: contactInfo.email, href: `mailto:${contactInfo.email}` },
-  { label: "Phone", value: contactInfo.phoneDisplay, href: `tel:${contactInfo.phone}` },
-  { label: "Location", value: contactInfo.location },
-];
+export default async function ContactPage() {
+  const [contactInfo, socialLinks] = await Promise.all([getContactInfo(), getSocialLinks()]);
+  const contactRows = [
+    { label: "Email", value: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    { label: "Phone", value: contactInfo.phoneDisplay, href: `tel:${contactInfo.phone}` },
+    { label: "Location", value: contactInfo.location },
+  ];
 
-export default function ContactPage() {
   return (
     <>
       <PageHeader
@@ -35,7 +35,7 @@ export default function ContactPage() {
               reply to the email (or phone number) you leave here.
             </p>
             <div className="mt-6">
-              <ContactForm />
+              <ContactForm email={contactInfo.email} />
             </div>
           </div>
 

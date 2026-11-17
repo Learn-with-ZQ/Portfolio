@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { authorizationFlow, getProjectBySlug } from "@/data/projects";
+import { getAuthorizationFlow, getProjectBySlug } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 interface AuthorizationSchematicProps {
@@ -16,12 +16,13 @@ interface AuthorizationSchematicProps {
  * progress is pending. The nodes activate in sequence once on load (pure CSS,
  * see globals.css); with reduced motion they simply show the final state.
  */
-export function AuthorizationSchematic({
+export async function AuthorizationSchematic({
   className,
   linkToProject = true,
   headingId = "schematic-title",
 }: AuthorizationSchematicProps) {
-  const project = getProjectBySlug(authorizationFlow.projectSlug);
+  const authorizationFlow = await getAuthorizationFlow();
+  const project = await getProjectBySlug(authorizationFlow.projectSlug);
   const lastIndex = authorizationFlow.stages.length - 1;
 
   return (

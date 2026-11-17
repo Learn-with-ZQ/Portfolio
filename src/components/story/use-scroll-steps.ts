@@ -8,8 +8,9 @@ const HEADER = 64;
 /**
  * Scrollytelling step tracking. The active step is the one whose centre is
  * nearest the middle of the reading space, so the step being read always sits
- * beside the middle of the diagram. Scrolling only drives state — it is never
- * intercepted, snapped, or slowed down.
+ * beside the middle of the diagram. This hook only reads scroll position; the
+ * damped desktop scrolling and the settle onto the nearest step live in
+ * components/providers/smooth-scroll.tsx and use the same centre line.
  *
  * The reading space is the viewport below the header; on small screens, where
  * the stage is pinned across the top, it starts below the stage instead.

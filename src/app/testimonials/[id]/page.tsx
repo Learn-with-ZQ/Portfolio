@@ -12,7 +12,8 @@ interface TestimonialDetailProps {
   params: Promise<{ id: string }>;
 }
 
-// Testimonials are read live from the sheet; allow ids not known at build time.
+// Testimonials are approved in the database after a build; allow ids not known
+// at build time.
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

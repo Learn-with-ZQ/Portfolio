@@ -10,6 +10,10 @@ export const mainNav: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Testimonials is linked even while none is approved (Zaid's choice,
+// 2026-11-17, so visitors can find the form). It was hidden from 2026-11-16 to
+// 11-17 because a linked "none yet" page can read as nobody vouching; its
+// empty state now invites people to add one instead.
 export const moreNav: NavLink[] = [
   { label: "Education", href: "/education" },
   { label: "Certifications", href: "/certifications" },

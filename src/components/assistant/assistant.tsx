@@ -12,10 +12,16 @@ import type { ChatReply, ChatTurn } from "@/types";
 const MAX_QUESTION = 500;
 
 // Browser storage: where the visitor dropped the mascot, and whether the
-// speech bubble has done its job (chat opened, or bubble dismissed).
+// speech bubble has done its job — for good once the chat is opened or the
+// bubble dismissed (localStorage), for this visit once it has been shown
+// (sessionStorage).
 const SPOT_KEY = "assistant-spot";
 const NUDGE_KEY = "assistant-nudge";
+const NUDGE_SESSION_KEY = "assistant-nudge-shown";
 const NUDGE_DELAY_MS = 1500;
+// The bubble sits over page content, so it leaves on its own. It waits while
+// the pointer or keyboard focus is on it, so it never vanishes mid-read.
+const NUDGE_VISIBLE_MS = 8000;
 
 /**
  * Where the mascot sits, as 0–1 across the space it can move in, so it keeps
@@ -90,7 +96,7 @@ function renderText(text: string, onNavigate: () => void): ReactNode[] {
       );
     } else if (value.endsWith(".pdf")) {
       parts.push(
-        <a key={start} href={value} download dir="ltr" className={linkClass}>
+        <a key={start} href={value} target="_blank" rel="noopener noreferrer" dir="ltr" className={linkClass}>
           résumé (PDF)
         </a>,
       );
@@ -115,7 +121,7 @@ function Bubble({ role, children }: { role: ChatTurn["role"]; children: ReactNod
       className={cn(
         "type-meta max-w-[88%] rounded-[10px] px-3 py-2 whitespace-pre-line",
         role === "user"
-          ? "self-end bg-primary text-primary-foreground"
+          ? "self-end bg-cta text-primary-foreground"
           : "self-start border border-rule bg-surface text-ink",
       )}
     >
@@ -152,6 +158,10 @@ export function Assistant() {
   const spotRef = useRef<Spot>(CORNER);
   const stopDragRef = useRef<(() => void) | null>(null);
   const draggedRef = useRef(false);
+  // The bubble is being read (hovered or focused), and whether its time ran
+  // out meanwhile.
+  const nudgeHeldRef = useRef(false);
+  const nudgeExpiredRef = useRef(false);
 
   // Before the first paint, so a moved mascot never flashes in the corner.
   useLayoutEffect(() => {
@@ -165,14 +175,41 @@ export function Assistant() {
   useEffect(() => {
     let seen = false;
     try {
-      seen = localStorage.getItem(NUDGE_KEY) !== null;
+      seen =
+        localStorage.getItem(NUDGE_KEY) !== null ||
+        sessionStorage.getItem(NUDGE_SESSION_KEY) !== null;
     } catch {
       // Storage blocked: show the bubble.
     }
     if (seen) return;
-    const timer = window.setTimeout(() => setNudge(true), NUDGE_DELAY_MS);
-    return () => window.clearTimeout(timer);
+
+    let hideTimer: number | undefined;
+    const showTimer = window.setTimeout(() => {
+      setNudge(true);
+      try {
+        sessionStorage.setItem(NUDGE_SESSION_KEY, "shown");
+      } catch {
+        // Storage blocked: it may show again on the next page load.
+      }
+      hideTimer = window.setTimeout(() => {
+        if (nudgeHeldRef.current) nudgeExpiredRef.current = true;
+        else setNudge(false);
+      }, NUDGE_VISIBLE_MS);
+    }, NUDGE_DELAY_MS);
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+    };
   }, []);
+
+  const holdNudge = () => {
+    nudgeHeldRef.current = true;
+  };
+
+  const releaseNudge = () => {
+    nudgeHeldRef.current = false;
+    if (nudgeExpiredRef.current) setNudge(false);
+  };
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -387,7 +424,7 @@ export function Assistant() {
             </button>
           </header>
 
-          <div ref={logRef} className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+          <div ref={logRef} data-lenis-prevent className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
             <ul role="log" aria-live="polite" aria-label="Conversation" className="flex flex-col gap-3">
               <Bubble role="assistant">{assistant.greeting}</Bubble>
               {turns.map((turn, index) => (
@@ -473,10 +510,18 @@ export function Assistant() {
         }}
         className="rise-in fixed z-30 h-(--dock-size) w-(--dock-size) [--rise-delay:500ms]"
       >
+        {/* Never on phones: there it covers the text being read, and the
+            chat badge already marks the mascot as a chat. */}
         {nudge && !open && !dragging ? (
           <div
+            onPointerEnter={holdNudge}
+            onPointerLeave={releaseNudge}
+            onFocus={holdNudge}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) releaseNudge();
+            }}
             className={cn(
-              "surface rise-in absolute top-1/2 flex w-max max-w-[min(16rem,var(--bubble-max))] -translate-y-1/2 items-start",
+              "surface rise-in absolute top-1/2 hidden w-max max-w-[min(16rem,var(--bubble-max))] -translate-y-1/2 items-start md:flex",
               right ? "right-full mr-3" : "left-full ml-3",
             )}
           >
@@ -523,14 +568,13 @@ export function Assistant() {
           }}
         />
 
-        {/* Chat badge on the corner facing the page, so the mascot reads as a chat. */}
+        {/* Chat badge, so the mascot reads as a chat. Always top-right (user,
+            2026-11-17): there the icon's own bottom-left tail points down at
+            Zaid's head, wherever the mascot is dragged — no mirroring needed. */}
         {!open ? (
           <span
             aria-hidden="true"
-            className={cn(
-              "pointer-events-none absolute top-0 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-ground bg-primary text-primary-foreground md:h-7 md:w-7",
-              right ? "left-0" : "right-0",
-            )}
+            className="pointer-events-none absolute top-0 right-0 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-ground bg-cta text-primary-foreground md:h-7 md:w-7"
           >
             <MessageCircle className="h-3 w-3 md:h-3.5 md:w-3.5" />
           </span>

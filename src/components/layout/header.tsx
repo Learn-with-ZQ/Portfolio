@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, FileDown, Menu, X } from "lucide-react";
+import { ChevronDown, FileText, Mail, Menu, X } from "lucide-react";
 import { mainNav, moreNav } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import type { NavLink } from "@/types";
@@ -12,8 +12,9 @@ import { ButtonLink } from "@/components/ui/button";
 import { containerClass } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 
-// The wordmark already links home, so the desktop bar leaves "Home" out.
-const desktopLinks = mainNav.filter((link) => link.href !== "/");
+// The wordmark already links home, so the desktop bar leaves "Home" out; and
+// Contact is the bar's primary button rather than a tab (audit A1).
+const desktopLinks = mainNav.filter((link) => link.href !== "/" && link.href !== "/contact");
 
 // Tabs sit on the header's bottom rule; the active one gets a primary bar.
 const tabStyles =
@@ -147,7 +148,9 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-ground">
+    // band-dark: the header is dark in both themes, framing the page with the
+    // hero and the footer (UI.md §3). The mobile menu inside it follows.
+    <header className="band-dark sticky top-0 z-40 border-b border-rule bg-ground">
       <div className={cn(containerClass, "flex h-16 items-center gap-6 lg:gap-8")}>
         <Link
           href="/"
@@ -175,15 +178,23 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <ButtonLink href="/contact" size="sm" className="hidden md:inline-flex">
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Contact me
+          </ButtonLink>
+          {/* Opens the PDF in the browser's viewer (download and print are there),
+              rather than downloading it straight away. Icon only below xl, so
+              the full bar still fits at 1024px. */}
           <ButtonLink
             href={profile.resumeUrl}
-            download
+            external
+            ariaLabel="Resume (PDF, opens in a new tab)"
             variant="secondary"
             size="sm"
             className="hidden md:inline-flex"
           >
-            <FileDown className="h-4 w-4" aria-hidden="true" />
-            Resume
+            <FileText className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden xl:inline">Resume</span>
           </ButtonLink>
           <ThemeToggle />
           <button
@@ -224,15 +235,20 @@ export function Header() {
                 </li>
               ))}
             </ul>
+            <ButtonLink href="/contact" size="lg" className="mt-8 w-full">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Contact me
+            </ButtonLink>
             <ButtonLink
               href={profile.resumeUrl}
-              download
+              external
+              ariaLabel="View resume (PDF, opens in a new tab)"
               variant="secondary"
               size="lg"
-              className="mt-8 w-full"
+              className="mt-3 w-full"
             >
-              <FileDown className="h-4 w-4" aria-hidden="true" />
-              Download resume
+              <FileText className="h-4 w-4" aria-hidden="true" />
+              View resume
             </ButtonLink>
           </nav>
         </div>

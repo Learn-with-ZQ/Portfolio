@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { CheckCircle2, Loader2, Send, TriangleAlert } from "lucide-react";
-import { contactInfo } from "@/data/contact";
 import { Button } from "@/components/ui/button";
 
 interface FormState {
@@ -33,7 +32,8 @@ function FieldError({ id, message }: { id: string; message?: string }) {
   );
 }
 
-export function ContactForm() {
+/** `email` is the fallback address shown if sending fails (from the page, via `lib/content`). */
+export function ContactForm({ email }: { email: string }) {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -244,8 +244,8 @@ export function ContactForm() {
           <span>
             Something went wrong sending your message. Please try again, or email me
             directly at{" "}
-            <a href={`mailto:${contactInfo.email}`} className="font-medium underline">
-              {contactInfo.email}
+            <a href={`mailto:${email}`} className="font-medium underline">
+              {email}
             </a>
             .
           </span>

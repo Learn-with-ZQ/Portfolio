@@ -3,7 +3,6 @@ export interface Profile {
   firstName: string;
   role: string;
   company: string;
-  deployment: string;
   location: string;
   avatar: string;
   resumeUrl: string;
@@ -34,11 +33,10 @@ export interface ContactInfo {
   location: string;
 }
 
-export type SkillLevel = "Expert" | "Advanced" | "Proficient" | "Familiar";
-
 export interface Skill {
   name: string;
-  level: number;
+  /** Old 0–100 self-rating. No longer shown (audit A3); optional while the API still sends it. */
+  level?: number;
 }
 
 export interface SkillCategory {
@@ -150,6 +148,33 @@ export interface Testimonial {
   referenceDocumentUrl?: string;
   verificationStatus: "Verified";
 }
+
+/** Where a testimonial is in review. Every save by its author sets Pending. */
+export type TestimonialStatus = "Pending" | "Approved" | "Rejected";
+
+/**
+ * The signed-in visitor's own testimonial, from the Portfolio API's
+ * `GET /api/testimonials/mine`. Only ever shown to its author.
+ */
+export interface MyTestimonial {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  profileImageUrl?: string;
+  /** The reference letter's file name. Its Drive link is never sent to the
+   *  author: it first appears on the public page once approved. */
+  documentName?: string;
+  status: TestimonialStatus;
+  updatedAt: string;
+}
+
+/** Status colours: verified = live/completed (green), pending = in progress
+ *  (amber), research = AI / data science / research (violet). UI.md §3. */
+export type StatusTone = "verified" | "pending" | "research" | "neutral";
 
 export interface NavLink {
   label: string;

@@ -1,19 +1,23 @@
 import Link from "next/link";
 import { footerNav } from "@/data/navigation";
-import { profile } from "@/data/profile";
-import { contactInfo } from "@/data/contact";
-import { socialLinks } from "@/data/social";
+import { getContactInfo, getProfile, getSocialLinks } from "@/lib/content";
 import { SocialIcons } from "@/components/ui/social-icons";
 import { Container } from "@/components/ui/container";
 
 const quietLink =
   "inline-flex min-h-9 items-center text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline";
 
-export function Footer() {
+export async function Footer() {
+  const [profile, contactInfo, socialLinks] = await Promise.all([
+    getProfile(),
+    getContactInfo(),
+    getSocialLinks(),
+  ]);
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-rule bg-surface">
+    // Dark in both themes: closes the dark frame the header opens (UI.md §3).
+    <footer className="band-dark border-t border-rule">
       <Container className="py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
           <div className="reveal">

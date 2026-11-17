@@ -4,8 +4,12 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { GitHubIcon } from "@/components/ui/social-icons";
-import { authorizationFlow, getProjectBySlug, projects } from "@/data/projects";
-import { socialLinks } from "@/data/social";
+import {
+  getAuthorizationFlow,
+  getProjectBySlug,
+  getProjects,
+  getSocialLinks,
+} from "@/lib/content";
 import { formatDateRange, formatDay, formatDuration } from "@/lib/format";
 import { createPageMetadata } from "@/lib/metadata";
 import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema";
@@ -19,13 +23,13 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  return (await getProjects()).map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
 
   return createPageMetadata({
@@ -38,7 +42,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const [projects, socialLinks, authorizationFlow] = await Promise.all([
+    getProjects(),
+    getSocialLinks(),
+    getAuthorizationFlow(),
+  ]);
+  const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
 
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
@@ -74,7 +83,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </Link>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <span className="type-meta text-ink-muted">{project.category}</span>
-              <Status tone={ongoing ? "pending" : "verified"}>
+              <Status tone={ongoing ? "pending" : project.paper ? "research" : "verified"}>
                 {ongoing ? "Ongoing" : project.paper ? "Presented" : "Completed"}
               </Status>
             </div>

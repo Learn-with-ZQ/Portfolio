@@ -24,13 +24,15 @@ export const educationList: Education[] = [
     startDate: "2020-09",
     endDate: "2024-06",
     cgpa: "3.06 / 4.00",
+    // As on the résumé (updated 2026-11-16).
     coursework: [
       "Data Structures & Algorithms",
       "Database Management Systems (DBMS)",
-      "Machine Learning",
+      "Machine Learning & Data Science",
       "Computer Organization & Architecture",
       "Entity Framework & MVC",
-      "Data Science",
+      "Blockchain Research Paper",
+      "Research on the NP-Hard Two-Dimensional Bin Packing Problem",
     ],
   },
 ];

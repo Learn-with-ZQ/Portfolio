@@ -1,5 +1,5 @@
 import { createPageMetadata } from "@/lib/metadata";
-import { educationList } from "@/data/education";
+import { getEducation } from "@/lib/content";
 import { formatDateRange } from "@/lib/format";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
@@ -13,7 +13,8 @@ export const metadata = createPageMetadata({
   path: "/education",
 });
 
-export default function EducationPage() {
+export default async function EducationPage() {
+  const educationList = await getEducation();
   return (
     <>
       <PageHeader

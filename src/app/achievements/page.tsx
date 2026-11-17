@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { createPageMetadata } from "@/lib/metadata";
-import { achievements } from "@/data/achievements";
+import { getAchievements } from "@/lib/content";
 import type { Achievement } from "@/types";
 import { PageHeader } from "@/components/common/page-header";
 import { Section, SectionHeading } from "@/components/ui/section";
@@ -50,7 +50,8 @@ function AchievementList({ items }: { items: Achievement[] }) {
   );
 }
 
-export default function AchievementsPage() {
+export default async function AchievementsPage() {
+  const achievements = await getAchievements();
   const research = achievements.filter((item) => item.category === "Research");
   const competitions = achievements.filter((item) => item.category === "Competition");
   const leadership = achievements.filter((item) => item.category === "Leadership");

@@ -1,4 +1,4 @@
-import { stats } from "@/data/profile";
+import { getStats } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 interface StatsProps {
@@ -7,7 +7,8 @@ interface StatsProps {
 }
 
 /** Static figures — the values render in the server HTML, no counting animation. */
-export function Stats({ compact = false }: StatsProps) {
+export async function Stats({ compact = false }: StatsProps) {
+  const stats = await getStats();
   return (
     <dl
       className={cn(

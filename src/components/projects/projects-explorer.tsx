@@ -2,13 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
-import { projectCategories, projects } from "@/data/projects";
+import { projectCategories } from "@/data/projects";
+import type { Project } from "@/types";
 import { ProjectCard } from "@/components/projects/project-card";
 import { cn } from "@/lib/utils";
 
 type Category = (typeof projectCategories)[number];
 
-export function ProjectsExplorer() {
+/** `projects` comes from the page (server), which reads it through `lib/content`. */
+export function ProjectsExplorer({ projects }: { projects: Project[] }) {
   const [category, setCategory] = useState<Category>("All");
   const [query, setQuery] = useState("");
 
@@ -24,7 +26,7 @@ export function ProjectsExplorer() {
         project.technologies.some((tech) => tech.toLowerCase().includes(term));
       return matchesCategory && matchesQuery;
     });
-  }, [category, query]);
+  }, [projects, category, query]);
 
   const clearFilters = () => {
     setQuery("");

@@ -28,7 +28,7 @@ export const assistant: AssistantContent = {
     dismissLabel: "Dismiss",
   },
   starterQuestions: [
-    "What does Zaid do at IoBM?",
+    "What does Zaid work on at E-Creatorz?",
     "What is his main tech stack?",
     "Tell me about the Net 2 Bank project",
     "What was his conference paper about?",

@@ -11,10 +11,12 @@ export const seoConfig = {
   defaultTitle: `${siteName} — Software Developer Portfolio`,
   titleTemplate: `${siteName} | %s`,
   defaultDescription:
-    "Portfolio of Muhammad Zaid Qasim — Software Developer with 3+ years of experience building enterprise web and mobile applications with C#, .NET, ASP.NET Core, SQL Server, React Native, and .NET MAUI. Based in Karachi, Pakistan. Currently at E-Creatorz, deployed as Resident Engineer at IoBM.",
-  defaultOgImage: "/images/profile.jpg",
-  defaultOgImageWidth: 960,
-  defaultOgImageHeight: 1280,
+    "Portfolio of Muhammad Zaid Qasim — Software Developer with 3+ years of experience building enterprise web and mobile applications with C#, .NET, ASP.NET Core, SQL Server, React Native, and .NET MAUI. Based in Karachi, Pakistan. Currently a Software Developer at E-Creatorz.",
+  // 1200×630 card built by scripts/build-og.cjs (was the 960×1280 portrait,
+  // which previews cropped through the face — audit U23).
+  defaultOgImage: "/og-image.png",
+  defaultOgImageWidth: 1200,
+  defaultOgImageHeight: 630,
   locale: "en_US",
   language: "en-US",
   category: "Technology",

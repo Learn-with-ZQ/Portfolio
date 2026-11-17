@@ -1,7 +1,7 @@
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
 import { Section } from "@/components/ui/section";
-import { contactInfo } from "@/data/contact";
+import { getContactInfo } from "@/lib/content";
 
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
@@ -25,7 +25,11 @@ const sections = [
   },
   {
     title: "Contact form",
-    body: "When you submit the contact form, the details you provide (name, email, optional phone number, subject, and message) are stored in a private spreadsheet that only I can access, so I can read and reply to your message. They are used for nothing else — no marketing, no sharing with third parties — and you can ask me to delete them at any time.",
+    body: "When you submit the contact form, the details you provide (name, email, optional phone number, subject, and message) are stored in a private database that only I can access, so I can read and reply to your message. They are used for nothing else — no marketing, no sharing with third parties — and you can ask me to delete them at any time.",
+  },
+  {
+    title: "Testimonials",
+    body: "To write a testimonial you sign in with Google, which gives this site your name, email address and profile photo. Your testimonial, rating, phone number and those details are stored in a private database that only I can access; a reference letter, if you attach one, is stored in my Google Drive. Once I approve it, your name, photo, testimonial, rating and a link to the letter are published on this site. Your email address and phone number never are. You can edit your testimonial at any time, and ask me through the contact form to remove it.",
   },
   {
     title: "External links",
@@ -41,7 +45,8 @@ const sections = [
   },
 ];
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const contactInfo = await getContactInfo();
   return (
     <>
       <PageHeader

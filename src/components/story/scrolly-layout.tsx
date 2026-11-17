@@ -48,7 +48,8 @@ export function ScrollyLayout({
   const textColumn = stageLeft ? "lg:col-start-2" : "lg:col-start-1";
 
   return (
-    <section id={chapter.id} aria-labelledby={headingId} className="border-t border-rule">
+    // Dark in both themes: these are the systems being explained (UI.md §3).
+    <section id={chapter.id} aria-labelledby={headingId} className="band-dark border-t border-rule">
       <Container className="pt-12 lg:pt-14">
         <div
           ref={layoutRef}
