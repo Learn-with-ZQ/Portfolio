@@ -21,8 +21,13 @@ set "push="
 set /p push=Push to GitHub now? [Y/N]:
 if /i "%push%"=="Y" (
     git push
-    echo.
-    echo Done - changes are on GitHub.
+    if errorlevel 1 (
+        echo.
+        echo PUSH FAILED - nothing was uploaded. Read the message above.
+    ) else (
+        echo.
+        echo Done - changes are on GitHub.
+    )
 ) else (
     echo Committed locally only. Run "git push" later to upload.
 )
