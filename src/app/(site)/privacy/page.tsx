@@ -28,6 +28,10 @@ const sections = [
     body: "When you submit the contact form, the details you provide (name, email, optional phone number, subject, and message) are stored in a private database that only I can access, so I can read and reply to your message. They are used for nothing else — no marketing, no sharing with third parties — and you can ask me to delete them at any time.",
   },
   {
+    title: "Conversations",
+    body: "If you sign in with Google on the Contact page, you can hold a conversation with me there. Your messages, with the name, email address and profile photo Google shares, are stored in a private database that only I can access. When I email you to say I've replied, the email may contain a short summary of my replies written with Google's Gemini; only my replies are sent to Gemini for that. You can ask me to delete the conversation at any time.",
+  },
+  {
     title: "Testimonials",
     body: "To write a testimonial you sign in with Google, which gives this site your name, email address and profile photo. Your testimonial, rating, phone number and those details are stored in a private database that only I can access; a reference letter, if you attach one, is stored in my Google Drive. Once I approve it, your name, photo, testimonial, rating and a link to the letter are published on this site. Your email address and phone number never are. You can edit your testimonial at any time, and ask me through the contact form to remove it.",
   },

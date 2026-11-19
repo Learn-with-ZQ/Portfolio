@@ -235,8 +235,8 @@ export function TestimonialForm({
         <SignInPanel
           message={
             draftKept
-              ? "Your Google sign-in has expired. Sign in again and what you wrote will be waiting; a letter you chose will need choosing again."
-              : "Sign in with Google again to see or edit your testimonial. For your security, a sign-in here lasts an hour."
+              ? "Your sign-in has expired. Sign in again and what you wrote will be waiting; a letter you chose will need choosing again."
+              : "Sign in with Google again to see or edit your testimonial. A sign-in here lasts 30 days."
           }
           signInAction={signInAction}
         />

@@ -6,8 +6,8 @@ declare module "next-auth" {
       id: string;
       provider: string;
       image?: string | null;
-      /** When the stored Google ID token expires (seconds since epoch); 0 if there is none. */
-      googleTokenExpiresAt: number;
+      /** When the stored API visitor token expires (seconds since epoch); 0 if there is none. */
+      visitorTokenExpiresAt: number;
     } & DefaultSession["user"];
   }
 
@@ -23,9 +23,9 @@ declare module "next-auth/jwt" {
     googleId?: string;
     provider?: string;
     image?: string | null;
-    /** Google ID token from sign-in. Server-side only (lib/google-token.ts). */
-    idToken?: string;
-    /** Its `exp` claim, in seconds. */
-    idTokenExpiresAt?: number;
+    /** The Portfolio API's visitor token (30 days). Server-side only (lib/visitor-token.ts). */
+    visitorToken?: string;
+    /** Its expiry, in seconds since epoch. */
+    visitorTokenExpiresAt?: number;
   }
 }

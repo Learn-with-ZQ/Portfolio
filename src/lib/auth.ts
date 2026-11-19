@@ -1,21 +1,40 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { PORTFOLIO_API_BASE } from "@/lib/portfolio-api";
+
+/** The site's Auth.js session, and the API visitor token inside it: 30 days. */
+const SESSION_MAX_AGE = 30 * 24 * 60 * 60;
 
 /**
- * The `exp` claim (seconds) of a Google ID token, or 0 if it can't be read.
- * The token was just handed over by Google, so it's decoded, not verified:
- * the Portfolio API verifies it on every request that uses it.
+ * Trades the one-hour Google ID token from sign-in for the Portfolio API's own
+ * visitor token (30 days), so visitors sign in once a month rather than every
+ * hour. The API verifies the Google token before issuing it. Null if the API
+ * can't be reached: the visitor is then asked to sign in again when they use
+ * a testimonial or a conversation.
  */
-function idTokenExpiry(idToken: string): number {
+async function exchangeForVisitorToken(
+  idToken: string,
+): Promise<{ token: string; expiresAt: number } | null> {
+  if (!PORTFOLIO_API_BASE) return null;
   try {
-    const part = idToken.split(".")[1] ?? "";
-    const base64 = part.replace(/-/g, "+").replace(/_/g, "/");
-    const payload = JSON.parse(atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, "="))) as {
-      exp?: unknown;
-    };
-    return typeof payload.exp === "number" ? payload.exp : 0;
-  } catch {
-    return 0;
+    const response = await fetch(`${PORTFOLIO_API_BASE}/api/visitor/session`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${idToken}` },
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!response.ok) {
+      console.warn(`Visitor token exchange failed: the API answered ${response.status}`);
+      return null;
+    }
+    const result = (await response.json()) as { token?: unknown; expiresAt?: unknown };
+    const expiresAt = typeof result.expiresAt === "string" ? Date.parse(result.expiresAt) : NaN;
+    return typeof result.token === "string" && !Number.isNaN(expiresAt)
+      ? { token: result.token, expiresAt: Math.floor(expiresAt / 1000) }
+      : null;
+  } catch (error) {
+    console.warn("Visitor token exchange failed:", error);
+    return null;
   }
 }
 
@@ -23,6 +42,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   trustHost: true,
   session: {
     strategy: "jwt",
+    maxAge: SESSION_MAX_AGE,
   },
   providers: [
     Google({
@@ -42,13 +62,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.provider = account.provider;
         token.image = googleProfile.picture ?? token.picture;
 
-        // The Google ID token is the visitor's credential for their own
-        // testimonial at the Portfolio API. It stays in this encrypted cookie
-        // and is read server-side (lib/google-token.ts); the session below
-        // only exposes when it expires. It lasts one hour.
+        // The visitor's credential at the Portfolio API (testimonials and
+        // conversations). It stays in this encrypted cookie and is read
+        // server-side (lib/visitor-token.ts); the session below only exposes
+        // when it expires. The Google ID token itself is not kept.
+        delete token.visitorToken;
+        delete token.visitorTokenExpiresAt;
         if (account.id_token) {
-          token.idToken = account.id_token;
-          token.idTokenExpiresAt = idTokenExpiry(account.id_token);
+          const visitor = await exchangeForVisitorToken(account.id_token);
+          if (visitor) {
+            token.visitorToken = visitor.token;
+            token.visitorTokenExpiresAt = visitor.expiresAt;
+          }
         }
       }
 
@@ -66,8 +91,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.image =
           typeof token.image === "string" ? token.image : session.user.image;
         // Never the token itself: the session is readable by browser code.
-        session.user.googleTokenExpiresAt =
-          typeof token.idTokenExpiresAt === "number" ? token.idTokenExpiresAt : 0;
+        session.user.visitorTokenExpiresAt =
+          typeof token.visitorTokenExpiresAt === "number" ? token.visitorTokenExpiresAt : 0;
       }
 
       return session;

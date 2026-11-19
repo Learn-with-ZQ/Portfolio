@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "@/components/providers/theme-provider";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { Assistant } from "@/components/assistant/assistant";
-import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getMetadataBase, getSiteVerification, seoConfig } from "@/lib/seo";
@@ -110,19 +106,8 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <JsonLd data={rootSchemaGraph} />
         <Providers>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ground"
-          >
-            Skip to main content
-          </a>
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <Assistant />
-          <SmoothScroll />
+          {/* Public chrome lives in (site)/layout.tsx; /admin has its own. */}
+          {children}
         </Providers>
         {/* Vercel Web Analytics: cookie-free page views; a no-op outside Vercel. */}
         <Analytics />

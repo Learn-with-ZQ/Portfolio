@@ -111,6 +111,10 @@ Only public fields are shown (name, photo, subject, message, rating, date,
 reference link), never email, phone or Google ID. If the API can't be
 reached, the site falls back to `src/data/testimonials.ts`.
 
+## Admin
+
+`/admin` is a private dashboard. Sign in with the content API's admin login. It lets you read contact messages and approve, reject or delete testimonials; an approval shows on the public page immediately. It isn't linked from the site and isn't indexed.
+
 ## Structure
 
 ```

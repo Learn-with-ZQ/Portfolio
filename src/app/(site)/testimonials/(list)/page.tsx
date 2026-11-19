@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import type { MyTestimonial } from "@/types";
 import { getMyTestimonial, getTestimonials } from "@/lib/testimonials";
-import { getGoogleIdToken, hasFreshGoogleToken } from "@/lib/google-token";
+import { getVisitorToken, hasFreshVisitorToken } from "@/lib/visitor-token";
 import { auth, signIn } from "@/lib/auth";
 import { createPageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/common/page-header";
@@ -42,13 +42,13 @@ export default async function TestimonialsPage() {
   let needsReauth = false;
   let loadFailed = false;
   if (authedUser) {
-    const idToken = hasFreshGoogleToken(user?.googleTokenExpiresAt)
-      ? await getGoogleIdToken(await headers())
+    const visitorToken = hasFreshVisitorToken(user?.visitorTokenExpiresAt)
+      ? await getVisitorToken(await headers())
       : null;
-    if (!idToken) {
+    if (!visitorToken) {
       needsReauth = true;
     } else {
-      const mine = await getMyTestimonial(idToken);
+      const mine = await getMyTestimonial(visitorToken);
       if (mine.kind === "found") existing = mine.testimonial;
       else if (mine.kind === "reauth") needsReauth = true;
       else if (mine.kind === "unavailable") loadFailed = true;

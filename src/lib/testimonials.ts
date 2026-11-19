@@ -113,12 +113,12 @@ export function toMyTestimonial(data: unknown): MyTestimonial | null {
  * The signed-in visitor's own testimonial, read fresh (never cached) with
  * their Google ID token as the bearer token.
  */
-export async function getMyTestimonial(idToken: string): Promise<MyTestimonialResult> {
+export async function getMyTestimonial(visitorToken: string): Promise<MyTestimonialResult> {
   if (!PORTFOLIO_API_BASE) return { kind: "unavailable" };
 
   try {
     const res = await fetch(`${PORTFOLIO_API_BASE}/api/testimonials/mine`, {
-      headers: { Accept: "application/json", Authorization: `Bearer ${idToken}` },
+      headers: { Accept: "application/json", Authorization: `Bearer ${visitorToken}` },
       cache: "no-store",
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });

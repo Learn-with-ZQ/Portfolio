@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { getGoogleIdToken } from "@/lib/google-token";
+import { getVisitorToken } from "@/lib/visitor-token";
 import { PORTFOLIO_API_BASE } from "@/lib/portfolio-api";
 import { toMyTestimonial } from "@/lib/testimonials";
 
@@ -27,7 +27,7 @@ const ALLOWED_EXTENSIONS = new Set(["pdf", "doc", "docx"]);
 const PHONE_PATTERN = /^[+\d][\d\s\-()]{6,29}$/;
 
 const REAUTH = {
-  error: "Your Google sign-in has expired. Sign in again to save.",
+  error: "Your sign-in has expired. Sign in again to save.",
   reauth: true,
 } as const;
 
@@ -48,8 +48,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const idToken = await getGoogleIdToken(request.headers);
-  if (!idToken) return NextResponse.json(REAUTH, { status: 401 });
+  const visitorToken = await getVisitorToken(request.headers);
+  if (!visitorToken) return NextResponse.json(REAUTH, { status: 401 });
 
   let formData: FormData;
   try {
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
   try {
     const response = await fetch(`${PORTFOLIO_API_BASE}/api/testimonials/mine`, {
       method: "PUT",
-      headers: { Authorization: `Bearer ${idToken}` },
+      headers: { Authorization: `Bearer ${visitorToken}` },
       body,
       cache: "no-store",
       signal: AbortSignal.timeout(30_000),
