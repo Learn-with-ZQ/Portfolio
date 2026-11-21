@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Karachi Concepts — 20 homepage proposals</title>
 <meta name="description" content="Twenty brand-specific homepage concepts for Karachi businesses, by Muhammad Zaid Qasim.">
+<script>
+  /* Set the theme before first paint. Same "theme" key as the portfolio (light / dark / system). */
+  (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||((!t||t==='system')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,6 +22,30 @@
     --sea-wash:#E7F0F1;
     --sodium:#E9A23B;   /* Karachi streetlight amber, used once */
     --radius-frame:10px;
+    --field:#FFFFFF;          /* inputs and chips */
+    --chrome:#F1F3F6;         /* fake browser bar on thumbnails */
+    --chrome-dot:#C8CED8;
+    --controls-bg:rgba(255,255,255,.96);
+    --bubble:#FFFFFF;
+    --shadow:0 12px 32px rgba(26,34,48,.16);
+    color-scheme:light;
+  }
+  /* Dark theme: night over the Arabian Sea. Navy ground, lifted teal, the same streetlight amber.
+     Shares the portfolio's "theme" setting, so a choice made on either site carries over. */
+  html.dark{
+    --paper:#0D1A2B;
+    --ink:#EDF1F6;
+    --muted:#A5B1C2;
+    --line:#26384F;
+    --sea:#74C7D2;
+    --sea-wash:#132B40;
+    --field:#112236;
+    --chrome:#1A2B40;
+    --chrome-dot:#3A4D66;
+    --controls-bg:rgba(13,26,43,.94);
+    --bubble:#16283E;
+    --shadow:0 12px 32px rgba(0,0,0,.45);
+    color-scheme:dark;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -45,16 +73,16 @@
   .strip span{display:block}
 
   /* ---------- Controls ---------- */
-  .controls{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+  .controls{position:sticky;top:0;z-index:5;background:var(--controls-bg);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
   .controls .wrap{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;padding:14px 0}
   .search{flex:1 1 260px;max-width:340px;position:relative}
-  .search input{width:100%;font:inherit;font-size:16px;padding:11px 14px 11px 40px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  .search input{width:100%;font:inherit;font-size:16px;padding:11px 14px 11px 40px;border:1.5px solid var(--line);border-radius:8px;background:var(--field);color:var(--ink)}
   .search input:focus{border-color:var(--sea);outline:none;box-shadow:0 0 0 3px var(--sea-wash)}
   .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
   .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{font:inherit;font-size:14.5px;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .chip{font:inherit;font-size:14.5px;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--field);color:var(--ink);cursor:pointer}
   .chip:hover{border-color:var(--ink)}
-  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
   .chip .n{font-weight:500;opacity:.6;margin-left:4px}
   .result{margin-left:auto;color:var(--muted);font-size:14.5px}
 
@@ -64,8 +92,8 @@
   .card{display:flex;flex-direction:column}
   .card[hidden]{display:none}
   .frame{position:relative;display:block;border-radius:var(--radius-frame);overflow:hidden;border:1px solid var(--line);background:var(--sea-wash);aspect-ratio:16/10;text-decoration:none}
-  .frame .bar{position:absolute;inset:0 0 auto 0;height:22px;background:#F1F3F6;border-bottom:1px solid var(--line);display:flex;gap:5px;align-items:center;padding-left:10px;z-index:1}
-  .frame .bar i{width:7px;height:7px;border-radius:50%;background:#C8CED8}
+  .frame .bar{position:absolute;inset:0 0 auto 0;height:22px;background:var(--chrome);border-bottom:1px solid var(--line);display:flex;gap:5px;align-items:center;padding-left:10px;z-index:1}
+  .frame .bar i{width:7px;height:7px;border-radius:50%;background:var(--chrome-dot)}
   .frame img{position:absolute;inset:22px 0 0 0;width:100%;height:calc(100% - 22px);object-fit:cover;object-position:top center;transition:transform .5s ease}
   .frame .fallback{position:absolute;inset:22px 0 0 0;display:grid;place-items:center;font-family:Gloock,serif;font-size:26px;color:#fff;padding:20px;text-align:center}
   .card:hover .frame img,.frame:focus-visible img{transform:scale(1.03)}
@@ -78,7 +106,7 @@
   .dir{margin:0;color:var(--muted);font-size:15.5px;line-height:1.55}
   .tokens{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;color:var(--muted)}
   .sw{display:flex}
-  .sw span{width:18px;height:18px;border-radius:50%;border:2px solid #fff;margin-left:-5px;box-shadow:0 0 0 1px var(--line)}
+  .sw span{width:18px;height:18px;border-radius:50%;border:2px solid var(--paper);margin-left:-5px;box-shadow:0 0 0 1px var(--line)}
   .sw span:first-child{margin-left:0}
   .open{margin-top:14px;align-self:flex-start;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--sodium);padding-bottom:2px}
   .open:hover{color:var(--sea)}
@@ -108,6 +136,44 @@
     .notes .wrap{grid-template-columns:1fr;gap:20px}
     .strip{height:12px}
   }
+
+  /* ---------- Theme toggle ---------- */
+  .top-actions{display:flex;align-items:center;gap:18px}
+  .theme-btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14.5px;font-weight:600;padding:7px 13px;border:1.5px solid var(--line);border-radius:999px;background:var(--field);color:var(--ink);cursor:pointer}
+  .theme-btn:hover{border-color:var(--ink)}
+  .theme-btn svg{width:16px;height:16px}
+  .theme-btn .i-sun,html.dark .theme-btn .i-moon{display:none}
+  html.dark .theme-btn .i-sun{display:block}
+
+  /* ---------- Mascot (the portfolio's own character) ---------- */
+  footer{padding-bottom:128px}
+  .buddy{position:fixed;right:16px;bottom:16px;z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none}
+  .buddy > *{pointer-events:auto}
+  .mascot{display:block;width:96px;height:96px;padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 8px 14px rgba(0,0,0,.22))}
+  .mascot:focus-visible{outline-offset:0;border-radius:50%}
+  .mascot .squash{position:relative;display:block;width:100%;height:100%;transform-origin:50% 78%}
+  .mascot .layer{position:absolute;inset:0;background-size:300% 300%;background-repeat:no-repeat}
+  .mascot .dir{background-image:url(assets/mascot/zaid-directions.webp);background-position:50% 50%}
+  .mascot .rx{background-image:url(assets/mascot/zaid-reactions.webp);background-position:0 0;opacity:0}
+  .mascot.reacting .dir{opacity:0}
+  .mascot.reacting .rx{opacity:1}
+  .bubble{position:relative;width:min(272px,calc(100vw - 32px));margin-right:18px;padding:16px 18px;background:var(--bubble);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);font-size:15px;line-height:1.5}
+  .bubble[hidden]{display:none}
+  .bubble::after{content:"";position:absolute;right:34px;bottom:-8px;width:14px;height:14px;background:var(--bubble);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+  .bubble p{margin:0 22px 12px 0}
+  .bubble-actions{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+  .bubble-actions a{color:var(--sea);font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+  .bubble-actions button{font:inherit;font-size:14.5px;font-weight:600;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  .bubble-actions button:hover{color:var(--ink)}
+  .bubble-x{position:absolute;top:8px;right:8px;width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
+  .bubble-x:hover{background:var(--sea-wash);color:var(--ink)}
+  @media (max-width:640px){
+    .buddy{right:12px;bottom:12px}
+    .mascot{width:64px;height:64px}
+    .bubble{margin-right:8px}
+    .bubble::after{right:22px}
+    footer{padding-bottom:96px}
+  }
 </style>
 <base href="/Websites/">
 <meta name="robots" content="noindex, nofollow">
@@ -116,7 +182,14 @@
 
 <div class="top"><div class="wrap">
   <span><strong>Muhammad Zaid Qasim</strong> — custom software &amp; web for Karachi businesses</span>
-  <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Portfolio</a>
+  <span class="top-actions">
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to dark theme">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span class="theme-label">Dark</span>
+    </button>
+    <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Portfolio</a>
+  </span>
 </div></div>
 
 <header class="hero">
@@ -166,6 +239,20 @@
   <span>Concepts by Muhammad Zaid Qasim. Not affiliated with the businesses shown.</span>
   <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">muhammadzaidqasim.vercel.app</a>
 </div></footer>
+
+<div class="buddy">
+  <div class="bubble" id="bubble" role="dialog" aria-label="A note from Zaid" hidden>
+    <button class="bubble-x" type="button" aria-label="Close">&times;</button>
+    <p>Hi, I'm Zaid. Each of these is a homepage idea for a real Karachi business. Want one for yours?</p>
+    <div class="bubble-actions">
+      <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">See my portfolio</a>
+      <button type="button" data-theme-toggle><span class="theme-label">Dark</span> theme</button>
+    </div>
+  </div>
+  <button class="mascot" id="mascot" type="button" aria-label="Say hello to Zaid" aria-expanded="false" aria-controls="bubble">
+    <span class="squash"><span class="layer dir"></span><span class="layer rx"></span></span>
+  </button>
+</div>
 
 <script>
 const C = [
@@ -236,6 +323,102 @@ chips.addEventListener('click', e => {
 });
 q.addEventListener('input', apply);
 apply();
+
+/* ---------- Theme ---------- */
+const root = document.documentElement;
+const darkMQ = matchMedia('(prefers-color-scheme: dark)');
+function syncThemeUI(){
+  const dark = root.classList.contains('dark');
+  document.querySelectorAll('.theme-label').forEach(el => el.textContent = dark ? 'Light' : 'Dark');
+  document.querySelectorAll('.theme-btn').forEach(b => b.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`));
+}
+function setTheme(dark, remember){
+  root.classList.toggle('dark', dark);
+  if (remember) { try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {} }
+  syncThemeUI();
+}
+document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => {
+  const dark = !root.classList.contains('dark');
+  setTheme(dark, true);
+  mascotReact(dark ? 'sleepy' : 'delighted', 1100);
+}));
+// Follow the OS setting until the visitor picks one here or on the portfolio.
+darkMQ.addEventListener('change', e => {
+  let t = null; try { t = localStorage.getItem('theme'); } catch (err) {}
+  if (!t || t === 'system') setTheme(e.matches, false);
+});
+syncThemeUI();
+
+/* ---------- Mascot ----------
+   Behaviour follows the portfolio's corner mascot (adapted from page-mascot 0.1.0, MIT):
+   the head turns toward the pointer, hover or focus shows an expression, a click bounces. */
+const mascot = document.getElementById('mascot'), bubble = document.getElementById('bubble');
+const squash = mascot.querySelector('.squash'), dirLayer = mascot.querySelector('.dir'), rxLayer = mascot.querySelector('.rx');
+const DIRS = ['up-left','up','up-right','left','center','right','down-left','down','down-right'];
+const RX = ['blink','heart','sparkle','surprised','wink','bashful','sleepy','dizzy','delighted'];
+const CLOCKWISE = ['right','down-right','down','down-left','left','up-left','up','up-right'];
+const SECTOR = Math.PI * 2 / 8, HYST = 0.12, DEAD = 70;
+const HOVER_RX = ['heart','sparkle','delighted','wink','bashful','surprised'];
+const pos = i => `${(i % 3) * 50}% ${Math.floor(i / 3) * 50}%`;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+let timers = [], nextRx = 0;
+
+function face(name){
+  if (!name) { mascot.classList.remove('reacting'); return; }
+  rxLayer.style.backgroundPosition = pos(RX.indexOf(name));
+  mascot.classList.add('reacting');
+}
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+function mascotReact(name, holdMs){
+  clearTimers();
+  face('blink');
+  timers.push(setTimeout(() => face(name), 120));
+  if (holdMs) timers.push(setTimeout(() => face(null), 120 + holdMs));
+}
+function hoverReact(holdMs){ mascotReact(HOVER_RX[nextRx++ % HOVER_RX.length], holdMs); }
+function settle(){ clearTimers(); face(null); }
+
+if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  let sector = -1, pointer = null;
+  const aim = () => {
+    if (!pointer) return;
+    const b = mascot.getBoundingClientRect();
+    const dx = pointer.x - (b.left + b.width / 2), dy = pointer.y - (b.top + b.height / 2);
+    if (Math.hypot(dx, dy) < DEAD) { sector = -1; dirLayer.style.backgroundPosition = pos(4); return; }
+    const a = Math.atan2(dy, dx);
+    const wrapA = x => Math.atan2(Math.sin(x), Math.cos(x));
+    if (sector !== -1 && Math.abs(wrapA(a - sector * SECTOR)) < SECTOR / 2 + HYST) return;
+    sector = (Math.round(a / SECTOR) + 8) % 8;
+    dirLayer.style.backgroundPosition = pos(DIRS.indexOf(CLOCKWISE[sector]));
+  };
+  addEventListener('pointermove', e => { pointer = { x: e.clientX, y: e.clientY }; aim(); }, { passive: true });
+  addEventListener('scroll', aim, { passive: true });
+}
+
+mascot.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') hoverReact(); });
+mascot.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') settle(); });
+mascot.addEventListener('focus', () => { if (mascot.matches(':focus-visible')) hoverReact(); });
+mascot.addEventListener('blur', settle);
+
+function openBubble(open){
+  bubble.hidden = !open;
+  mascot.setAttribute('aria-expanded', String(open));
+  if (open) bubble.querySelector('a').focus({ preventScroll: true });
+}
+mascot.addEventListener('click', () => {
+  if (!matchMedia('(hover: hover)').matches) hoverReact(700);
+  openBubble(bubble.hidden);
+  if (!reduced.matches && squash.animate) squash.animate([
+    { transform: 'scale(1,1)', easing: 'ease-in' },
+    { transform: 'scale(1.10,.86)', offset: .18, easing: 'ease-out' },
+    { transform: 'scale(.95,1.08)', offset: .45, easing: 'ease-in-out' },
+    { transform: 'scale(1.03,.97)', offset: .72, easing: 'ease-in-out' },
+    { transform: 'scale(1,1)' }
+  ], { duration: 420, easing: 'linear' });
+});
+bubble.querySelector('.bubble-x').addEventListener('click', () => { openBubble(false); mascot.focus(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !bubble.hidden) { openBubble(false); mascot.focus(); } });
+document.addEventListener('click', e => { if (!bubble.hidden && !e.target.closest('.buddy')) openBubble(false); });
 </script>
 </body>
 </html>
