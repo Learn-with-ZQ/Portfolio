@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al-Mustafa Medical Centre (Trust) | Gulshan-e-Iqbal, Karachi — website concept</title>
+<meta name="description" content="Website concept for Al-Mustafa Medical Centre (Trust), a charitable hospital in Block 13-C, Gulshan-e-Iqbal, Karachi. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--lapis:#23408E;--lapis-d:#1A3170;--lapis-dd:#14265A;--mari:#F2A541;--mari-l:#FBE3BC;--mari-d:#8A5208;--cloud:#F1F4FA;--cloud-2:#E2E8F4;--ink:#1D2540;--ink-2:#4A5372;--white:#fff;
+--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--wrap:1240px;--gut:clamp(20px,4vw,48px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 18px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--lapis)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em;font-optical-sizing:auto}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--mari);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;z-index:99}
+.skip:focus{left:8px}
+/* concept notice */
+.notice{background:var(--cloud);color:var(--ink-2);font-size:13.5px;line-height:1.45;padding:8px 0;border-bottom:1px solid var(--cloud-2)}
+.notice .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:space-between}
+.notice a{color:var(--lapis);font-weight:700}
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--cloud-2)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;min-height:76px}
+.mark{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1}
+.mark b{font:500 30px/1 var(--serif);letter-spacing:-.02em;color:var(--lapis)}
+.mark span{font:italic 400 15px/1.2 var(--serif);color:var(--ink-2);margin-top:3px}
+.nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--mari)}
+.nav a.btn{color:#fff;border:0;padding:12px 20px;font-size:15.5px}
+.nav a.btn:hover{background:var(--lapis-d)}
+a[href^="tel:"]{white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16px/1.2 var(--sans);text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-lapis{background:var(--lapis);color:#fff}.btn-lapis:hover{background:var(--lapis-d)}
+.btn-mari{background:var(--mari);color:var(--ink)}.btn-mari:hover{background:#E8962B}
+.btn-line{border-color:currentColor;color:var(--lapis);background:transparent}.btn-line:hover{background:var(--cloud)}
+.btn svg{width:18px;height:18px;flex:none}
+.menu-btn{display:none;margin-left:auto;background:none;border:2px solid var(--cloud-2);border-radius:999px;padding:9px 16px;font:700 15px var(--sans);color:var(--ink);cursor:pointer}
+/* source tag */
+.src{display:inline-block;font:600 12.5px/1 var(--sans);color:var(--lapis);background:var(--cloud);border:1px solid var(--cloud-2);border-radius:999px;padding:4px 9px 5px;vertical-align:.18em;text-decoration:none;white-space:nowrap;margin-left:2px}
+.src:hover{background:var(--cloud-2)}
+.sample{display:inline-block;font:italic 400 15px/1.35 var(--serif);color:var(--mari-d);border-left:3px solid var(--mari);padding:2px 0 2px 10px}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:clamp(28px,4vw,64px);max-width:1440px;margin:0 auto;padding:clamp(20px,2.5vw,32px) var(--gut) clamp(48px,6vw,88px) 0}
+.hero-photo{position:relative;margin:0;min-height:640px;border-radius:0 28px 28px 0;overflow:hidden;background:var(--cloud-2)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-photo figcaption{position:absolute;left:16px;bottom:14px;font-size:12.5px;color:#fff;background:rgba(29,37,64,.72);padding:5px 10px;border-radius:999px}
+.hero-text{padding-top:clamp(12px,3vw,48px);max-width:600px}
+.hero-kicker{font:italic 400 20px/1.3 var(--serif);color:var(--ink-2);margin-bottom:18px}
+.hero h1{font-size:clamp(3rem,6.2vw,5.6rem);font-weight:350;color:var(--lapis);line-height:.98;letter-spacing:-.025em}
+.hero-lede{font-size:20px;line-height:1.6;color:var(--ink-2);margin:24px 0 0;max-width:34em}
+/* the fork */
+.fork{margin-top:34px}
+.fork-svg{display:block;width:100%;height:auto;overflow:visible}
+.fork-svg path{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke .35s,opacity .35s}
+.fork-svg .stem{stroke:var(--mari)}
+.fork-svg .b{stroke:var(--mari);opacity:.32}
+.fork-svg circle{fill:var(--mari);opacity:.32;transition:opacity .35s}
+.fork[data-path="care"] .b-care,.fork[data-path="help"] .b-help,.fork[data-path="care"] .d-care,.fork[data-path="help"] .d-help{opacity:1}
+.fork-svg .draw{animation:draw 1.5s cubic-bezier(.6,.1,.2,1) .25s both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.path{font:500 clamp(22px,2.2vw,30px)/1.1 var(--serif);text-align:left;padding:18px 22px 20px;border-radius:18px;border:2px solid var(--cloud-2);background:var(--white);color:var(--ink);cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.path small{display:block;font:600 14.5px/1.35 var(--sans);color:var(--ink-2);margin-top:6px}
+.path:hover{border-color:var(--mari)}
+.path[aria-selected="true"].p-care{background:var(--lapis);border-color:var(--lapis);color:#fff}
+.path[aria-selected="true"].p-care small{color:#D5DDF2}
+.path[aria-selected="true"].p-help{background:var(--mari);border-color:var(--mari);color:var(--ink)}
+.path[aria-selected="true"].p-help small{color:var(--ink)}
+.panel{margin-top:16px;background:var(--cloud);border-radius:18px;padding:22px 24px}
+.panel[hidden]{display:none}
+.route{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:12px 0}
+.route+.route{border-top:1px solid var(--cloud-2)}
+.route svg{width:30px;height:30px;color:var(--lapis);grid-row:span 2;margin-top:2px}
+.route h3{font:600 21px/1.2 var(--serif);color:var(--ink)}
+.route p{margin:0;font-size:16px;color:var(--ink-2)}
+.route a{font-weight:700}
+.panel-help p{font-size:17px;color:var(--ink)}
+.panel-help .btn{margin:4px 10px 6px 0}
+/* sections */
+.sec{padding:clamp(64px,8vw,120px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.sec h2{font-size:clamp(2.3rem,4.4vw,3.9rem);color:var(--lapis);font-weight:380}
+.sec-head p{color:var(--ink-2);font-size:19px;max-width:36em;margin:0}
+/* care */
+.care-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px);align-items:start}
+.ward{position:sticky;top:110px;margin:0}
+.ward img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px}
+.ward figcaption{font-size:14px;color:var(--ink-2);margin-top:10px}
+.svc{display:grid;grid-template-columns:56px minmax(0,1fr);gap:6px 22px;padding:30px 0}
+.svc+.svc{border-top:1px solid var(--cloud-2)}
+.svc .ic{width:56px;height:56px;border-radius:50%;background:var(--cloud);display:grid;place-items:center;grid-row:span 3}
+.svc .ic svg{width:28px;height:28px;color:var(--lapis)}
+.svc h3{font-size:clamp(1.75rem,2.6vw,2.3rem);color:var(--ink);font-weight:420}
+.svc p{margin:0;color:var(--ink-2);max-width:36em}
+.svc .do{font-weight:700;color:var(--ink);font-size:16px;margin-top:4px}
+.doctors{margin-top:28px;padding:24px 26px;border-radius:18px;background:var(--cloud)}
+.doctors p{margin:0 0 10px}
+/* visit */
+.visit{background:var(--cloud)}
+.visit-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:start}
+.visit .big{font:350 clamp(2.2rem,4.2vw,3.7rem)/1.06 var(--serif);color:var(--lapis);letter-spacing:-.015em;margin:0 0 24px}
+.visit .note{color:var(--ink-2);font-size:19px;max-width:30em}
+.desk{background:var(--white);border-radius:24px;padding:10px 30px;margin:0}
+.desk div{padding:22px 0}
+.desk div+div{border-top:1px dashed #C9D3E8}
+.desk dt{font:600 23px/1.2 var(--serif);color:var(--ink);margin-bottom:6px}
+.desk dd{margin:0;color:var(--ink-2);font-size:17px}
+/* emergency */
+.er{background:var(--ink);color:#fff;padding:clamp(56px,7vw,96px) 0}
+.er-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:center}
+.er h2{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:380;color:#fff}
+.er p{color:#C9D0E4;font-size:18px;margin:18px 0 0;max-width:30em}
+.er-call{display:block;text-decoration:none;color:var(--mari);font:300 clamp(2.6rem,5.6vw,5.6rem)/1 var(--serif);letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:lining-nums}
+.er-call:hover{color:#FFC879}
+.er-call small{display:block;font:700 16px/1.4 var(--sans);color:#fff;letter-spacing:0;margin-top:14px}
+.er .src{background:transparent;color:#D5DDF2;border-color:#3A4466}
+/* support */
+.help{background:var(--lapis);color:#fff;position:relative;overflow:hidden}
+.help-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+.help h2{color:#fff;font-size:clamp(2.4rem,4.8vw,4.2rem);font-weight:350}
+.help .lede{font-size:20px;color:#DCE3F5;margin:26px 0 30px;max-width:32em}
+.help .btn-line{color:#fff}.help .btn-line:hover{background:var(--lapis-d)}
+.help .src{background:var(--lapis-d);color:#fff;border-color:#3E5AA6}
+.why{background:var(--lapis-dd);border-radius:22px;padding:28px 28px 26px;border-top:4px solid var(--mari)}
+.why h3{font-size:26px;color:#fff;font-weight:450;margin-bottom:12px}
+.why p{color:#DCE3F5;font-size:16.5px}
+.why p:last-child{margin:0}
+/* find */
+.find-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+.addr{font:350 clamp(2rem,3.8vw,3.3rem)/1.12 var(--serif);color:var(--ink);margin:0 0 22px;font-style:normal}
+.also{color:var(--ink-2);font-size:16.5px;max-width:34em}
+.find-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.plate{background:var(--cloud);border-radius:24px;padding:28px}
+.plate dl{margin:0}
+.plate div{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:12px 0}
+.plate div+div{border-top:1px solid var(--cloud-2)}
+.plate dt{font-weight:700;color:var(--ink)}
+.plate dd{margin:0;color:var(--ink-2)}
+/* footer */
+.ftr{background:var(--ink);color:#C9D0E4;padding:64px 0 34px;font-size:15.5px}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:40px}
+.ftr .mark b{color:#fff}.ftr .mark span{color:#AEB7D0}
+.ftr h3{font:600 19px/1.2 var(--serif);color:#fff;margin-bottom:12px}
+.ftr ul{list-style:none;margin:0;padding:0}
+.ftr li{margin:0 0 8px}
+.ftr a{color:#fff}
+.ftr-base{margin-top:48px;padding-top:22px;border-top:1px solid #343E60;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:14px}
+.mbar{display:none}
+/* responsive */
+@media (max-width:1080px){
+ .hero{grid-template-columns:1fr 1fr}.hero-photo{min-height:560px}
+ .nav{gap:18px}.nav .btn{display:none}
+}
+@media (max-width:860px){
+ .menu-btn{display:inline-flex}
+ .nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 18px;border-bottom:1px solid var(--cloud-2)}
+ .nav.open{display:flex}.nav a{padding:12px 0;border-bottom:1px solid var(--cloud)}
+ .nav .btn{display:inline-flex;margin-top:12px}
+ .hero{grid-template-columns:1fr;padding:0 0 56px}
+ .hero-photo{min-height:0;aspect-ratio:4/3;border-radius:0}
+ .hero-photo img{object-position:50% 8%}
+ .hero-text{padding:8px var(--gut) 0;max-width:none}
+ .sec-head,.care-grid,.visit-grid,.er-grid,.help-grid,.find-grid,.ftr-grid{grid-template-columns:1fr}
+ .ward{position:static}.ward img{aspect-ratio:16/10}
+ .er-call{white-space:normal}
+ .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--cloud-2)}
+ .mbar .btn{padding:12px 10px;font-size:15px}
+ body{padding-bottom:72px}
+}
+@media (max-width:480px){
+ body{font-size:17px}
+ .hero h1{font-size:3rem}.hero-lede{font-size:18px}
+ .path{padding:14px 14px 16px;font-size:21px}.path small{font-size:13.5px}
+ .panel{padding:16px 18px}
+ .route{gap:2px 12px}.route svg{width:24px;height:24px}
+ .svc{grid-template-columns:1fr}.svc .ic{grid-row:auto}
+ .desk{padding:6px 20px}.plate{padding:20px}
+ .plate div{grid-template-columns:1fr;gap:2px}
+ .er-call{font-size:2.9rem}
+ .notice{font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-steth" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H6v8a6 6 0 0 0 12 0V4h-2"/><path d="M12 18v3a7 7 0 0 0 14 0v-3"/><circle cx="26" cy="15" r="3"/></symbol>
+ <symbol id="i-er" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4h8v8h8v8h-8v8h-8v-8H4v-8h8z"/></symbol>
+ <symbol id="i-lab" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4h8M13 4v9L6 25a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-12V4"/><path d="M9.5 20h13"/></symbol>
+ <symbol id="i-bed" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8v18M3 20h26v6M29 20v-4a4 4 0 0 0-4-4H14v8"/><circle cx="8.5" cy="15" r="2.5"/></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+<div class="notice" role="note"><div class="wrap"><span>Website concept for Al-Mustafa Medical Centre (Trust), not the official website. Proposed design; stock imagery; details from public listings.</span><span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span></div></div>
+<header class="hdr">
+ <div class="wrap">
+  <a class="mark" href="#top" aria-label="Al-Mustafa Medical Centre (Trust), home"><b>Al-Mustafa</b><span>Medical Centre (Trust)</span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Main">
+   <a href="#care">Care</a><a href="#visit">Fees &amp; visits</a><a href="#emergency">Emergency</a><a href="#support">Support the trust</a><a href="#find">Find us</a>
+   <a class="btn btn-lapis" href="tel:+922134820103"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call 021-34820103</a>
+  </nav>
+ </div>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+ <figure class="hero-photo">
+  <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&q=75&auto=format&fit=crop" width="1200" height="1800" alt="A nurse in blue scrubs checks a smiling woman's blood pressure with a cuff and stethoscope.">
+  <figcaption>Stock photograph, not taken at Al-Mustafa</figcaption>
+ </figure>
+ <div class="hero-text">
+  <p class="hero-kicker">Al-Mustafa Medical Centre (Trust), University Road, Gulshan-e-Iqbal</p>
+  <h1 id="h1">Care comes first.</h1>
+  <p class="hero-lede">A trust hospital in Block 13-C, listed as a charitable hospital with around 150 beds <a class="src" href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>. Emergency, outpatient clinics, a diagnostic lab and in-patient wards. Which way are you coming in?</p>
+  <div class="fork" data-path="care">
+   <svg class="fork-svg" viewBox="0 0 400 70" aria-hidden="true">
+    <path class="stem draw" pathLength="1" d="M200 0V22"/>
+    <path class="b b-care draw" pathLength="1" d="M200 22C200 52 98 36 98 64"/>
+    <path class="b b-help draw" pathLength="1" d="M200 22C200 52 302 36 302 64"/>
+    <circle class="d-care" cx="98" cy="64" r="5"/><circle class="d-help" cx="302" cy="64" r="5"/>
+   </svg>
+   <div class="paths" role="tablist" aria-label="Choose your path">
+    <button class="path p-care" role="tab" id="t-care" aria-selected="true" aria-controls="p-care" data-path="care">I need care<small>Doctor, emergency or lab</small></button>
+    <button class="path p-help" role="tab" id="t-help" aria-selected="false" aria-controls="p-help" data-path="help" tabindex="-1">I want to help<small>Support the trust</small></button>
+   </div>
+   <div class="panel" id="p-care" role="tabpanel" aria-labelledby="t-care">
+    <div class="route"><svg aria-hidden="true"><use href="#i-steth"/></svg><h3>See a doctor</h3><p>Register at reception for the outpatient clinic (OPD). Consultation fees are paid at the desk.</p></div>
+    <div class="route"><svg aria-hidden="true"><use href="#i-er"/></svg><h3>Emergency</h3><p>Come straight to the hospital, or call <a href="tel:+922134820103">021-34820103</a>.</p></div>
+    <div class="route"><svg aria-hidden="true"><use href="#i-lab"/></svg><h3>Lab tests</h3><p>The diagnostic lab is in the hospital. Ask at reception about tests and reports.</p></div>
+   </div>
+   <div class="panel panel-help" id="p-help" role="tabpanel" aria-labelledby="t-help" hidden>
+    <p><strong>Contact the trust office to support.</strong> They can tell you what the hospital needs now and how giving works.</p>
+    <a class="btn btn-mari" href="tel:+922134820103"><svg aria-hidden="true"><use href="#i-phone"/></svg>Ask how to support the trust</a>
+    <a class="btn btn-line" href="#support">Why no bank details here</a>
+   </div>
+  </div>
+ </div>
+</section>
+<section class="sec" id="care" aria-labelledby="care-h">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2 id="care-h">What the hospital offers</h2>
+   <p>Four services are listed for Al-Mustafa <a class="src" href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>. Ask at reception which clinics are running on the day you come.</p>
+  </div>
+  <div class="care-grid">
+   <figure class="ward">
+    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&q=70&auto=format&fit=crop" width="900" height="1125" loading="lazy" alt="A clean, bright hospital ward with a row of beds with blue mattresses and pink privacy curtains.">
+    <figcaption>Stock photograph of a general ward, not Al-Mustafa's.</figcaption>
+   </figure>
+   <div>
+    <article class="svc"><span class="ic"><svg aria-hidden="true"><use href="#i-steth"/></svg></span><h3>Outpatient clinics</h3><p>Consultations with the hospital's panel doctors (OPD). Register at reception; the fee is paid there.</p><p class="do"><span class="sample">Specialties and clinic days: to be supplied by the hospital</span></p></article>
+    <article class="svc"><span class="ic"><svg aria-hidden="true"><use href="#i-er"/></svg></span><h3>Emergency</h3><p>For sudden illness and injury. Come straight to the hospital on University Road.</p><p class="do">Call <a href="tel:+922134820103">021-34820103</a></p></article>
+    <article class="svc"><span class="ic"><svg aria-hidden="true"><use href="#i-lab"/></svg></span><h3>Diagnostic lab</h3><p>Tests your doctor orders, done in the hospital's own diagnostic lab.</p><p class="do"><span class="sample">Test list and report times: to be supplied by the hospital</span></p></article>
+    <article class="svc"><span class="ic"><svg aria-hidden="true"><use href="#i-bed"/></svg></span><h3>In-patient wards</h3><p>Admission for patients who need to stay (IPD). The hospital is listed with around 150 beds <a class="src" href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>.</p><p class="do"><span class="sample">Visiting hours: to be supplied by the hospital</span></p></article>
+    <div class="doctors">
+     <p>25 panel doctors are listed for Al-Mustafa Medical Centre (Trust) <a class="src" href="https://oladoc.com/pakistan/karachi/h/al-mustafa-medical-centre/710" target="_blank" rel="noopener">oladoc</a>.</p>
+     <span class="sample">Doctor names, specialties and clinic days: sample space, to be supplied by Al-Mustafa</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+<section class="sec visit" id="visit" aria-labelledby="visit-h">
+ <div class="wrap visit-grid">
+  <div>
+   <h2 id="visit-h" class="big">Consultation fees are paid at reception.</h2>
+   <p class="note">oladoc lists an average consultation fee of Rs 600 <a class="src" href="https://oladoc.com/pakistan/karachi/h/al-mustafa-medical-centre/710" target="_blank" rel="noopener">oladoc</a>. Fees can change, so please confirm the current fee at the desk.</p>
+   <p class="note">If cost is a worry, say so at reception.</p>
+  </div>
+  <dl class="desk">
+   <div><dt>Company panels</dt><dd>Listed on Adamjee Insurance's hospital panel as "Al Mustafa Hospital", Block 13-C <a class="src" href="https://www.adamjeeinsurance.com/public/assets/HospitalPanel.pdf" target="_blank" rel="noopener">Adamjee</a>. Check your own policy before you come.</dd></div>
+   <div><dt>Visiting hours</dt><dd><span class="sample">To be supplied by the hospital</span></dd></div>
+   <div><dt>What to bring</dt><dd>Earlier reports, prescriptions and a list of the medicines you take.<br><span class="sample">Sample guidance, to be confirmed by the hospital</span></dd></div>
+  </dl>
+ </div>
+</section>
+<section class="er" id="emergency" aria-labelledby="er-h">
+ <div class="wrap er-grid">
+  <div>
+   <h2 id="er-h">In an emergency, come straight in.</h2>
+   <p>Emergency care is listed for Al-Mustafa <a class="src" href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>. If you can, call while you are on the way. Street #1, Block 13-C, Gulshan-e-Iqbal, off University Road.</p>
+  </div>
+  <a class="er-call" href="tel:+922134820103" aria-label="Call the hospital on 021-34820103">021-34820103<small>Tap to call the hospital</small></a>
+ </div>
+</section>
+<section class="sec help" id="support" aria-labelledby="help-h">
+ <div class="wrap help-grid">
+  <div>
+   <h2 id="help-h">If you would like to help, start with a phone call.</h2>
+   <p class="lede">Al-Mustafa Medical Centre is run as a trust and listed as a charitable hospital <a class="src" href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>. The trust office can tell you what the hospital needs and how support is received.</p>
+   <a class="btn btn-mari" href="tel:+922134820103"><svg aria-hidden="true"><use href="#i-phone"/></svg>Ask how to support the trust</a>
+  </div>
+  <aside class="why" aria-labelledby="why-h">
+   <h3 id="why-h">Why this page shows no bank details</h3>
+   <p>Account numbers and appeal figures should only come from the trust itself. Until the trust office supplies them, this concept lists none.</p>
+   <p>Please give only through details the trust office confirms to you directly.</p>
+  </aside>
+ </div>
+</section>
+<section class="sec" id="find" aria-labelledby="find-h">
+ <div class="wrap">
+  <div class="sec-head"><h2 id="find-h">Find us</h2><p>In Block 13-C, Gulshan-e-Iqbal, on the University Road side.</p></div>
+  <div class="find-grid">
+   <div>
+    <address class="addr">Street #1, Block 13-C,<br>Gulshan-e-Iqbal, Karachi</address>
+    <p class="also">Address as listed on <a class="src" href="https://oladoc.com/pakistan/karachi/h/al-mustafa-medical-centre/710" target="_blank" rel="noopener">oladoc</a>. Also listed as ST-1, Al-Mustafa Street, University Rd, Block 13 C <a class="src" href="https://instacare.pk/hospitals/karachi/gulshan-e-iqbal" target="_blank" rel="noopener">Instacare</a> and as Block 13-C, Gulshan-e-Iqbal, University Road <a class="src" href="https://www.adamjeeinsurance.com/public/assets/HospitalPanel.pdf" target="_blank" rel="noopener">Adamjee</a>.</p>
+    <div class="find-actions">
+     <a class="btn btn-lapis" href="tel:+922134820103"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call 021-34820103</a>
+     <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Al-Mustafa+Medical+Centre+Block+13-C+Gulshan-e-Iqbal+Karachi" target="_blank" rel="noopener">Search on Google Maps</a>
+    </div>
+   </div>
+   <div class="plate">
+    <dl>
+     <div><dt>Phone</dt><dd><a href="tel:+922134820103">021-34820103</a></dd></div>
+     <div><dt>Area</dt><dd>Gulshan-e-Iqbal, University Road</dd></div>
+     <div><dt>Landmarks</dt><dd><span class="sample">To be supplied by the hospital</span></dd></div>
+     <div><dt>OPD timings</dt><dd><span class="sample">To be supplied by the hospital</span></dd></div>
+     <div><dt>WhatsApp, email</dt><dd>Not published yet. Please call.</dd></div>
+    </dl>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+<footer class="ftr">
+ <div class="wrap">
+  <div class="ftr-grid">
+   <div>
+    <a class="mark" href="#top"><b>Al-Mustafa</b><span>Medical Centre (Trust)</span></a>
+    <p style="margin-top:18px">Street #1, Block 13-C, Gulshan-e-Iqbal, Karachi<br><a href="tel:+922134820103">021-34820103</a></p>
+   </div>
+   <div>
+    <h3>Where these details come from</h3>
+    <ul>
+     <li><a href="https://healthwire.pk/hospitals/karachi/al-mustafa-hospital-27095/doctors" target="_blank" rel="noopener">Healthwire</a>: charitable hospital, around 150 beds; emergency, lab, IPD, OPD</li>
+     <li><a href="https://oladoc.com/pakistan/karachi/h/al-mustafa-medical-centre/710" target="_blank" rel="noopener">oladoc</a>: name, address, 25 panel doctors, fees paid at reception</li>
+     <li><a href="https://instacare.pk/hospitals/karachi/gulshan-e-iqbal" target="_blank" rel="noopener">Instacare</a>: Block 13 C listing and phone number</li>
+     <li><a href="https://www.adamjeeinsurance.com/public/assets/HospitalPanel.pdf" target="_blank" rel="noopener">Adamjee Insurance</a>: hospital panel list</li>
+    </ul>
+   </div>
+   <div>
+    <h3>On this page</h3>
+    <ul><li><a href="#care">Care</a></li><li><a href="#visit">Fees &amp; visits</a></li><li><a href="#emergency">Emergency</a></li><li><a href="#support">Support the trust</a></li><li><a href="#find">Find us</a></li></ul>
+   </div>
+  </div>
+  <div class="ftr-base">
+   <span>Website concept for Al-Mustafa Medical Centre (Trust), not the official website. Proposed design and wordmark; stock imagery; details from public listings.</span>
+   <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+ </div>
+</footer>
+<div class="mbar" aria-label="Quick actions">
+ <a class="btn btn-lapis" href="tel:+922134820103"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call hospital</a>
+ <a class="btn btn-mari" href="#support">Support the trust</a>
+</div>
+<script>
+(function(){
+ var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+ btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';});
+ nav.addEventListener('click',function(e){if(e.target.closest('a')&&nav.classList.contains('open')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}});
+ var fork=document.querySelector('.fork'),tabs=[].slice.call(document.querySelectorAll('.path'));
+ function pick(t,focus){
+  tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  fork.setAttribute('data-path',t.dataset.path);if(focus)t.focus();
+ }
+ tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){pick(t);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();pick(tabs[(i+1)%2],true);}});
+ });
+})();
+</script>
+</body>
+</html>

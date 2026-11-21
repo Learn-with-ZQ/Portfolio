@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profectus International School &amp; College — Admissions 2026-27 (website concept)</title>
+<meta name="description" content="Website concept for Profectus International School & College, Karachi: five campuses from pre-school to college. Book a campus visit or call 0340 4190000.">
+<meta name="theme-color" content="#002147">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,400;1,500;1,700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#002147; --navy-deep:#001631; --navy-2:#0B3264;
+  --yellow:#FDC800; --yellow-soft:#FFE99A;
+  --sky:#CFE3F5; --sky-soft:#E8F1FA;
+  --chalk:#F4F6F8; --white:#FFFFFF;
+  --ink-2:#3A4F69; --rule:#B9D3EC;
+  --serif:"Alegreya", Georgia, "Times New Roman", serif;
+  --sans:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --wrap:1200px; --gut:clamp(20px,4vw,48px);
+  --line:40px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:18px;line-height:1.55;color:var(--navy);background:var(--white);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;box-shadow:0 0 0 6px var(--navy);border-radius:4px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--yellow);color:var(--navy);padding:10px 14px;font-weight:700;z-index:50;text-decoration:none}
+.skip:focus{top:12px}
+
+/* concept notice */
+.notice{background:var(--navy-deep);color:#C9D6E8;font-size:14px;line-height:1.4}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.notice a{color:var(--yellow);text-underline-offset:3px}
+
+/* header */
+.top{background:var(--white);border-bottom:1px solid var(--sky);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:76px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1;margin-right:auto}
+.brand b{font-family:var(--serif);font-weight:800;font-size:30px;letter-spacing:-.015em}
+.brand b::after{content:"";display:inline-block;width:.32em;height:.32em;background:var(--yellow);margin-left:.08em;border-radius:1px}
+.brand small{font-size:13.5px;color:var(--ink-2);margin-top:5px;letter-spacing:.01em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:17px;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 17px/1 var(--sans);text-decoration:none;padding:15px 22px;border-radius:999px;border:2px solid var(--navy);cursor:pointer;transition:background .15s,color .15s}
+.btn-y{background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
+.btn-y:hover{background:var(--navy);border-color:var(--navy);color:var(--yellow)}
+.btn-o{background:transparent;color:var(--navy)}
+.btn-o:hover{background:var(--navy);color:var(--white)}
+.btn-n{background:var(--navy);color:var(--white)}
+.btn-n:hover{background:var(--navy-2)}
+.top .btn{padding:11px 18px;font-size:16px}
+.menu-t{display:none;background:none;border:2px solid var(--navy);border-radius:999px;font:700 16px/1 var(--sans);color:var(--navy);padding:10px 16px;cursor:pointer}
+
+/* hero: exercise-copy page */
+.hero{position:relative;background-color:var(--white);
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--line) - 1px),var(--rule) calc(var(--line) - 1px),var(--rule) var(--line));
+  background-position:0 0;padding:calc(var(--line)*2) 0 calc(var(--line)*2);overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:max(calc((100vw - var(--wrap))/2 + var(--gut) - 30px),10px);
+  width:6px;border-left:2px solid var(--yellow);border-right:2px solid var(--yellow)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);gap:56px;align-items:center}
+[data-visit-cta]{gap:0}
+.hero-copy{padding-left:8px}
+.hero-kicker{font-family:var(--serif);font-style:italic;font-size:22px;line-height:var(--line);margin:0;color:var(--ink-2)}
+.hero h1{font-size:clamp(46px,6.4vw,88px);line-height:calc(var(--line)*2);font-weight:800;margin:0;letter-spacing:-.025em;text-wrap:balance}
+.hero h1 .camp{white-space:nowrap}
+.hero-sub{font-size:20px;line-height:var(--line);max-width:34em;margin:0 0 var(--line);color:var(--navy)}
+.picker{border:0;margin:0 0 var(--line);padding:0;min-width:0}
+.picker legend{font-family:var(--serif);font-style:italic;font-size:19px;line-height:var(--line);padding:0;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:block;font-weight:500;font-size:17px;line-height:1;padding:11px 16px;border:2px solid var(--navy);border-radius:8px;background:var(--white);transition:background .15s,color .15s}
+.chip input:hover+span{background:var(--sky-soft)}
+.chip input:checked+span{background:var(--navy);color:var(--white);box-shadow:inset 0 -4px 0 var(--yellow)}
+.chip input:focus-visible+span{outline:3px solid var(--yellow);outline-offset:3px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+/* signature: the copy name label */
+.label-wrap{padding-top:calc(var(--line)*1);position:relative}
+.label{position:relative;background:var(--white);border:2px solid var(--navy);border-radius:28px;padding:0 0 22px;
+  box-shadow:0 0 0 7px var(--white),0 0 0 9px var(--navy),14px 16px 0 9px var(--yellow);transform:rotate(-2.2deg);max-width:470px;margin-left:auto}
+.label-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;background:var(--navy);color:var(--white);border-radius:25px 25px 0 0;padding:14px 26px 12px}
+.label-head b{font-family:var(--serif);font-weight:800;font-size:26px;letter-spacing:-.01em}
+.label-head i{font-family:var(--serif);font-size:17px;color:var(--yellow)}
+.label dl{margin:0;padding:8px 26px 0}
+.label .row{display:grid;grid-template-columns:84px 1fr;align-items:end;gap:10px;padding:12px 0 4px;border-bottom:2px dotted #8FA6C2}
+.label dt{font-size:15px;color:var(--ink-2);padding-bottom:4px}
+.label dd{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;line-height:1.15;min-height:28px}
+.label dd.big{font-size:34px;font-weight:700}
+.fill.write{animation:write .7s cubic-bezier(.5,0,.3,1) both}
+@keyframes write{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.label-note{font-size:14px;color:var(--ink-2);margin:34px 0 0;text-align:right;font-style:italic;line-height:1.4}
+
+/* shared section heads */
+.sec{padding:clamp(72px,9vw,120px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head h2{font-size:clamp(36px,4.6vw,60px);text-wrap:balance}
+.sec-head p{font-size:19px;max-width:36em;margin:0;color:var(--ink-2)}
+.tbs{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-2)}
+
+/* stages */
+.stages{background:var(--chalk)}
+.track{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative}
+.track::before{content:"";position:absolute;left:0;right:0;top:27px;height:4px;background:var(--navy)}
+.stage{position:relative;padding:0 28px 0 0}
+.stage .n{position:relative;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--yellow);border:4px solid var(--navy);font:800 26px/1 var(--serif);margin-bottom:26px}
+.stage h3{font-size:32px;margin-bottom:10px}
+.stage .age{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-2);margin-bottom:12px}
+.stage p{font-size:17.5px;max-width:22em}
+.stages-foot{margin-top:64px;max-width:760px}
+.photo{margin:0}
+.photo img{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:6px;background:var(--sky)}
+.photo figcaption{font-size:14px;color:var(--ink-2);margin-top:8px;font-style:italic}
+.streams{border-left:6px solid var(--yellow);padding:4px 0 4px 22px}
+.streams p{font-size:19px}
+
+/* campuses */
+.campuses{background:var(--navy);color:var(--white)}
+.campuses .sec-head p{color:#C9D6E8}
+.clist{list-style:none;margin:0;padding:0;border-top:2px solid rgba(207,227,245,.35)}
+.crow{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:16px 40px;align-items:center;padding:26px 0 26px 24px;border-bottom:2px solid rgba(207,227,245,.35);position:relative;transition:background .2s}
+.crow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:6px;background:transparent;border-radius:3px}
+.crow.on{background:rgba(207,227,245,.07)}
+.crow.on::before{background:var(--yellow)}
+.crow h3{font-size:clamp(34px,4.2vw,56px);font-weight:700;letter-spacing:-.02em}
+.crow.on h3{color:var(--yellow)}
+.crow .meta{font-size:17px;color:#DCE6F2;margin:0}
+.crow .meta em{font-family:var(--serif);color:#AFC3DB}
+.crow .btn{border-color:var(--sky);color:var(--white);background:transparent;padding:12px 18px;font-size:16px;white-space:nowrap}
+.crow .btn:hover,.crow.on .btn{background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
+.ctag{display:inline-block;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--navy);background:var(--yellow);padding:2px 10px;border-radius:4px;margin-left:12px;vertical-align:middle}
+/* admissions */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
+.step{background:var(--chalk);border-top:6px solid var(--navy);padding:26px 24px 28px}
+.step:first-child{border-top-color:var(--yellow)}
+.step .n{font:800 46px/1 var(--serif);color:var(--navy);margin-bottom:14px}
+.step h3{font-size:26px;margin-bottom:10px}
+.step p{font-size:17px;margin:0}
+.adm-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;margin-top:40px;align-items:start}
+.session{background:var(--sky-soft);border-left:6px solid var(--navy);padding:24px 28px}
+.session h3{font-size:26px;margin-bottom:8px}
+.session p{font-size:17.5px}
+.session p:last-child{margin:0}
+
+/* parents */
+.parents{background:var(--sky)}
+.parents .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.parents h2{font-size:clamp(36px,4.4vw,56px);margin-bottom:18px}
+.parents p{font-size:19px;max-width:32em}
+.diary{background:var(--white);border-radius:6px;padding:30px 32px;box-shadow:10px 10px 0 var(--navy);position:relative}
+.diary::before{content:"";position:absolute;left:0;top:0;bottom:0;width:22px;background:var(--navy);border-radius:6px 0 0 6px}
+.diary-in{padding-left:18px}
+.diary h3{font-size:24px;margin-bottom:6px}
+.diary ul{list-style:none;margin:16px 0 0;padding:0}
+.diary li{padding:11px 0;border-bottom:1px solid var(--rule);font-size:17.5px;display:flex;gap:12px}
+.diary li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;background:var(--yellow);border:2px solid var(--navy);border-radius:2px}
+.diary .tbs{margin:14px 0 0;font-size:15px}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px}
+.contact h2{font-size:clamp(36px,4.4vw,56px);margin-bottom:24px}
+.phone{display:block;font:800 clamp(40px,5.4vw,72px)/1 var(--serif);text-decoration:none;letter-spacing:-.02em;margin:6px 0 10px}
+.phone:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:5px;text-underline-offset:8px}
+.cl{font-size:18px;margin:0 0 6px}
+.cl a{text-underline-offset:3px}
+.addr{margin-top:28px;padding-top:24px;border-top:2px solid var(--sky)}
+.addr p{margin:0 0 4px}
+.social{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:17px}
+.form{background:var(--chalk);padding:34px;border-radius:6px;border-top:8px solid var(--yellow)}
+.form h3{font-size:28px;margin-bottom:6px}
+.form>p{font-size:17px;color:var(--ink-2)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fld label{font-weight:700;font-size:16px}
+.fld input,.fld select{font:400 17px/1.3 var(--sans);color:var(--navy);background:var(--white);border:2px solid #8FA6C2;border-radius:6px;padding:12px 12px;width:100%}
+.fld input:focus,.fld select:focus{border-color:var(--navy);outline:3px solid var(--yellow);outline-offset:1px}
+.form .cta-row{margin-top:6px}
+.demo{font-size:14.5px;color:var(--ink-2);margin:14px 0 0;font-style:italic}
+
+/* footer */
+.foot{background:var(--navy-deep);color:#C9D6E8;padding:56px 0 34px;font-size:16px}
+.foot .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.foot .brand b{color:var(--white)}
+.foot .brand small{color:#AFC3DB}
+.foot h3{font-family:var(--sans);font-size:16px;color:var(--white);margin:0 0 10px;font-weight:700}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin-bottom:6px}
+.foot a{color:#E6EEF7;text-underline-offset:3px}
+.foot .fine{grid-column:1/-1;border-top:1px solid rgba(207,227,245,.2);padding-top:20px;margin-top:10px;font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.foot .fine a{color:var(--yellow)}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{gap:18px}.nav a{font-size:16px}
+  .hero .wrap{grid-template-columns:1fr;gap:var(--line)}
+  .label{margin:0 auto 0 8px}
+  .label-note{text-align:left;margin-left:8px}
+  .track{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}
+  .track::before{display:none}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .menu-t{display:inline-flex}
+  .top .btn{display:none}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 18px;border-bottom:2px solid var(--navy);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;border-bottom:1px solid var(--sky);font-size:18px}
+  .sec-head,.stages-foot,.adm-foot,.parents .wrap,.contact .wrap{grid-template-columns:1fr}
+  .crow{grid-template-columns:1fr;gap:8px;padding-left:20px}
+  .crow .btn{justify-self:start;margin-top:6px}
+  .foot .wrap{grid-template-columns:1fr 1fr}
+  .foot .wrap>div:first-child{grid-column:1/-1}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  :root{--line:36px}
+  .brand b{font-size:26px}.brand small{font-size:12.5px}
+  .hero{padding-top:var(--line)}
+  .hero::before{left:10px}
+  .hero-copy{padding-left:12px}
+  .hero h1{font-size:42px;line-height:1.1;margin-bottom:14px}
+  .hero h1 .camp{white-space:normal}
+  .hero-sub{font-size:18px}
+  .label{transform:rotate(-1.5deg);margin:0 6px 0 10px}
+  .label-head{padding:12px 20px 10px}.label dl{padding:4px 20px 0}
+  .label .row{grid-template-columns:66px 1fr}
+  .label dd{font-size:21px}.label dd.big{font-size:28px}
+  .track,.steps,.f2{grid-template-columns:1fr}
+  .track{row-gap:32px}
+  .stage{padding:0;display:grid;grid-template-columns:48px 1fr;column-gap:16px}
+  .stage .n{grid-row:1/4;width:46px;height:46px;font-size:21px;border-width:3px;margin:0}
+  .stage h3{font-size:28px;margin-bottom:4px}
+  .stage .age{margin-bottom:6px}
+  .step{display:grid;grid-template-columns:40px 1fr;column-gap:12px;padding:20px 18px 22px}
+  .step .n{grid-row:1/3;font-size:36px;margin:0}
+  .step h3{font-size:24px;margin-bottom:6px}
+  .form{padding:24px 20px}
+  .diary{padding:24px 22px;box-shadow:7px 7px 0 var(--navy)}
+  .foot .wrap{grid-template-columns:1fr}
+  .btn{width:100%}
+  .crow .btn{width:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Profectus International School &amp; College — not the official website. Proposed design; no photographs of the school; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="Profectus International School and College, home">
+      <b>Profectus</b>
+      <small>International School &amp; College</small>
+    </a>
+    <button class="menu-t" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#stages">Stages</a>
+      <a href="#campuses">Campuses</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#parents">Parents</a>
+      <a href="#visit">Contact</a>
+    </nav>
+    <a class="btn btn-n" href="tel:+923404190000">Call 0340 4190000</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="hero-kicker">Admissions for Academic Session 2026-27</p>
+      <h1 id="hero-h">Visit our <span class="camp" data-campus-name>F.B. Area</span> campus.</h1>
+      <p class="hero-sub">Five campuses across Karachi, from pre-school to college. Come and see the classrooms, meet the staff and ask about places for your child.</p>
+      <fieldset class="picker">
+        <legend>Choose the campus nearest you</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="campus" value="F.B. Area" checked><span>F.B. Area</span></label>
+          <label class="chip"><input type="radio" name="campus" value="Saadi Town"><span>Saadi Town</span></label>
+          <label class="chip"><input type="radio" name="campus" value="Saadi Garden"><span>Saadi Garden</span></label>
+          <label class="chip"><input type="radio" name="campus" value="Gulshan-e-Maymar"><span>Gulshan-e-Maymar</span></label>
+          <label class="chip"><input type="radio" name="campus" value="Ayesha Manzil"><span>Ayesha Manzil</span></label>
+        </div>
+      </fieldset>
+      <div class="cta-row">
+        <a class="btn btn-y" href="#visit" data-visit-cta>Book a visit to&nbsp;<span data-campus-name>F.B. Area</span></a>
+        <a class="btn btn-o" href="tel:+923404190000">Call 0340 4190000</a>
+      </div>
+    </div>
+
+    <div class="label-wrap">
+      <div class="label" aria-live="polite" aria-label="Your campus visit">
+        <div class="label-head"><b>Profectus</b><i>Name label</i></div>
+        <dl>
+          <div class="row"><dt>School</dt><dd>Profectus International School &amp; College</dd></div>
+          <div class="row"><dt>Campus</dt><dd class="big fill" data-campus-name>F.B. Area</dd></div>
+          <div class="row"><dt>Where</dt><dd class="fill" data-campus-where>Head office, Block 15</dd></div>
+          <div class="row"><dt>Classes</dt><dd>Pre-school to college</dd></div>
+          <div class="row"><dt>Session</dt><dd>2026-27</dd></div>
+        </dl>
+      </div>
+      <p class="label-note">Like the label on the front of a school copy.<br>Choose a campus and it fills itself in.</p>
+    </div>
+  </div>
+</section>
+<section class="sec stages" id="stages" aria-labelledby="stages-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="stages-h">One school from the first classroom to college.</h2>
+      <p>Profectus runs from pre-school to college, so a child can move up one stage at a time without changing schools.</p>
+    </div>
+    <ol class="track">
+      <li class="stage">
+        <span class="n" aria-hidden="true">1</span>
+        <h3>Pre-school</h3>
+        <p class="age">Where it begins</p>
+        <p>Early years classes where children settle into school life through play, stories, early letters and numbers.</p>
+      </li>
+      <li class="stage">
+        <span class="n" aria-hidden="true">2</span>
+        <h3>Primary</h3>
+        <p class="age">The foundations</p>
+        <p>Reading, writing, mathematics and science, and the study habits a child carries into every later class.</p>
+      </li>
+      <li class="stage">
+        <span class="n" aria-hidden="true">3</span>
+        <h3>Secondary</h3>
+        <p class="age">Towards examinations</p>
+        <p>Subject teaching that builds towards board examinations, in the routes the school offers.</p>
+      </li>
+      <li class="stage">
+        <span class="n" aria-hidden="true">4</span>
+        <h3>College</h3>
+        <p class="age">Before university</p>
+        <p>The final years of school, preparing students for university and what comes after.</p>
+      </li>
+    </ol>
+    <div class="stages-foot">
+      <div class="streams">
+        <p><strong>Cambridge and Matric.</strong> The school describes its teaching as Cambridge and Matric education. Ask your campus which routes it offers at each stage.</p>
+        <p class="tbs">Stage descriptions are general. Class ranges, subjects and routes for each campus to be supplied by the school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec campuses" id="campuses" aria-labelledby="campuses-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="campuses-h">Five campuses across Karachi.</h2>
+      <p>The school lists five fully operational campuses. Pick one to plan your visit; the head office is at the F.B. Area campus in Block 15.</p>
+    </div>
+    <ul class="clist">
+      <li class="crow on" data-row="F.B. Area">
+        <h3>F.B. Area</h3>
+        <p class="meta">Head office, ST-10, Block-15, F.B. Area, Karachi<br><em>Listed by the school at 5,700 sq. yards.</em></p>
+        <button class="btn" type="button" data-pick="F.B. Area">Visit this campus</button>
+      </li>
+      <li class="crow" data-row="Saadi Town">
+        <h3>Saadi Town</h3>
+        <p class="meta">Saadi Town, Karachi<br><em>Street address to be supplied by the school.</em></p>
+        <button class="btn" type="button" data-pick="Saadi Town">Visit this campus</button>
+      </li>
+      <li class="crow" data-row="Saadi Garden">
+        <h3>Saadi Garden</h3>
+        <p class="meta">Saadi Garden, Karachi<br><em>Street address to be supplied by the school.</em></p>
+        <button class="btn" type="button" data-pick="Saadi Garden">Visit this campus</button>
+      </li>
+      <li class="crow" data-row="Gulshan-e-Maymar">
+        <h3>Gulshan-e-Maymar</h3>
+        <p class="meta">Gulshan-e-Maymar, Karachi<br><em>Street address to be supplied by the school.</em></p>
+        <button class="btn" type="button" data-pick="Gulshan-e-Maymar">Visit this campus</button>
+      </li>
+      <li class="crow" data-row="Ayesha Manzil">
+        <h3>Ayesha Manzil</h3>
+        <p class="meta">Ayesha Manzil, Karachi<br><em>Street address to be supplied by the school.</em></p>
+        <button class="btn" type="button" data-pick="Ayesha Manzil">Visit this campus</button>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="sec admissions" id="admissions" aria-labelledby="adm-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="adm-h">How admission usually works.</h2>
+      <p>Four steps from your first question to your child's first day. <span class="tbs">Typical process; confirm the exact steps with the school.</span></p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="n" aria-hidden="true">1</div>
+        <h3>Inquiry</h3>
+        <p>Call 0340 4190000 or send us the form below. Tell us your child's class and the campus you prefer.</p>
+      </li>
+      <li class="step">
+        <div class="n" aria-hidden="true">2</div>
+        <h3>Campus visit</h3>
+        <p>Walk round the campus, see the classrooms and ask the admissions team your questions.</p>
+      </li>
+      <li class="step">
+        <div class="n" aria-hidden="true">3</div>
+        <h3>Assessment</h3>
+        <p>Your child sits an assessment for the class applied for. The school confirms the date and time.</p>
+      </li>
+      <li class="step">
+        <div class="n" aria-hidden="true">4</div>
+        <h3>Enrolment</h3>
+        <p>Once a place is offered, complete the forms and fee formalities at the campus office.</p>
+      </li>
+    </ol>
+    <div class="adm-foot">
+      <div class="session">
+        <h3>Session 2026-27</h3>
+        <p>Applications for the 2026-27 session opened in August 2026, with an open house at all campuses on 8 August and assessment timings posted on 10 August.</p>
+        <p>Those dates have passed. Call the school to ask about places, the next visit day and upcoming assessments.</p>
+      </div>
+      <div>
+        <p style="font-size:19px;margin-bottom:22px">Not sure which class or campus is right? Book a visit and talk it through in person.</p>
+        <div class="cta-row">
+          <a class="btn btn-y" href="#visit">Book a campus visit</a>
+          <a class="btn btn-o" href="tel:+923404190000">Call 0340 4190000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec parents" id="parents" aria-labelledby="par-h">
+  <div class="wrap">
+    <div>
+      <h2 id="par-h">Already a Profectus parent?</h2>
+      <p>Sign-in and school inquiries currently run through myskool, the school's online system. Use it to keep up with your child's school life between diary pages.</p>
+      <div class="cta-row">
+        <a class="btn btn-n" href="https://web.myskool.app/" target="_blank" rel="noopener">Sign in on myskool</a>
+        <a class="btn btn-o" href="mailto:info@pis.edu.pk">Email the school</a>
+      </div>
+    </div>
+    <div class="diary">
+      <div class="diary-in">
+        <h3>The school diary, online</h3>
+        <p style="font-size:17px;color:var(--ink-2);margin:0">What a parent portal on this site could bring together:</p>
+        <ul>
+          <li>Notices and circulars from your child's campus</li>
+          <li>Fee vouchers and payment status</li>
+          <li>Attendance and results</li>
+          <li>Transport and timetable changes</li>
+        </ul>
+        <p class="tbs">Proposed features for illustration. What myskool already covers to be confirmed with the school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec contact" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div>
+      <h2 id="visit-h">Book a campus visit.</h2>
+      <p class="cl">Call the admissions line</p>
+      <a class="phone" href="tel:+923404190000">0340 4190000</a>
+      <p class="cl">or email <a href="mailto:info@pis.edu.pk">info@pis.edu.pk</a></p>
+      <div class="addr">
+        <p><strong>Head office</strong></p>
+        <p>ST-10, Block-15, F.B. Area, Karachi</p>
+        <p class="tbs" style="margin-top:8px">Office hours and campus addresses to be supplied by the school.</p>
+      </div>
+      <div class="social" aria-label="Profectus on social media">
+        <a href="https://www.facebook.com/profectusintschool" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/profectusschool" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@ProfectusInternationalSchool" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/profectusofficial/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <form class="form" id="visit-form" novalidate>
+      <h3>Request a visit</h3>
+      <p>Fill this in and your email app opens with a message to the school, ready to send.</p>
+      <div class="fld">
+        <label for="f-campus">Campus</label>
+        <select id="f-campus" name="campus">
+          <option>F.B. Area</option><option>Saadi Town</option><option>Saadi Garden</option><option>Gulshan-e-Maymar</option><option>Ayesha Manzil</option>
+        </select>
+      </div>
+      <div class="f2">
+        <div class="fld"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+      </div>
+      <div class="f2">
+        <div class="fld">
+          <label for="f-stage">Applying for</label>
+          <select id="f-stage" name="stage"><option>Pre-school</option><option>Primary</option><option>Secondary</option><option>College</option><option>Not sure yet</option></select>
+        </div>
+        <div class="fld"><label for="f-day">Preferred day</label><input id="f-day" name="day" placeholder="e.g. a weekday morning"></div>
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-y" type="submit">Prepare visit email</button>
+        <a class="btn btn-o" href="tel:+923404190000">Call instead</a>
+      </div>
+      <p class="demo" id="f-msg" aria-live="polite">Concept demo: nothing is sent from this page. The email goes from your own email app.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#main"><b>Profectus</b><small>International School &amp; College</small></a>
+      <p style="margin-top:18px;max-width:28em">Pre-school to college across five Karachi campuses. Admissions open for Academic Session 2026-27.</p>
+    </div>
+    <div>
+      <h3>Campuses</h3>
+      <ul><li>F.B. Area (head office)</li><li>Saadi Town</li><li>Saadi Garden</li><li>Gulshan-e-Maymar</li><li>Ayesha Manzil</li></ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="tel:+923404190000">0340 4190000</a></li>
+        <li><a href="mailto:info@pis.edu.pk">info@pis.edu.pk</a></li>
+        <li>ST-10, Block-15, F.B. Area, Karachi</li>
+        <li><a href="https://web.myskool.app/" target="_blank" rel="noopener">Parent sign-in (myskool)</a></li>
+      </ul>
+    </div>
+    <div class="fine">
+      <span>Website concept for Profectus International School &amp; College — not the official website. Proposed wordmark and design; details from the school's public site.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WHERE={"F.B. Area":"Head office, Block 15","Saadi Town":"Saadi Town","Saadi Garden":"Saadi Garden","Gulshan-e-Maymar":"Gulshan-e-Maymar","Ayesha Manzil":"Ayesha Manzil"};
+  var radios=document.querySelectorAll('input[name="campus"]');
+  var sel=document.getElementById('f-campus');
+  function setCampus(name,fromUser){
+    document.querySelectorAll('[data-campus-name]').forEach(function(el){el.textContent=name.replace(/ /g,' ')});
+    document.querySelectorAll('[data-campus-where]').forEach(function(el){el.textContent=WHERE[name]||name});
+    document.querySelectorAll('.label .fill').forEach(function(el){el.classList.remove('write');void el.offsetWidth;if(fromUser)el.classList.add('write')});
+    radios.forEach(function(r){r.checked=(r.value===name)});
+    document.querySelectorAll('.crow').forEach(function(row){
+      var on=row.getAttribute('data-row')===name;row.classList.toggle('on',on);
+      var b=row.querySelector('button');b.textContent=on?'Selected for your visit':'Visit this campus';b.setAttribute('aria-pressed',on);
+    });
+    if(sel)sel.value=name;
+  }
+  radios.forEach(function(r){r.addEventListener('change',function(){setCampus(r.value,true)})});
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){
+    setCampus(b.getAttribute('data-pick'),true);
+    document.getElementById('main').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  })});
+  if(sel)sel.addEventListener('change',function(){setCampus(sel.value,false)});
+  setCampus('F.B. Area',false);
+
+  var t=document.querySelector('.menu-t'),nav=document.getElementById('nav');
+  t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o);t.textContent=o?'Close':'Menu'});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='Menu'})});
+
+  var f=document.getElementById('visit-form'),msg=document.getElementById('f-msg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(f),name=(d.get('name')||'').trim();
+    if(!name){msg.textContent='Add your name so the school knows who is asking, then press Prepare visit email again.';document.getElementById('f-name').focus();return}
+    var body='Assalam-o-Alaikum,\n\nI would like to book a visit to the '+d.get('campus')+' campus.\n\nName: '+name+'\nPhone: '+(d.get('phone')||'-')+'\nApplying for: '+d.get('stage')+'\nPreferred day: '+(d.get('day')||'-')+'\n\nThank you.';
+    location.href='mailto:info@pis.edu.pk?subject='+encodeURIComponent('Campus visit request: '+d.get('campus'))+'&body='+encodeURIComponent(body);
+    msg.textContent='Your email app should now open with the visit request to info@pis.edu.pk. Concept demo: nothing is sent from this page.';
+  });
+})();
+</script>
+</body>
+</html>

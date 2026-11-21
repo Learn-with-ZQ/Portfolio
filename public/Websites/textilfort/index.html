@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Textilfort (Pvt.) Ltd. — integrated CMT &amp; fabric mill, Korangi · Website concept</title>
+<meta name="description" content="Website concept for Textilfort (Pvt.) Ltd., an integrated CMT and fabric mill at Plot 23, Sector 24, Korangi Industrial Area, Karachi. Not the official website.">
+<!--
+  Design plan (proposed identity — Textilfort has no website of its own)
+  Colour: madder #8C2F1B (dyed-cloth fields, primary actions) · greige #CFC8BA (undyed cloth, quiet surfaces)
+          slate #1E2526 (hero, facility) · bleached #FAFAF8 (page) · mercerized gold #C9A227 (fine rules / focus on dark only)
+  Type:   Zilla Slab — display + wordmark; Karla — body/UI, 18px base.
+  Layout: slate hero with a CSS "cloth stack" (six folded layers = six stages) ->
+          the spine: sticky thread + morphing swatch on the left, stage panels scrolling on the right ->
+          asymmetric product mosaic -> facility ledger with sources + plot schematic -> enquiry job card -> madder footer.
+  Principle: one fabric, followed from greige to carton. The spine is the one bold thing; everything else is quiet.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Zilla+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --madder:#8C2F1B; --madder-deep:#6B2213; --greige:#CFC8BA; --greige-lt:#E7E2D8;
+  --slate:#1E2526; --slate-2:#2A3334; --bleach:#FAFAF8; --gold:#C9A227;
+  --ink:#1E2526; --muted:#545B5C;
+  --display:"Zilla Slab", Rockwell, "Courier New", serif;
+  --body:"Karla", "Segoe UI", system-ui, sans-serif;
+  --wrap:1240px; --gut:clamp(20px,4vw,48px);
+  /* plain-weave texture: warp + weft hairlines */
+  --weave:repeating-linear-gradient(0deg,rgba(30,37,38,.075) 0 1px,transparent 1px 4px),
+          repeating-linear-gradient(90deg,rgba(30,37,38,.06) 0 1px,transparent 1px 4px);
+  --weave-lt:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 4px),
+          repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 4px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bleach);color:var(--ink);font:400 1.125rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:3px solid var(--madder);outline-offset:3px}
+.on-dark :focus-visible{outline-color:var(--gold)}
+.skip{position:absolute;left:-999px;top:0;background:var(--bleach);padding:10px 14px;z-index:50}
+.skip:focus{left:12px;top:12px}
+
+/* ---------- concept notice ---------- */
+.notice{background:#141A1B;color:#C9C4B9;font-size:.8125rem;line-height:1.45}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.notice a{color:#E9E4DA;text-underline-offset:3px}
+
+/* ---------- header ---------- */
+.site-head{background:var(--slate);color:var(--bleach);position:relative;z-index:20}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.mark b{font:700 1.75rem/1 var(--display);letter-spacing:-.015em}
+.mark span{font-size:.8125rem;color:var(--greige)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-weight:500;font-size:1rem;color:#E9E5DD;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-bottom-color:var(--gold)}
+.nav .call{border:1px solid var(--greige);padding:9px 16px;border-radius:2px}
+.nav .call:hover{background:var(--bleach);color:var(--slate);border-color:var(--bleach)}
+.menu-btn{display:none;background:none;border:1px solid var(--greige);color:var(--bleach);font:500 .9375rem var(--body);padding:8px 14px;border-radius:2px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{background:var(--slate);color:var(--bleach);padding:clamp(48px,7vw,96px) 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.9rem);font-weight:600;line-height:1.02;max-width:13ch}
+.hero .lede{font-size:1.1875rem;color:#D9D4CA;max-width:44ch;margin:28px 0 36px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;font:700 1rem var(--body);text-decoration:none;border-radius:2px;border:1px solid transparent;cursor:pointer}
+.btn-madder{background:var(--madder);color:var(--bleach)}
+.btn-madder:hover{background:var(--madder-deep)}
+.btn-line{border-color:var(--greige);color:var(--bleach);background:transparent}
+.btn-line:hover{background:var(--bleach);color:var(--slate)}
+.btn-ghost{border-color:var(--slate);color:var(--slate);background:transparent}
+.btn-ghost:hover{background:var(--slate);color:var(--bleach)}
+
+/* cloth stack — six folded layers */
+.stack{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.stack a{display:grid;grid-template-columns:1fr 9.5rem;align-items:center;gap:16px;text-decoration:none}
+.stack .fold{height:58px;border-radius:0 30px 30px 0;box-shadow:inset -10px 0 14px -8px rgba(0,0,0,.35)}
+.stack li:nth-child(1) .fold{margin-left:0}
+.stack li:nth-child(2) .fold{margin-left:10px}
+.stack li:nth-child(3) .fold{margin-left:4px}
+.stack li:nth-child(4) .fold{margin-left:14px}
+.stack li:nth-child(5) .fold{margin-left:6px}
+.stack li:nth-child(6) .fold{margin-left:0;border-radius:2px}
+.stack .lbl{font-size:.9375rem;color:#D9D4CA;line-height:1.25}
+.stack .lbl small{display:block;font-size:.8125rem;color:#9FA6A6}
+.stack a:hover .lbl{color:var(--bleach)}
+.stack a:hover .fold{transform:translateX(6px)}
+.stack .fold{transition:transform .25s ease}
+.hero-foot{margin-top:clamp(48px,6vw,80px);border-top:1px solid rgba(201,162,39,.55)}
+.hero-foot .wrap{display:flex;flex-wrap:wrap;gap:8px 40px;padding-top:18px;padding-bottom:20px;font-size:.9375rem;color:#BDB8AE}
+.hero-foot strong{color:var(--bleach);font-weight:500}
+
+/* ---------- swatches (shared by hero stack, spine, mobile panels) ---------- */
+.sw-greige{background:radial-gradient(rgba(92,76,56,.4) .8px,transparent 1.5px) 0 0/9px 7px,
+  radial-gradient(rgba(255,255,255,.45) .8px,transparent 1.5px) 3px 4px/13px 11px,var(--weave),#C6BEAE}
+.sw-singed{background:var(--weave),linear-gradient(#DAD4C7,#D3CCBE)}
+.sw-merc{background:linear-gradient(112deg,transparent 28%,rgba(255,255,255,.75) 44%,rgba(201,162,39,.16) 52%,transparent 64%),var(--weave),#ECE8DF}
+.sw-dyed{background:var(--weave-lt),var(--madder)}
+.sw-cut{background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(250,250,248,.55) 22px 26px),var(--weave-lt),var(--madder)}
+.sw-packed{background:linear-gradient(90deg,transparent 46%,rgba(250,250,248,.32) 46% 54%,transparent 54%),#B5AA95}
+
+/* ---------- spine ---------- */
+.spine-sec{padding:clamp(72px,9vw,128px) 0 clamp(40px,6vw,80px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head h2,.h2{font-size:clamp(2.1rem,3.8vw,3.4rem)}
+.sec-head p{max-width:56ch;color:var(--muted);margin:0}
+.spine-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px)}
+.spine{position:sticky;top:32px;align-self:start}
+.thread{padding:0 0 0 34px;position:relative}
+.thread ol{list-style:none;margin:0;padding:0}
+.thread::before,.thread .fill{content:"";position:absolute;left:8px;top:14px;width:3px;background:var(--greige-lt)}
+.thread::before{bottom:14px}
+.thread .fill{height:0;background:var(--greige);transition:height .5s ease,background-color .5s ease}
+.thread .fill.dyed{background:var(--madder)}
+.thread li{position:relative}
+.thread a{display:flex;gap:14px;align-items:baseline;text-decoration:none;padding:9px 0;color:#6D7374;font:500 1.3125rem/1.25 var(--display)}
+.thread a .n{font:700 .9375rem var(--body);width:1.2em;color:#8B9091}
+.thread li::before{content:"";position:absolute;left:-31px;top:15px;width:11px;height:11px;background:var(--bleach);border:2px solid var(--greige);transition:background-color .3s,border-color .3s}
+.thread li.done::before{background:var(--greige);border-color:#A79F8E}
+.thread li.dyed-done::before{background:var(--madder);border-color:var(--madder)}
+.thread li.on a{color:var(--slate);font-weight:700}
+.thread li.on a .n{color:var(--madder)}
+.thread a:hover{color:var(--slate)}
+.morph{position:relative;margin-top:28px;height:190px;border:1px solid var(--greige)}
+.morph > div{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.morph > div.on{opacity:1}
+.morph-cap{margin-top:10px;font-size:.875rem;color:var(--muted)}
+.carton-txt{position:absolute;left:18px;bottom:16px;font:700 .8125rem/1.35 var(--display);letter-spacing:.06em;color:#3C3528;text-transform:uppercase}
+.tee{position:absolute;inset:14% 18%;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Cpath d='M70 14 L54 19 L26 38 L40 62 L58 53 L58 128 L142 128 L142 53 L160 62 L174 38 L146 19 L130 14 Q100 34 70 14 Z' fill='none' stroke='%23FAFAF8' stroke-width='2.2' stroke-dasharray='6 4'/%3E%3C/svg%3E")}
+
+.panels{display:grid}
+.panel{min-height:clamp(360px,62vh,560px);padding:8px 0 64px;border-top:1px solid var(--greige);padding-top:28px}
+.panel:first-child{border-top:0;padding-top:0}
+.panel .step{font-size:.9375rem;color:var(--madder);font-weight:700;margin-bottom:10px}
+.panel h3{font-size:clamp(2rem,3.4vw,3rem);margin-bottom:22px}
+.panel p{max-width:54ch}
+.io{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin:28px 0 0;max-width:620px}
+.io div{border-top:2px solid var(--gold);padding-top:10px}
+.io dt{font-weight:700;font-size:.9375rem;margin-bottom:4px}
+.io dd{margin:0;color:var(--muted);font-size:1rem;line-height:1.5}
+.panel-sw{display:none;height:150px;position:relative;margin:0 0 24px;border:1px solid var(--greige)}
+.note-svc{margin-top:22px;padding:14px 18px;background:var(--greige-lt);font-size:1rem;max-width:56ch}
+.spine-mini{display:none}
+
+/* ---------- products ---------- */
+.products{background:var(--greige-lt);padding:clamp(72px,9vw,120px) 0}
+.mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:14px}
+.tile{position:relative;margin:0;background:var(--slate);overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover;filter:saturate(.82)}
+.tile figcaption{position:absolute;left:0;bottom:0;background:var(--bleach);padding:12px 18px 13px;max-width:88%}
+.tile figcaption b{display:block;font:600 1.375rem/1.15 var(--display)}
+.tile figcaption span{font-size:.9375rem;color:var(--muted)}
+.t-garments{grid-column:1/8;grid-row:1/3;aspect-ratio:auto;min-height:560px}
+.t-hats{grid-column:8/13;grid-row:1;height:273px}
+.t-cush{grid-column:8/13;grid-row:2;height:273px}
+.t-sport{grid-column:1/5;grid-row:3;height:300px}
+.t-knit{grid-column:5/9;grid-row:3;height:300px}
+.t-svc{grid-column:9/13;grid-row:3;height:300px;background:var(--madder);color:var(--bleach);padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.t-svc::before{content:"";position:absolute;inset:0;background:var(--weave-lt);pointer-events:none}
+.t-svc > *{position:relative}
+.t-svc h3{font-size:1.75rem;margin-bottom:12px}
+.t-svc p{font-size:1rem;color:#F1E6E1;margin:0}
+.t-svc a{font-weight:700;color:var(--bleach);text-underline-offset:4px}
+.src{margin-top:18px;font-size:.875rem;color:var(--muted)}
+
+/* ---------- facility ---------- */
+.facility{background:var(--slate);color:var(--bleach);padding:clamp(72px,9vw,120px) 0}
+.fac-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,5vw,80px);align-items:start}
+.facility .h2{margin-bottom:16px}
+.facility .intro{color:#C9C4BA;max-width:52ch;margin-bottom:36px}
+.ledger{width:100%;border-collapse:collapse;font-size:1rem}
+.ledger th,.ledger td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-top:1px solid rgba(207,200,186,.22)}
+.ledger tr:first-child th,.ledger tr:first-child td{border-top:1px solid var(--gold)}
+.ledger th{font-weight:500;color:var(--greige);width:26%}
+.ledger td.v{font-family:var(--display);font-size:1.1875rem;line-height:1.35;color:var(--bleach)}
+.ledger td.s{color:#A8AEAE;font-size:.875rem;width:26%}
+.plot{background:var(--slate-2);padding:24px;border:1px solid rgba(207,200,186,.2)}
+.plot svg{width:100%;height:auto;display:block}
+.plot p{font-size:.875rem;color:#B5BABA;margin:14px 0 0}
+
+/* ---------- enquiry ---------- */
+.enquiry{padding:clamp(72px,9vw,120px) 0}
+.enq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,5vw,80px);align-items:start}
+.enq-copy p{color:var(--muted);max-width:44ch}
+.big-tel{display:inline-block;font:600 clamp(1.9rem,3.2vw,2.6rem)/1.1 var(--display);color:var(--madder);text-decoration:none;margin:10px 0 6px;border-bottom:2px solid var(--gold)}
+.big-tel:hover{color:var(--madder-deep)}
+.addr{font-style:normal;margin-top:26px;line-height:1.55}
+.addr b{display:block;font-family:var(--display);font-size:1.25rem;font-weight:600}
+.card{border:1px solid var(--slate);background:#fff}
+.card-head{background:var(--madder);color:var(--bleach);padding:14px 24px;display:flex;justify-content:space-between;gap:12px;font:600 1.1875rem var(--display)}
+.card-head span{font:400 .875rem var(--body);color:#F1E6E1;align-self:center}
+.card form{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f{display:grid;gap:6px}
+.f.full{grid-column:1/-1}
+.f label{font-weight:700;font-size:.9375rem}
+.f input,.f select,.f textarea{font:400 1rem var(--body);color:var(--ink);background:var(--bleach);border:1px solid #8E9192;border-radius:2px;padding:12px 12px;width:100%}
+.f textarea{min-height:92px;resize:vertical}
+.f input:focus-visible,.f select:focus-visible,.f textarea:focus-visible{outline:3px solid var(--madder);outline-offset:0;border-color:var(--madder)}
+.preview{grid-column:1/-1;background:var(--greige-lt);border-left:3px solid var(--gold);padding:14px 16px;font:400 .9375rem/1.55 var(--body);white-space:pre-wrap;margin:0;min-height:120px}
+.card .btns{grid-column:1/-1}
+.status{grid-column:1/-1;font-size:.9375rem;color:var(--muted);margin:0}
+.status strong{color:var(--slate)}
+
+/* ---------- footer ---------- */
+.foot{background:var(--madder);color:var(--bleach);position:relative;overflow:hidden}
+.foot::before{content:"";position:absolute;inset:0;background:var(--weave-lt);pointer-events:none}
+.foot .wrap{position:relative;padding-top:64px;padding-bottom:28px}
+.foot-word{font:700 clamp(3.4rem,12vw,10.5rem)/.85 var(--display);letter-spacing:-.03em;color:#F3E9E4;margin:0 0 40px}
+.foot-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;font-size:1rem;color:#F1E6E1;padding-bottom:36px;border-bottom:1px solid rgba(250,250,248,.3)}
+.foot-cols h3{font-size:1.125rem;color:var(--bleach);margin-bottom:8px}
+.foot-cols p{margin:0}
+.foot-cols a{color:var(--bleach)}
+.foot-note{padding-top:20px;font-size:.875rem;color:#F1E6E1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.foot-note a{color:var(--bleach)}
+.foot :focus-visible{outline-color:var(--bleach)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .t-garments{min-height:480px}
+  .t-hats,.t-cush{height:233px}
+}
+@media (max-width:900px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--slate);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 20px;border-top:1px solid rgba(207,200,186,.2)}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(207,200,186,.15)}
+  .nav .call{margin-top:12px;text-align:center}
+  .menu-btn{display:inline-block}
+  .hero-grid,.sec-head,.spine-grid,.fac-grid,.enq-grid{grid-template-columns:1fr}
+  .hero h1{max-width:15ch}
+  .spine{display:none}
+  .panel-sw{display:block}
+  .panel{min-height:0;padding-bottom:48px}
+  .spine-mini{display:block;position:sticky;top:0;z-index:5;background:rgba(250,250,248,.97);border-bottom:1px solid var(--greige);padding:10px var(--gut) 12px;margin:0 calc(var(--gut)*-1) 28px}
+  .spine-mini .bars{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:7px}
+  .spine-mini .bars i{height:5px;background:var(--greige-lt)}
+  .spine-mini .bars i.done{background:var(--greige)}
+  .spine-mini .bars i.dyed{background:var(--madder)}
+  .spine-mini p{margin:0;font:600 1rem var(--display)}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .t-garments{grid-column:1/-1;grid-row:auto;min-height:0;height:380px}
+  .t-hats,.t-cush,.t-sport,.t-knit{grid-column:auto;grid-row:auto;height:260px}
+  .t-svc{grid-column:1/-1;grid-row:auto;height:auto;gap:20px}
+  .foot-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  body{font-size:1.0625rem}
+  .mark span{display:none}
+  .stack a{grid-template-columns:1fr 7.4rem;gap:12px}
+  .stack .fold{height:46px}
+  .io{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr}
+  .t-garments{height:320px}
+  .t-hats,.t-cush,.t-sport,.t-knit{height:240px}
+  .card form{grid-template-columns:1fr;padding:18px}
+  .card-head{padding:14px 18px;flex-direction:column;gap:2px}
+  .ledger th,.ledger td,.ledger td.s{display:block;width:auto;padding:0 0 4px;border:0}
+  .ledger tr{display:block;padding:14px 0;border-top:1px solid rgba(207,200,186,.22)}
+  .ledger tr:first-child{border-top:1px solid var(--gold)}
+  .ledger tr:first-child th,.ledger tr:first-child td{border:0}
+  .foot-cols{grid-template-columns:1fr}
+  .btns .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice on-dark" role="note">
+  <div class="wrap">
+    <span>Website concept for Textilfort (Pvt.) Ltd. Not the official website. Proposed identity; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head on-dark">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Textilfort home"><b>Textilfort</b><span>(Pvt.) Ltd. · Korangi, Karachi</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#process">Process</a>
+      <a href="#products">Products</a>
+      <a href="#facility">Facility</a>
+      <a href="#enquiry">Enquiry</a>
+      <a class="call" href="tel:+923002014706">Call +92 300 201 4706</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero on-dark" id="top" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 id="hero-h">From greige cloth to packed carton, at one address in Korangi.</h1>
+      <p class="lede">Textilfort (Pvt.) Ltd. is an integrated CMT and fabric mill at Plot 23, Sector 24, Korangi Industrial Area. Singeing, mercerizing and dyeing fabric; making garments, hats, cushions and socks.</p>
+      <div class="btns">
+        <a class="btn btn-madder" href="#enquiry">Start a product enquiry</a>
+        <a class="btn btn-line" href="tel:+923002014706">Call +92 300 201 4706</a>
+      </div>
+    </div>
+    <ol class="stack" aria-label="The six stages, from greige fabric to packed carton">
+      <li><a href="#stage-1"><span class="fold sw-greige"></span><span class="lbl">Greige fabric<small>as it arrives</small></span></a></li>
+      <li><a href="#stage-2"><span class="fold sw-singed"></span><span class="lbl">Singeing<small>surface cleaned</small></span></a></li>
+      <li><a href="#stage-3"><span class="fold sw-merc"></span><span class="lbl">Mercerizing<small>lustre and strength</small></span></a></li>
+      <li><a href="#stage-4"><span class="fold sw-dyed"></span><span class="lbl">Dyeing<small>to the order's shade</small></span></a></li>
+      <li><a href="#stage-5"><span class="fold sw-cut"></span><span class="lbl">Cutting &amp; stitching<small>the CMT work</small></span></a></li>
+      <li><a href="#stage-6"><span class="fold sw-packed"></span><span class="lbl">Packed for export<small>into cartons</small></span></a></li>
+    </ol>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <span>Facility type <strong>Integrated CMT &amp; fabric mill</strong></span>
+      <span>On site <strong>4 buildings</strong></span>
+      <span>Workforce <strong>200 workers</strong></span>
+      <span>Per the International Accord factory disclosure, July 2026</span>
+    </div>
+  </div>
+</section>
+
+<section class="spine-sec" id="process" aria-labelledby="proc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="proc-h">One length of cloth, six stages</h2>
+      <p>Textilfort is listed as an integrated CMT and fabric mill: fabric preparation and garment making on one site. This is the path a length of cloth takes, from the loom-state fabric that comes in to the carton that goes out.</p>
+    </div>
+    <div class="spine-grid">
+      <aside class="spine" aria-label="Process progress">
+        <div class="thread" id="thread">
+          <span class="fill" aria-hidden="true"></span>
+          <ol>
+          <li class="on"><a href="#stage-1"><span class="n">1</span>Greige fabric</a></li>
+          <li><a href="#stage-2"><span class="n">2</span>Singeing</a></li>
+          <li><a href="#stage-3"><span class="n">3</span>Mercerizing</a></li>
+          <li><a href="#stage-4"><span class="n">4</span>Dyeing</a></li>
+          <li><a href="#stage-5"><span class="n">5</span>Cutting &amp; stitching</a></li>
+          <li><a href="#stage-6"><span class="n">6</span>Packed for export</a></li>
+          </ol>
+        </div>
+        <div class="morph" id="morph" aria-hidden="true">
+          <div class="sw-greige on"></div>
+          <div class="sw-singed"></div>
+          <div class="sw-merc"></div>
+          <div class="sw-dyed"></div>
+          <div class="sw-cut"><span class="tee"></span></div>
+          <div class="sw-packed"><span class="carton-txt">Textilfort (Pvt.) Ltd.<br>Karachi, Pakistan</span></div>
+        </div>
+        <p class="morph-cap" id="morph-cap">The cloth at stage 1: greige fabric. Illustration.</p>
+      </aside>
+
+      <div class="panels">
+        <div class="spine-mini" aria-hidden="true">
+          <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p id="mini-label">Stage 1 of 6 · Greige fabric</p>
+        </div>
+
+        <article class="panel" id="stage-1" data-i="0">
+          <div class="panel-sw sw-greige" aria-hidden="true"></div>
+          <p class="step">Stage 1 of 6</p>
+          <h3>Greige fabric</h3>
+          <p>Greige is cloth in its loom or knitting-machine state: unbleached, unfinished, still carrying loose surface fibres and sizing. Nothing has been done to it yet, which is why it is where an integrated mill starts.</p>
+          <dl class="io">
+            <div><dt>Comes in as</dt><dd>Raw cloth, off-white to oatmeal, with a slightly hairy surface.</dd></div>
+            <div><dt>Goes on to</dt><dd>Preparation, beginning with singeing.</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel" id="stage-2" data-i="1">
+          <div class="panel-sw sw-singed" aria-hidden="true"></div>
+          <p class="step">Stage 2 of 6</p>
+          <h3>Singeing</h3>
+          <p>The fabric runs quickly past a flame or heated surface that burns off the protruding fibres without scorching the cloth. A clean surface takes dye more evenly and pills less later on.</p>
+          <dl class="io">
+            <div><dt>Changes</dt><dd>Surface fuzz removed; the weave reads clearly.</dd></div>
+            <div><dt>Why it matters</dt><dd>Even shade and a smoother hand in the finished piece.</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel" id="stage-3" data-i="2">
+          <div class="panel-sw sw-merc" aria-hidden="true"></div>
+          <p class="step">Stage 3 of 6</p>
+          <h3>Mercerizing</h3>
+          <p>Cotton is treated with caustic soda while held under tension. The fibres swell and round out, so the cloth gains lustre and strength and absorbs dye more readily.</p>
+          <dl class="io">
+            <div><dt>Changes</dt><dd>A visible sheen; better dye uptake.</dd></div>
+            <div><dt>Why it matters</dt><dd>Deeper colour from the same dye, and a more durable fabric.</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel" id="stage-4" data-i="3">
+          <div class="panel-sw sw-dyed" aria-hidden="true"></div>
+          <p class="step">Stage 4 of 6</p>
+          <h3>Dyeing</h3>
+          <p>Prepared fabric is dyed to the shade the order calls for, then washed and dried. From here on, the cloth carries its colour.</p>
+          <dl class="io">
+            <div><dt>Changes</dt><dd>Greige becomes coloured cloth.</dd></div>
+            <div><dt>Goes on to</dt><dd>The cutting table.</dd></div>
+          </dl>
+          <p class="note-svc">Singeing, mercerizing and dyeing are also listed as services for commercial dye houses, so fabric preparation can be enquired about on its own.</p>
+        </article>
+
+        <article class="panel" id="stage-5" data-i="4">
+          <div class="panel-sw sw-cut" aria-hidden="true"><span class="tee"></span></div>
+          <p class="step">Stage 5 of 6</p>
+          <h3>Cutting &amp; stitching</h3>
+          <p>Fabric is laid, cut to pattern and sewn: the cut-make-trim work. On record, the products leaving this stage include garments, hats, cushions, sports socks and knitted socks.</p>
+          <dl class="io">
+            <div><dt>Changes</dt><dd>Cloth becomes finished pieces.</dd></div>
+            <div><dt>You supply</dt><dd>Your tech pack, sizes and trims list.</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel" id="stage-6" data-i="5">
+          <div class="panel-sw sw-packed" aria-hidden="true"><span class="carton-txt">Textilfort (Pvt.) Ltd.<br>Karachi, Pakistan</span></div>
+          <p class="step">Stage 6 of 6</p>
+          <h3>Packed for export</h3>
+          <p>Finished pieces are folded and packed into cartons for shipment. Public US import records list Textilfort as a shipper, most recently in September 2025.</p>
+          <dl class="io">
+            <div><dt>Leaves as</dt><dd>Cartons, ready for the forwarder.</dd></div>
+            <div><dt>Next step</dt><dd><a href="#enquiry">Start a product enquiry</a></dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products" aria-labelledby="prod-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="prod-h">What leaves the gate</h2>
+      <p>The product categories that appear in Textilfort's US shipment records. Send the item you need made and the quantity; the mill can tell you what fits its lines.</p>
+    </div>
+    <div class="mosaic">
+      <figure class="tile t-garments">
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1100&q=70&auto=format&fit=crop" alt="Plain green t-shirts hanging on wooden hangers" width="1100" height="900" loading="lazy">
+        <figcaption><b>Garments</b><span>Cut, made and trimmed</span></figcaption>
+      </figure>
+      <figure class="tile t-hats">
+        <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800&q=70&auto=format&fit=crop" alt="A washed grey baseball cap" width="800" height="450" loading="lazy">
+        <figcaption><b>Hats</b></figcaption>
+      </figure>
+      <figure class="tile t-cush">
+        <img src="https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?w=800&q=70&auto=format&fit=crop" alt="Neutral-toned cushions arranged on a bed" width="800" height="450" loading="lazy">
+        <figcaption><b>Cushions</b></figcaption>
+      </figure>
+      <figure class="tile t-sport">
+        <img src="https://images.unsplash.com/photo-1631180543602-727e1197619d?w=700&q=70&auto=format&fit=crop" alt="A white ribbed sports sock on a foot" width="700" height="520" loading="lazy">
+        <figcaption><b>Sports socks</b></figcaption>
+      </figure>
+      <figure class="tile t-knit">
+        <img src="https://images.unsplash.com/photo-1582966772680-860e372bb558?w=700&q=70&auto=format&fit=crop" alt="A pair of patterned knitted socks" width="700" height="520" loading="lazy">
+        <figcaption><b>Knitted socks</b></figcaption>
+      </figure>
+      <div class="tile t-svc">
+        <div>
+          <h3>Fabric preparation as a service</h3>
+          <p>Singeing, mercerizing and dyeing, listed for commercial dye houses.</p>
+        </div>
+        <a href="#enquiry">Ask about processing</a>
+      </div>
+    </div>
+    <p class="src">Categories from Panjiva's US shipment records and Textilfort's TradeKey listing. Photos are stock imagery, not Textilfort products.</p>
+  </div>
+</section>
+
+<section class="facility on-dark" id="facility" aria-labelledby="fac-h">
+  <div class="wrap fac-grid">
+    <div>
+      <h2 class="h2" id="fac-h">The mill, on record</h2>
+      <p class="intro">Everything below comes from public listings, with the source beside each line, so a buyer can check it before the first call.</p>
+      <table class="ledger">
+        <tbody>
+          <tr><th scope="row">Name</th><td class="v">Textilfort (Pvt.) Ltd.</td><td class="s">Panjiva; also listed as Textilefort (Pvt.) Ltd. (Accord) and Textilfort (Private) Ltd. (TradeKey)</td></tr>
+          <tr><th scope="row">Address</th><td class="v">Plot 23, Sector 24, Korangi Industrial Area, Karachi</td><td class="s">Accord disclosure, July 2026; Panjiva</td></tr>
+          <tr><th scope="row">Facility type</th><td class="v">Integrated CMT &amp; fabric mill</td><td class="s">Accord disclosure, July 2026</td></tr>
+          <tr><th scope="row">Buildings</th><td class="v">4</td><td class="s">Accord disclosure, July 2026</td></tr>
+          <tr><th scope="row">Workforce</th><td class="v">200 workers</td><td class="s">Accord disclosure, July 2026</td></tr>
+          <tr><th scope="row">Products shipped</th><td class="v">Garments, hats, cushions, sports socks, knitted socks</td><td class="s">Panjiva shipment records</td></tr>
+          <tr><th scope="row">Listed services</th><td class="v">Singeing, mercerizing &amp; dyeing for commercial dye houses</td><td class="s">TradeKey</td></tr>
+          <tr><th scope="row">US shipments</th><td class="v">155 recorded; most recent 21 September 2025</td><td class="s">Panjiva</td></tr>
+          <tr><th scope="row">Listed contact</th><td class="v">Muhammad Farooq</td><td class="s">TradeKey</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="plot" style="margin:0">
+      <svg viewBox="0 0 400 356" role="img" aria-labelledby="plot-t">
+        <title id="plot-t">Schematic of Plot 23 with four buildings</title>
+        <rect x="14" y="14" width="372" height="312" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="7 5"/>
+        <g fill="#CFC8BA">
+          <rect x="40" y="40" width="190" height="96"/>
+          <rect x="250" y="40" width="110" height="150"/>
+          <rect x="40" y="156" width="190" height="72"/>
+          <rect x="40" y="248" width="150" height="54"/>
+        </g>
+        <g fill="#1E2526" font-family="Zilla Slab, serif" font-size="15" font-weight="600">
+          <text x="54" y="66">Building</text><text x="264" y="66">Building</text>
+          <text x="54" y="182">Building</text><text x="54" y="274">Building</text>
+        </g>
+        <text x="200" y="350" fill="#C9A227" font-family="Karla, sans-serif" font-size="13" text-anchor="middle">Plot 23, Sector 24</text>
+      </svg>
+      <figcaption><p>Four buildings, per the Accord disclosure. The arrangement is illustrative, not a site plan.</p></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="enquiry" id="enquiry" aria-labelledby="enq-h">
+  <div class="wrap enq-grid">
+    <div class="enq-copy">
+      <h2 class="h2" id="enq-h">Start a product enquiry</h2>
+      <p style="margin-top:18px">Fill in the job card and the page writes your enquiry as a message you can copy or text. Prefer to talk it through? Call.</p>
+      <a class="big-tel" href="tel:+923002014706">+92 300 201 4706</a>
+      <p style="font-size:.9375rem">Number as given in the Accord factory disclosure, July 2026.</p>
+      <address class="addr"><b>Textilfort (Pvt.) Ltd.</b>Plot 23, Sector 24<br>Korangi Industrial Area<br>Karachi, Pakistan</address>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Enquiry card<span>Concept demo: nothing is sent from this page</span></div>
+      <form id="enq" novalidate>
+        <div class="f">
+          <label for="q-prod">Product or service</label>
+          <select id="q-prod" name="prod">
+            <option>Garments</option><option>Hats</option><option>Cushions</option>
+            <option>Sports socks</option><option>Knitted socks</option>
+            <option>Singeing / mercerizing / dyeing</option>
+          </select>
+        </div>
+        <div class="f">
+          <label for="q-qty">Quantity</label>
+          <input id="q-qty" name="qty" placeholder="e.g. 3,000 pieces">
+        </div>
+        <div class="f">
+          <label for="q-mkt">Destination market</label>
+          <input id="q-mkt" name="mkt" placeholder="e.g. USA">
+        </div>
+        <div class="f">
+          <label for="q-who">Your name and company</label>
+          <input id="q-who" name="who" autocomplete="organization">
+        </div>
+        <div class="f full">
+          <label for="q-notes">Fabric, sizes or timing</label>
+          <textarea id="q-notes" name="notes" placeholder="e.g. 100% cotton, dyed navy, sizes S–XL, tech pack ready"></textarea>
+        </div>
+        <pre class="preview" id="preview" aria-live="polite" aria-label="Your enquiry message"></pre>
+        <div class="btns">
+          <button class="btn btn-madder" type="button" id="copy">Copy enquiry</button>
+          <a class="btn btn-ghost" id="sms" href="sms:+923002014706">Text this enquiry</a>
+        </div>
+        <p class="status" id="status">Copy the message, then send it to +92 300 201 4706 however suits you.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-word" aria-hidden="true">Textilfort</p>
+    <div class="foot-cols">
+      <div><h3>Mill</h3><p>Plot 23, Sector 24<br>Korangi Industrial Area, Karachi</p></div>
+      <div><h3>Phone</h3><p><a href="tel:+923002014706">+92 300 201 4706</a></p></div>
+      <div><h3>On this page</h3><p><a href="#process">Process</a> · <a href="#products">Products</a> · <a href="#facility">Facility</a> · <a href="#enquiry">Enquiry</a></p></div>
+    </div>
+    <div class="foot-note">
+      <span>Website concept for Textilfort (Pvt.) Ltd. Not the official website. Proposed wordmark and identity; stock imagery; details from public listings (Accord, Panjiva, TradeKey).</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // mobile menu
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open)); nav.classList.toggle('open',!open);
+    btn.textContent=open?'Menu':'Close';
+  });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A'&&btn.offsetParent){btn.click();} });
+
+  // spine: track the stage in view
+  var names=['Greige fabric','Singeing','Mercerizing','Dyeing','Cutting & stitching','Packed for export'];
+  var items=[].slice.call(document.querySelectorAll('#thread li'));
+  var fill=document.querySelector('#thread .fill');
+  var layers=[].slice.call(document.querySelectorAll('#morph > div'));
+  var cap=document.getElementById('morph-cap');
+  var bars=[].slice.call(document.querySelectorAll('.spine-mini .bars i'));
+  var mini=document.getElementById('mini-label');
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function setStage(n){
+    items.forEach(function(li,i){
+      li.classList.toggle('on',i===n);
+      li.classList.toggle('done',i<n&&i<3);
+      li.classList.toggle('dyed-done',i<n&&i>=3);
+    });
+    if(items.length){
+      var first=items[0].offsetTop, cur=items[n].offsetTop;
+      fill.style.height=(cur-first)+'px';
+      fill.classList.toggle('dyed',n>=4);
+    }
+    layers.forEach(function(l,i){l.classList.toggle('on',i===n);});
+    cap.textContent='The cloth at stage '+(n+1)+': '+names[n].toLowerCase()+'. Illustration.';
+    bars.forEach(function(b,i){b.className=i<=n?(i>=3?'dyed':'done'):'';});
+    mini.textContent='Stage '+(n+1)+' of 6 · '+names[n];
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setStage(+e.target.dataset.i); });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    panels.forEach(function(p){io.observe(p);});
+  }
+  setStage(0);
+
+  // enquiry composer
+  var f=document.getElementById('enq'), pre=document.getElementById('preview'),
+      sms=document.getElementById('sms'), status=document.getElementById('status');
+  function val(id){return document.getElementById(id).value.trim();}
+  function compose(){
+    var lines=['Enquiry for Textilfort (Pvt.) Ltd.','Product: '+val('q-prod')];
+    if(val('q-qty')) lines.push('Quantity: '+val('q-qty'));
+    if(val('q-mkt')) lines.push('Destination: '+val('q-mkt'));
+    if(val('q-notes')) lines.push('Details: '+val('q-notes'));
+    lines.push('From: '+(val('q-who')||'(your name and company)'));
+    var msg=lines.join('\n');
+    pre.textContent=msg;
+    sms.href='sms:+923002014706?body='+encodeURIComponent(msg);
+    return msg;
+  }
+  f.addEventListener('input',compose); compose();
+  document.getElementById('copy').addEventListener('click',function(){
+    var msg=compose();
+    function done(){status.innerHTML='<strong>Enquiry copied.</strong> Paste it into a message to +92 300 201 4706.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(msg).then(done,function(){status.textContent='Copying is blocked in this browser. Select the message above and copy it by hand.';});
+    } else { status.textContent='Copying is blocked in this browser. Select the message above and copy it by hand.'; }
+  });
+})();
+</script>
+</body>
+</html>

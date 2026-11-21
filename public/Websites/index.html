@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karachi Concepts — 20 homepage proposals</title>
+<meta name="description" content="Twenty brand-specific homepage concepts for Karachi businesses, by Muhammad Zaid Qasim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#1A2230;
+    --muted:#5A6577;
+    --line:#D9DEE6;
+    --sea:#1F5F6B;      /* Arabian Sea teal */
+    --sea-wash:#E7F0F1;
+    --sodium:#E9A23B;   /* Karachi streetlight amber, used once */
+    --radius-frame:10px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:4px}
+  .wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+
+  /* ---------- Masthead ---------- */
+  .top{border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-size:15px}
+  .top strong{font-weight:700}
+  .top a{color:var(--sea);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+
+  .hero{padding:72px 0 48px}
+  .hero .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:end}
+  h1{font-family:Gloock,Georgia,serif;font-weight:400;font-size:clamp(48px,7.4vw,104px);line-height:.95;letter-spacing:-.02em;margin:0}
+  .hero p{margin:0 0 6px;max-width:44ch;color:var(--muted);font-size:18px}
+  .hero p + p{margin-top:14px}
+  .stamp{display:inline-block;margin-top:22px;padding:6px 12px;border-radius:999px;background:var(--sea-wash);color:var(--sea);font-weight:600;font-size:14px}
+
+  /* Skyline strip: one band of 20 swatches — each concept's primary colour, in order */
+  .strip{display:grid;grid-template-columns:repeat(20,1fr);height:18px;margin-top:48px}
+  .strip span{display:block}
+
+  /* ---------- Controls ---------- */
+  .controls{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+  .controls .wrap{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;padding:14px 0}
+  .search{flex:1 1 260px;max-width:340px;position:relative}
+  .search input{width:100%;font:inherit;font-size:16px;padding:11px 14px 11px 40px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  .search input:focus{border-color:var(--sea);outline:none;box-shadow:0 0 0 3px var(--sea-wash)}
+  .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font:inherit;font-size:14.5px;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .chip:hover{border-color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip .n{font-weight:500;opacity:.6;margin-left:4px}
+  .result{margin-left:auto;color:var(--muted);font-size:14.5px}
+
+  /* ---------- Gallery ---------- */
+  .gallery{padding:44px 0 88px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px}
+  .card{display:flex;flex-direction:column}
+  .frame{position:relative;display:block;border-radius:var(--radius-frame);overflow:hidden;border:1px solid var(--line);background:var(--sea-wash);aspect-ratio:16/10;text-decoration:none}
+  .frame .bar{position:absolute;inset:0 0 auto 0;height:22px;background:#F1F3F6;border-bottom:1px solid var(--line);display:flex;gap:5px;align-items:center;padding-left:10px;z-index:1}
+  .frame .bar i{width:7px;height:7px;border-radius:50%;background:#C8CED8}
+  .frame img{position:absolute;inset:22px 0 0 0;width:100%;height:calc(100% - 22px);object-fit:cover;object-position:top center;transition:transform .5s ease}
+  .frame .fallback{position:absolute;inset:22px 0 0 0;display:grid;place-items:center;font-family:Gloock,serif;font-size:26px;color:#fff;padding:20px;text-align:center}
+  .card:hover .frame img,.frame:focus-visible img{transform:scale(1.03)}
+  .meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:16px}
+  .card h2{font-family:Gloock,Georgia,serif;font-weight:400;font-size:25px;line-height:1.15;margin:0}
+  .card h2 a{text-decoration:none}
+  .card h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+  .idx{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ind{color:var(--sea);font-weight:600;font-size:14.5px;margin:4px 0 8px}
+  .dir{margin:0;color:var(--muted);font-size:15.5px;line-height:1.55}
+  .tokens{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;color:var(--muted)}
+  .sw{display:flex}
+  .sw span{width:18px;height:18px;border-radius:50%;border:2px solid #fff;margin-left:-5px;box-shadow:0 0 0 1px var(--line)}
+  .sw span:first-child{margin-left:0}
+  .open{margin-top:14px;align-self:flex-start;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--sodium);padding-bottom:2px}
+  .open:hover{color:var(--sea)}
+  .empty{display:none;padding:40px 0;color:var(--muted)}
+
+  /* ---------- Notes ---------- */
+  .notes{background:var(--sea-wash);padding:64px 0}
+  .notes .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+  .notes h2{font-family:Gloock,Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.05;margin:0}
+  .notes ul{margin:0;padding-left:20px;display:grid;gap:10px}
+  .notes li{max-width:62ch}
+  footer{padding:28px 0;font-size:14.5px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media (max-width:1024px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero .wrap{grid-template-columns:1fr;gap:24px}
+  }
+  @media (max-width:640px){
+    .wrap{width:calc(100% - 32px)}
+    .top .wrap{flex-direction:column;align-items:flex-start;gap:4px}
+    .hero{padding:44px 0 32px}
+    .grid{grid-template-columns:1fr;gap:40px}
+    .controls{position:static}
+    .search{max-width:none}
+    .result{margin-left:0;width:100%}
+    .notes .wrap{grid-template-columns:1fr;gap:20px}
+    .strip{height:12px}
+  }
+</style>
+<base href="/Websites/">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <span><strong>Muhammad Zaid Qasim</strong> — custom software &amp; web for Karachi businesses</span>
+  <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Portfolio</a>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Karachi, <span class="count">twenty</span> ways.</h1>
+    <div>
+      <p>Homepage concepts for twenty Karachi businesses — hospitals, garment exporters, a century-old trading house, parts dealers, schools. Each has its own identity, typeface and signature interaction, built from what the business actually does.</p>
+      <p>These are proposals, not the businesses' official websites. Facts come from public listings; proposed identities and stock imagery are labelled on every page.</p>
+      <span class="stamp">Prepared November 2026</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="strip" id="strip" aria-hidden="true"></div></div>
+</header>
+
+<div class="controls" role="search">
+  <div class="wrap">
+    <label class="search">
+      <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search concepts</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search by name, area or idea" autocomplete="off">
+    </label>
+    <div class="chips" id="chips" aria-label="Filter by industry"></div>
+    <span class="result" id="result" aria-live="polite"></span>
+  </div>
+</div>
+
+<main class="gallery">
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty">No concept matches that search. Clear the search or choose “All”.</p>
+  </div>
+</main>
+
+<section class="notes">
+  <div class="wrap">
+    <h2>How these were made</h2>
+    <ul>
+      <li>Each business was researched first: public listings, trade portals, association directories and any existing website. Only verified details (addresses, phone numbers, products, years) appear as fact.</li>
+      <li>Where a business has no website or brand, the wordmark and palette are a proposed identity. Existing brand colours were evolved, not replaced.</li>
+      <li>Nothing is invented: no testimonials, ratings, awards, prices or statistics. Missing content is marked “to be supplied” or “sample”.</li>
+      <li>Every page is a single responsive HTML file with no backend. Forms compose a WhatsApp, SMS or email message, or say plainly that they are a demo.</li>
+    </ul>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>Concepts by Muhammad Zaid Qasim. Not affiliated with the businesses shown.</span>
+  <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">muhammadzaidqasim.vercel.app</a>
+</div></footer>
+
+<script>
+const C = [
+  {s:"oxygen-zone",n:"Oxygen Zone",g:"Healthcare",i:"Home medical equipment, Gulshan-e-Iqbal",d:"A rent-or-buy request builder that writes the WhatsApp message for families in a hurry; set in Atkinson Hyperlegible for older readers.",p:["#0E7C86","#E3F4F4","#12313A","#3BA55C"],f:"Atkinson Hyperlegible"},
+  {s:"knittex-garments",n:"Knittex Garments",g:"Textile & garments",i:"CMT garment unit, Korangi",d:"A giant knit-stitched wordmark with a hang-tag for both Korangi units, and a tech-pack style spec sheet for sourcing teams.",p:["#2E3F8F","#DADCE0","#2B2E33","#B3263E"],f:"Archivo"},
+  {s:"diamond-hills-arabia-group",n:"Diamond Hills Arabia Group",g:"Manufacturing & materials",i:"Construction chemicals & flooring, Shaheed-e-Millat Rd",d:"A surface switcher: epoxy, PU, vinyl, waterproofing and wall finishes swap in as drawn textures with a single squeegee wipe.",p:["#2F3437","#D6D3CE","#B98B4E","#5E7380"],f:"Red Hat Display / Text"},
+  {s:"diamond-super-market",n:"Diamond Super Market",g:"Retail",i:"Seven-outlet supermarket chain",d:"Branches hang off a shelf edge as price tags; pick yours and the page speaks to that neighbourhood.",p:["#E2412E","#2F8F46","#FFD45C","#1C2541"],f:"Bricolage Grotesque / Figtree"},
+  {s:"textilfort",n:"Textilfort",g:"Textile & garments",i:"Integrated CMT & fabric mill, Korangi",d:"A sticky process spine follows one length of cloth from greige to carton, the swatch changing at every stage.",p:["#8C2F1B","#CFC8BA","#1E2526","#C9A227"],f:"Zilla Slab / Karla"},
+  {s:"dove-melamine-ware",n:"Dove Melamine Ware",g:"Manufacturing & materials",i:"Melamine dinnerware, Korangi",d:"A drawn plate turns and changes its pattern as you pick a design — a table setting, not a catalogue.",p:["#9B97AE","#FBFBFD","#2E5AAC","#E7A1A8"],f:"Young Serif / Outfit"},
+  {s:"khadim-motors",n:"Khadim Motors",g:"Automotive",i:"Auto-parts importer since 1967, Plaza Square",d:"Search-first, like a parts counter: filter a sample parts table and build a list to send, under a copper 1967 stamp.",p:["#1D3E8A","#B4532A","#E3E5E8","#22252A"],f:"Barlow Condensed / Barlow"},
+  {s:"mehran-commercial-enterprises",n:"Mehran Commercial Enterprises",g:"Automotive",i:"Driver-cabin parts OEM, Korangi Creek",d:"A cutaway truck cab with indicator-lamp hotspots for sunvisors, headlining, door trim, mats and mirrors.",p:["#3F8A5A","#EEF2EF","#2A2F2C","#F5A524"],f:"Saira"},
+  {s:"kothari-and-co",n:"Kothari & Co.",g:"Trading",i:"Trading house since 1923, Shahrah-e-Liaquat",d:"A saffron 1923 beside a tray of spice and dry-fruit bowls; heritage carried by Caslon, not by nostalgia.",p:["#E3A72F","#4A2C21","#6B7A3A","#EDE6D8"],f:"Libre Caslon"},
+  {s:"pakistan-surveillance-products",n:"Pakistan Surveillance Products",g:"Electronics & security",i:"CCTV distributor, Saddar",d:"A recorder-style monitor wall of night-vision scenes with 1/4/9 split buttons, for installers and dealers.",p:["#1B1F4B","#FF6A13","#F2F4F7","#8C96A8"],f:"Chakra Petch / Public Sans"},
+  {s:"landhi-engineering-works",n:"Landhi Engineering Works",g:"Automotive",i:"Leaf springs & radiators since 1972, Landhi",d:"A giant line drawing of a multi-leaf spring assembly anchors a heavy, export-minded industrial page.",p:["#3C4752","#9AA5AE","#8CBF3F","#1F262D"],f:"Big Shoulders Display / Source Sans 3"},
+  {s:"awadh-general-hospital",n:"Awadh General Hospital",g:"Healthcare",i:"24/7 community hospital, Landhi",d:"English and Urdu side by side, a lit emergency sign between them, and an address card to show a rickshaw driver.",p:["#0B4F6C","#D62828","#EEF6F8","#FFC93C"],f:"Lexend / Noto Nastaliq Urdu"},
+  {s:"kings-apparel",n:"Kings Apparel",g:"Textile & garments",i:"Integrated knitwear exporter, Korangi",d:"A Kids / Women / Men lookbook in Kings orange, with the whole knit-to-pack chain under one roof.",p:["#FF7302","#24205A","#F2F0ED","#8A8580"],f:"Epilogue"},
+  {s:"mamji-hospital",n:"Mamji Hospital",g:"Healthcare",i:"85-bed hospital since 1998, F.B. Area",d:"A lobby directory board in the hero: search and filter departments, then call to book.",p:["#16325C","#DCE9F7","#D7263D","#5B6B82"],f:"Literata / Manrope"},
+  {s:"noble-traders",n:"Noble Traders",g:"Trading",i:"Commodity importer-exporter since 1977, DHA",d:"A two-way trade board: what comes into Pakistan, what goes out, and Karachi in the middle.",p:["#B3202A","#2B3A55","#F8F8F6","#CBB994"],f:"Instrument Serif / Sans"},
+  {s:"profectus-school",n:"Profectus School",g:"Education",i:"Five-campus school & college, F.B. Area",d:"An admissions page that changes with the campus you pick, in Oxford navy and school yellow.",p:["#002147","#FDC800","#CFE3F5","#F4F6F8"],f:"Alegreya / Alegreya Sans"},
+  {s:"target-logistics",n:"Target Logistics",g:"Logistics",i:"Air, ocean & overland freight, Korangi",d:"A quote console as the hero: choose the mode, set the route, and the request writes itself.",p:["#BA121D","#2A2470","#E6E8EE","#2B2D35"],f:"Onest"},
+  {s:"techglobe-pk",n:"TechGlobe.pk",g:"Electronics & security",i:"Laptop importer & wholesaler, I.I. Chundrigar",d:"A toolbar-style fleet order builder for corporate IT buyers, with a live summary for three cities.",p:["#2F4BFF","#EEF1FF","#1D2433","#FFB020"],f:"Geist"},
+  {s:"al-mustafa-medical-centre",n:"Al-Mustafa Medical Centre",g:"Healthcare",i:"Charitable trust hospital, Gulshan-e-Iqbal",d:"Two doors from the first screen — “I need care” and “I want to help” — in lapis and marigold.",p:["#23408E","#F2A541","#F1F4FA","#1D2540"],f:"Newsreader / Nunito Sans"},
+  {s:"arqam-public-school",n:"Arqam Public School",g:"Education",i:"Value-based multi-campus school, Gulshan",d:"A geometric star pattern drawn in-page frames the school's values, with campuses grouped by area.",p:["#00915A","#0B3D2E","#D4A017","#E8F5EE"],f:"Amiri / Hind"}
+];
+
+const grid = document.getElementById('grid'), chips = document.getElementById('chips'),
+      q = document.getElementById('q'), result = document.getElementById('result'), empty = document.getElementById('empty');
+
+document.getElementById('strip').innerHTML = C.map(c => `<span style="background:${c.p[0]}"></span>`).join('');
+
+const groups = ["All", ...[...new Set(C.map(c => c.g))]];
+let active = "All";
+chips.innerHTML = groups.map(g => {
+  const n = g === "All" ? C.length : C.filter(c => c.g === g).length;
+  return `<button class="chip" type="button" data-g="${g}" aria-pressed="${g === 'All'}">${g}<span class="n">${n}</span></button>`;
+}).join('');
+
+grid.innerHTML = C.map((c, k) => `
+  <article class="card" data-g="${c.g}" data-text="${(c.n + ' ' + c.i + ' ' + c.d + ' ' + c.g + ' ' + c.f).toLowerCase()}">
+    <a class="frame" href="${c.s}/index.html" aria-label="Open the ${c.n} concept">
+      <span class="bar" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="fallback" style="background:${c.p[0]}" aria-hidden="true">${c.n}</span>
+      <img src="assets/thumbnails/${c.s}.jpg" alt="Homepage concept for ${c.n}" loading="${k < 6 ? 'eager' : 'lazy'}" width="960" height="600" onerror="this.remove()">
+    </a>
+    <div class="meta"><h2><a href="${c.s}/index.html">${c.n}</a></h2></div>
+    <p class="ind">${c.i}</p>
+    <p class="dir">${c.d}</p>
+    <div class="tokens"><span class="sw" aria-hidden="true">${c.p.map(h => `<span style="background:${h}"></span>`).join('')}</span><span>${c.f}</span></div>
+    <a class="open" href="${c.s}/index.html">Open concept</a>
+  </article>`).join('');
+
+const cards = [...grid.children];
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  let shown = 0;
+  cards.forEach(el => {
+    const ok = (active === "All" || el.dataset.g === active) && (!term || el.dataset.text.includes(term));
+    el.hidden = !ok; if (ok) shown++;
+  });
+  result.textContent = `${shown} of ${C.length} concepts`;
+  empty.style.display = shown ? 'none' : 'block';
+}
+chips.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  active = b.dataset.g;
+  chips.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  apply();
+});
+q.addEventListener('input', apply);
+apply();
+</script>
+</body>
+</html>

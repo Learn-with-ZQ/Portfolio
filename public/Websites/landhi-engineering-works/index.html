@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landhi Engineering Works — leaf springs and radiators since 1972 (website concept)</title>
+<meta name="description" content="Website concept for Landhi Engineering Works (Pvt.) Ltd., Landhi, Karachi: leaf spring assemblies and radiators for vehicle makers, fleets and export buyers. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forged:#3C4752;
+  --forged-2:#323C46;
+  --steel:#9AA5AE;
+  --steel-pale:#EEF1F3;
+  --steel-mid:#D5DBE0;
+  --mist:#C9D0D5;      /* secondary text on forged */
+  --leaf:#8CBF3F;
+  --leaf-ink:#4A7016;  /* green text on white */
+  --shadow:#1F262D;
+  --white:#FFFFFF;
+  --ink:#1F262D;
+  --ink-2:#4A5560;
+  --display:"Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body:"Source Sans 3", "Segoe UI", sans-serif;
+  --wrap:1280px;
+  --gut:clamp(20px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:.005em;margin:0}
+h2{font-size:clamp(44px,5.6vw,80px)}
+h3{font-size:clamp(30px,3vw,40px);font-weight:700}
+p{margin:0 0 1em;max-width:62ch}
+
+/* concept notice */
+.notice{background:var(--shadow);color:var(--mist);font-size:14px;line-height:1.4}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.notice a{color:var(--leaf);text-underline-offset:3px}
+
+/* header */
+.site-head{background:var(--forged);color:var(--white);position:relative;z-index:5}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.mark{display:flex;align-items:center;gap:14px;text-decoration:none}
+.mark b{font:900 40px/1 var(--display);letter-spacing:.04em}
+.mark span{font:600 15px/1.15 var(--body);color:var(--mist);border-left:2px solid var(--leaf);padding-left:12px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-weight:600;font-size:16px;color:var(--white)}
+.nav ul a:hover{color:var(--leaf)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;font:700 17px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;border-radius:0 24px 24px 0}
+.btn-leaf{background:var(--leaf);color:var(--shadow)}
+.btn-leaf:hover{background:#9DD04E}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.menu-btn{display:none;background:none;border:2px solid var(--steel);color:var(--white);font:700 16px var(--body);padding:10px 16px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--forged);color:var(--white);overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(154,165,174,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(154,165,174,.09) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.hero .wrap{position:relative}
+.hero-top{display:grid;grid-template-columns:1fr;gap:28px;padding-top:64px}
+.hero-top > div{display:grid;grid-template-columns:minmax(0,58ch) auto;justify-content:space-between;gap:40px;align-items:end}
+.hero h1{font-size:clamp(56px,8vw,116px);font-weight:900;line-height:.88;text-wrap:balance;max-width:13ch}
+.hero-lede{color:var(--mist);font-size:20px;margin:0}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.drawing{margin:24px calc(var(--gut) * -1) 0;position:relative}
+.drawing svg{display:block;width:100%;height:auto;overflow:visible}
+.ink{fill:none;stroke:var(--white);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ink-thin{stroke-width:1.6;stroke:var(--steel)}
+.ink-leaf{stroke:var(--leaf);stroke-width:3}
+.lbl{font:600 21px var(--body);fill:var(--mist)}
+.lbl-leaf{fill:var(--leaf)}
+.lead{stroke:var(--steel);stroke-width:1.4;fill:none}
+.dim{stroke:var(--leaf);stroke-width:1.6;fill:none}
+.draw .ink,.draw .lead,.draw .dim{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.6,.05,.3,1) forwards}
+.draw .lbl{opacity:0;animation:show .6s 2.2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes show{to{opacity:1}}
+.hero-foot{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:stretch;padding-bottom:56px;margin-top:8px}
+.load{background:var(--forged-2);border-left:4px solid var(--leaf);padding:18px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:8px 20px;align-items:center}
+.load label{font:700 22px/1 var(--display);letter-spacing:.02em}
+.load output{font:800 26px/1 var(--display);color:var(--leaf);min-width:4ch;text-align:right}
+.load p{grid-column:1/-1;margin:0;font-size:15px;color:var(--mist)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--steel)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:22px;margin-top:-8px;background:var(--leaf);border:2px solid var(--shadow);border-radius:0 11px 11px 0}
+input[type=range]::-moz-range-track{height:6px;background:var(--steel)}
+input[type=range]::-moz-range-thumb{width:28px;height:20px;background:var(--leaf);border:2px solid var(--shadow);border-radius:0 11px 11px 0}
+.titleblock{border:2px solid var(--steel);display:grid;grid-template-columns:auto auto;font-size:14px;line-height:1.3;color:var(--mist);min-width:340px}
+.titleblock div{padding:8px 14px;border-top:1px solid rgba(154,165,174,.5)}
+.titleblock div:nth-child(-n+2){border-top:0}
+.titleblock div:nth-child(odd){border-right:1px solid rgba(154,165,174,.5)}
+.titleblock strong{display:block;color:var(--white);font:700 18px/1.1 var(--display);letter-spacing:.02em}
+.legend{display:none}
+
+/* products */
+.products{background:var(--steel-pale);padding:112px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.sec-head p{color:var(--ink-2);font-size:19px;margin:0}
+.lines{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.line{background:var(--white);padding:40px 44px 44px;display:flex;flex-direction:column}
+.line + .line{border-left:0}
+.line-art{background:var(--steel-pale);margin:-40px -44px 32px;padding:28px 32px;border-bottom:4px solid var(--forged)}
+.line-art svg{width:100%;height:auto;display:block}
+.art{fill:none;stroke:var(--forged);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.art-leaf{stroke:var(--leaf-ink);stroke-width:2.4}
+.line h3{margin-bottom:14px}
+.line ul{list-style:none;padding:0;margin:4px 0 28px;display:grid;gap:8px}
+.line li{padding-left:22px;position:relative}
+.line li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:5px;background:var(--leaf);border-radius:0 3px 3px 0}
+.line .btn{margin-top:auto;align-self:flex-start;background:var(--forged);color:var(--white)}
+.line .btn:hover{background:var(--shadow)}
+.src{font-size:14px;color:var(--ink-2)}
+.src a{color:var(--leaf-ink)}
+
+/* OEM leaf stack */
+.oem{padding:120px 0;background:var(--white)}
+.oem-grid{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center}
+.oem-grid h2{margin-bottom:24px}
+.oem-grid p{color:var(--ink-2)}
+.stack{list-style:none;margin:0;padding:0;display:grid;gap:5px;justify-items:center}
+.stack li{background:var(--forged);color:var(--white);font:800 clamp(24px,2.6vw,34px)/1 var(--display);letter-spacing:.03em;padding:12px 0;text-align:center;border-radius:6px;width:calc(100% - var(--i) * 7%)}
+.stack li:first-child{background:var(--shadow);border-radius:40px;position:relative}
+.stack li:nth-child(odd):not(:first-child){background:#46525E}
+.stack-axle{width:56%;height:16px;background:var(--leaf);margin:10px auto 0;border-radius:0 0 8px 8px}
+
+/* exports */
+.exports{background:var(--steel-pale);padding:112px 0}
+.regions{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:8px}
+.region{background:var(--white);padding:32px 36px 36px;border-top:6px solid var(--forged)}
+.region h3{font-size:22px;font-family:var(--body);font-weight:700;color:var(--ink-2);margin-bottom:18px;line-height:1.2}
+.region ul{list-style:none;margin:0;padding:0}
+.region li{font:800 clamp(40px,4.4vw,60px)/1.02 var(--display)}
+.origin{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;margin-top:28px;font-size:17px;color:var(--ink-2)}
+.origin strong{font:800 28px/1 var(--display);color:var(--ink)}
+
+/* heritage */
+.heritage{background:var(--forged);color:var(--white);display:grid;grid-template-columns:1fr 1fr}
+.heritage figure{margin:0;position:relative;min-height:560px}
+.heritage figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05)}
+.heritage figcaption{position:absolute;left:0;bottom:0;background:rgba(31,38,45,.85);color:var(--mist);font-size:13px;padding:6px 12px}
+.heritage-copy{padding:96px var(--gut) 96px clamp(32px,5vw,80px);max-width:720px}
+.heritage .since{font:900 clamp(96px,13vw,200px)/.8 var(--display);color:var(--leaf);display:block;margin-bottom:28px}
+.heritage h2{margin-bottom:24px}
+.heritage p{color:var(--mist)}
+.record{margin:32px 0 0;display:grid;grid-template-columns:auto 1fr;border-top:2px solid var(--steel)}
+.record dt,.record dd{margin:0;padding:12px 0;border-bottom:1px solid rgba(154,165,174,.4)}
+.record dt{color:var(--mist);font-size:16px;padding-right:28px}
+.record dd{font-weight:600}
+
+/* contact */
+.contact{padding:112px 0;background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px}
+.contact h2{margin-bottom:24px}
+.facts{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:22px}
+.facts li{display:grid;gap:2px}
+.facts small{font-size:15px;color:var(--ink-2)}
+.facts a,.facts span.big{font:700 26px/1.15 var(--display);letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.facts a:hover{color:var(--leaf-ink);text-decoration:underline}
+.quote{background:var(--steel-pale);padding:40px 44px;border-top:6px solid var(--leaf)}
+.quote h3{margin-bottom:8px}
+.quote .hint{color:var(--ink-2);font-size:16px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:20px}
+.fields .full{grid-column:1/-1}
+.fields label{display:block;font-weight:600;font-size:16px;margin-bottom:6px}
+.fields input,.fields select,.fields textarea{width:100%;font:400 17px var(--body);color:var(--ink);background:var(--white);border:2px solid var(--steel);padding:11px 12px;border-radius:0}
+.fields input:focus,.fields select:focus,.fields textarea:focus{border-color:var(--forged);outline:3px solid var(--leaf);outline-offset:0}
+fieldset{border:0;padding:0;margin:0}
+.choice{display:flex;flex-wrap:wrap;gap:8px}
+.choice label{margin:0}
+.choice input{position:absolute;opacity:0;width:1px;height:1px}
+.choice span{display:inline-block;padding:9px 18px;border:2px solid var(--steel);background:var(--white);cursor:pointer;font-weight:600;border-radius:0 20px 20px 0}
+.choice input:checked + span{background:var(--forged);border-color:var(--forged);color:var(--white)}
+.choice input:focus-visible + span{outline:3px solid var(--leaf);outline-offset:2px}
+.quote .btn{margin-top:22px;background:var(--forged);color:var(--white)}
+.quote .btn:hover{background:var(--shadow)}
+.status{margin:14px 0 0;font-size:15px;color:var(--ink-2)}
+
+/* footer */
+.site-foot{background:var(--shadow);color:var(--mist);padding:64px 0 40px;font-size:15px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+.site-foot .mark b{color:var(--white)}
+.site-foot a{color:var(--white)}
+.site-foot p{max-width:46ch}
+.foot-base{margin-top:48px;padding-top:20px;border-top:1px solid #39434D;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.foot-base a{color:var(--leaf)}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero-top > div{grid-template-columns:1fr;gap:22px}
+  .hero h1{max-width:none}
+  .hero-foot{grid-template-columns:1fr}
+  .titleblock{min-width:0}
+  .oem-grid{grid-template-columns:1fr;gap:40px}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+}
+@media (max-width:900px){
+  .nav ul{display:none}
+  .menu-btn{display:inline-block}
+  .nav .btn{display:none}
+  .nav.open ul{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--forged-2);padding:12px var(--gut) 20px;gap:0}
+  .nav.open ul a{display:block;padding:14px 0;font-size:19px;border-bottom:1px solid #4B5762}
+  .lines,.regions{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr;gap:16px}
+  .heritage{grid-template-columns:1fr}
+  .heritage figure{min-height:320px}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  body{font-size:17px}
+  .mark span{display:none}
+  .hero-top{padding-top:40px}
+  .hero-lede{font-size:18px}
+  .lbl,.lead{display:none}
+  .drawing{margin-top:8px}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;padding:0;margin:0 0 20px;font-size:15px;color:var(--mist)}
+  .legend li::before{content:"";display:inline-block;width:10px;height:4px;background:var(--leaf);margin-right:8px;vertical-align:middle}
+  .load{grid-template-columns:1fr auto}
+  .load input{grid-column:1/-1;grid-row:2}
+  .titleblock{grid-template-columns:1fr 1fr;font-size:13px}
+  .products,.oem,.exports,.contact{padding:72px 0}
+  .line{padding:28px 22px 30px}
+  .line-art{margin:-28px -22px 24px;padding:18px}
+  .quote{padding:28px 20px}
+  .fields{grid-template-columns:1fr}
+  .heritage-copy{padding:64px var(--gut)}
+  .record{grid-template-columns:1fr}
+  .record dt{padding-bottom:0;border-bottom:0}
+  .stack li{width:calc(100% - var(--i) * 6%)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .draw .ink,.draw .lead,.draw .dim{animation:none;stroke-dashoffset:0}
+  .draw .lbl{animation:none;opacity:1}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="notice" role="note"><div class="wrap">
+  <span>Website concept for Landhi Engineering Works (Pvt.) Ltd. — not the official website. Proposed design; stock imagery; details from public listings.</span>
+  <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+</div></div>
+
+<header class="site-head"><div class="wrap">
+  <a class="mark" href="#top" aria-label="Landhi Engineering Works, home"><b>LEW</b><span>Landhi Engineering<br>Works (Pvt.) Ltd.</span></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+    <ul id="nav-list">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#oem">OEM lines</a></li>
+      <li><a href="#exports">Exports</a></li>
+      <li><a href="#since">Since 1972</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-leaf" href="#quote">Request a quotation</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title"><div class="wrap">
+  <div class="hero-top">
+    <h1 id="hero-title">Leaf springs and radiators, made in Landhi since 1972.</h1>
+    <div>
+      <p class="hero-lede">Landhi Engineering Works makes leaf spring assemblies and radiators for vehicle makers, fleet operators and export buyers, from Plot 309/1 on the National Highway, Karachi.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-leaf" href="#quote">Request a quotation</a>
+        <a class="btn btn-line" href="mailto:info@lew.com.pk?subject=Specification%20request">Download specifications (on request)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawing draw">
+    <svg id="spring" viewBox="0 40 1400 470" role="img" aria-labelledby="spring-t">
+      <title id="spring-t">Line drawing of a multi-leaf spring assembly: two rolled eyes, a main leaf over six graduated leaves, a centre bolt, two U-bolts clamping the stack to an axle seat.</title>
+      <line class="ink ink-thin" id="base" pathLength="1" x1="120" y1="250" x2="1340" y2="250" stroke-dasharray="4 8"/>
+      <g id="leaves"></g>
+      <circle class="ink" id="eyeL" pathLength="1" r="26"/>
+      <circle class="ink ink-leaf" id="bushL" pathLength="1" r="11"/>
+      <circle class="ink" id="eyeR" pathLength="1" r="26"/>
+      <circle class="ink ink-leaf" id="bushR" pathLength="1" r="11"/>
+      <path class="ink ink-leaf" pathLength="1" d="M690 226h20v12h-20z M700 238V354"/>
+      <path class="ink" pathLength="1" d="M628 452V246a12 12 0 0 1 24 0V452 M748 452V246a12 12 0 0 1 24 0V452"/>
+      <path class="ink" pathLength="1" d="M596 343h208v14H596z M600 440h200v12H600z M618 452h44v14h-44z M738 452h44v14h-44z"/>
+      <circle class="ink" pathLength="1" cx="700" cy="400" r="38"/>
+      <circle class="ink ink-thin" pathLength="1" cx="700" cy="400" r="22"/>
+      <path class="dim" id="camberDim" pathLength="1" d=""/>
+      <path class="lead" id="leaders" pathLength="1" d=""/>
+      <text class="lbl" id="tEye" x="40" y="70">Eye and bush</text>
+      <text class="lbl" x="330" y="108">Main leaf</text>
+      <text class="lbl lbl-leaf" x="700" y="150" text-anchor="middle">Centre bolt</text>
+      <text class="lbl" x="1010" y="440">Graduated leaves</text>
+      <text class="lbl" x="420" y="500">U-bolts and axle seat</text>
+      <text class="lbl lbl-leaf" id="tCamber" x="1352" y="200">Camber</text>
+    </svg>
+  </div>
+  <ul class="legend" aria-hidden="true"><li>Eye and bush</li><li>Main leaf</li><li>Graduated leaves</li><li>Centre bolt</li><li>U-bolts and axle seat</li></ul>
+
+  <div class="hero-foot">
+    <div class="load">
+      <label for="loadIn">Load on the axle</label>
+      <input id="loadIn" type="range" min="0" max="100" step="1" value="0" aria-describedby="loadNote">
+      <output id="loadOut" for="loadIn">0%</output>
+      <p id="loadNote">Drag to load the spring: the camber flattens as the leaves share the weight. Illustrative only.</p>
+    </div>
+    <div class="titleblock" aria-label="Drawing notes">
+      <div><strong>Multi-leaf spring</strong>Drawing</div>
+      <div><strong>Illustration</strong>Not a specific LEW part</div>
+      <div><strong>LEW, Landhi</strong>Drawn for</div>
+      <div><strong>15th Mile, N.H.</strong>Works</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="products" id="products" aria-labelledby="products-title"><div class="wrap">
+  <div class="sec-head">
+    <h2 id="products-title">Two product lines, one works</h2>
+    <p>Leaf springs carry the load; radiators keep the engine cool. Both are made at the Landhi works for vehicle makers' lines, fleets and the replacement market.</p>
+  </div>
+  <div class="lines">
+    <article class="line">
+      <div class="line-art" aria-hidden="true">
+        <svg viewBox="0 0 520 180">
+          <path class="art" d="M30 50Q260 170 490 50 M50 69Q260 169 470 69 M85 93.3Q260 162.7 435 93.3 M120 114.8Q260 159.2 400 114.8 M155 133.5Q260 158.5 365 133.5 M190 149.4Q260 160.6 330 149.4 M190 158.4Q260 169.6 330 158.4 M190 149.4V158.4 M330 149.4V158.4"/>
+          <circle class="art" cx="30" cy="36" r="14"/><circle class="art art-leaf" cx="30" cy="36" r="5"/>
+          <circle class="art" cx="490" cy="36" r="14"/><circle class="art art-leaf" cx="490" cy="36" r="5"/>
+          <path class="art art-leaf" d="M260 100V174"/>
+        </svg>
+      </div>
+      <h3>Leaf spring assemblies</h3>
+      <p>Multi-leaf suspension springs for heavy vehicles, made to the vehicle maker's drawing or matched to a replacement sample.</p>
+      <ul>
+        <li>Trucks, buses, trailers and dumpers</li>
+        <li>Complete assemblies and individual leaves</li>
+        <li>OEM supply and replacement market</li>
+      </ul>
+      <a class="btn" href="mailto:info@lew.com.pk?subject=Leaf%20spring%20specifications">Download specifications (on request)</a>
+    </article>
+    <article class="line">
+      <div class="line-art" aria-hidden="true">
+        <svg viewBox="0 0 520 170">
+          <rect class="art" x="120" y="14" width="280" height="22" rx="4"/>
+          <rect class="art" x="120" y="134" width="280" height="22" rx="4"/>
+          <rect class="art" x="132" y="36" width="256" height="98"/>
+          <path class="art" d="M162 36V134 M196 36V134 M230 36V134 M264 36V134 M298 36V134 M332 36V134 M366 36V134"/>
+          <path class="art art-leaf" d="M132 50 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8"/>
+          <path class="art" d="M400 22h56 M400 30h56 M64 142h56 M64 150h56"/>
+          <path class="art" d="M248 14V4h24v10"/>
+        </svg>
+      </div>
+      <h3>Radiators</h3>
+      <p>Radiator cores and complete assemblies for automobiles and industrial engines: tanks, tubes and fins built as one cooling unit.</p>
+      <ul>
+        <li>Radiator cores and full assemblies</li>
+        <li>Automobiles and industrial engines</li>
+        <li>OEM supply and replacement market</li>
+      </ul>
+      <a class="btn" href="mailto:info@lew.com.pk?subject=Radiator%20specifications">Download specifications (on request)</a>
+    </article>
+  </div>
+  <p class="src" style="margin-top:20px">Product lines as listed on the <a href="https://pakistantradeportal.gov.pk/company/landhi-engineering-works-pvt-ltd-35/engineering" target="_blank" rel="noopener">Pakistan Trade Portal</a> and <a href="https://spring.com.pk/" target="_blank" rel="noopener">spring.com.pk</a>. Drawings are illustrations.</p>
+</div></section>
+
+<section class="oem" id="oem" aria-labelledby="oem-title"><div class="wrap oem-grid">
+  <div>
+    <h2 id="oem-title">Built for these vehicle lines</h2>
+    <p>The company's own site lists OEM lines for nine truck, bus and vehicle makers, from Japanese and Korean marques to Chinese commercial-vehicle brands assembled in Pakistan.</p>
+    <p>Procurement teams can ask for the part list by make and model with a quotation.</p>
+    <p class="src">Source: <a href="https://spring.com.pk/" target="_blank" rel="noopener">spring.com.pk</a>. Names identify vehicle lines only; no logos or endorsement implied.</p>
+  </div>
+  <div>
+    <ul class="stack" aria-label="OEM lines">
+      <li style="--i:0">Hino</li>
+      <li style="--i:1">Daewoo</li>
+      <li style="--i:2">Toyota</li>
+      <li style="--i:3">Nissan</li>
+      <li style="--i:4">Isuzu</li>
+      <li style="--i:5">Hyundai</li>
+      <li style="--i:6">Dong Feng</li>
+      <li style="--i:7">Foton</li>
+      <li style="--i:8">Yuejin</li>
+    </ul>
+    <div class="stack-axle" aria-hidden="true"></div>
+  </div>
+</div></section>
+
+<section class="exports" id="exports" aria-labelledby="exports-title"><div class="wrap">
+  <div class="sec-head">
+    <h2 id="exports-title">Shipped from Landhi to six countries</h2>
+    <p>Export markets as listed by the company, grouped by region. Distributors in these or new markets can ask for an export quotation.</p>
+  </div>
+  <div class="regions">
+    <div class="region"><h3>Europe</h3><ul><li>Germany</li><li>Hungary</li><li>Poland</li></ul></div>
+    <div class="region"><h3>Africa</h3><ul><li>South Africa</li></ul></div>
+    <div class="region"><h3>Asia</h3><ul><li>Sri Lanka</li><li>Afghanistan</li></ul></div>
+  </div>
+  <p class="origin"><strong>Made in Karachi</strong> 15th Mile, National Highway, Landhi, Karachi 75120</p>
+</div></section>
+
+<section class="heritage" id="since" aria-labelledby="since-title">
+  <figure>
+    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=70&auto=format&fit=crop" alt="Sparks from metal grinding in a workshop" width="1200" height="900" loading="lazy">
+    <figcaption>Stock image, not the LEW works</figcaption>
+  </figure>
+  <div class="heritage-copy">
+    <span class="since" aria-hidden="true">1972</span>
+    <h2 id="since-title">Half a century on the National Highway</h2>
+    <p>Landhi Engineering Works was established in 1972 and is a member of the Pakistan Association of Automotive Parts &amp; Accessories Manufacturers (PAAPAM).</p>
+    <dl class="record">
+      <dt>Established</dt><dd>1972</dd>
+      <dt>PAAPAM membership</dt><dd>No. 1106/S</dd>
+      <dt>Certification</dt><dd>ISO 9001:2015 and ISO 14001:2015, as stated on spring.com.pk</dd>
+      <dt>Chief executive</dt><dd>Syed Muhammad Farooq</dd>
+      <dt>Marketing</dt><dd>Syed Ejaz Ali, Sr. Manager Marketing</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-grid">
+  <div>
+    <h2 id="contact-title">Talk to the works</h2>
+    <p>Send the vehicle make, model and quantity, or a drawing, and the marketing team can come back with a quotation.</p>
+    <ul class="facts">
+      <li><small>Mobile (Pakistan Trade Portal)</small><a href="tel:+923332179501">0333 2179501</a></li>
+      <li><small>Head office lines (PAAPAM)</small><a href="tel:+922135013034">(021) 3501 3034–37</a></li>
+      <li><small>Fax</small><span class="big">(021) 3501 3390</span></li>
+      <li><small>Email</small><a href="mailto:info@lew.com.pk">info@lew.com.pk</a><a href="mailto:landhi@cyber.net.pk">landhi@cyber.net.pk</a></li>
+      <li><small>Works</small><span class="big">Plot # 309/1, 15th Mile, National Highway, Landhi, Karachi 75120</span></li>
+    </ul>
+    <p class="src" style="margin-top:24px">Numbers and emails as published on public listings; to be confirmed by LEW before launch.</p>
+  </div>
+  <form class="quote" id="quote" novalidate>
+    <h3>Request a quotation</h3>
+    <p class="hint">This form opens your email app with the details filled in. Concept demo: nothing is sent from this page.</p>
+    <div class="fields">
+      <fieldset class="full">
+        <legend class="vh">Product</legend>
+        <label>Product</label>
+        <div class="choice">
+          <label><input type="radio" name="product" value="Leaf springs" checked><span>Leaf springs</span></label>
+          <label><input type="radio" name="product" value="Radiators"><span>Radiators</span></label>
+          <label><input type="radio" name="product" value="Leaf springs and radiators"><span>Both</span></label>
+        </div>
+      </fieldset>
+      <div><label for="q-name">Your name</label><input id="q-name" name="name" autocomplete="name" required></div>
+      <div><label for="q-co">Company</label><input id="q-co" name="company" autocomplete="organization"></div>
+      <div><label for="q-veh">Vehicle make and model</label><input id="q-veh" name="vehicle" placeholder="e.g. Hino truck, 2 axle"></div>
+      <div><label for="q-qty">Quantity</label><input id="q-qty" name="qty" inputmode="numeric"></div>
+      <div class="full"><label for="q-msg">Details</label><textarea id="q-msg" name="msg" rows="4" placeholder="Part numbers, drawing reference, delivery city or export port"></textarea></div>
+    </div>
+    <button class="btn" type="submit">Open email with my request</button>
+    <p class="status" id="q-status" role="status"></p>
+  </form>
+</div></section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="mark" href="#top"><b>LEW</b></a>
+      <p style="margin-top:14px">Landhi Engineering Works (Pvt.) Ltd. Leaf spring assemblies and radiators, Landhi, Karachi. Est. 1972.</p>
+    </div>
+    <div>
+      <p>Plot # 309/1, 15th Mile, National Highway, Landhi, Karachi 75120</p>
+      <p><a href="tel:+923332179501">0333 2179501</a><br><a href="mailto:info@lew.com.pk">info@lew.com.pk</a></p>
+    </div>
+    <div>
+      <p>Sources: <a href="https://pakistantradeportal.gov.pk/company/landhi-engineering-works-pvt-ltd-35/engineering" target="_blank" rel="noopener">Pakistan Trade Portal</a>, <a href="https://paapam.com/members-k-o" target="_blank" rel="noopener">PAAPAM members list</a>, <a href="https://spring.com.pk/" target="_blank" rel="noopener">spring.com.pk</a>.</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>Website concept for Landhi Engineering Works (Pvt.) Ltd. — not the official website. Proposed wordmark; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div></footer>
+
+<script>
+(function(){
+  /* leaf spring geometry: parabolic leaves stacked under a main leaf */
+  var cx=700, c0=250, L0=560, t=13, Ls=[560,520,450,380,310,240,170];
+  var g=document.getElementById('leaves'), NS='http://www.w3.org/2000/svg', paths=[];
+  Ls.forEach(function(){var p=document.createElementNS(NS,'path');p.setAttribute('class','ink');p.setAttribute('pathLength','1');g.appendChild(p);paths.push(p);});
+  function f(n){return Math.round(n*10)/10;}
+  function draw(load){
+    var c=110-0.9*load, k=c/(L0*L0);
+    function y(off,x){return off-k*(x-cx)*(x-cx);}
+    Ls.forEach(function(L,i){
+      var e=i?14:0, a=cx-L, b=cx+L, ot=c0+i*t, ob=c0+(i+1)*t, Lb=L-e;
+      paths[i].setAttribute('d','M'+a+' '+f(y(ot,a))+'Q'+cx+' '+f(ot+k*L*L)+' '+b+' '+f(y(ot,b))+
+        'L'+(b-e)+' '+f(y(ob,b-e))+'Q'+cx+' '+f(ob+k*Lb*Lb)+' '+(a+e)+' '+f(y(ob,a+e))+'Z');
+    });
+    var endY=c0-c, ey=endY-20;
+    [['eyeL',cx-L0],['bushL',cx-L0],['eyeR',cx+L0],['bushR',cx+L0]].forEach(function(o){
+      var el=document.getElementById(o[0]);el.setAttribute('cx',o[1]);el.setAttribute('cy',f(ey));
+    });
+    document.getElementById('camberDim').setAttribute('d','M1316 '+f(endY)+'H1344M1330 '+f(endY)+'V250M1316 250H1344');
+    var tc=document.getElementById('tCamber');tc.setAttribute('y',f((endY+250)/2+7));
+    document.getElementById('leaders').setAttribute('d',
+      'M120 80L'+(cx-L0)+' '+f(ey-26)+
+      'M380 118L380 '+f(y(c0,380))+
+      'M700 160V224'+
+      'M1050 416L1000 '+f(y(c0+4*t,1000))+
+      'M560 484L628 444');
+  }
+  var inp=document.getElementById('loadIn'), out=document.getElementById('loadOut');
+  draw(0);
+  inp.addEventListener('input',function(){out.textContent=inp.value+'%';draw(+inp.value);});
+
+  /* mobile menu */
+  var nav=document.getElementById('nav'), mb=nav.querySelector('.menu-btn');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu';});
+  nav.querySelectorAll('#nav-list a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu';});});
+
+  /* quotation: compose an email */
+  var form=document.getElementById('quote'), st=document.getElementById('q-status');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var d=new FormData(form), name=(d.get('name')||'').trim();
+    if(!name){st.textContent='Add your name so the works knows who to reply to.';form.querySelector('#q-name').focus();return;}
+    var body=['Product: '+d.get('product'),'Name: '+name,'Company: '+(d.get('company')||'-'),
+      'Vehicle make and model: '+(d.get('vehicle')||'-'),'Quantity: '+(d.get('qty')||'-'),'',(d.get('msg')||'')].join('\n');
+    location.href='mailto:info@lew.com.pk?cc=landhi@cyber.net.pk&subject='+encodeURIComponent('Quotation request: '+d.get('product'))+'&body='+encodeURIComponent(body);
+    st.textContent='Your email app should open with the request filled in. Concept demo: nothing was sent from this page.';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Target Logistics International: air, ocean and overland freight from Karachi (concept)</title>
+<meta name="description" content="Website concept for Target Logistics International (Pvt) Ltd., Korangi, Karachi. Air, ocean and overland freight forwarding, supply chain management, moving and relocations. Not the official website.">
+<meta name="theme-color" content="#2A2470">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#BA121D; --red-dk:#9A0E17; --red-hi:#EF4A53;
+  --navy:#2A2470; --navy-dk:#211C5C; --lav:#C9C6EE;
+  --steel:#E6E8EE; --steel-2:#F4F5F8; --line:#CBCEDA;
+  --ink:#2B2D35; --muted:#575A67; --white:#fff;
+  --r:6px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.08}
+p{margin:0}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
+.on-navy :focus-visible,.notice :focus-visible,.foot :focus-visible{outline-color:#fff}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--ink);padding:10px 14px;z-index:10}
+.skip:focus{left:8px}
+
+/* concept notice */
+.notice{background:var(--ink);color:#D8DAE2;font-size:13px;line-height:1.45;padding:9px 0}
+.notice .wrap{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap}
+.notice a{color:#fff;text-underline-offset:3px}
+
+/* header */
+.site-head{background:var(--navy);color:#fff}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px}
+.brand{text-decoration:none;line-height:1;display:inline-block}
+.brand-name{font-size:23px;letter-spacing:-.03em;white-space:nowrap}
+.brand-name b{font-weight:800}
+.brand-name span{font-weight:400}
+.brand small{display:block;font-size:12px;color:var(--lav);margin-top:5px;letter-spacing:.01em}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:#ECEBFA;padding:8px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--red-hi)}
+.head-call{font-size:15px;font-weight:600;text-decoration:none;padding:11px 16px;border:1.5px solid rgba(255,255,255,.4);border-radius:4px;white-space:nowrap}
+.head-call:hover{background:rgba(255,255,255,.08)}
+.menu-btn{display:none;appearance:none;background:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;font:inherit;font-size:15px;font-weight:600;padding:9px 14px;border-radius:4px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:40px 0 80px}
+.hero-top{display:grid;grid-template-columns:7fr 5fr;gap:24px 56px;align-items:end}
+.hero h1{font-size:clamp(38px,5vw,66px);line-height:1.02;letter-spacing:-.04em;max-width:15ch}
+.hero-lead{color:var(--lav);font-size:18px;max-width:40ch}
+.hero-lead a{color:#fff;font-weight:600;text-underline-offset:4px}
+
+.modes{display:flex;gap:6px;margin-top:48px;border-bottom:1px solid rgba(255,255,255,.2)}
+.mode{appearance:none;background:none;border:0;color:var(--lav);font:inherit;font-size:20px;font-weight:500;padding:12px 22px 16px 0;margin-right:18px;cursor:pointer;position:relative}
+.mode:hover{color:#fff}
+.mode[aria-selected="true"]{color:#fff;font-weight:600}
+.mode[aria-selected="true"]::after{content:"";position:absolute;left:0;right:22px;bottom:-1px;height:3px;background:var(--red-hi)}
+
+.route{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:0 28px;margin-top:40px}
+.end{min-width:0}
+.end.to{text-align:right}
+.code{display:block;font-size:clamp(46px,9vw,132px);font-weight:700;letter-spacing:-.045em;line-height:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+.code.long{font-size:clamp(40px,6.2vw,90px)}
+.code.typed{font-size:clamp(30px,4.6vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1}
+.place{display:block;font-size:15px;color:var(--lav);margin-top:14px;white-space:nowrap}
+.arc-box{position:relative;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
+.arc{width:100%;height:auto;overflow:visible;display:block}
+.arc .ground{stroke:rgba(255,255,255,.3);stroke-width:2;fill:none;stroke-dasharray:3 10}
+.arc .ticks{stroke:rgba(255,255,255,.4);stroke-width:2;fill:none}
+.arc .path{stroke:var(--red-hi);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.arc .path.draw{animation:draw 1.6s cubic-bezier(.55,.05,.25,1) both}
+.arc .pin{stroke:#fff;stroke-width:2;fill:none}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.route-note{font-size:13px;color:var(--lav);text-align:center;margin-top:12px;min-height:20px}
+
+/* quote console */
+.console{background:#fff;color:var(--ink);border-radius:var(--r);margin-top:32px;padding:28px;box-shadow:0 40px 80px -40px rgba(8,6,40,.7)}
+.fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 18px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--steel-2);border:1.5px solid var(--line);border-radius:4px;padding:11px 12px;min-height:50px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%232B2D35' stroke-width='1.8'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.field input:focus,.field select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(42,36,112,.28);background-color:#fff}
+.qty{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:8px}
+.console-foot{display:flex;align-items:center;justify-content:space-between;gap:16px 28px;margin-top:22px;padding-top:22px;border-top:1px solid var(--steel)}
+.console-note{font-size:14px;color:var(--muted);max-width:60ch}
+.console-msg{font-size:14px;font-weight:600;color:var(--red);min-height:1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:16px;font-weight:600;padding:14px 26px;min-height:52px;border-radius:4px;border:0;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dk)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+
+/* sections */
+.sec{padding:clamp(72px,8vw,116px) 0}
+.sec-head{display:grid;grid-template-columns:5fr 7fr;gap:20px 56px;align-items:end;margin-bottom:44px}
+.sec h2{font-size:clamp(30px,3.6vw,46px);letter-spacing:-.035em}
+.sec-head p{color:var(--muted);max-width:54ch}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.tile{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;background:var(--steel)}
+.tile h3{font-size:26px;margin-bottom:8px}
+.tile p{font-size:16px;max-width:42ch;margin-bottom:18px}
+.tile-body{position:relative;z-index:2;padding:28px}
+.photo{color:#fff;background:var(--navy-dk)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(33,28,92,0) 25%,rgba(33,28,92,.55) 55%,rgba(33,28,92,.94) 100%)}
+.photo p{color:#E6E5F7}
+.t-air{grid-column:span 7;min-height:460px}
+.t-air h3{font-size:clamp(30px,3vw,40px)}
+.t-ocean{grid-column:span 5;min-height:460px}
+.t-land{grid-column:span 5;min-height:360px}
+.t-scm{grid-column:span 4;min-height:360px}
+.t-move{grid-column:span 3;min-height:360px;background:var(--steel)}
+.t-move .tile-body{height:100%;display:flex;flex-direction:column}
+.t-move .tile-body .pick{margin-top:auto}
+.t-special{grid-column:span 12;min-height:0;background:var(--ink);color:#fff;flex-direction:row}
+.t-special .tile-body{display:grid;grid-template-columns:5fr 6fr auto;gap:16px 48px;align-items:center;width:100%;padding:34px 36px}
+.t-special p{color:#D3D5DD;margin:0}
+.pick{appearance:none;background:none;border:0;padding:6px 0;font:inherit;font-size:16px;font-weight:600;color:inherit;cursor:pointer;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px;align-self:flex-start;text-align:left}
+.pick:hover{text-decoration-color:var(--red-hi)}
+.t-move .pick:hover{text-decoration-color:var(--red)}
+.stock{position:absolute;top:12px;right:12px;z-index:2;font-size:11px;color:#fff;background:rgba(33,28,92,.7);padding:3px 8px;border-radius:3px}
+.t-special .btn{border-color:rgba(255,255,255,.45)}
+
+/* network */
+.network{background:var(--steel)}
+.corridor{display:grid;grid-template-columns:1.35fr 1fr 1fr;margin-top:8px}
+.stn{position:relative;padding:48px 32px 0 0}
+.stn::before{content:"";position:absolute;top:0;left:0;width:26px;height:26px;border-radius:50%;background:var(--steel);border:5px solid var(--navy);z-index:1}
+.stn:not(:last-child)::after{content:"";position:absolute;top:11px;left:26px;right:0;height:4px;background:var(--navy)}
+.stn.hq::before{background:var(--red);border-color:var(--red);box-shadow:0 0 0 6px rgba(186,18,29,.16)}
+.stn h3{font-size:clamp(28px,2.6vw,36px);letter-spacing:-.035em}
+.stn .role{font-size:15px;font-weight:600;color:var(--red);margin:6px 0 16px}
+.stn address{font-style:normal;color:var(--muted);max-width:30ch}
+.stn .lines{margin-top:16px;display:grid;gap:4px}
+.stn .lines a{font-weight:600;text-decoration:none;font-variant-numeric:tabular-nums}
+.stn .lines a:hover{text-decoration:underline;text-underline-offset:3px}
+.net-note{margin-top:48px;font-size:15px;color:var(--muted);max-width:66ch}
+
+/* recognition */
+.award{display:grid;grid-template-columns:5fr 7fr;gap:24px 56px;align-items:start}
+.award figure{margin:0}
+.award blockquote{margin:0;border-left:4px solid var(--red);padding:4px 0 4px 32px}
+.award blockquote p{font-size:clamp(24px,2.7vw,34px);font-weight:500;line-height:1.22;letter-spacing:-.02em;max-width:24ch}
+.award figcaption{margin-top:18px;padding-left:36px;font-size:15px;color:var(--muted)}
+.award .side{color:var(--muted);max-width:40ch;margin-top:16px}
+
+/* contact */
+.contact{background:var(--navy);color:#fff}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:40px 64px;align-items:start}
+.contact h2{color:#fff}
+.contact address{font-style:normal;color:var(--lav);margin-top:20px;max-width:34ch}
+.contact .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.lines-big{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.2)}
+.lines-big li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 20px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.lines-big span{font-size:15px;color:var(--lav)}
+.lines-big a{font-size:clamp(22px,2.6vw,34px);font-weight:600;letter-spacing:-.02em;text-decoration:none;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.lines-big a:hover{text-decoration:underline;text-decoration-color:var(--red-hi);text-underline-offset:6px}
+
+/* footer */
+.foot{background:var(--ink);color:#C9CBD4;font-size:14px;padding:40px 0 48px}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px}
+.foot .brand-name{color:#fff;font-size:20px}
+.foot-row > *{flex:1 1 360px}
+.foot p{max-width:60ch}
+.foot a{color:#fff;text-underline-offset:3px}
+
+/* responsive */
+@media (max-width:1100px){
+  .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .t-air,.t-ocean{grid-column:span 6}
+  .t-land{grid-column:span 6}.t-scm{grid-column:span 6}
+  .t-move{grid-column:span 12;min-height:0}
+  .t-special .tile-body{grid-template-columns:1fr;justify-items:start}
+}
+@media (max-width:900px){
+  .nav,.head-call{display:none}
+  .menu-btn{display:inline-block}
+  .site-head.open .nav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--navy-dk);padding:8px clamp(20px,4vw,48px) 20px;z-index:20}
+  .site-head{position:relative}
+  .site-head.open .nav ul{flex-direction:column;gap:0}
+  .site-head.open .nav a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:17px}
+  .hero-top,.sec-head,.award,.contact-grid{grid-template-columns:1fr}
+  .corridor{grid-template-columns:1fr}
+  .stn{padding:0 0 40px 52px}
+  .stn:last-child{padding-bottom:0}
+  .stn::before{top:2px}
+  .stn:not(:last-child)::after{top:28px;left:11px;right:auto;bottom:0;width:4px;height:auto}
+  .t-air,.t-ocean,.t-land,.t-scm{grid-column:span 12}
+  .t-air,.t-ocean{min-height:400px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding:28px 0 56px}
+  .modes{margin-top:32px}
+  .mode{font-size:17px;padding-right:14px;margin-right:10px}
+  .mode[aria-selected="true"]::after{right:14px}
+  .route{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px;margin-top:24px}
+  .arc-box{grid-column:1/-1;order:-1;margin-bottom:14px}
+  .route-note{order:2;text-align:left}
+  .code{max-width:44vw;font-size:clamp(40px,13vw,64px)}
+  .place{font-size:13px;white-space:normal;overflow-wrap:anywhere}
+  .console{padding:20px;margin-top:24px}
+  .fields{grid-template-columns:1fr}
+  .console-foot{flex-direction:column;align-items:stretch}
+  .console-foot .btn{width:100%}
+  .tile-body{padding:22px}
+  .t-special .tile-body{padding:26px 22px}
+  .t-air,.t-ocean{min-height:360px}
+  .t-land,.t-scm{min-height:320px}
+  .lines-big li{grid-template-columns:1fr}
+  .award blockquote{padding-left:20px}
+  .award figcaption{padding-left:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .arc .path.draw{animation:none}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#quote">Skip to the quote form</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Target Logistics International (Pvt) Ltd. Not the official website. Proposed design and wordmark; stock imagery; details from the company's public website.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head on-navy" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="Target Logistics International, home">
+      <span class="brand-name"><b>Target</b> <span>Logistics</span></span>
+      <small>International (Pvt) Ltd.</small>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#network">Offices</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="head-call" href="tel:+922138291000">Call +92 21 38291000</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+<section class="hero on-navy" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="hero-title">Air, ocean and overland freight, quoted from Karachi.</h1>
+      <p class="hero-lead">Pick a mode, tell us what is moving and where to, and your request goes straight to the head office in Korangi. Prefer to talk? <a href="tel:+922138291000">Call +92 21 38291000</a>.</p>
+    </div>
+
+    <div class="modes" role="tablist" aria-label="Freight mode">
+      <button class="mode" role="tab" id="tab-air" data-mode="air" aria-selected="true" aria-controls="route-panel">Air</button>
+      <button class="mode" role="tab" id="tab-ocean" data-mode="ocean" aria-selected="false" aria-controls="route-panel" tabindex="-1">Ocean</button>
+      <button class="mode" role="tab" id="tab-land" data-mode="land" aria-selected="false" aria-controls="route-panel" tabindex="-1">Overland</button>
+    </div>
+
+    <div id="route-panel" role="tabpanel" aria-labelledby="tab-air">
+      <div class="route" aria-live="polite">
+        <div class="end from">
+          <span class="code" id="code-from">KHI</span>
+          <span class="place" id="place-from">Karachi</span>
+        </div>
+        <div class="arc-box">
+          <svg class="arc" viewBox="0 0 1000 200" aria-hidden="true" focusable="false">
+            <line class="ground" x1="0" y1="196" x2="1000" y2="196"/>
+            <path class="ticks" id="arc-ticks" d=""/>
+            <path class="pin" d="M4 180V200M996 180V200"/>
+            <path class="path" id="arc-path" pathLength="1" d="M4,196 C260,-30 740,-30 996,196"/>
+          </svg>
+          <p class="route-note" id="route-note">Example route, for illustration. Enter your own below.</p>
+        </div>
+        <div class="end to">
+          <span class="code" id="code-to">LHR</span>
+          <span class="place" id="place-to">London Heathrow</span>
+        </div>
+      </div>
+
+      <form class="console" id="quote" novalidate aria-label="Quote request">
+        <div class="fields">
+          <div class="field"><label for="f-from">From</label><input id="f-from" name="from" value="Karachi" autocomplete="off"></div>
+          <div class="field"><label for="f-to">To</label><input id="f-to" name="to" placeholder="City, port or airport" autocomplete="off"></div>
+          <div class="field"><label for="f-cargo">Cargo type</label>
+            <select id="f-cargo" name="cargo">
+              <option>General cargo</option>
+              <option>Household or office move</option>
+              <option>Project or oversized cargo</option>
+              <option>Other, details in my message</option>
+            </select></div>
+          <div class="field"><label for="f-qty">Weight or volume</label>
+            <div class="qty"><input id="f-qty" name="qty" type="number" min="0" step="any" inputmode="decimal" placeholder="Amount"><select id="f-unit" name="unit" aria-label="Unit"></select></div></div>
+          <div class="field"><label for="f-date">Cargo ready by</label><input id="f-date" name="date" type="date"></div>
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="organization"></div>
+          <div class="field"><label for="f-tel">Phone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="console-foot">
+          <div>
+            <p class="console-note">Request a quote opens your email app with these details addressed to info@targetlogistics.com.pk. Nothing is sent from this page.</p>
+            <p class="console-msg" id="console-msg" role="status"></p>
+          </div>
+          <button class="btn btn-red" type="submit" id="quote-btn">Request a quote</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="sec" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="svc-title">What we move, and how.</h2>
+      <p>Freight by air, sea and road, plus the work around it: supply chain planning, household and office relocations, and cargo that needs special handling. Each service opens the quote form set up for it.</p>
+    </div>
+    <div class="svc">
+      <article class="tile photo t-air">
+        <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=1200&q=70&auto=format&fit=crop" alt="Passenger jet climbing through a cloudy sky" width="1200" height="800" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="tile-body">
+          <h3>Air</h3>
+          <p>Air freight for consignments where the arrival date matters most. Send the weight, dimensions and ready date for a routing and rate.</p>
+          <button class="pick" type="button" data-mode="air">Quote air freight</button>
+        </div>
+      </article>
+      <article class="tile photo t-ocean">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=900&q=70&auto=format&fit=crop" alt="Container ship alongside ship-to-shore cranes at a port" width="900" height="900" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="tile-body">
+          <h3>Ocean</h3>
+          <p>Sea freight in full containers or shared space, for imports and exports.</p>
+          <button class="pick" type="button" data-mode="ocean">Quote sea freight</button>
+        </div>
+      </article>
+      <article class="tile photo t-land">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=70&auto=format&fit=crop" alt="Cargo truck on an open highway" width="900" height="640" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="tile-body">
+          <h3>Overland</h3>
+          <p>Road freight by truck, from a single consignment to a full load.</p>
+          <button class="pick" type="button" data-mode="land">Quote road freight</button>
+        </div>
+      </article>
+      <article class="tile photo t-scm">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=70&auto=format&fit=crop" alt="Warehouse aisle with racked, wrapped pallets" width="800" height="640" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="tile-body">
+          <h3>Supply chain management</h3>
+          <p>Planning how goods move, wait and arrive, so freight fits the rest of your operation.</p>
+          <button class="pick" type="button" data-cargo="Other, details in my message" data-note="Supply chain management">Ask about supply chain</button>
+        </div>
+      </article>
+      <article class="tile t-move">
+        <div class="tile-body">
+          <h3>Moving &amp; relocations</h3>
+          <p>Household and office moves: packed, shipped and delivered to the new address.</p>
+          <button class="pick" type="button" data-cargo="Household or office move">Plan a move</button>
+        </div>
+      </article>
+      <article class="tile t-special on-navy">
+        <div class="tile-body">
+          <h3>Special logistics</h3>
+          <p>Cargo that does not fit a standard booking, such as oversized, heavy or project shipments. Describe the load and we will work out the method with you.</p>
+          <button class="btn btn-line pick-btn" type="button" data-cargo="Project or oversized cargo">Describe your project</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec network" id="network" aria-labelledby="net-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="net-title">Three offices, Karachi to Islamabad.</h2>
+      <p>The head office is in Mehran Town, Korangi, with offices in Lahore and Islamabad.</p>
+    </div>
+    <div class="corridor">
+      <div class="stn hq">
+        <h3>Karachi</h3>
+        <p class="role">Head office</p>
+        <address>Plot No. 244, Sector 6-A, Mehran Town, Behind Alamgir Institute, Karachi</address>
+        <div class="lines">
+          <a href="tel:+922138291000">+92 21 38291000-03</a>
+          <a href="tel:+923018281091">+92 301 8281091</a>
+          <a href="mailto:info@targetlogistics.com.pk">info@targetlogistics.com.pk</a>
+        </div>
+      </div>
+      <div class="stn">
+        <h3>Lahore</h3>
+        <p class="role">Office</p>
+        <address>Gulberg III, Lahore</address>
+      </div>
+      <div class="stn">
+        <h3>Islamabad</h3>
+        <p class="role">Office</p>
+        <address>I-10/3, Islamabad</address>
+      </div>
+    </div>
+    <p class="net-note">Sample content: full street addresses and direct numbers for the Lahore and Islamabad offices to be supplied by Target Logistics. Until then, contact the Karachi head office.</p>
+  </div>
+</section>
+<section class="sec" id="recognition" aria-labelledby="rec-title">
+  <div class="wrap award">
+    <div>
+      <h2 id="rec-title">Recognition</h2>
+      <p class="side">Quoted word for word from the news section of the company's current website.</p>
+    </div>
+    <figure>
+      <blockquote cite="https://targetlogistics.com.pk/">
+        <p>TARGET LOGISTICS (Pakistan) receives DHL Top Customer Award 2019</p>
+      </blockquote>
+      <figcaption>News item, <a href="https://targetlogistics.com.pk/" target="_blank" rel="noopener">targetlogistics.com.pk</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec contact on-navy" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div>
+      <h2 id="contact-title">Talk to the head office.</h2>
+      <address>Target Logistics International (Pvt) Ltd.<br>Plot No. 244, Sector 6-A, Mehran Town,<br>Behind Alamgir Institute, Korangi, Karachi</address>
+      <div class="cta-row">
+        <a class="btn btn-red" href="#quote" data-focus-quote>Request a quote</a>
+        <a class="btn btn-line" href="tel:+922138291000">Call +92 21 38291000</a>
+      </div>
+    </div>
+    <ul class="lines-big">
+      <li><span>Telephone</span><a href="tel:+922138291000">+92 21 38291000-03</a></li>
+      <li><span>Mobile</span><a href="tel:+923018281091">+92 301 8281091</a></li>
+      <li><span>Email</span><a href="mailto:info@targetlogistics.com.pk">info@targetlogistics.com.pk</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div>
+      <span class="brand-name"><b>Target</b> <span>Logistics</span></span>
+      <p style="margin-top:10px">Target Logistics International (Pvt) Ltd. Air, ocean and overland freight forwarding, supply chain management, moving and relocations, special logistics. <a href="https://www.facebook.com/TargetGroup" target="_blank" rel="noopener">Facebook</a></p>
+    </div>
+    <p>Website concept, not the official website. Proposed design and wordmark; photos are stock and do not show the company's own operations; details from targetlogistics.com.pk. Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a>.</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var waves = 'M0,196 q12.5,-8 25,0' + new Array(40).join(' t25,0');
+  var ticks = ''; for (var x = 0; x <= 1000; x += 40) ticks += 'M' + x + ',184V196';
+  var MODES = {
+    air:   {from:'KHI',  fromPlace:'Karachi', to:'LHR',   toPlace:'London Heathrow', d:'M4,196 C260,-30 740,-30 996,196', deco:'', ground:1, units:['kg','CBM'], ph:'City or airport', label:'Air freight'},
+    ocean: {from:'PKKHI',fromPlace:'Karachi', to:'NLRTM', toPlace:'Rotterdam',       d:'M4,196 C300,118 700,118 996,196', deco:waves, ground:0, units:['× 20ft', '× 40ft', 'CBM (LCL)'], ph:'City or port', label:'Sea freight'},
+    land:  {from:'PKKHI',fromPlace:'Karachi', to:'PKLHE', toPlace:'Lahore',          d:'M4,196 L996,196', deco:ticks, ground:0, units:['kg','truckloads'], ph:'City', label:'Road freight'}
+  };
+  var mode = 'air', serviceNote = '';
+  var tabs = [].slice.call(document.querySelectorAll('.mode'));
+  var path = $('arc-path'), deco = $('arc-ticks'), ground = document.querySelector('.arc .ground');
+  var fFrom = $('f-from'), fTo = $('f-to'), unit = $('f-unit'), cargo = $('f-cargo'), msg = $('console-msg');
+
+  function draw(){
+    path.classList.remove('draw'); void path.getBoundingClientRect(); path.classList.add('draw');
+  }
+  function setEnd(codeEl, placeEl, typed, code, place, typedPlace){
+    if (typed){ codeEl.textContent = typed; codeEl.classList.add('typed'); placeEl.textContent = typedPlace; }
+    else { codeEl.textContent = code; codeEl.classList.remove('typed'); placeEl.textContent = place; }
+    codeEl.classList.toggle('long', !typed && code.length > 3);
+  }
+  function refreshEnds(){
+    var m = MODES[mode], from = fFrom.value.trim(), to = fTo.value.trim();
+    setEnd($('code-from'), $('place-from'), /^karachi$/i.test(from) || !from ? '' : from, m.from, m.fromPlace, 'Origin');
+    setEnd($('code-to'), $('place-to'), to, m.to, m.toPlace + ' (example)', 'Destination');
+    $('route-note').textContent = to ? m.label + ', ' + (from || 'Karachi') + ' to ' + to + '.' : 'Example route, for illustration. Enter your own below.';
+  }
+  function setMode(next, focus){
+    mode = next; var m = MODES[mode];
+    tabs.forEach(function(t){
+      var on = t.dataset.mode === mode;
+      t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+      if (on){ $('route-panel').setAttribute('aria-labelledby', t.id); if (focus) t.focus(); }
+    });
+    path.setAttribute('d', m.d); deco.setAttribute('d', m.deco); ground.style.opacity = m.ground;
+    unit.innerHTML = m.units.map(function(u){ return '<option>' + u + '</option>'; }).join('');
+    fTo.placeholder = m.ph;
+    refreshEnds(); draw();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ if (t.dataset.mode !== mode) setMode(t.dataset.mode); });
+    t.addEventListener('keydown', function(e){
+      var j = {ArrowRight:i+1, ArrowLeft:i-1, Home:0, End:tabs.length-1}[e.key];
+      if (j === undefined) return;
+      e.preventDefault(); j = (j + tabs.length) % tabs.length; setMode(tabs[j].dataset.mode, true);
+    });
+  });
+  fFrom.addEventListener('input', refreshEnds);
+  fTo.addEventListener('input', refreshEnds);
+
+  function goToForm(){
+    $('route-panel').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+    setTimeout(function(){ fTo.focus({preventScroll:true}); }, 450);
+  }
+  [].forEach.call(document.querySelectorAll('[data-mode].pick, .pick[data-cargo], .pick-btn'), function(b){
+    b.addEventListener('click', function(){
+      if (b.dataset.mode && b.dataset.mode !== mode) setMode(b.dataset.mode);
+      if (b.dataset.cargo) cargo.value = b.dataset.cargo;
+      serviceNote = b.dataset.note || (b.dataset.cargo ? b.textContent.trim() : '');
+      goToForm();
+    });
+  });
+  var qLink = document.querySelector('[data-focus-quote]');
+  qLink.addEventListener('click', function(e){ e.preventDefault(); goToForm(); });
+
+  $('quote').addEventListener('submit', function(e){
+    e.preventDefault();
+    var to = fTo.value.trim(), from = fFrom.value.trim() || 'Karachi';
+    if (!to){ msg.style.color = ''; msg.textContent = 'Add a destination so the route can be priced.'; fTo.focus(); return; }
+    var q = $('f-qty').value.trim();
+    var lines = [
+      'Mode: ' + MODES[mode].label,
+      serviceNote ? 'Service: ' + serviceNote : '',
+      'From: ' + from, 'To: ' + to,
+      'Cargo type: ' + cargo.value,
+      'Weight or volume: ' + (q ? q + ' ' + unit.value : 'to be confirmed'),
+      'Cargo ready by: ' + ($('f-date').value || 'to be confirmed'), '',
+      'Name: ' + $('f-name').value.trim(), 'Company: ' + $('f-co').value.trim(), 'Phone: ' + $('f-tel').value.trim()
+    ].filter(function(l, i){ return l !== '' || i === 7; });
+    var subject = 'Quote request: ' + MODES[mode].label + ', ' + from + ' to ' + to;
+    window.location.href = 'mailto:info@targetlogistics.com.pk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    msg.style.color = 'var(--navy)';
+    msg.textContent = 'Your email app should open with the request. If it does not, write to info@targetlogistics.com.pk.';
+  });
+
+  var head = document.querySelector('.site-head'), menu = document.querySelector('.menu-btn');
+  menu.addEventListener('click', function(){
+    var open = head.classList.toggle('open'); menu.setAttribute('aria-expanded', open);
+  });
+  [].forEach.call(document.querySelectorAll('.nav a'), function(a){
+    a.addEventListener('click', function(){ head.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); });
+  });
+
+  setMode('air');
+})();
+</script>
+</body>
+</html>

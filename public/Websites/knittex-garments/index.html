@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knittex Garments | CMT garment production, Korangi Industrial Area, Karachi (concept)</title>
+<meta name="description" content="Website concept for Knittex Garments, a cut-make-trim garment unit with two factories in Korangi Industrial Area, Karachi. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --heather:#DADCE0;
+  --heather-2:#ECEDEF;
+  --charcoal:#2B2E33;
+  --muted:#4E525A;
+  --indigo:#2E3F8F;
+  --indigo-deep:#24327A;
+  --red:#B3263E;
+  --white:#FFFFFF;
+  --rule:#B6B9BF;
+  --wrap:1320px;
+  --gut:clamp(16px,4vw,56px);
+  /* knit stitch tiles: stockinette V-loops */
+  --knit-heather:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='20' viewBox='0 0 22 20'%3E%3Cpath d='M1.5 .5C2 8 6.5 14 11 19.5 11 12 7.5 4 1.5.5Z' fill='%23E6E7EA' stroke='%23C4C7CC' stroke-width='.8'/%3E%3Cpath d='M20.5 .5C20 8 15.5 14 11 19.5 11 12 14.5 4 20.5.5Z' fill='%23D0D3D7' stroke='%23C4C7CC' stroke-width='.8'/%3E%3C/svg%3E");
+  --fleck:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='53' height='41'%3E%3Cg fill='%232B2E33' fill-opacity='.16'%3E%3Ccircle cx='7' cy='9' r='.8'/%3E%3Ccircle cx='31' cy='4' r='.6'/%3E%3Ccircle cx='44' cy='27' r='.9'/%3E%3Ccircle cx='18' cy='33' r='.6'/%3E%3C/g%3E%3Cg fill='%232E3F8F' fill-opacity='.22'%3E%3Ccircle cx='24' cy='19' r='.7'/%3E%3Ccircle cx='49' cy='8' r='.5'/%3E%3C/g%3E%3C/svg%3E");
+  --knit-indigo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='14' viewBox='0 0 22 20'%3E%3Crect width='22' height='20' fill='%2324327A'/%3E%3Cpath d='M1.5 .5C2 8 6.5 14 11 19.5 11 12 7.5 4 1.5.5Z' fill='%233C51A8' stroke='%231C2867' stroke-width='1'/%3E%3Cpath d='M20.5 .5C20 8 15.5 14 11 19.5 11 12 14.5 4 20.5.5Z' fill='%232E3F8F' stroke='%231C2867' stroke-width='1'/%3E%3C/svg%3E");
+  --knit-band:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='20' viewBox='0 0 22 20'%3E%3Cpath d='M1.5 .5C2 8 6.5 14 11 19.5 11 12 7.5 4 1.5.5Z' fill='%23324493' stroke='%23293987' stroke-width='.8'/%3E%3Cpath d='M20.5 .5C20 8 15.5 14 11 19.5 11 12 14.5 4 20.5.5Z' fill='%232C3D8B' stroke='%23293987' stroke-width='.8'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--heather-2);color:var(--charcoal);font-family:"Archivo",system-ui,sans-serif;font-stretch:100%;font-size:17px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.on-dark :focus-visible{outline-color:var(--white)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--charcoal);color:#fff;padding:10px 14px;z-index:100}
+.skip:focus{top:12px}
+
+/* ---------- concept notice ---------- */
+.notice{background:var(--charcoal);color:#D9DBDF;font-size:13px;line-height:1.45}
+.notice .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:8px;padding-bottom:8px}
+.notice a{color:#fff;text-underline-offset:3px}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:0;z-index:20;background:rgba(236,237,239,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.site-head .wrap{display:flex;align-items:center;gap:32px;height:68px}
+.mark{font-stretch:125%;font-weight:900;font-size:22px;letter-spacing:.01em;text-decoration:none;color:var(--charcoal);line-height:1}
+.mark small{display:block;font-stretch:75%;font-weight:600;font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-top:3px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:15.5px}
+.nav a:hover{color:var(--indigo);text-decoration:underline;text-underline-offset:5px}
+.nav .btn{font-size:15px}
+.menu-btn{display:none;margin-left:auto;background:none;border:2px solid var(--charcoal);color:var(--charcoal);font:inherit;font-weight:600;font-size:15px;padding:7px 14px;cursor:pointer}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-weight:650;font-size:16px;line-height:1.2;text-decoration:none;border:2px solid var(--indigo);background:var(--indigo);color:#fff;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
+.btn:hover{background:var(--indigo-deep);border-color:var(--indigo-deep)}
+.btn.ghost{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
+.btn.ghost:hover{background:var(--charcoal);color:#fff}
+.btn svg{flex:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background-color:var(--heather);background-image:var(--fleck),var(--knit-heather);border-bottom:1px solid var(--rule);overflow:hidden}
+.hero .wrap{padding-top:clamp(40px,6vw,84px);padding-bottom:clamp(48px,6vw,88px)}
+.wordmark{margin:0;line-height:.86}
+.wordmark .wm{display:block;font-stretch:125%;font-weight:900;font-size:clamp(60px,14.4vw,212px);letter-spacing:-.012em;margin-left:-.04em;color:var(--indigo);filter:drop-shadow(0 4px 0 rgba(28,40,103,.35))}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .wordmark .wm{color:transparent;background:var(--knit-indigo) 0 0/15px 14px,var(--indigo);-webkit-background-clip:text;background-clip:text}
+}
+.wordmark .wm span{display:inline}
+.wordmark .sub{display:block;font-stretch:125%;font-weight:300;font-size:clamp(26px,4.4vw,64px);letter-spacing:.005em;color:var(--charcoal);margin-top:clamp(22px,2.6vw,38px);line-height:1}
+
+.seam{display:block;position:relative;height:30px;margin-top:clamp(14px,1.6vw,24px);margin-right:clamp(40px,6vw,90px)}
+.seam .thread{position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;background:repeating-linear-gradient(90deg,var(--red) 0 20px,transparent 20px 31px);animation:sew 1.6s cubic-bezier(.45,.05,.3,1) .25s both}
+.seam .needle{position:absolute;right:-64px;top:50%;width:70px;height:16px;margin-top:-8px;animation:needle 1.6s cubic-bezier(.45,.05,.3,1) .25s both}
+@keyframes sew{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes needle{from{transform:translateX(calc(-1 * (100vw - 220px)));opacity:.0}10%{opacity:1}to{transform:none;opacity:1}}
+
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:start;margin-top:clamp(28px,3vw,44px)}
+.hero-foot .tag-wrap{margin-top:-150px}
+.lede{max-width:34em;font-size:clamp(17px,1.35vw,20px);line-height:1.55}
+.lede strong{font-weight:650}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* hang-tag */
+.tag-wrap{position:relative;filter:drop-shadow(0 14px 18px rgba(43,46,51,.20));transform:rotate(3.5deg);transform-origin:50% 0;margin-right:clamp(0px,2vw,24px)}
+.tag-wrap .string{position:absolute;left:50%;top:-58px;width:60px;height:80px;margin-left:-6px;overflow:visible}
+.tag{position:relative;width:300px;background:var(--white);padding:52px 26px 22px;clip-path:polygon(30px 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%,0 30px);font-size:14.5px;line-height:1.45}
+.tag::before{content:"";position:absolute;left:50%;top:16px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--heather);box-shadow:0 0 0 4px var(--red),inset 0 2px 3px rgba(0,0,0,.25)}
+.tag-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;border-bottom:2px dashed var(--rule)}
+.tag-top b{font-stretch:125%;font-weight:800;font-size:15px;line-height:1.15}
+.size{flex:none;border:2px solid var(--charcoal);padding:4px 7px 3px;font-stretch:75%;font-weight:800;font-size:17px;letter-spacing:.04em;line-height:1}
+.tag dl{margin:14px 0 0;display:grid;gap:12px}
+.tag dt{font-stretch:75%;font-weight:700;font-size:14px;color:var(--red)}
+.tag dd{margin:2px 0 0}
+.tag a{text-decoration:none;font-weight:600;color:var(--indigo)}
+.tag a:hover{text-decoration:underline}
+
+/* ---------- section heads ---------- */
+.sec{padding:clamp(64px,8vw,120px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 56px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.h2{font-stretch:118%;font-weight:800;font-size:clamp(32px,3.9vw,56px);line-height:1.02;letter-spacing:-.01em;max-width:15em}
+.sec-head p{color:var(--muted);max-width:34em}
+
+/* ---------- production line ---------- */
+.line{list-style:none;margin:0;padding:0;position:relative;display:grid;grid-template-columns:1.15fr repeat(5,1fr) 1.15fr;border-top:2px solid var(--charcoal);border-bottom:2px solid var(--charcoal)}
+.line::before{content:"";position:absolute;left:0;right:0;top:86px;height:3px;background:repeating-linear-gradient(90deg,var(--red) 0 14px,transparent 14px 23px);z-index:0}
+.stage{position:relative;padding:28px 20px 34px;border-left:1px solid var(--rule);z-index:1}
+.stage:first-child{border-left:0}
+.stage .ico{width:58px;height:58px;display:grid;place-items:center;background:var(--heather-2);margin:16px 0 22px}
+.stage .ico svg{width:40px;height:40px}
+.stage .n{font-stretch:125%;font-weight:800;font-size:15px;color:var(--indigo);line-height:1;display:block;height:16px}
+.stage h3{font-stretch:112%;font-weight:750;font-size:21px;line-height:1.15;margin-bottom:8px}
+.stage p{font-size:15px;line-height:1.55;color:var(--muted)}
+.stage.end{background:var(--white)}
+.stage.end .ico{background:var(--white)}
+.stage.end h3{font-size:19px}
+.stage.end ul{margin:0;padding:0;list-style:none;font-size:15px;line-height:1.5}
+.stage.end li{padding:6px 0;border-top:1px dashed var(--rule)}
+.stage.end li:first-child{border-top:0}
+.line-note{margin-top:16px;font-size:14px;color:var(--muted)}
+.swipe{display:none}
+
+/* ---------- photo band ---------- */
+.floor{background:var(--charcoal);color:#E4E5E8;padding:clamp(48px,6vw,88px) 0}
+.floor-grid{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:auto auto;gap:14px}
+.ph{position:relative;margin:0;overflow:hidden;background:var(--indigo)}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(1.04)}
+.ph::after{content:"";position:absolute;inset:0;background:var(--indigo);mix-blend-mode:screen;opacity:.62;pointer-events:none}
+.ph.big{grid-row:1/3;aspect-ratio:4/3.1}
+.ph.sm{aspect-ratio:16/9}
+.ph figcaption{position:absolute;left:0;bottom:0;z-index:2;background:var(--charcoal);color:#fff;font-size:14px;font-weight:600;padding:7px 12px}
+.floor-note{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:18px;font-size:14px;color:#C4C7CD}
+.floor-note p:first-child{font-stretch:118%;font-weight:700;font-size:clamp(19px,1.7vw,24px);color:#fff;max-width:28em;line-height:1.25}
+
+/* ---------- spec sheet ---------- */
+.sheet{background:var(--white);border:2px solid var(--charcoal)}
+.sheet-title{display:grid;grid-template-columns:2fr 1.4fr 1fr;background:var(--indigo);color:#fff}
+.sheet-title > div{padding:14px 20px;border-left:1px solid rgba(255,255,255,.28)}
+.sheet-title > div:first-child{border-left:0}
+.sheet-title .k{display:block;font-stretch:75%;font-weight:600;font-size:13.5px;color:#C9D0EE;line-height:1.2}
+.sheet-title .v{font-stretch:118%;font-weight:750;font-size:19px;line-height:1.25}
+.sheet-body{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);border-top:2px solid var(--charcoal)}
+.rows{margin:0}
+.row{display:grid;grid-template-columns:190px minmax(0,1fr);border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:0}
+.row dt,.row dd{margin:0;padding:14px 20px}
+.row dt{font-stretch:75%;font-weight:650;font-size:16px;color:var(--muted);background:var(--heather-2);border-right:1px solid var(--rule)}
+.row dd{font-size:16.5px;line-height:1.5}
+.row dd a{color:var(--indigo);font-weight:600;text-decoration:none}
+.row dd a:hover{text-decoration:underline}
+.row .src{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+.flat{border-left:2px solid var(--charcoal);padding:20px;display:flex;flex-direction:column;background:
+  linear-gradient(var(--heather-2) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,var(--heather-2) 1px,transparent 1px) 0 0/24px 24px,#fff}
+.flat svg{width:100%;height:auto;flex:1;max-height:380px}
+.flat p{font-size:13.5px;color:var(--muted);margin-top:10px}
+.open{border-top:2px solid var(--charcoal);padding:20px}
+.open h3{font-stretch:112%;font-weight:750;font-size:19px;margin-bottom:4px}
+.open > p{font-size:15px;color:var(--muted);margin-bottom:16px;max-width:52em}
+.open-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.slot{border:1.5px dashed var(--rule);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:58px}
+.slot b{font-stretch:88%;font-weight:650;font-size:15.5px}
+.slot i{font-style:normal;flex:none;font-stretch:75%;font-weight:700;font-size:13px;color:#fff;background:var(--red);padding:3px 8px 3px 14px;clip-path:polygon(8px 0,100% 0,100% 100%,8px 100%,0 50%)}
+.sources{border-top:1px solid var(--rule);padding:12px 20px;font-size:13.5px;color:var(--muted);background:var(--heather-2)}
+.sources a{color:var(--indigo)}
+
+/* ---------- enquiry ---------- */
+.enquire{background-color:var(--indigo);background-image:var(--knit-band);color:#fff}
+.enq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start}
+.enquire .h2{color:#fff}
+.enq-intro{margin-top:18px;color:#DCE1F5;max-width:30em}
+.units{margin-top:36px;display:grid;gap:14px}
+.unit{background:rgba(20,28,74,.55);border-left:4px solid var(--red);padding:16px 18px}
+.unit h3{font-stretch:112%;font-weight:750;font-size:18px;margin-bottom:4px}
+.unit p{font-size:15.5px;color:#DCE1F5}
+.unit a{color:#fff;font-weight:650;text-underline-offset:3px}
+.unit .links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:15.5px}
+.form-card{background:var(--white);color:var(--charcoal);padding:clamp(22px,3vw,36px)}
+.form-card .demo{font-size:13.5px;color:var(--muted);border:1px dashed var(--rule);padding:8px 12px;margin-bottom:22px}
+.form-card .demo b{color:var(--red)}
+fieldset{border:0;margin:0 0 18px;padding:0}
+legend{font-stretch:75%;font-weight:700;font-size:15px;color:var(--muted);margin-bottom:8px;padding:0}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;display:block;border:2px solid var(--rule);padding:12px 14px 12px 42px;cursor:pointer;font-weight:600;line-height:1.3}
+.choice label small{display:block;font-weight:400;font-size:13.5px;color:var(--muted);margin-top:2px}
+.choice input{position:absolute;left:14px;top:15px;width:18px;height:18px;margin:0;accent-color:var(--indigo)}
+.choice label:has(input:checked){border-color:var(--indigo);background:#F1F3FA}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+.f label{font-stretch:75%;font-weight:700;font-size:15px;color:var(--muted)}
+.f input,.f textarea{font:inherit;font-size:16px;color:var(--charcoal);background:var(--heather-2);border:0;border-bottom:2px solid var(--charcoal);padding:11px 12px;border-radius:0;width:100%}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus-visible,.f textarea:focus-visible{outline:3px solid var(--indigo);outline-offset:0;background:#fff}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:22px}
+.form-foot p{font-size:14px;color:var(--muted)}
+.result{margin-top:22px;border:2px solid var(--indigo);background:#F1F3FA;padding:18px}
+.result h3{font-stretch:112%;font-weight:750;font-size:18px;color:var(--indigo)}
+.result p{font-size:14.5px;margin-top:4px}
+.result pre{white-space:pre-wrap;font-family:inherit;font-size:14.5px;background:#fff;border:1px solid var(--rule);padding:12px;margin:12px 0;max-height:240px;overflow:auto}
+.result .btn{padding:10px 16px;font-size:15px}
+.err{color:var(--red);font-size:14px;font-weight:600}
+
+/* ---------- footer ---------- */
+.foot{background:var(--charcoal);color:#D2D4D8;position:relative;padding:64px 0 28px;font-size:15px}
+.foot::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:repeating-linear-gradient(90deg,#3A3E45 0 5px,#2B2E33 5px 9px,#33373D 9px 10px)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot .mark{color:#fff;font-size:30px}
+.foot .mark small{color:#AEB2B9;font-size:13px}
+.foot h3{font-stretch:75%;font-weight:700;font-size:15px;color:#AEB2B9;margin-bottom:6px}
+.foot a{color:#fff;text-underline-offset:3px}
+.foot-note{margin-top:44px;padding-top:18px;border-top:1px solid #454951;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13.5px;color:#AEB2B9}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .line{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(240px,31%);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .line::before{width:calc(240px * 7);right:auto;min-width:100%}
+  .stage{scroll-snap-align:start}
+  .swipe{display:block;margin-top:12px;font-size:14px;color:var(--muted)}
+}
+@media (max-width:1024px){
+  .sec-head{grid-template-columns:1fr}
+  .sheet-body{grid-template-columns:1fr}
+  .flat{border-left:0;border-top:2px solid var(--charcoal)}
+  .flat svg{max-height:300px}
+  .open-grid{grid-template-columns:1fr 1fr}
+  .enq-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > div:first-child{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .hero-foot{grid-template-columns:1fr;gap:72px}
+  .hero-foot .tag-wrap{justify-self:start;margin-left:8px;margin-top:0}
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--heather-2);border-bottom:2px solid var(--charcoal);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 18px}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;border-bottom:1px solid var(--rule);font-size:17px}
+  .nav .btn{margin-top:14px;justify-content:center;border-bottom:2px solid var(--indigo)}
+  .floor-grid{grid-template-columns:1fr}
+  .ph.big{grid-row:auto;aspect-ratio:4/3}
+  .sheet-title{grid-template-columns:1fr 1fr}
+  .sheet-title > div:first-child{grid-column:1/-1}
+  .sheet-title > div:nth-child(2){border-left:0}
+  .sheet-title > div{border-top:1px solid rgba(255,255,255,.28)}
+  .sheet-title > div:first-child{border-top:0}
+}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  .site-head .wrap{height:62px}
+  .wordmark .wm{font-size:clamp(60px,25.5vw,140px);line-height:.88}
+  .wordmark .wm span{display:block}
+  .wordmark .sub{font-size:clamp(24px,8.4vw,40px)}
+  .seam{margin-right:56px}
+  .seam .needle{right:-52px;width:56px}
+  .tag{width:min(300px,calc(100vw - 64px))}
+  .line{grid-auto-columns:80%}
+  .line::before{width:calc(80vw * 6)}
+  .row{grid-template-columns:1fr}
+  .row dt{border-right:0;padding-bottom:6px;padding-top:12px}
+  .row dd{padding-top:6px}
+  .open-grid{grid-template-columns:1fr}
+  .choice,.fields{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .notice{font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .seam .thread,.seam .needle{animation:none}
+  *{transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <p>Website concept for Knittex Garments, not the official website. Proposed design and identity; stock imagery; details from public listings.</p>
+    <p>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></p>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Knittex Garments, back to top">KNITTEX<small>Garments, Karachi</small></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#process">How CMT works</a>
+      <a href="#spec">Spec sheet</a>
+      <a href="#enquire">Units &amp; contact</a>
+      <a class="btn" href="#enquire">Send a tech pack</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap">
+    <h1 class="wordmark" id="hero-title">
+      <span class="wm" aria-hidden="true"><span>KNIT</span><span>TEX</span></span>
+      <span class="sr">Knittex Garments</span>
+      <span class="seam" aria-hidden="true">
+        <span class="thread"></span>
+        <svg class="needle" viewBox="0 0 70 16"><path d="M2 8 Q12 2 22 8" fill="none" stroke="#B3263E" stroke-width="2"/><path d="M20 8 L66 6.4 Q69 8 66 9.6 Z" fill="#2B2E33"/><ellipse cx="28" cy="8" rx="4.5" ry="1.2" fill="#DADCE0"/></svg>
+      </span>
+      <span class="sub" aria-hidden="true">Garments</span>
+    </h1>
+
+    <div class="hero-foot">
+      <div>
+        <p class="lede"><strong>A cut-make-trim (CMT) garment unit with two factories in Korangi Industrial Area, Karachi.</strong> Send the tech pack, fabric and trims; the styles are cut, sewn, finished, checked and packed to your instructions.</p>
+        <div class="cta-row">
+          <a class="btn" href="#enquire">Send a tech pack</a>
+          <a class="btn ghost" href="tel:+923338283645">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+            Call Unit 1
+          </a>
+        </div>
+      </div>
+
+      <div class="tag-wrap">
+        <svg class="string" viewBox="0 0 60 80" aria-hidden="true"><path d="M6 76 C 4 50, 30 30, 22 0" fill="none" stroke="#2B2E33" stroke-width="1.6"/></svg>
+        <div class="tag">
+          <div class="tag-top"><b>Knittex<br>Garments</b><span class="size" title="Service type">CMT</span></div>
+          <dl>
+            <div><dt>Unit 1</dt><dd>Plot No. 103, Sector 15<br>Korangi Industrial Area, Karachi<br><a href="tel:+923338283645">+92 333 8283645</a></dd></div>
+            <div><dt>Unit 2</dt><dd>Plot No's 126 &amp; 127, Sector 23<br>Korangi Industrial Area, Karachi<br><a href="tel:+922135121540">+92 21 351 21540</a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTION LINE ============ -->
+<section class="sec" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="process-title">From tech pack to packed carton</h2>
+      <p>In a CMT order the buyer owns the design and the materials. The factory's job is the making. This is how a style travels along the line.</p>
+    </div>
+
+    <ol class="line" aria-label="Production sequence">
+      <li class="stage end">
+        <span class="n" aria-hidden="true"></span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><path d="M9 5h16l6 6v24H9z"/><path d="M25 5v6h6"/><path d="M14 18h12M14 23h12M14 28h7"/></svg></div>
+        <h3>You send</h3>
+        <ul><li>Approved tech pack and measurements</li><li>Fabric</li><li>Trims and labels</li><li>Packing instructions</li></ul>
+      </li>
+      <li class="stage">
+        <span class="n">1</span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="29" r="5"/><circle cx="29" cy="29" r="5"/><path d="M14.5 25.5 31 6M25.5 25.5 9 6"/></svg></div>
+        <h3>Cutting</h3>
+        <p>Fabric is spread, marked and cut to the approved pattern, then bundled by size.</p>
+      </li>
+      <li class="stage">
+        <span class="n">2</span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><path d="M8 32 32 8"/><ellipse cx="29.5" cy="10.5" rx="1.2" ry="3" transform="rotate(45 29.5 10.5)"/><path d="M4 26h4M11 26h4M18 26h4M25 26h4M32 26h4" stroke="#B3263E" stroke-width="2"/></svg></div>
+        <h3>Stitching</h3>
+        <p>Bundles move along the sewing lines and are assembled to the construction notes in your tech pack.</p>
+      </li>
+      <li class="stage">
+        <span class="n">3</span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><path d="M5 28h28c0-8-5-13-13-13h-6"/><path d="M14 15V11h14"/><path d="M5 28v3h28v-3"/><path d="M12 22h2M18 22h2M24 22h2"/></svg></div>
+        <h3>Finishing</h3>
+        <p>Loose threads are trimmed, garments pressed, and labels and trims attached.</p>
+      </li>
+      <li class="stage">
+        <span class="n">4</span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><rect x="4" y="15" width="32" height="10"/><path d="M9 15v4M14 15v6M19 15v4M24 15v6M29 15v4"/></svg></div>
+        <h3>Checking</h3>
+        <p>Pieces are measured and inspected against your spec sheet and the approved sample.</p>
+      </li>
+      <li class="stage">
+        <span class="n">5</span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><path d="M5 13 20 6l15 7v16l-15 7-15-7z"/><path d="M5 13l15 7 15-7M20 20v16"/><path d="M12.5 9.5l15 7"/></svg></div>
+        <h3>Packing</h3>
+        <p>Folded, tagged and packed by size ratio and carton instruction.</p>
+      </li>
+      <li class="stage end">
+        <span class="n" aria-hidden="true"></span>
+        <div class="ico"><svg viewBox="0 0 40 40" fill="none" stroke="#2B2E33" stroke-width="1.6" aria-hidden="true"><path d="M20 8a3 3 0 1 1 3 3c-1.5 0-3 1-3 2.5"/><path d="M20 13.5 5 26v4h30v-4z"/></svg></div>
+        <h3>You receive</h3>
+        <ul><li>Finished garments</li><li>Checked against your spec</li><li>Packed to your instructions</li></ul>
+      </li>
+    </ol>
+    <p class="swipe" aria-hidden="true">Swipe along the line to follow a style.</p>
+    <p class="line-note">A general CMT sequence, shown for illustration. Responsibilities and checkpoints are agreed order by order.</p>
+  </div>
+</section>
+
+<!-- ============ PHOTO BAND ============ -->
+<section class="floor on-dark" aria-label="Garment production imagery">
+  <div class="wrap">
+    <div class="floor-grid">
+      <figure class="ph big">
+        <img src="https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?w=1100&q=70&auto=format&fit=crop" alt="Hands smoothing a cut fabric panel on a wooden cutting table" width="1100" height="852" loading="lazy">
+        <figcaption>At the cutting table</figcaption>
+      </figure>
+      <figure class="ph sm">
+        <img src="https://images.unsplash.com/photo-1529720317453-c8da503f2051?w=800&q=70&auto=format&fit=crop" alt="A row of dark garments hanging on a rail" width="800" height="450" loading="lazy">
+        <figcaption>Garments on the rail</figcaption>
+      </figure>
+      <figure class="ph sm">
+        <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=800&q=70&auto=format&fit=crop" alt="Stacks of folded denim garments" width="800" height="450" loading="lazy">
+        <figcaption>Folded and stacked</figcaption>
+      </figure>
+    </div>
+    <div class="floor-note">
+      <p>Made to your pattern, your fabric and your spec. Nothing gets designed here; everything gets made.</p>
+      <p>Stock photography for illustration, not Knittex's own premises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEC SHEET ============ -->
+<section class="sec" id="spec" aria-labelledby="spec-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="spec-title">The factory on one sheet</h2>
+      <p>Everything a sourcing team checks first, laid out like a tech pack. Facts come from public disclosures; fields Knittex has not published are left open for them to fill.</p>
+    </div>
+
+    <article class="sheet" aria-label="Factory spec sheet">
+      <div class="sheet-title">
+        <div><span class="k">Document</span><span class="v">Factory spec sheet</span></div>
+        <div><span class="k">Supplier</span><span class="v">Knittex Garments</span></div>
+        <div><span class="k">Revision</span><span class="v">Concept, Nov 2026</span></div>
+      </div>
+      <div class="sheet-body">
+        <dl class="rows">
+          <div class="row"><dt>Service type</dt><dd>CMT only (cut, make, trim)<span class="src">Accord factory disclosure, 31 Jul 2026</span></dd></div>
+          <div class="row"><dt>Unit 1</dt><dd>Plot No. 103, Sector 15, Korangi Industrial Area, Karachi</dd></div>
+          <div class="row"><dt>Unit 1 phone</dt><dd><a href="tel:+923338283645">+92 333 8283645</a> / <a href="tel:+922135121540">+92 21 3512 1540</a></dd></div>
+          <div class="row"><dt>Unit 1 workforce</dt><dd>200 workers<span class="src">As disclosed in the Accord list, 31 Jul 2026</span></dd></div>
+          <div class="row"><dt>Unit 2</dt><dd>Plot No's 126 &amp; 127, Sector 23, Korangi Industrial Area, Karachi</dd></div>
+          <div class="row"><dt>Unit 2 phone</dt><dd><a href="tel:+922135121540">+92 21 351 21540</a></dd></div>
+          <div class="row"><dt>Export record</dt><dd>Shipments to the US appear in public import records; most recent listed 30 Aug 2025<span class="src">Panjiva trade data</span></dd></div>
+        </dl>
+        <div class="flat">
+          <svg viewBox="0 0 300 300" aria-labelledby="flat-t" role="img">
+            <title id="flat-t">Illustrative flat sketch of a crew-neck top with measurement points</title>
+            <path d="M112 40 Q150 62 188 40 L236 60 L272 118 L238 136 L218 106 L218 262 L82 262 L82 106 L62 136 L28 118 L64 60 Z" fill="#fff" stroke="#2B2E33" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M118 43 Q150 72 182 43" fill="none" stroke="#2B2E33" stroke-width="1.4"/>
+            <path d="M84 250 H216" fill="none" stroke="#2B2E33" stroke-width="1" stroke-dasharray="4 3"/>
+            <path d="M223 100 L247 128" fill="none" stroke="#2B2E33" stroke-width="1" stroke-dasharray="4 3"/>
+            <g stroke="#2E3F8F" stroke-width="1.5" fill="#2E3F8F" font-family="Archivo, sans-serif" font-size="13" font-weight="700">
+              <path d="M82 150 H218" /><path d="M82 145v10M218 145v10"/>
+              <path d="M150 52 V262" stroke-dasharray="2 4"/>
+              <path d="M240 46 V262" /><path d="M235 46h10M235 262h10"/>
+              <path d="M66 62 L34 116" />
+              <g stroke="none"><circle cx="102" cy="150" r="10"/><circle cx="240" cy="150" r="10"/><circle cx="44" cy="84" r="10"/></g>
+              <g stroke="none" fill="#fff" text-anchor="middle"><text x="102" y="154.5">A</text><text x="240" y="154.5">B</text><text x="44" y="88.5">C</text></g>
+            </g>
+          </svg>
+          <p>Illustrative flat sketch: A chest width, B body length, C sleeve length. A buyer's tech pack carries the real points of measure.</p>
+        </div>
+      </div>
+      <div class="open">
+        <h3>Open fields</h3>
+        <p>Not found in any public source. On the live site Knittex would complete these.</p>
+        <div class="open-grid">
+          <div class="slot"><b>Product categories</b><i>To be supplied by Knittex</i></div>
+          <div class="slot"><b>Monthly capacity</b><i>To be supplied by Knittex</i></div>
+          <div class="slot"><b>Unit 2 workforce</b><i>To be supplied by Knittex</i></div>
+          <div class="slot"><b>Machine list</b><i>To be supplied by Knittex</i></div>
+          <div class="slot"><b>Minimum per style</b><i>To be supplied by Knittex</i></div>
+          <div class="slot"><b>Audits and certifications</b><i>To be supplied by Knittex</i></div>
+        </div>
+      </div>
+      <div class="sources">Sources: <a href="https://internationalaccord.org/wp-content/uploads/2026/08/Factory-Disclosure-Report-Pakistan-July-2026.pdf" target="_blank" rel="noopener">International Accord, Factory Disclosure Report Pakistan, July 2026</a>; <a href="https://panjiva.com/Knittex-Garments/69272165" target="_blank" rel="noopener">Panjiva supplier profile</a>.</div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ENQUIRY ============ -->
+<section class="sec enquire on-dark" id="enquire" aria-labelledby="enq-title">
+  <div class="wrap enq-grid">
+    <div>
+      <h2 class="h2" id="enq-title">Send a tech pack</h2>
+      <p class="enq-intro">Tell the team what you want made and when you need it. For a first sample, ask for a sampling slot instead of a bulk quote.</p>
+      <div class="units">
+        <div class="unit">
+          <h3>Unit 1</h3>
+          <p>Plot No. 103, Sector 15, Korangi Industrial Area, Karachi</p>
+          <div class="links"><a href="tel:+923338283645">+92 333 8283645</a><a href="tel:+922135121540">+92 21 3512 1540</a></div>
+        </div>
+        <div class="unit">
+          <h3>Unit 2</h3>
+          <p>Plot No's 126 &amp; 127, Sector 23, Korangi Industrial Area, Karachi</p>
+          <div class="links"><a href="tel:+922135121540">+92 21 351 21540</a></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-card" id="enq-form" novalidate>
+      <p class="demo"><b>Concept demo.</b> This form sends nothing. Knittex has no published email, so it prepares your enquiry as text you can copy, and you can call Unit 1.</p>
+      <fieldset>
+        <legend>What do you need?</legend>
+        <div class="choice">
+          <label><input type="radio" name="kind" value="Bulk CMT quote" checked>Bulk CMT quote<small>For a style ready for production</small></label>
+          <label><input type="radio" name="kind" value="Sampling slot">Request a sampling slot<small>For a first or revised sample</small></label>
+        </div>
+      </fieldset>
+      <div class="fields">
+        <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="f-co">Brand or buying house</label><input id="f-co" name="company" autocomplete="organization"></div>
+        <div class="f full"><label for="f-style">Garment and style</label><input id="f-style" name="style" placeholder="e.g. knitted crew-neck top, style ref KT-014" required></div>
+        <div class="f"><label for="f-qty">Quantity per style</label><input id="f-qty" name="qty" inputmode="numeric" placeholder="e.g. 3,000 pieces"></div>
+        <div class="f"><label for="f-date">Target ex-factory month</label><input id="f-date" name="when" placeholder="e.g. March 2027"></div>
+        <div class="f full"><label for="f-note">Notes on fabric, trims or tech pack</label><textarea id="f-note" name="notes" placeholder="Fabric supplied by you? Trims sourced where? Tech pack ready to share?"></textarea></div>
+      </div>
+      <div class="form-foot">
+        <button class="btn" type="submit">Prepare enquiry</button>
+        <p id="form-msg" aria-live="polite">Name and garment are needed to prepare it.</p>
+      </div>
+      <div class="result" id="result" hidden tabindex="-1">
+        <h3>Enquiry prepared</h3>
+        <p>Concept demo: nothing was sent. Copy the text below, or call Unit 1 on <a href="tel:+923338283645">+92 333 8283645</a>.</p>
+        <pre id="result-text"></pre>
+        <button class="btn" type="button" id="copy-btn">Copy enquiry</button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="mark" href="#top">KNITTEX<small>Garments, Karachi</small></a>
+        <p style="margin-top:14px;max-width:26em">Cut, make and trim garment production in Korangi Industrial Area, Karachi.</p>
+      </div>
+      <div>
+        <h3>Unit 1</h3>
+        <p>Plot No. 103, Sector 15<br>Korangi Industrial Area, Karachi<br><a href="tel:+923338283645">+92 333 8283645</a><br><a href="tel:+922135121540">+92 21 3512 1540</a></p>
+      </div>
+      <div>
+        <h3>Unit 2</h3>
+        <p>Plot No's 126 &amp; 127, Sector 23<br>Korangi Industrial Area, Karachi<br><a href="tel:+922135121540">+92 21 351 21540</a></p>
+      </div>
+    </div>
+    <div class="foot-note">
+      <p>Website concept for Knittex Garments, not the official website. Proposed wordmark and palette; stock imagery; details from public listings (Accord, Panjiva).</p>
+      <p>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    btn.textContent=open?'Menu':'Close';
+    nav.classList.toggle('open',!open);
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')&&btn.getAttribute('aria-expanded')==='true'){btn.click();}
+  });
+
+  var form=document.getElementById('enq-form'), msg=document.getElementById('form-msg'),
+      result=document.getElementById('result'), out=document.getElementById('result-text'),
+      copy=document.getElementById('copy-btn');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(form), name=(d.get('name')||'').trim(), style=(d.get('style')||'').trim();
+    if(!name||!style){
+      msg.className='err';
+      msg.textContent=!name?'Add your name to prepare the enquiry.':'Describe the garment and style to prepare the enquiry.';
+      (!name?form.name:form.style).focus();
+      return;
+    }
+    msg.className='';msg.textContent='Enquiry prepared below.';
+    var lines=['Request: '+d.get('kind'),'From: '+name+(d.get('company')?' ('+d.get('company').trim()+')':''),'Garment / style: '+style];
+    if(d.get('qty'))lines.push('Quantity per style: '+d.get('qty').trim());
+    if(d.get('when'))lines.push('Target ex-factory: '+d.get('when').trim());
+    if(d.get('notes'))lines.push('Notes: '+d.get('notes').trim());
+    out.textContent='To: Knittex Garments, Korangi Industrial Area, Karachi\n'+lines.join('\n');
+    result.hidden=false;copy.textContent='Copy enquiry';result.focus();
+  });
+  copy.addEventListener('click',function(){
+    var t=out.textContent;
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){copy.textContent='Copied';},function(){copy.textContent='Select the text to copy';});}
+    else{copy.textContent='Select the text to copy';}
+  });
+})();
+</script>
+</body>
+</html>

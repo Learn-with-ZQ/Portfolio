@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diamond Hills Arabia Group — flooring, waterproofing and finishes, Karachi (concept)</title>
+<meta name="description" content="Website concept for Diamond Hills Arabia Group: construction chemicals, epoxy and PU flooring, vinyl and rubber flooring, waterproofing and wall finishes, supplied and applied from Karachi. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --anth:#2F3437; --anth-deep:#24282B; --anth-line:#454B4F;
+  --concrete:#D6D3CE; --concrete-lt:#E7E5E1; --white:#FFFFFF;
+  --gold:#B98B4E; --gold-lt:#D2AA72; --gold-ink:#6E4E24;
+  --resin:#5E7380;
+  --ink:#2F3437; --ink-soft:#4C5357;
+  --display:"Red Hat Display",system-ui,sans-serif;
+  --text:"Red Hat Text",system-ui,sans-serif;
+  --wrap:1240px; --gut:clamp(20px,4vw,56px);
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--concrete);color:var(--ink);font:400 17px/1.6 var(--text);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.015em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#1B1E20;padding:10px 16px;z-index:99}
+.skip:focus{left:12px;top:12px}
+
+/* concept notice */
+.notice{background:var(--anth-deep);color:#C9C6C0;font-size:13px;line-height:1.45;padding:8px 0;border-bottom:1px solid #383D41}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between}
+.notice a{color:var(--gold-lt);text-underline-offset:3px}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:40;background:var(--anth);color:var(--white);border-bottom:1px solid var(--anth-line)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.wordmark{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.wordmark b{font:800 23px/1 var(--display);letter-spacing:-.02em}
+.wordmark span{font:500 14px/1 var(--text);color:#C9C6C0;padding-left:10px;border-left:2px solid var(--gold)}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:26px}
+.nav a{font-size:15px;font-weight:500;text-decoration:none;color:#E3E1DD;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--gold);color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 15px/1 var(--text);text-decoration:none;padding:14px 20px;border-radius:2px;border:2px solid transparent;cursor:pointer}
+.btn-gold{background:var(--gold);color:#1B1E20}
+.btn-gold:hover{background:var(--gold-lt)}
+.btn-line{border-color:#6A7175;color:var(--white);background:transparent}
+.btn-line:hover{border-color:var(--gold)}
+.btn-dark{background:var(--anth);color:var(--white)}
+.btn-dark:hover{background:#3B4145}
+.wa-ico{width:18px;height:18px;flex:none}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid #6A7175;color:var(--white);border-radius:2px;padding:9px 12px;font:600 14px/1 var(--text);cursor:pointer}
+
+/* HERO: surface switcher */
+.hero{--edge:max(0px,(100vw - var(--wrap)) / 2);background:var(--anth);color:var(--white);display:grid;grid-template-columns:min(48vw,calc(var(--edge) + 590px)) minmax(0,1fr);min-height:min(880px,calc(100svh - 106px))}
+.hero-copy{padding:clamp(40px,5vw,72px) clamp(28px,3.4vw,52px) 48px calc(var(--edge) + var(--gut));display:flex;flex-direction:column;width:100%}
+.hero h1{font-weight:800;font-size:clamp(38px,4.3vw,64px);line-height:1.02;letter-spacing:-.03em;max-width:13ch}
+.hero-sub{margin-top:22px;color:#D6D3CE;font-size:18px;max-width:42ch}
+.tabs{margin-top:auto;padding-top:40px}
+.tabs-title{font:500 14px/1.4 var(--text);color:#B9B6B0;margin-bottom:10px}
+[role=tablist]{display:flex;flex-direction:column;border-top:1px solid var(--anth-line)}
+[role=tab]{all:unset;box-sizing:border-box;display:grid;grid-template-columns:44px 1fr;align-items:center;gap:16px;padding:11px 12px 11px 0;border-bottom:1px solid var(--anth-line);cursor:pointer;position:relative;color:#C9C6C0}
+[role=tab] .sw{width:44px;height:44px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+[role=tab] strong{display:block;font:700 17px/1.2 var(--display);color:inherit}
+[role=tab] small{display:block;font-size:13.5px;color:#A9A6A1;margin-top:2px}
+[role=tab]::after{content:"";position:absolute;right:0;top:50%;width:0;height:2px;background:var(--gold);transition:width .3s}
+[role=tab]:hover{color:var(--white)}
+[role=tab][aria-selected=true]{color:var(--white)}
+[role=tab][aria-selected=true] .sw{box-shadow:0 0 0 2px var(--gold)}
+[role=tab][aria-selected=true]::after{width:28px}
+[role=tab]:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.stage{position:relative;overflow:hidden;min-height:560px;background:#3A4044}
+.panel{position:absolute;inset:0}
+.panel[hidden]{display:none}
+.panel.is-prev{z-index:1}
+.panel.is-active{z-index:2}
+.panel.is-entering{animation:wipe .85s cubic-bezier(.65,0,.25,1) both}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.squeegee{position:absolute;top:0;bottom:0;left:0;width:3px;background:var(--gold);z-index:3;opacity:0;pointer-events:none;box-shadow:0 0 18px rgba(185,139,78,.6)}
+.squeegee.run{animation:squeegee .85s cubic-bezier(.65,0,.25,1) both}
+@keyframes squeegee{0%{left:0;opacity:1}90%{opacity:1}100%{left:100%;opacity:0}}
+.tx{position:absolute;inset:0}
+.illus{position:absolute;top:18px;right:18px;z-index:2;font-size:12.5px;color:#fff;background:rgba(36,40,43,.72);padding:5px 10px;border-radius:2px}
+
+/* textures (also used by swatches) */
+.tx-epoxy{background-color:#8F969A;background-image:
+  linear-gradient(118deg,rgba(255,255,255,0) 26%,rgba(255,255,255,.22) 42%,rgba(255,255,255,0) 60%),
+  radial-gradient(ellipse 2.6px 1.5px at 14% 31%,#2A2E31 60%,transparent 100%),
+  radial-gradient(ellipse 1.6px 2.4px at 66% 72%,#2A2E31 60%,transparent 100%),
+  radial-gradient(ellipse 2.2px 1.4px at 38% 12%,#F3F1EC 60%,transparent 100%),
+  radial-gradient(ellipse 1.5px 2px at 81% 58%,#F3F1EC 60%,transparent 100%),
+  radial-gradient(ellipse 2.4px 1.6px at 52% 44%,#B98B4E 60%,transparent 100%),
+  radial-gradient(ellipse 2.8px 2px at 23% 79%,#4A5C66 60%,transparent 100%),
+  radial-gradient(ellipse 1.4px 1.8px at 72% 22%,#D6D3CE 60%,transparent 100%),
+  radial-gradient(ellipse 2px 1.3px at 9% 64%,#3B4246 60%,transparent 100%),
+  var(--noise);
+  background-size:100% 100%,47px 53px,29px 37px,41px 31px,23px 43px,67px 59px,53px 47px,19px 27px,37px 23px,180px 180px}
+.tx-pu{background-color:#5E7380;background-image:
+  radial-gradient(ellipse 70% 50% at 72% 18%,rgba(255,255,255,.2),transparent 70%),
+  linear-gradient(165deg,rgba(255,255,255,.08),rgba(0,0,0,.22)),
+  repeating-radial-gradient(circle at -20% 120%,rgba(255,255,255,0) 0 46px,rgba(255,255,255,.035) 47px 49px,rgba(255,255,255,0) 50px 92px),
+  var(--noise);
+  background-size:100% 100%,100% 100%,100% 100%,180px 180px}
+.tx-rubber{background-color:#6F7B82;background-image:
+  radial-gradient(circle at 42% 38%,#9AA5AB 0 3px,#86929A 6px,#76828A 9px,rgba(40,46,50,.55) 11.5px,transparent 13px),
+  linear-gradient(160deg,rgba(255,255,255,.07),rgba(0,0,0,.18)),
+  var(--noise);
+  background-size:34px 34px,100% 100%,180px 180px}
+.tx-water{background:
+  linear-gradient(to bottom,#353B3E 0 42%,#BEB8AE 42% 56%,#5E7380 56% 69%,#B98B4E 69% 72%,#9C9893 72% 100%)}
+.panel .tx-water::before{content:"";position:absolute;left:0;right:0;top:0;height:42%;background:repeating-linear-gradient(104deg,transparent 0 22px,rgba(214,211,206,.13) 22px 23px,transparent 23px 47px)}
+.panel .tx-water::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background-image:radial-gradient(#6E6B67 1px,transparent 1.6px),radial-gradient(#CFCBC4 1px,transparent 1.5px),var(--noise);background-size:9px 11px,13px 7px,180px 180px;background-position:0 0,4px 3px,0 0}
+.tx-panels{background-color:#CFCAC2;background-image:
+  linear-gradient(135deg,rgba(255,255,255,.28),rgba(0,0,0,.14)),
+  repeating-linear-gradient(90deg,#BDB7AE 0 2px,#D8D3CB 6px,#E4E0DA 12px,#CEC9C1 20px,#B3ADA4 24px),
+  var(--noise);
+  background-size:100% 100%,100% 100%,180px 180px}
+.layers{position:absolute;right:clamp(18px,3vw,40px);top:0;bottom:0;width:190px;z-index:2;pointer-events:none}
+.layers li{position:absolute;right:0;transform:translateY(-50%);font:500 13.5px/1.2 var(--text);color:#fff;background:rgba(36,40,43,.8);padding:5px 9px;border-radius:2px;white-space:nowrap}
+.layers li::before{content:"";position:absolute;right:100%;top:50%;width:46px;border-top:1px solid rgba(255,255,255,.75)}
+
+/* spec label */
+.spec{position:absolute;left:clamp(20px,3.2vw,48px);bottom:clamp(20px,3.2vw,48px);z-index:2;width:min(420px,calc(100% - 40px));background:var(--white);color:var(--ink);border-top:4px solid var(--gold);border-radius:2px;padding:24px 26px 22px;box-shadow:0 24px 48px -24px rgba(18,21,23,.65)}
+.spec h2{font-size:30px;font-weight:800;line-height:1.05}
+.spec p{margin-top:10px;font-size:16px;color:var(--ink-soft)}
+.spec dl{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14.5px;border-top:1px solid #E3E0DB;padding-top:14px}
+.spec dt{color:#6A7176}
+.spec dd{margin:0;font-weight:500}
+.spec a{display:inline-block;margin-top:16px;font-weight:700;font-size:15px;color:var(--gold-ink);text-underline-offset:4px;text-decoration-thickness:2px}
+.spec a:hover{color:var(--ink)}
+
+/* section shells */
+section{scroll-margin-top:80px}
+.sec{padding:clamp(72px,9vw,120px) 0}
+.h2{font-weight:800;font-size:clamp(32px,3.6vw,48px);line-height:1.06;letter-spacing:-.025em;max-width:20ch}
+.lede{margin-top:18px;font-size:18px;max-width:58ch;color:var(--ink-soft)}
+
+/* supply / contracting */
+.twin{display:grid;grid-template-columns:1fr 1fr;margin-top:56px;border-top:2px solid var(--anth)}
+.twin > div{padding:36px 0 0}
+.twin > div:first-child{padding-right:clamp(24px,4vw,56px);border-right:1px solid #A9A59F}
+.twin > div:last-child{padding-left:clamp(24px,4vw,56px)}
+.twin figure{margin:0 0 28px}
+.twin img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.75) contrast(1.02);border-radius:2px}
+.twin figcaption{font-size:12.5px;color:#5E6468;margin-top:6px}
+.twin h3{font-size:30px;font-weight:800}
+.twin h3 + p{margin-top:10px;color:var(--ink-soft);max-width:44ch}
+.rows{margin-top:22px;border-top:1px solid #A9A59F}
+.rows li{padding:12px 0;border-bottom:1px solid #A9A59F;display:flex;justify-content:space-between;gap:16px;font-weight:500}
+.rows li span{font-weight:400;color:#565D61;text-align:right;font-size:15px}
+
+/* brands */
+.brands{background:var(--white);padding:clamp(56px,7vw,88px) 0}
+.brands .top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 40px}
+.brands h2{font-size:24px;font-weight:700}
+.brands .top p{color:var(--ink-soft);max-width:46ch;font-size:16px}
+.brand-row{display:flex;flex-wrap:wrap;margin-top:28px;border-top:1px solid #DCD9D4;border-bottom:1px solid #DCD9D4}
+.brand-row li{flex:1 1 auto;padding:26px 28px;font:700 clamp(21px,2.3vw,32px)/1.1 var(--display);letter-spacing:-.01em;color:var(--anth);border-left:1px solid #DCD9D4;white-space:nowrap}
+.brand-row li:first-child{border-left:3px solid var(--gold);padding-left:24px}
+
+/* offices */
+.offices{background:var(--anth);color:var(--white)}
+.offices .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+.offices .h2{max-width:16ch}
+.timeline{margin-top:40px;position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),var(--resin))}
+.timeline li{position:relative;padding-bottom:26px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-28px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--anth);border:2px solid var(--gold)}
+.timeline b{display:block;font:800 28px/1 var(--display);color:var(--gold-lt)}
+.timeline p{margin-top:6px;color:#D6D3CE;max-width:36ch}
+.cities{border-top:1px solid var(--anth-line)}
+.city{display:grid;grid-template-columns:minmax(150px,1fr) 2fr;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--anth-line)}
+.city h3{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1}
+.city .country{display:block;font:500 14px/1.4 var(--text);color:#B9B6B0;margin-top:8px;letter-spacing:0}
+.city p{color:#D6D3CE}
+.city.home h3{color:var(--gold-lt)}
+.city .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+/* enquiry */
+.enquire{background:var(--concrete-lt)}
+.enq{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px)}
+.contacts{margin-top:32px;border-top:2px solid var(--anth)}
+.contacts li{padding:14px 0;border-bottom:1px solid #BDB9B3;display:grid;grid-template-columns:110px 1fr;gap:12px}
+.contacts .k{color:#5E6468;font-size:15px}
+.contacts a{font-weight:500;text-underline-offset:3px;text-decoration-color:#A9A59F}
+.contacts a:hover{text-decoration-color:var(--gold)}
+.contacts .v{display:flex;flex-direction:column}
+form{background:var(--white);padding:clamp(24px,3.4vw,44px);border-radius:2px;border-top:4px solid var(--anth)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f-grid .full{grid-column:1/-1}
+label,.legend{display:block;font-weight:500;font-size:15px;margin-bottom:7px}
+.opt{font-weight:400;color:#6A7176}
+input,select,textarea{width:100%;font:400 16px/1.4 var(--text);color:var(--ink);background:#F4F3F1;border:1px solid #B7B3AD;border-radius:2px;padding:12px 14px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:0;border-color:var(--anth)}
+textarea{min-height:110px;resize:vertical}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.seg{display:flex;border:1px solid #B7B3AD;border-radius:2px;overflow:hidden}
+.seg label{flex:1;margin:0;position:relative}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.seg span{display:block;text-align:center;padding:12px 10px;font-size:15px;background:#F4F3F1;border-left:1px solid #B7B3AD}
+.seg label:first-child span{border-left:0}
+.seg input:checked + span{background:var(--anth);color:var(--white);font-weight:500}
+.seg input:focus-visible + span{outline:3px solid var(--gold);outline-offset:-3px}
+.f-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:26px}
+.f-actions a{font-weight:500;text-underline-offset:3px}
+.f-note{margin-top:16px;font-size:14px;color:#5E6468}
+.f-msg{margin-top:10px;font-size:14.5px;color:#7A2E1F;min-height:1.4em}
+
+/* footer */
+.foot{background:var(--anth-deep);color:#C9C6C0;padding:48px 0 28px;font-size:15px}
+.foot .row{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between;align-items:flex-start}
+.foot .wordmark b{color:var(--white)}
+.foot ul{display:flex;flex-wrap:wrap;gap:10px 24px}
+.foot a{text-underline-offset:3px}
+.foot .fine{margin-top:36px;padding-top:20px;border-top:1px solid #3A3F43;font-size:13px;color:#ADAAA4;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.foot .fine a{color:var(--gold-lt)}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav ul{gap:18px}
+  .head-cta .lbl-long{display:none}
+}
+@media (max-width:960px){
+  .menu-btn{display:inline-block}
+  .head-cta{display:none}
+  .nav{position:absolute;left:0;right:0;top:72px;background:var(--anth);border-bottom:1px solid var(--anth-line);display:none;margin:0}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;gap:0;padding:8px var(--gut) 20px}
+  .nav li a{display:block;padding:14px 0;border-bottom:1px solid var(--anth-line);font-size:17px}
+  .nav .nav-wa{display:block}
+  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
+  .hero-copy{min-width:0}
+  .hero-copy{max-width:none;margin:0;padding:44px var(--gut) 0}
+  .hero h1{max-width:16ch}
+  .tabs{padding-top:32px;margin-top:0}
+  [role=tablist]{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;border-top:0;gap:10px;padding:2px 2px 14px;scrollbar-width:thin}
+  [role=tab]{grid-template-columns:1fr;gap:8px;padding:0;border:0;width:118px;flex:none;scroll-snap-align:start}
+  [role=tab] .sw{width:100%;height:64px}
+  [role=tab] small{display:none}
+  [role=tab] strong{font-size:14.5px}
+  [role=tab]::after{display:none}
+  .stage{min-height:0;display:grid}
+  .panel{position:relative;grid-area:1/1}
+  .tx{position:relative;inset:auto;height:clamp(260px,62vw,440px)}
+  .spec{position:relative;left:auto;bottom:auto;width:auto;margin:0;border-radius:0;box-shadow:none;padding:24px var(--gut) 30px}
+  .layers{height:clamp(260px,62vw,440px);bottom:auto}
+  .twin{grid-template-columns:1fr}
+  .twin > div:first-child{padding-right:0;border-right:0;padding-bottom:44px;border-bottom:1px solid #A9A59F}
+  .twin > div:last-child{padding-left:0}
+  .offices .grid,.enq{grid-template-columns:1fr}
+}
+@media (min-width:961px){.nav .nav-wa{display:none}}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  .notice .wrap{display:block}
+  .wordmark span{display:none}
+  .hero-sub{font-size:17px}
+  .hero h1{font-size:clamp(32px,9.4vw,40px)}
+  .f-grid{grid-template-columns:1fr}
+  .brand-row li{flex:1 1 50%;padding:18px 16px;border-top:1px solid #DCD9D4;margin-top:-1px}
+  .brand-row li:first-child{padding-left:13px}
+  .city{grid-template-columns:1fr}
+  .contacts li{grid-template-columns:1fr;gap:2px}
+  .rows li{flex-direction:column;gap:2px}
+  .rows li span{text-align:left}
+  .layers li{font-size:12.5px}
+  .layers li::before{width:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .panel.is-entering,.squeegee.run{animation:none}
+  [role=tab]::after{transition:none}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Diamond Hills Arabia Group. Not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="Diamond Hills Arabia Group, home"><b>Diamond Hills</b><span>Arabia Group</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#surfaces">Surfaces</a></li>
+        <li><a href="#services">Supply &amp; contracting</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#offices">Offices</a></li>
+        <li><a href="#enquire">Site survey</a></li>
+        <li class="nav-wa"><a href="https://wa.me/923018274629" target="_blank" rel="noopener">Order on WhatsApp</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-gold head-cta" href="https://wa.me/923018274629" target="_blank" rel="noopener">
+      <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.6Z"/></svg>
+      <span>Order <span class="lbl-long">on WhatsApp</span></span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="surfaces" aria-labelledby="hero-title">
+  <div class="hero-copy" id="top">
+    <h1 id="hero-title">Flooring, waterproofing and finishes, supplied and applied.</h1>
+    <p class="hero-sub">Construction chemicals and building finishes for contractors, developers and facility managers in Karachi. Pick a surface to see what it is and where it goes.</p>
+    <div class="tabs">
+      <p class="tabs-title" id="tabs-title">Surfaces we work with</p>
+      <div role="tablist" aria-labelledby="tabs-title" aria-orientation="vertical">
+        <button role="tab" id="t-epoxy" aria-controls="p-epoxy" aria-selected="true" tabindex="0" data-surface="Epoxy flooring"><span class="sw tx-epoxy"></span><span><strong>Epoxy flooring</strong><small>Seamless, hard, easy to clean</small></span></button>
+        <button role="tab" id="t-pu" aria-controls="p-pu" aria-selected="false" tabindex="-1" data-surface="PU flooring"><span class="sw tx-pu"></span><span><strong>PU flooring</strong><small>Tougher with heat and chemicals</small></span></button>
+        <button role="tab" id="t-rubber" aria-controls="p-rubber" aria-selected="false" tabindex="-1" data-surface="Vinyl &amp; rubber flooring"><span class="sw tx-rubber"></span><span><strong>Vinyl &amp; rubber</strong><small>Quiet, resilient, quick to clean</small></span></button>
+        <button role="tab" id="t-water" aria-controls="p-water" aria-selected="false" tabindex="-1" data-surface="Waterproofing"><span class="sw tx-water"></span><span><strong>Waterproofing</strong><small>Roofs, basements, tanks, wet areas</small></span></button>
+        <button role="tab" id="t-panels" aria-controls="p-panels" aria-selected="false" tabindex="-1" data-surface="Wall panels &amp; finishes"><span class="sw tx-panels"></span><span><strong>Wall panels &amp; finishes</strong><small>Interior and exterior walls</small></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <span class="squeegee" aria-hidden="true"></span>
+
+    <div class="panel is-active" role="tabpanel" id="p-epoxy" aria-labelledby="t-epoxy">
+      <div class="tx tx-epoxy" aria-hidden="true"></div>
+      <span class="illus">Illustrative texture</span>
+      <div class="spec">
+        <h2>Epoxy flooring</h2>
+        <p>A seamless resin floor laid over prepared concrete. It cures hard and glossy, wipes clean, and can be broadcast with coloured flakes or quartz for grip.</p>
+        <dl><dt>Finish</dt><dd>Gloss or satin, plain or flake</dd><dt>Where it goes</dt><dd>Warehouses, workshops, showrooms, car parks</dd></dl>
+        <a href="#enquire" data-pick="Epoxy flooring">Request a site survey for epoxy</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-pu" aria-labelledby="t-pu" hidden>
+      <div class="tx tx-pu" aria-hidden="true"></div>
+      <span class="illus">Illustrative texture</span>
+      <div class="spec">
+        <h2>PU flooring</h2>
+        <p>Polyurethane systems stay slightly more flexible than epoxy, so they cope better with hot wash-downs, temperature swings and spills.</p>
+        <dl><dt>Finish</dt><dd>Satin or matt, smooth or textured</dd><dt>Where it goes</dt><dd>Food processing, kitchens, labs, cold rooms</dd></dl>
+        <a href="#enquire" data-pick="PU flooring">Request a site survey for PU</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-rubber" aria-labelledby="t-rubber" hidden>
+      <div class="tx tx-rubber" aria-hidden="true"></div>
+      <span class="illus">Illustrative texture</span>
+      <div class="spec">
+        <h2>Vinyl &amp; rubber flooring</h2>
+        <p>Sheet and tile floors that are softer and quieter underfoot than a coating, and simple to keep clean day to day.</p>
+        <dl><dt>Finish</dt><dd>Sheet, tile, studded or smooth</dd><dt>Where it goes</dt><dd>Schools, healthcare, industry, sports, housing</dd></dl>
+        <a href="#enquire" data-pick="Vinyl &amp; rubber flooring">Request a site survey for vinyl or rubber</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-water" aria-labelledby="t-water" hidden>
+      <div class="tx tx-water" aria-hidden="true"></div>
+      <ul class="layers" aria-label="Typical waterproofing build-up">
+        <li style="top:49%">Protection screed</li>
+        <li style="top:62.5%">Membrane</li>
+        <li style="top:70.5%">Primer</li>
+        <li style="top:86%">Concrete substrate</li>
+      </ul>
+      <span class="illus">Illustrative section</span>
+      <div class="spec">
+        <h2>Waterproofing</h2>
+        <p>Membranes and coatings that keep water out of the structure, laid as a build-up over a primed substrate and protected from wear.</p>
+        <dl><dt>System</dt><dd>Liquid or sheet membrane, with joint treatment</dd><dt>Where it goes</dt><dd>Roofs, basements, water tanks, wet areas</dd></dl>
+        <a href="#enquire" data-pick="Waterproofing">Request a site survey for waterproofing</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-panels" aria-labelledby="t-panels" hidden>
+      <div class="tx tx-panels" aria-hidden="true"></div>
+      <span class="illus">Illustrative texture</span>
+      <div class="spec">
+        <h2>Wall panels &amp; finishes</h2>
+        <p>Panel systems and finishing coats for interior and exterior walls, including exterior insulation and facade systems (EIFS).</p>
+        <dl><dt>Finish</dt><dd>Panelled, textured or smooth coat</dd><dt>Where it goes</dt><dd>Lobbies, corridors, facades, refurbishments</dd></dl>
+        <a href="#enquire" data-pick="Wall panels &amp; finishes">Request a site survey for walls</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <h2 class="h2" id="svc-title">Buy the material, or have it applied.</h2>
+    <p class="lede">The Karachi office works as both a trading and a contracting company. Come to us for materials, for the work, or for both on the same project.</p>
+    <div class="twin">
+      <div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=70&auto=format&fit=crop" width="1100" height="619" alt="Long office corridor with a seamless pale floor" loading="lazy">
+          <figcaption>Stock image</figcaption>
+        </figure>
+        <h3>Supply</h3>
+        <p>Construction chemicals, floor systems and finishes from the brands we carry, for contractors buying for their own crews.</p>
+        <ul class="rows">
+          <li>Construction chemicals</li>
+          <li>Epoxy &amp; PU flooring</li>
+          <li>Vinyl &amp; rubber flooring <span>Education, healthcare, industry, sports, housing</span></li>
+          <li>Wall panels</li>
+          <li>Corrosion protection</li>
+          <li>Adhesives &amp; sealants</li>
+        </ul>
+      </div>
+      <div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1100&q=70&auto=format&fit=crop" width="1100" height="619" alt="Site team in hard hats standing on a large concrete slab under construction" loading="lazy">
+          <figcaption>Stock image</figcaption>
+        </figure>
+        <h3>Contracting</h3>
+        <p>Surface preparation, application and finishing on site, for developers and facility managers who want one party responsible for the result.</p>
+        <ul class="rows">
+          <li>Flooring</li>
+          <li>Waterproofing</li>
+          <li>Joint treatment</li>
+          <li>Building refurbishment</li>
+          <li>Building finishing</li>
+          <li>Steel fabrication &amp; protective coating</li>
+          <li>Fire stopping &amp; fireproofing</li>
+          <li>EIFS <span>Exterior insulation and facade system</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands" id="brands" aria-labelledby="brands-title">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="brands-title">Brands we carry</h2>
+      <p>Ask for a product by name, or describe the job and the surface it is going on.</p>
+    </div>
+    <ul class="brand-row">
+      <li>Multitech Chemicals</li>
+      <li>Hempel</li>
+      <li>Fosroc</li>
+      <li>Bostik</li>
+      <li>Relle Flooring</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec offices" id="offices" aria-labelledby="off-title">
+  <div class="wrap grid">
+    <div>
+      <h2 class="h2" id="off-title">Founded in Saudi Arabia. Working in Karachi since 2024.</h2>
+      <ol class="timeline" style="list-style:none;margin:40px 0 0">
+        <li><b>2016</b><p>Founded in Saudi Arabia to serve the construction industry.</p></li>
+        <li><b>2024</b><p>Began operations in Pakistan as a contracting and trading company.</p></li>
+      </ol>
+    </div>
+    <div class="cities">
+      <div class="city home">
+        <h3>Karachi<span class="country">Pakistan</span></h3>
+        <div>
+          <p>Suit #A601, 6th Floor, Shahnaz Arcade, Main Shaheed-e-Millat Road, Karachi, Pakistan</p>
+          <div class="acts">
+            <a class="btn btn-gold" href="tel:+922134133422">Call 021 3413 3422</a>
+            <a class="btn btn-line" href="https://wa.me/923018274629" target="_blank" rel="noopener">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="city">
+        <h3>Riyadh<span class="country">Saudi Arabia</span></h3>
+        <p>Overseas office.</p>
+      </div>
+      <div class="city">
+        <h3>Madinah<span class="country">Saudi Arabia</span></h3>
+        <p>Overseas office.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec enquire" id="enquire" aria-labelledby="enq-title">
+  <div class="wrap enq">
+    <div>
+      <h2 class="h2" id="enq-title">Request a site survey</h2>
+      <p class="lede">Tell us the surface, where the site is and roughly how big it is. The form writes a WhatsApp message to our Karachi number that you can read before you send it.</p>
+      <ul class="contacts">
+        <li><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/923018274629" target="_blank" rel="noopener">+92 301 8274629</a></span></li>
+        <li><span class="k">Office</span><span class="v"><a href="tel:+922134133422">+92 21 34133422</a><a href="tel:+922134123422">+92 21 34123422</a></span></li>
+        <li><span class="k">Mobile</span><span class="v"><a href="tel:+923018274629">+92 301 8274629</a><a href="tel:+923008225227">+92 300 8225227</a></span></li>
+        <li><span class="k">Email</span><span class="v"><a href="mailto:info@dhac.com.pk">info@dhac.com.pk</a></span></li>
+      </ul>
+    </div>
+
+    <form id="survey" novalidate>
+      <div class="f-grid">
+        <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div><label for="f-co">Company <span class="opt">(optional)</span></label><input id="f-co" name="company" autocomplete="organization"></div>
+        <div class="full">
+          <label for="f-surface">Surface</label>
+          <select id="f-surface" name="surface">
+            <option>Epoxy flooring</option>
+            <option>PU flooring</option>
+            <option>Vinyl &amp; rubber flooring</option>
+            <option>Waterproofing</option>
+            <option>Wall panels &amp; finishes</option>
+            <option>Corrosion protection</option>
+            <option>Adhesives &amp; sealants</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <fieldset class="full">
+          <legend class="legend">What do you need?</legend>
+          <div class="seg">
+            <label><input type="radio" name="scope" value="Material supply only"><span>Material only</span></label>
+            <label><input type="radio" name="scope" value="Supply and application" checked><span>Supply and apply</span></label>
+            <label><input type="radio" name="scope" value="Not sure, please advise"><span>Not sure</span></label>
+          </div>
+        </fieldset>
+        <div><label for="f-site">Site location</label><input id="f-site" name="site" placeholder="e.g. Korangi, SITE, DHA"></div>
+        <div><label for="f-area">Approx. area <span class="opt">(sq ft, optional)</span></label><input id="f-area" name="area" inputmode="numeric"></div>
+        <div class="full"><label for="f-notes">About the job <span class="opt">(optional)</span></label><textarea id="f-notes" name="notes" placeholder="Existing floor, use of the space, timing"></textarea></div>
+      </div>
+      <p class="f-msg" id="f-msg" role="status" aria-live="polite"></p>
+      <div class="f-actions">
+        <button class="btn btn-dark" type="submit">Continue in WhatsApp</button>
+        <a href="mailto:info@dhac.com.pk" id="mail-alt">Email the request instead</a>
+      </div>
+      <p class="f-note">Concept demo: nothing is stored on this page. It only opens WhatsApp or your email app with the message filled in.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <a class="wordmark" href="#top"><b>Diamond Hills</b><span>Arabia Group</span></a>
+        <p style="margin-top:14px;max-width:38ch">Suit #A601, 6th Floor, Shahnaz Arcade, Main Shaheed-e-Millat Road, Karachi</p>
+      </div>
+      <ul aria-label="Social">
+        <li><a href="https://www.facebook.com/profile.php?id=61571526801504" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/dhac.pk" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/105616455" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="fine">
+      <span>Website concept for Diamond Hills Arabia Group. Not the official website. Proposed wordmark and design; stock imagery; details from public listings. Brand names belong to their owners.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile nav
+  var mb = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
+  mb.addEventListener('click', function(){
+    var open = mb.getAttribute('aria-expanded') === 'true';
+    mb.setAttribute('aria-expanded', String(!open));
+    mb.textContent = open ? 'Menu' : 'Close';
+    nav.classList.toggle('open', !open);
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a') && mb.getAttribute('aria-expanded') === 'true') mb.click();
+  });
+
+  // surface switcher
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role=tab]'));
+  var squeegee = document.querySelector('.squeegee');
+  var current = document.querySelector('.panel.is-active');
+  function select(tab, focus){
+    var panel = document.getElementById(tab.getAttribute('aria-controls'));
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    if (focus) tab.focus();
+    if (panel === current) return;
+    var prev = current;
+    document.querySelectorAll('.panel.is-prev').forEach(function(p){ p.classList.remove('is-prev'); p.hidden = true; });
+    prev.classList.remove('is-active', 'is-entering');
+    panel.hidden = false;
+    panel.classList.add('is-active');
+    current = panel;
+    var mobile = window.matchMedia('(max-width:960px)').matches;
+    if (reduce || mobile) { prev.hidden = true; return; }
+    prev.classList.add('is-prev');
+    panel.classList.remove('is-entering'); void panel.offsetWidth; panel.classList.add('is-entering');
+    squeegee.classList.remove('run'); void squeegee.offsetWidth; squeegee.classList.add('run');
+    panel.addEventListener('animationend', function done(){
+      panel.removeEventListener('animationend', done);
+      panel.classList.remove('is-entering');
+      if (prev !== current) { prev.classList.remove('is-prev'); prev.hidden = true; }
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ select(t, false); });
+    t.addEventListener('keydown', function(e){
+      var k = e.key, n = null;
+      if (k === 'ArrowDown' || k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (k === 'ArrowUp' || k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (k === 'Home') n = tabs[0];
+      if (k === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); select(n, true); }
+    });
+  });
+
+  // spec links preselect the form
+  var sel = document.getElementById('f-surface');
+  document.querySelectorAll('[data-pick]').forEach(function(a){
+    a.addEventListener('click', function(){ sel.value = a.getAttribute('data-pick'); });
+  });
+
+  // enquiry composer
+  var form = document.getElementById('survey'), msg = document.getElementById('f-msg');
+  function compose(){
+    var f = form.elements, scope = form.querySelector('input[name=scope]:checked');
+    var lines = ['Site survey request (via website)',
+      'Name: ' + f.name.value.trim()];
+    if (f.company.value.trim()) lines.push('Company: ' + f.company.value.trim());
+    lines.push('Surface: ' + f.surface.value);
+    lines.push('Need: ' + (scope ? scope.value : ''));
+    if (f.site.value.trim()) lines.push('Site: ' + f.site.value.trim());
+    if (f.area.value.trim()) lines.push('Approx. area: ' + f.area.value.trim() + ' sq ft');
+    if (f.notes.value.trim()) lines.push('Notes: ' + f.notes.value.trim());
+    return lines.join('\n');
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.elements.name.value.trim()) {
+      msg.textContent = 'Add your name so the team knows who to reply to.';
+      form.elements.name.focus();
+      return;
+    }
+    msg.textContent = '';
+    window.open('https://wa.me/923018274629?text=' + encodeURIComponent(compose()), '_blank', 'noopener');
+  });
+  document.getElementById('mail-alt').addEventListener('click', function(e){
+    e.preventDefault();
+    window.location.href = 'mailto:info@dhac.com.pk?subject=' + encodeURIComponent('Site survey request: ' + sel.value) + '&body=' + encodeURIComponent(compose());
+  });
+})();
+</script>
+</body>
+</html>

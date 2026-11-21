@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diamond Super Market — groceries from your nearest branch (website concept)</title>
+<meta name="description" content="Website concept for Diamond Super Market, Karachi. Pick your area, shop online at dsmonline.pk, and get a confirmation call on every order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chilli:#E2412E; --chilli-ink:#C8361F; --chilli-deep:#A82A17;
+  --leaf:#2F8F46; --leaf-ink:#23753A;
+  --butter:#FFD45C; --butter-soft:#FFF3C9;
+  --navy:#1C2541; --navy-2:#2B3558; --navy-soft:#5A6283;
+  --white:#FFFFFF; --shelf:#F2F3F5; --line:#DDE0E6;
+  --display:"Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --ui:"Figtree", system-ui, sans-serif;
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--ui);font-size:17px;line-height:1.55;color:var(--navy);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;letter-spacing:-.015em}
+p{margin:0}
+.wrap{width:min(100% - 40px, var(--wrap));margin-inline:auto}
+:focus-visible{outline:3px solid var(--chilli-ink);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:10px 14px;border-radius:8px;z-index:50}
+.skip:focus{left:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* concept notice */
+.notice{background:var(--navy);color:#C9CEDD;font-size:13.5px;line-height:1.4}
+.notice .wrap{display:flex;justify-content:space-between;gap:16px;padding:8px 0;flex-wrap:wrap}
+.notice a{color:var(--butter);text-underline-offset:3px}
+
+/* header */
+.top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.top-row{display:flex;align-items:center;gap:28px;padding:14px 0}
+.mark{text-decoration:none;display:flex;flex-direction:column;line-height:.9;flex:none}
+.mark b{font-family:var(--display);font-weight:800;font-size:31px;letter-spacing:-.035em;color:var(--chilli-ink);font-variation-settings:"wdth" 88}
+.mark span{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--navy);margin-top:3px;padding-left:2px}
+.search{flex:1;display:flex;max-width:560px;border:2px solid var(--navy);border-radius:999px;overflow:hidden;background:#fff}
+.search input{flex:1;min-width:0;border:0;padding:11px 18px;font:inherit;font-size:16px;color:var(--navy);background:transparent}
+.search input::placeholder{color:#6B7290}
+.search input:focus{outline:none}
+.search:focus-within{box-shadow:0 0 0 3px var(--butter)}
+.search button{border:0;background:var(--navy);color:#fff;padding:0 20px;font-weight:600;cursor:pointer}
+.top-tools{display:flex;align-items:center;gap:18px;margin-left:auto}
+.call-top{text-decoration:none;display:flex;flex-direction:column;line-height:1.15;font-size:13px;color:var(--navy-soft)}
+.call-top strong{font-size:17px;color:var(--navy);font-weight:700}
+.cart{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--shelf);text-decoration:none}
+.cart em{position:absolute;top:-2px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--chilli-ink);color:#fff;font-style:normal;font-size:12px;font-weight:700;display:grid;place-items:center;padding:0 5px}
+.menu-btn{display:none;border:0;background:var(--shelf);border-radius:12px;width:46px;height:46px;cursor:pointer}
+.nav{display:flex;gap:4px;padding:0 0 10px;margin-left:-12px}
+.nav a{text-decoration:none;font-weight:600;font-size:15.5px;padding:7px 12px;border-radius:8px}
+.nav a:hover{background:var(--shelf)}
+.search-note{font-size:14px;color:var(--navy-soft);padding:0 0 10px}
+.search-note[hidden]{display:none}
+
+/* hero */
+.hero{background:linear-gradient(var(--shelf),var(--shelf)) top/100% calc(100% - 68px) no-repeat;padding-top:56px;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:end}
+.hero-copy{padding-bottom:64px;align-self:center}
+.hero h1{font-size:clamp(46px,6.4vw,92px);font-weight:800;font-variation-settings:"wdth" 82, "opsz" 96;max-width:13ch;color:var(--navy)}
+.hero h1 .area{display:inline-block}
+.hero h1.swap .area{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
+.lede{font-size:19px;max-width:44ch;margin-top:22px;color:#33395A}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:16.5px;padding:15px 24px;border-radius:999px;border:2px solid transparent;cursor:pointer;line-height:1.1}
+.btn-red{background:var(--chilli-ink);color:#fff}
+.btn-red:hover{background:var(--chilli-deep)}
+.btn-line{border-color:var(--navy);color:var(--navy);background:#fff}
+.btn-line:hover{background:var(--navy);color:#fff}
+.btn-green{background:var(--leaf-ink);color:#fff}
+.btn-green:hover{background:#1B5F2E}
+.hero-photo{position:relative;align-self:stretch;display:flex;align-items:flex-end}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 0 0;max-height:600px}
+.hero-photo figcaption{position:absolute;left:14px;bottom:14px;font-size:12px;color:#fff;background:rgba(28,37,65,.72);padding:3px 9px;border-radius:6px}
+
+/* shelf rail — the signature */
+.rail{background:var(--navy);color:#fff;position:relative;z-index:2}
+.rail::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:repeating-linear-gradient(90deg,#3A4470 0 2px,transparent 2px 22px)}
+.rail-inner{display:flex;align-items:flex-start;gap:22px;padding:18px 0 0}
+.rail-label{font-family:var(--display);font-weight:700;font-size:21px;padding-top:15px;flex:none;color:var(--butter)}
+.tags{display:flex;gap:10px;list-style:none;margin:0;padding:0 0 30px;flex:1;overflow-x:auto;scrollbar-width:none}
+.tags::-webkit-scrollbar{display:none}
+.tag{position:relative;flex:none;border:0;cursor:pointer;background:var(--butter);color:var(--navy);text-align:left;padding:13px 18px 12px 30px;min-width:138px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,0 62%,7px 56%,7px 44%,0 38%);transform-origin:50% 0;transition:transform .2s ease, background .2s ease}
+.tag::before{content:"";position:absolute;left:14px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--navy)}
+.tag b{display:block;font-family:var(--display);font-weight:800;font-size:22px;line-height:1;font-variation-settings:"wdth" 80;letter-spacing:-.01em;white-space:nowrap}
+.tag small{display:block;font-size:12.5px;font-weight:600;margin-top:5px;color:#4A4230}
+.tag:hover{transform:rotate(-2deg)}
+.tag[aria-pressed="true"]{background:var(--chilli-ink);color:#fff;transform:translateY(6px)}
+.tag[aria-pressed="true"] small{color:#FFE2DC}
+.tag[aria-pressed="true"]::before{background:#fff}
+.tag:focus-visible{outline-color:var(--butter);outline-offset:4px}
+@media (prefers-reduced-motion:no-preference){
+  .tags .tag{animation:hang .6s cubic-bezier(.3,1.4,.5,1) both}
+  .tags li:nth-child(2) .tag{animation-delay:.06s}.tags li:nth-child(3) .tag{animation-delay:.12s}
+  .tags li:nth-child(4) .tag{animation-delay:.18s}.tags li:nth-child(5) .tag{animation-delay:.24s}
+  .tags li:nth-child(6) .tag{animation-delay:.3s}
+  @keyframes hang{from{transform:translateY(-18px) rotate(-4deg);opacity:0}to{opacity:1}}
+}
+.branch-panel{background:var(--butter-soft);border-bottom:1px solid #F0E2AE}
+.branch-panel .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:20px 40px;align-items:center;padding:22px 0}
+.bp-title{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.15}
+.bp-text{margin-top:4px;color:#3A3F5C;max-width:62ch}
+.bp-actions{display:flex;gap:10px;flex-wrap:wrap}
+.bp-actions .btn{padding:12px 20px;font-size:15.5px}
+
+/* sections */
+section{scroll-margin-top:120px}
+.sec{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(34px,4vw,54px);font-weight:800;font-variation-settings:"wdth" 86, "opsz" 72}
+.sec-head p{max-width:46ch;color:#3A3F5C}
+
+/* aisles */
+.aisle-ctrl{display:flex;gap:8px;flex:none}
+.aisle-ctrl button{width:48px;height:48px;border-radius:50%;border:2px solid var(--navy);background:#fff;cursor:pointer;display:grid;place-items:center}
+.aisle-ctrl button:hover{background:var(--navy);color:#fff}
+.aisles{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,200px);grid-auto-columns:200px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px, calc((100vw - var(--wrap))/2)) 18px;scroll-padding-inline:max(20px, calc((100vw - var(--wrap))/2));scrollbar-width:thin;scrollbar-color:var(--navy) var(--shelf)}
+.aisle{scroll-snap-align:start;position:relative;border-radius:18px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:var(--shelf);isolation:isolate}
+.aisle h3{font-size:26px;font-weight:800;font-variation-settings:"wdth" 84;line-height:1}
+.aisle p{font-size:14.5px;margin-top:6px;line-height:1.35}
+.aisle.photo{color:#fff}
+.aisle.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.aisle.photo::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,rgba(16,22,40,.82));z-index:-1}
+.aisle.big{grid-row:span 2;grid-column:span 2}
+.aisle.tall{grid-row:span 2}
+.aisle.wide{grid-column:span 2}
+.aisle.big h3{font-size:44px}
+.aisle .ico{position:absolute;top:16px;right:16px}
+.a-yellow{background:var(--butter)}
+.a-navy{background:var(--navy);color:#fff}
+.a-green{background:var(--leaf-ink);color:#fff}
+.a-red{background:var(--chilli-ink);color:#fff}
+.a-grey{background:var(--shelf)}
+.aisle:hover h3{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+
+/* offers — price channel */
+.offers{background:var(--butter);padding:80px 0 90px}
+.offers .sec-head p{color:#3B3523}
+.sample-flag{display:inline-block;background:var(--navy);color:#fff;font-size:14px;font-weight:600;padding:6px 12px;border-radius:6px;margin-top:14px}
+.channel{background:var(--navy);border-radius:6px;padding:18px 18px 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+.ticket{background:#fff;color:var(--navy);padding:16px 16px 18px;position:relative;margin-bottom:-26px;border-top:6px solid var(--chilli)}
+.ticket .t-name{font-weight:600;font-size:15.5px;line-height:1.3;min-height:2.6em}
+.ticket .t-size{font-size:13.5px;color:var(--navy-soft)}
+.ticket .t-price{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;margin-top:14px;font-variation-settings:"wdth" 76;letter-spacing:-.02em}
+.ticket .t-price sup{font-size:.4em;vertical-align:top;position:relative;top:.35em;margin-right:3px;letter-spacing:0}
+.ticket .t-was{font-size:13.5px;color:var(--navy-soft);margin-top:4px}
+.ticket .t-sample{display:inline-block;margin-bottom:8px;font-size:11.5px;font-weight:700;color:var(--chilli-deep);background:#FFE7E2;padding:2px 7px;border-radius:4px}
+.ticket.green{border-top-color:var(--leaf)}
+.channel-foot{margin-top:46px;font-size:15px;color:#3B3523;max-width:70ch}
+
+/* ordering */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;list-style:none;margin:0;padding:0;counter-reset:s;position:relative}
+.steps li{padding:0 36px 0 0;position:relative}
+.steps li+li{padding-left:36px;border-left:2px dashed var(--line)}
+.step-n{font-family:var(--display);font-weight:800;font-size:96px;line-height:.85;color:var(--chilli);font-variation-settings:"wdth" 75;display:block;margin-bottom:18px}
+.steps h3{font-size:28px;font-weight:700;margin-bottom:10px;font-variation-settings:"wdth" 90}
+.steps p{color:#3A3F5C;max-width:34ch}
+.help{margin-top:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.help-card{border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.help-card h3{font-size:30px;font-weight:800;font-variation-settings:"wdth" 86}
+.help-card .big-num{font-family:var(--display);font-weight:700;font-size:34px;line-height:1;text-decoration:none;letter-spacing:-.01em}
+.help-card .big-num:hover{text-decoration:underline}
+.h-green{background:#E3F2E6}
+.h-navy{background:var(--navy);color:#fff}
+.h-navy p{color:#D3D7E5}
+.h-green p{color:#2C3A32}
+.help-card .btn{margin-top:8px}
+.h-navy .btn-line{background:transparent;border-color:#fff;color:#fff}
+.h-navy .btn-line:hover{background:#fff;color:var(--navy)}
+
+/* branches */
+.branches{background:var(--shelf)}
+.br-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:start}
+.br-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+.br-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;align-items:center;padding:20px 12px 20px 0;border-bottom:1px solid #CDD1DA;transition:background .2s}
+.br-list li.on{background:var(--butter-soft);box-shadow:inset 6px 0 0 var(--chilli-ink);padding-left:20px}
+.br-list h3{font-size:30px;font-weight:800;font-variation-settings:"wdth" 82}
+.br-list p{font-size:15.5px;color:#3A3F5C;grid-column:1}
+.br-list .br-actions{grid-row:1 / span 2;grid-column:2;display:flex;gap:8px}
+.chip{font-size:14.5px;font-weight:600;text-decoration:none;padding:9px 14px;border-radius:999px;border:1.5px solid var(--navy);background:#fff;cursor:pointer;white-space:nowrap}
+.chip:hover{background:var(--navy);color:#fff}
+.br-note{margin-top:22px;font-size:14.5px;color:#4A5070;max-width:60ch}
+.sample{display:inline-block;font-size:12.5px;font-weight:700;background:#FFE7E2;color:var(--chilli-deep);padding:2px 8px;border-radius:4px;margin-right:6px}
+.br-side img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px}
+.br-side figcaption{font-size:12.5px;color:#5A6283;margin-top:8px}
+.ho{margin-top:22px;background:#fff;border-radius:20px;padding:24px 26px}
+.ho h3{font-size:22px;font-weight:700;margin-bottom:6px}
+.ho p{font-size:15.5px;color:#3A3F5C}
+.since{margin-top:14px;font-family:var(--display);font-size:24px;line-height:1.2;font-weight:600;color:var(--navy);font-variation-settings:"wdth" 90}
+
+/* footer */
+footer{background:var(--navy);color:#D3D7E5;padding:64px 0 28px;font-size:15.5px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+footer h3{font-family:var(--ui);font-size:15px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:0}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+footer a{color:#fff;text-underline-offset:3px}
+.f-mark b{color:#fff}
+.f-mark span{color:var(--butter)}
+.f-legal{margin-top:48px;padding-top:20px;border-top:1px solid #39436A;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13.5px;color:#AEB4CB}
+.f-legal a{color:var(--butter)}
+
+/* mobile dock */
+.dock{display:none}
+
+@media (max-width:1100px){
+  .call-top{display:none}
+  .channel{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px;padding-bottom:26px}
+  .ticket{margin-bottom:0}
+  .ticket:last-child{grid-column:span 2}
+  .channel-foot{margin-top:28px}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr 280px;gap:28px}
+  .hero-copy{padding-bottom:40px}
+  .br-grid{grid-template-columns:1fr}
+  .br-side{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .br-side img{aspect-ratio:4/3}
+  .ho{margin-top:0}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .steps li,.steps li+li{padding:0 0 0 0;border:0;display:grid;grid-template-columns:90px 1fr;column-gap:20px}
+  .steps .step-n{grid-row:span 2;font-size:80px;margin:0}
+  .help{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16.5px;padding-bottom:76px}
+  .top-row{gap:12px;flex-wrap:wrap;padding:12px 0}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .menu-btn{display:grid;place-items:center}
+  .cart{width:44px;height:44px}
+  .nav{display:none;flex-direction:column;margin:0;padding:0 0 14px}
+  .nav.open{display:flex}
+  .nav a{padding:11px 4px;border-bottom:1px solid var(--line);border-radius:0}
+  .hero{padding-top:32px;background-size:100% calc(100% - 92px)}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .hero-copy{padding-bottom:0}
+  .hero h1{font-size:clamp(44px,13vw,60px)}
+  .lede{font-size:17.5px}
+  .hero-photo img{aspect-ratio:16/11;border-radius:160px 160px 0 0}
+  .rail-inner{flex-direction:column;gap:6px;padding-top:14px}
+  .rail-label{padding-top:0;font-size:18px}
+  .tags{width:calc(100% + 20px);margin-right:-20px;padding-right:20px}
+  .tag{min-width:124px}
+  .branch-panel .wrap{grid-template-columns:1fr}
+  .sec{padding:68px 0}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .aisle-ctrl{display:none}
+  .aisles{grid-template-rows:repeat(2,160px);grid-auto-columns:150px}
+  .aisle.big h3{font-size:34px}
+  .aisle h3{font-size:22px}
+  .channel{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px 14px 22px;row-gap:26px;gap:10px}
+  .ticket .t-price{font-size:34px}
+  .steps li,.steps li+li{grid-template-columns:52px 1fr;column-gap:14px}
+  .steps .step-n{font-size:68px}
+  .help-card{padding:26px 22px}
+  .help-card .big-num{font-size:28px}
+  .br-list li{grid-template-columns:1fr;padding-right:0}
+  .br-list li.on{padding-left:16px}
+  .br-list .br-actions{grid-row:auto;grid-column:1;margin-top:6px}
+  .br-side{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .dock .btn{justify-content:center;padding:13px 10px;font-size:15.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Diamond Super Market — not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <a class="mark" href="#main" aria-label="Diamond Super Market, home"><b>Diamond</b><span>super market</span></a>
+      <form class="search" role="search" id="search">
+        <label class="sr" for="q">Search groceries</label>
+        <input id="q" type="search" placeholder="Search rice, milk, nappies…" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <div class="top-tools">
+        <a class="call-top" href="tel:+9221111000376">Call to order<strong>021-111-000-376</strong></a>
+        <a class="cart" href="https://www.dsmonline.pk/" target="_blank" rel="noopener" aria-label="Basket on dsmonline.pk (concept: 0 items)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.4l2.2 11h10.6l2-8H6.6"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg>
+          <em>0</em>
+        </a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h11"/></svg>
+        </button>
+      </div>
+    </div>
+    <p class="search-note" id="search-note" hidden aria-live="polite"></p>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#aisles">Aisles</a>
+      <a href="#offers">This week</a>
+      <a href="#ordering">How ordering works</a>
+      <a href="#help">Returns &amp; help</a>
+      <a href="#branches">Branches</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-h">Groceries from <span class="area" id="hero-area">your nearest Diamond.</span></h1>
+        <p class="lede">Pick your area on the shelf below, fill your basket on dsmonline.pk, and our customer service team calls to confirm every order.</p>
+        <div class="cta-row">
+          <a class="btn btn-red" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">Shop online</a>
+          <a class="btn btn-line" href="tel:+9221111000376">Call 021-111-000-376</a>
+        </div>
+      </div>
+      <figure class="hero-photo" style="margin:0">
+        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=900&q=75&auto=format&fit=crop" width="900" height="1125" alt="A basket of fresh fruit: grapes, mangoes, kiwi, apples and a pineapple">
+        <figcaption>Stock photo</figcaption>
+      </figure>
+    </div>
+
+    <div class="rail" id="branch-picker">
+      <div class="wrap rail-inner">
+        <p class="rail-label" id="rail-label">Shop from</p>
+        <ul class="tags" role="list" aria-labelledby="rail-label">
+          <li><button class="tag" type="button" aria-pressed="false" data-area="Clifton"><b>Clifton</b><small>near Do Talwar</small></button></li>
+          <li><button class="tag" type="button" aria-pressed="false" data-area="F.B. Area"><b>F.B. Area</b><small>Federal B. Area</small></button></li>
+          <li><button class="tag" type="button" aria-pressed="false" data-area="Garden"><b>Garden</b><small>Garden West</small></button></li>
+          <li><button class="tag" type="button" aria-pressed="false" data-area="North Karachi"><b>North Karachi</b><small>online store</small></button></li>
+          <li><button class="tag" type="button" aria-pressed="false" data-area="Nazimabad"><b>Nazimabad</b><small>head office area</small></button></li>
+          <li><button class="tag" type="button" aria-pressed="false" data-area="Scheme 33"><b>Scheme 33</b><small>online store</small></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="branch-panel" aria-live="polite">
+      <div class="wrap">
+        <div>
+          <p class="bp-title" id="bp-title">Seven Diamond outlets across Karachi.</p>
+          <p class="bp-text" id="bp-text">Choose an area to see what we know about its store, then order online or call the helpline.</p>
+        </div>
+        <div class="bp-actions">
+          <a class="btn btn-red" id="bp-shop" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">Shop online</a>
+          <a class="btn btn-line" href="#branches">Find your branch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="aisles" aria-labelledby="aisles-h">
+    <div class="wrap sec-head">
+      <div>
+        <h2 id="aisles-h">Shop by aisle</h2>
+      </div>
+      <p>Weekly shop or a quick top-up — the everyday aisles you would walk in store, online.</p>
+      <div class="aisle-ctrl">
+        <button type="button" data-dir="-1" aria-label="Scroll aisles left"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Scroll aisles right"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="aisles" id="aisle-track">
+      <a class="aisle photo big" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=70&auto=format&fit=crop" width="800" height="800" alt="Shelves of fresh fruit and vegetables in a supermarket" loading="lazy">
+        <h3>Fruit &amp; veg</h3><p>Sabzi, salad, and fruit for the week</p>
+      </a>
+      <a class="aisle photo tall" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&q=70&auto=format&fit=crop" width="500" height="800" alt="Milk being poured into a glass" loading="lazy">
+        <h3>Dairy &amp; eggs</h3><p>Milk, yoghurt, butter, cheese</p>
+      </a>
+      <a class="aisle a-yellow" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#1C2541" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M12 14h24l-2 26H14z"/><path d="M16 14c0-5 3-8 8-8s8 3 8 8"/><path d="M18 24h12M18 30h8"/></svg>
+        <h3>Pantry</h3><p>Rice, atta, daal, oil, spices</p>
+      </a>
+      <a class="aisle a-navy" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#FFD45C" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M18 18h12v22H18z"/><path d="M21 18v-6h6v6M27 12h5"/><path d="M22 27h4"/></svg>
+        <h3>Household</h3><p>Cleaning, laundry, kitchen roll</p>
+      </a>
+      <a class="aisle photo tall" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=70&auto=format&fit=crop" width="500" height="800" alt="Rustic loaves of bread with wheat stalks" loading="lazy">
+        <h3>Bakery</h3><p>Bread, rusks, cakes</p>
+      </a>
+      <a class="aisle a-green" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M17 16h14l-1 24H18z"/><path d="M20 16v-5h8v5"/><path d="M24 22v4"/><circle cx="24" cy="31" r="3"/></svg>
+        <h3>Baby</h3><p>Nappies, wipes, formula</p>
+      </a>
+      <a class="aisle a-grey" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#C8361F" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="16" y="18" width="16" height="22" rx="4"/><path d="M21 18v-4h6v4M27 14h4l2 3"/></svg>
+        <h3>Personal care</h3><p>Soap, shampoo, toothpaste</p>
+      </a>
+      <a class="aisle photo wide" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=700&q=70&auto=format&fit=crop" width="700" height="350" alt="Close-up of long-grain rice" loading="lazy">
+        <h3>Rice &amp; atta</h3><p>Sacks and family packs</p>
+      </a>
+      <a class="aisle a-red" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M24 8v32M10 16l28 16M10 32l28-16"/><path d="M20 10l4 4 4-4M20 38l4-4 4 4"/></svg>
+        <h3>Frozen</h3><p>Parathas, nuggets, peas</p>
+      </a>
+      <a class="aisle a-yellow" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">
+        <svg class="ico" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#1C2541" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M17 14h14l-2 26H19z"/><path d="M22 14l2-6h5"/><path d="M18 22h12"/></svg>
+        <h3>Drinks &amp; snacks</h3><p>Juices, tea, biscuits, crisps</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="offers" id="offers" aria-labelledby="offers-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="offers-h">This week on the shelf</h2>
+          <span class="sample-flag">Sample offers — illustrative only, not real prices</span>
+        </div>
+        <p>A weekly offers strip the store team would update. Products and prices here are placeholders for the design.</p>
+      </div>
+      <div class="channel" role="list">
+        <article class="ticket" role="listitem"><span class="t-sample">Sample</span><p class="t-name">Basmati rice</p><p class="t-size">5 kg bag</p><p class="t-price"><sup>Rs.</sup>1,850</p><p class="t-was">illustrative price</p></article>
+        <article class="ticket green" role="listitem"><span class="t-sample">Sample</span><p class="t-name">Seasonal fruit box</p><p class="t-size">approx. 3 kg</p><p class="t-price"><sup>Rs.</sup>990</p><p class="t-was">illustrative price</p></article>
+        <article class="ticket" role="listitem"><span class="t-sample">Sample</span><p class="t-name">Cooking oil</p><p class="t-size">5 litre tin</p><p class="t-price"><sup>Rs.</sup>2,640</p><p class="t-was">illustrative price</p></article>
+        <article class="ticket green" role="listitem"><span class="t-sample">Sample</span><p class="t-name">Fresh milk</p><p class="t-size">1 litre pack</p><p class="t-price"><sup>Rs.</sup>230</p><p class="t-was">illustrative price</p></article>
+        <article class="ticket" role="listitem"><span class="t-sample">Sample</span><p class="t-name">Baby nappies</p><p class="t-size">jumbo pack</p><p class="t-price"><sup>Rs.</sup>3,100</p><p class="t-was">illustrative price</p></article>
+      </div>
+      <p class="channel-foot">Sample content — weekly offers to be supplied by Diamond Super Market. Live prices are always the ones shown on dsmonline.pk.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="ordering" aria-labelledby="ordering-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="ordering-h">How ordering online works</h2>
+        <p>Three steps from basket to doorstep. The delivery charge is shown at checkout.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n" aria-hidden="true">1</span><h3>Fill your basket</h3><p>Choose your area on dsmonline.pk, add what you need, and check out with your address and phone number.</p></li>
+        <li><span class="step-n" aria-hidden="true">2</span><h3>Take our call</h3><p>Our customer service team phones the number on your order to confirm it before it is processed. Keep your phone close.</p></li>
+        <li><span class="step-n" aria-hidden="true">3</span><h3>Receive your groceries</h3><p>Your confirmed order is delivered to your door. Check the items when they arrive.</p></li>
+      </ol>
+
+      <div class="help" id="help">
+        <div class="help-card h-green">
+          <h3>Need to return something?</h3>
+          <p>Send your return request on WhatsApp with your order details.</p>
+          <a class="big-num" href="https://wa.me/923361110376" target="_blank" rel="noopener">0336-1110376</a>
+          <a class="btn btn-green" href="https://wa.me/923361110376?text=Assalam%20o%20alaikum%2C%20I%20would%20like%20to%20request%20a%20return.%20Order%20ID%3A%20" target="_blank" rel="noopener">Request a return on WhatsApp</a>
+        </div>
+        <div class="help-card h-navy">
+          <h3>Questions about an order?</h3>
+          <p>Call the Diamond helpline. Have your order ID ready if you placed one.</p>
+          <a class="big-num" href="tel:+9221111000376">021-111-000-376</a>
+          <a class="btn btn-line" href="tel:+9221111000376">Call 021-111-000-376</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec branches" id="branches" aria-labelledby="branches-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="branches-h">Find your branch</h2>
+        <p>Diamond runs seven outlets in Karachi. These are the six areas you can shop from on dsmonline.pk.</p>
+      </div>
+      <div class="br-grid">
+        <div>
+          <ul class="br-list" id="br-list">
+            <li data-area="Clifton"><h3>Clifton</h3><p>Listed near Do Talwar.</p><div class="br-actions"><button class="chip" type="button" data-pick="Clifton">Shop from here</button></div></li>
+            <li data-area="F.B. Area"><h3>F.B. Area</h3><p>Federal B. Area outlet.</p><div class="br-actions"><button class="chip" type="button" data-pick="F.B. Area">Shop from here</button></div></li>
+            <li data-area="Garden"><h3>Garden</h3><p>Garden West outlets listed near Bagh-e-Halar and near Jamat Khana.</p><div class="br-actions"><button class="chip" type="button" data-pick="Garden">Shop from here</button></div></li>
+            <li data-area="North Karachi"><h3>North Karachi</h3><p>Shop this area on dsmonline.pk.</p><div class="br-actions"><button class="chip" type="button" data-pick="North Karachi">Shop from here</button></div></li>
+            <li data-area="Nazimabad"><h3>Nazimabad</h3><p>North Nazimabad outlet; head office at D-41, Block N.</p><div class="br-actions"><button class="chip" type="button" data-pick="Nazimabad">Shop from here</button></div></li>
+            <li data-area="Scheme 33"><h3>Scheme 33</h3><p>Shop this area on dsmonline.pk.</p><div class="br-actions"><button class="chip" type="button" data-pick="Scheme 33">Shop from here</button></div></li>
+          </ul>
+          <p class="br-note"><span class="sample">Sample content</span>Street addresses, branch phone numbers, opening hours and map pins to be supplied by Diamond Super Market. Landmarks above are from a public 2022 listing.</p>
+        </div>
+        <aside class="br-side" aria-label="Head office">
+          <figure style="margin:0">
+            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=700&q=70&auto=format&fit=crop" width="700" height="875" alt="A long, brightly lit supermarket aisle with stocked shelves" loading="lazy">
+            <figcaption>Stock photo — not a Diamond store.</figcaption>
+          </figure>
+          <div class="ho">
+            <h3>Head office</h3>
+            <p>D-41, Block N, North Nazimabad, Karachi<br>Monday to Saturday, 9:00 AM – 6:00 PM</p>
+            <p class="since">Serving Karachi households since 1960.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="mark f-mark" href="#main" aria-label="Diamond Super Market, back to top"><b>Diamond</b><span>super market</span></a>
+        <p style="margin-top:16px;max-width:34ch">A Karachi supermarket chain with seven outlets and an online store at dsmonline.pk.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul><li><a href="https://www.dsmonline.pk/" target="_blank" rel="noopener">dsmonline.pk</a></li><li><a href="#aisles">Aisles</a></li><li><a href="#offers">This week</a></li></ul>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <ul><li><a href="#ordering">How ordering works</a></li><li><a href="#help">Returns on WhatsApp</a></li><li><a href="#branches">Branches</a></li></ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul><li><a href="tel:+9221111000376">021-111-000-376</a></li><li><a href="https://wa.me/923361110376" target="_blank" rel="noopener">WhatsApp 0336-1110376</a></li><li>D-41, Block N, North Nazimabad</li></ul>
+      </div>
+    </div>
+    <div class="f-legal">
+      <span>Website concept for Diamond Super Market — not the official website. Proposed wordmark and design; stock imagery; details from public listings.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" aria-label="Quick actions">
+  <a class="btn btn-red" href="https://www.dsmonline.pk/" target="_blank" rel="noopener">Shop online</a>
+  <a class="btn btn-line" href="tel:+9221111000376">Call to order</a>
+</div>
+
+<script>
+(function(){
+  var info = {
+    "Clifton": ["Diamond, Clifton.", "Clifton outlet, listed near Do Talwar. Shop the Clifton area store online, or call the helpline to order."],
+    "F.B. Area": ["Diamond, F.B. Area.", "Federal B. Area outlet. Shop the FB Area store online, or call the helpline to order."],
+    "Garden": ["Diamond, Garden.", "Garden West outlets, listed near Bagh-e-Halar and near Jamat Khana. Shop the Garden area store online."],
+    "North Karachi": ["Diamond, North Karachi.", "Shop the North Karachi area store online, or call the helpline to order."],
+    "Nazimabad": ["Diamond, Nazimabad.", "North Nazimabad is also home to the head office at D-41, Block N. Shop the Nazimabad area store online."],
+    "Scheme 33": ["Diamond, Scheme 33.", "Shop the Scheme 33 area store online, or call the helpline to order."]
+  };
+  var tags = document.querySelectorAll('.tag');
+  var h1 = document.getElementById('hero-h');
+  var area = document.getElementById('hero-area');
+  var t = document.getElementById('bp-title');
+  var x = document.getElementById('bp-text');
+  var rows = document.querySelectorAll('#br-list li');
+
+  function pick(name, scroll){
+    if(!info[name]) return;
+    tags.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.area === name ? 'true' : 'false'); });
+    rows.forEach(function(r){ r.classList.toggle('on', r.dataset.area === name); });
+    area.textContent = info[name][0];
+    h1.classList.remove('swap'); void h1.offsetWidth; h1.classList.add('swap');
+    t.textContent = 'Shopping from ' + name + '.';
+    x.textContent = info[name][1];
+    try{ localStorage.setItem('dsm-area', name); }catch(e){}
+    if(scroll){ document.getElementById('hero-h').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }
+  }
+  tags.forEach(function(b){ b.addEventListener('click', function(){ pick(b.dataset.area, false); }); });
+  document.querySelectorAll('[data-pick]').forEach(function(b){ b.addEventListener('click', function(){ pick(b.dataset.pick, true); }); });
+  try{ var saved = localStorage.getItem('dsm-area'); if(saved) pick(saved, false); }catch(e){}
+
+  // mobile menu
+  var mb = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  mb.addEventListener('click', function(){
+    var open = mb.getAttribute('aria-expanded') === 'true';
+    mb.setAttribute('aria-expanded', String(!open));
+    mb.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+    nav.classList.toggle('open', !open);
+  });
+  nav.addEventListener('click', function(e){ if(e.target.tagName === 'A' && nav.classList.contains('open')){ mb.click(); } });
+
+  // search (concept)
+  var note = document.getElementById('search-note');
+  document.getElementById('search').addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = document.getElementById('q').value.trim();
+    note.hidden = false;
+    note.innerHTML = '';
+    note.append(document.createTextNode((q ? 'Concept demo: searching for “' + q + '” would run on ' : 'Concept demo: product search runs on ')));
+    var a = document.createElement('a'); a.href = 'https://www.dsmonline.pk/'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'dsmonline.pk';
+    note.append(a, document.createTextNode('.'));
+  });
+
+  // aisle arrows
+  var track = document.getElementById('aisle-track');
+  document.querySelectorAll('.aisle-ctrl button').forEach(function(b){
+    b.addEventListener('click', function(){ track.scrollBy({left: Number(b.dataset.dir) * track.clientWidth * 0.6, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); });
+  });
+})();
+</script>
+</body>
+</html>

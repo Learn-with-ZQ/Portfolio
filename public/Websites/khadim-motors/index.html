@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khadim Motors — engine, brake and seal parts, Plaza Square, Karachi (concept)</title>
+<meta name="description" content="Website concept for Khadim Motors, importer and wholesaler of engine, brake and seal parts at Al-Hayat Market, Plaza Square, M.A. Jinnah Road, Karachi. Since 1967.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1D3E8A; --blue-deep:#152E69; --blue-ink:#0F2252;
+  --copper:#B4532A; --copper-lt:#E39A74;
+  --grey:#E3E5E8; --grey-2:#CDD1D6; --grey-3:#6A707A;
+  --white:#FFFFFF; --ink:#22252A; --ink-2:#4A4F57;
+  --cond:"Barlow Condensed", "Arial Narrow", sans-serif;
+  --body:"Barlow", "Segoe UI", sans-serif;
+  --wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--white);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* concept notice */
+.notice{background:var(--ink);color:#C9CDD3;font-size:13px;line-height:1.4}
+.notice .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.notice a{color:#fff;text-underline-offset:2px}
+
+/* header */
+.top{background:var(--white);border-bottom:1px solid var(--grey-2);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--blue)}
+.mark .tag{width:12px;height:30px;background:var(--copper);border-radius:2px;position:relative}
+.mark .tag::after{content:"";position:absolute;left:3px;top:4px;width:6px;height:6px;border-radius:50%;background:var(--white)}
+.mark b{font-family:var(--cond);font-weight:800;font-size:26px;letter-spacing:.01em;text-transform:uppercase;line-height:1}
+.mark span{font-family:var(--cond);font-weight:500;font-size:26px;text-transform:uppercase;color:var(--ink-2);line-height:1}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{font-family:var(--cond);font-weight:600;font-size:19px;text-decoration:none;color:var(--ink)}
+.nav a:hover{color:var(--copper)}
+.hcall{display:flex;align-items:center;gap:8px;background:var(--blue);color:#fff;text-decoration:none;font-family:var(--cond);font-weight:700;font-size:19px;padding:8px 16px;border-radius:3px}
+.hcall:hover{background:var(--blue-deep)}
+.menu-btn{display:none;background:none;border:2px solid var(--ink);border-radius:3px;padding:6px 12px;font-family:var(--cond);font-weight:700;font-size:17px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.2px,transparent 1.3px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;padding-top:64px;padding-bottom:150px;align-items:start}
+.hero h1{font-family:var(--cond);font-weight:700;font-size:clamp(46px,6.4vw,92px);line-height:.94;letter-spacing:-.005em;margin:0 0 22px;max-width:13ch}
+.hero .lede{font-size:19px;max-width:54ch;color:#DCE3F2;margin:0 0 34px}
+.lookup{background:#fff;border-radius:4px;display:flex;align-items:stretch;max-width:760px;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+.lookup label{display:flex;align-items:center;padding-left:18px;color:var(--blue)}
+.lookup input{flex:1;min-width:0;border:0;padding:20px 16px;font-size:20px;color:var(--ink);background:transparent}
+.lookup input::placeholder{color:#737983}
+.lookup input:focus{outline:none}
+.lookup:focus-within{box-shadow:0 0 0 4px var(--copper-lt)}
+.lookup .clear{border:0;background:var(--grey);color:var(--ink);margin:10px;padding:0 14px;border-radius:3px;font-family:var(--cond);font-weight:700;font-size:17px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;max-width:760px}
+.chip{border:1.5px solid rgba(255,255,255,.45);background:transparent;color:#fff;border-radius:40px;padding:6px 15px;font-family:var(--cond);font-weight:600;font-size:17px;cursor:pointer}
+.chip:hover{border-color:#fff}
+.chip[aria-pressed="true"]{background:#fff;color:var(--blue);border-color:#fff}
+
+/* stamp badge */
+.stamp{width:260px;height:260px;transform:rotate(-9deg);margin-top:8px;justify-self:end}
+.stamp svg{width:100%;height:100%;overflow:visible}
+.stamp-ink{fill:none;stroke:var(--copper-lt)}
+.stamp text{fill:var(--copper-lt);font-family:var(--cond);font-weight:700}
+@media (prefers-reduced-motion:no-preference){
+  .stamp{animation:thunk .55s cubic-bezier(.2,1.6,.4,1) .5s both}
+  @keyframes thunk{0%{opacity:0;transform:rotate(-14deg) scale(1.5)}60%{opacity:1}100%{opacity:1;transform:rotate(-9deg) scale(1)}}
+}
+
+/* ledger (sample table) */
+.ledger-sec{background:var(--grey);padding-bottom:88px}
+.ledger{position:relative;margin-top:-104px;background:#fff;border:1px solid var(--grey-2);border-top:6px solid var(--copper);border-radius:4px}
+.ledger-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:22px 26px 16px;flex-wrap:wrap;border-bottom:2px solid var(--ink)}
+.ledger-head h2{font-family:var(--cond);font-weight:700;font-size:30px;line-height:1.05;margin:0}
+.ledger-head p{margin:4px 0 0;color:var(--ink-2);font-size:15px}
+.ledger-head .count{font-family:var(--cond);font-weight:600;font-size:19px;color:var(--blue)}
+.sample-flag{display:inline-block;background:#FBEDE5;color:#8A3B19;border:1px dashed var(--copper);padding:2px 9px;border-radius:3px;font-size:14px;font-weight:600;margin-top:8px}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-family:var(--cond);font-weight:600;font-size:16px;color:var(--grey-3);padding:12px 26px 8px;border-bottom:1px solid var(--grey-2)}
+td{padding:13px 26px;border-bottom:1px solid var(--grey);vertical-align:middle}
+tbody tr:hover td{background:#F5F6F8}
+td.part{font-weight:600}
+td.ref{font-family:var(--cond);font-weight:600;font-size:18px;color:var(--blue);letter-spacing:.02em;white-space:nowrap}
+td.cat{color:var(--ink-2)}
+.add{border:1.5px solid var(--blue);background:#fff;color:var(--blue);font-family:var(--cond);font-weight:700;font-size:16px;padding:5px 12px;border-radius:3px;cursor:pointer;white-space:nowrap}
+.add:hover{background:var(--blue);color:#fff}
+.add.added{background:var(--copper);border-color:var(--copper);color:#fff}
+.empty{padding:28px 26px;display:none}
+.empty b{font-family:var(--cond);font-size:22px;display:block;margin-bottom:4px}
+.ledger-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 26px;font-size:15px;color:var(--ink-2)}
+.ledger-foot a{color:var(--blue);font-weight:600}
+
+/* section heads */
+.sec{padding:96px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;margin-bottom:44px;align-items:end}
+.sec-head h2{font-family:var(--cond);font-weight:700;font-size:clamp(38px,4.4vw,60px);line-height:.98;margin:0}
+.sec-head p{margin:0;max-width:58ch;color:var(--ink-2)}
+
+/* shelves */
+.shelves{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.shelf{display:grid;grid-template-columns:150px minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:32px;align-items:center;padding:26px 0;border-bottom:1px solid var(--grey-2)}
+.shelf svg{width:120px;height:84px;stroke:var(--blue);fill:none;stroke-width:2}
+.shelf svg .cu{stroke:var(--copper)}
+.shelf h3{font-family:var(--cond);font-weight:700;font-size:32px;line-height:1;margin:0}
+.shelf p{margin:0;color:var(--ink-2);max-width:56ch}
+.shelf button{background:none;border:0;color:var(--blue);font-family:var(--cond);font-weight:700;font-size:18px;text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:6px 0;white-space:nowrap}
+.shelf button:hover{color:var(--copper)}
+
+/* carton end label */
+.origin{background:var(--blue-ink);color:#fff}
+.origin .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center}
+.origin h2{font-family:var(--cond);font-weight:700;font-size:clamp(38px,4.4vw,60px);line-height:.98;margin:0 0 18px}
+.origin p{color:#C7D0E4;max-width:52ch;margin:0 0 14px}
+.origin .src{font-size:14px;color:#9FAAC2}
+.origin .src a{color:#fff}
+.carton{background:#C9A98A;padding:22px;border-radius:2px;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 7px)}
+.carton::before{content:"";position:absolute;left:0;right:0;top:46%;height:30px;background:rgba(232,214,180,.55);border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
+.label{position:relative;background:#FBFBF8;color:var(--ink);border:2px solid var(--ink);display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+.label > div{border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:10px 14px}
+.label .k{display:block;font-size:12.5px;color:var(--grey-3);font-weight:600;line-height:1.2}
+.label .v{display:block;font-family:var(--cond);font-weight:700;font-size:28px;line-height:1.05}
+.label .name{grid-column:1/5}
+.label .name .v{font-size:40px;color:var(--blue)}
+.label .est{grid-column:5/7;border-right:0;background:var(--copper);color:#fff}
+.label .est .k{color:#FBE3D6}
+.label .ctry{grid-column:span 2}
+.label .ctry:nth-child(5){border-right:0}
+.label .brands{grid-column:1/3;border-bottom:0}
+.label .range{grid-column:3/7;border-right:0;border-bottom:0}
+.label .range .v{font-size:22px;line-height:1.2}
+.bars{grid-column:1/7;border-right:0 !important;border-bottom:0 !important;border-top:2px solid var(--ink);display:flex;align-items:flex-end;gap:16px;padding:12px 14px !important}
+.bars i{flex:1;height:44px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px)}
+.bars small{font-size:12.5px;color:var(--grey-3);white-space:nowrap}
+
+/* counter */
+.counter .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px}
+.counter h2{font-family:var(--cond);font-weight:700;font-size:clamp(38px,4.4vw,60px);line-height:.98;margin:0 0 24px}
+.addr{font-family:var(--cond);font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1.15;margin:0 0 28px;font-style:normal}
+.phones{display:grid;gap:10px;margin-bottom:22px}
+.phone{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:16px 20px;border:2px solid var(--blue);border-radius:4px;text-decoration:none;color:var(--blue)}
+.phone:hover{background:var(--blue);color:#fff}
+.phone b{font-family:var(--cond);font-weight:700;font-size:clamp(30px,3.4vw,46px);line-height:1}
+.phone span{font-family:var(--cond);font-weight:600;font-size:18px}
+.counter .note{font-size:15px;color:var(--ink-2);max-width:58ch}
+.route{background:var(--grey);border-radius:4px;padding:26px}
+.route h3{font-family:var(--cond);font-weight:700;font-size:24px;margin:0 0 6px}
+.route ol{margin:0;padding:0;list-style:none;position:relative}
+.route li{position:relative;padding:0 0 22px 34px}
+.route li::before{content:"";position:absolute;left:7px;top:8px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+.route li:not(:last-child)::after{content:"";position:absolute;left:14px;top:24px;bottom:2px;width:2px;background:var(--grey-2)}
+.route li:last-child::before{background:var(--copper);border-color:var(--copper)}
+.route li b{display:block;font-family:var(--cond);font-size:21px;line-height:1.1}
+.route li span{font-size:15px;color:var(--ink-2)}
+.route .disc{font-size:13.5px;color:var(--grey-3);margin:4px 0 0}
+
+/* parts list builder */
+.list-sec{background:var(--grey)}
+.slip{background:#fff;border:1px solid var(--grey-2);border-radius:4px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.slip-form{padding:30px;border-right:2px dashed var(--grey-2)}
+.slip-out{padding:30px;background:#FAFAFB;border-radius:0 4px 4px 0;display:flex;flex-direction:column}
+.fld{display:grid;gap:6px;margin-bottom:16px}
+.fld label,.rows-head{font-family:var(--cond);font-weight:600;font-size:17px}
+.fld input,.row input{width:100%;border:1.5px solid var(--grey-2);border-radius:3px;padding:11px 12px;background:#fff;font-size:16px}
+.fld input:focus,.row input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,62,138,.18)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rows-head{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.6fr) 74px 40px;gap:8px;margin-bottom:6px;color:var(--ink-2)}
+.row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.6fr) 74px 40px;gap:8px;margin-bottom:8px}
+.row .rm{border:1.5px solid var(--grey-2);background:#fff;border-radius:3px;cursor:pointer;font-size:20px;line-height:1;color:var(--grey-3)}
+.row .rm:hover{border-color:var(--copper);color:var(--copper)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:3px;font-family:var(--cond);font-weight:700;font-size:19px;padding:11px 20px;cursor:pointer;text-decoration:none;border:2px solid var(--blue)}
+.btn-solid{background:var(--blue);color:#fff}
+.btn-solid:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.btn-line{background:#fff;color:var(--blue)}
+.btn-line:hover{background:var(--grey)}
+.btn-copper{background:var(--copper);border-color:var(--copper);color:#fff}
+.btn-copper:hover{background:#97431F;border-color:#97431F}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.slip-out h3{font-family:var(--cond);font-weight:700;font-size:24px;margin:0 0 10px}
+.slip-out pre{flex:1;margin:0 0 16px;white-space:pre-wrap;word-break:break-word;font-family:var(--body);font-size:15px;line-height:1.5;background:#fff;border:1.5px solid var(--grey-2);border-radius:3px;padding:14px;min-height:200px}
+.slip-out .demo{font-size:13.5px;color:var(--grey-3);margin:12px 0 0}
+.status{min-height:1.4em;font-size:15px;color:var(--blue);font-weight:600;margin:10px 0 0}
+
+/* footer */
+.foot{background:var(--blue);color:#DCE3F2;padding:56px 0 30px}
+.foot .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.2)}
+.foot .mark{color:#fff}
+.foot .mark span{color:#B8C4E0}
+.foot p{margin:14px 0 0;max-width:40ch}
+.foot h3{font-family:var(--cond);font-weight:700;font-size:20px;color:#fff;margin:0 0 10px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{color:#fff;text-underline-offset:3px}
+.foot .fine{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:13.5px;color:#B8C4E0}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr) 220px;gap:28px}
+  .stamp{width:210px;height:210px}
+  .shelf{grid-template-columns:120px minmax(0,1fr) auto;gap:22px}
+  .shelf p{grid-column:2/3}
+  .shelf button{grid-column:3;grid-row:1}
+  .shelf svg{grid-row:1/3;width:100px}
+}
+@media (max-width:900px){
+  .nav,.hcall-txt{display:none}
+  .menu-btn{display:block;margin-left:auto}
+  .top .wrap{gap:12px}
+  .nav.open{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:64px;background:#fff;padding:12px 32px 20px;border-bottom:2px solid var(--ink);gap:6px}
+  .nav.open a{font-size:24px;padding:6px 0}
+  .sec-head,.origin .wrap,.counter .wrap,.slip{grid-template-columns:1fr}
+  .sec-head{gap:16px}
+  .slip-form{border-right:0;border-bottom:2px dashed var(--grey-2)}
+  .slip-out{border-radius:0 0 4px 4px}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .foot .grid > :first-child{grid-column:1/3}
+}
+@media (max-width:720px){
+  .wrap{padding:0 18px}
+  body{font-size:16px}
+  .hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:120px}
+  .stamp{position:absolute;right:-26px;top:18px;width:136px;height:136px;margin:0;opacity:.95}
+  .hero h1{max-width:9.5ch;font-size:clamp(44px,13vw,60px)}
+  .hero .lede{font-size:17px}
+  .lookup input{font-size:17px;padding:16px 10px}
+  .lookup label{padding-left:12px}
+  .lookup .clear{margin:8px;padding:0 10px}
+  .ledger-head{padding:18px 16px 14px}
+  .ledger-head h2{font-size:26px}
+  thead{display:none}
+  table,tbody,tr,td{display:block}
+  tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:14px 16px;border-bottom:1px solid var(--grey)}
+  td{padding:0;border:0}
+  td.part{grid-column:1}
+  td.fits{grid-column:1;font-size:15px;color:var(--ink-2)}
+  td.cat{display:none}
+  td.ref{grid-column:2;grid-row:1;text-align:right}
+  td.act{grid-column:2;grid-row:2;text-align:right}
+  .ledger-foot{padding:14px 16px}
+  .sec{padding:68px 0}
+  .shelf{grid-template-columns:72px minmax(0,1fr);gap:6px 16px;padding:22px 0}
+  .shelf svg{width:72px;height:56px;grid-row:1/2}
+  .shelf h3{font-size:27px}
+  .shelf p{grid-column:1/3}
+  .shelf button{grid-column:1/3;grid-row:auto;justify-self:start}
+  .carton{padding:12px}
+  .label .name,.label .est{grid-column:1/7;border-right:0}
+  .label .name .v{font-size:32px}
+  .label .ctry{grid-column:span 2;padding:10px}
+  .label .ctry .v{font-size:20px}
+  .label .brands{grid-column:1/7;border-right:0;border-bottom:2px solid var(--ink)}
+  .label .range{grid-column:1/7}
+  .label .v{font-size:24px}
+  .phone{flex-direction:column;gap:4px}
+  .slip-form,.slip-out{padding:20px 16px}
+  .two{grid-template-columns:1fr}
+  .rows-head{display:none}
+  .row{grid-template-columns:minmax(0,1fr) 64px 40px;padding-bottom:10px;border-bottom:1px solid var(--grey)}
+  .row input:first-child{grid-column:1/4}
+  .foot .grid{grid-template-columns:1fr}
+  .foot .grid > :first-child{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="notice" role="note"><div class="wrap">
+  <span>Website concept for Khadim Motors, not the official website. Proposed design and wordmark; part listings are illustrative; details from public listings.</span>
+  <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Concept by Muhammad Zaid Qasim</a>
+</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Khadim Motors, home"><i class="tag" aria-hidden="true"></i><b>Khadim</b><span>Motors</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#lookup">Part lookup</a>
+      <a href="#shelves">Range</a>
+      <a href="#origin">Imports</a>
+      <a href="#counter">Visit the counter</a>
+      <a href="#list">Send parts list</a>
+    </nav>
+    <a class="hcall" href="tel:+922132721269" aria-label="Call Khadim Motors on 021 32721269">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+      <span class="hcall-txt">Check stock by phone</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">Engine, brake and seal parts, on the counter since 1967.</h1>
+      <p class="lede">Khadim Motors imports and wholesales engine parts from Japan, Singapore and Taiwan, more than 30 brands in all, from Al-Hayat Market, Plaza Square, M.A. Jinnah Road. Look up a part below, then call the counter to check stock.</p>
+      <form class="lookup" role="search" onsubmit="return false">
+        <label for="q"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><span class="sr">Search parts</span></label>
+        <input id="q" type="search" autocomplete="off" placeholder="Search by part name, number or vehicle" aria-describedby="count">
+        <button type="button" class="clear" id="clear">Clear</button>
+      </form>
+      <div class="chips" role="group" aria-label="Filter by part type">
+        <button class="chip" type="button" aria-pressed="true" data-cat="all">All parts</button>
+        <button class="chip" type="button" aria-pressed="false" data-cat="Piston rings">Piston rings</button>
+        <button class="chip" type="button" aria-pressed="false" data-cat="Brakes">Brake pads &amp; shoes</button>
+        <button class="chip" type="button" aria-pressed="false" data-cat="Oil seals">Oil seals</button>
+        <button class="chip" type="button" aria-pressed="false" data-cat="Cylinders">Cylinders</button>
+        <button class="chip" type="button" aria-pressed="false" data-cat="Belts">Timing &amp; fan belts</button>
+      </div>
+    </div>
+    <div class="stamp" aria-label="Established 1967" role="img">
+      <svg viewBox="0 0 260 260" aria-hidden="true">
+        <defs>
+          <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/><feComponentTransfer><feFuncA type="discrete" tableValues="0 1 1 1 .85 1"/></feComponentTransfer></filter>
+          <path id="ring" d="M130,130 m-96,0 a96,96 0 1,1 192,0 a96,96 0 1,1 -192,0"/>
+        </defs>
+        <g filter="url(#rough)">
+          <circle class="stamp-ink" cx="130" cy="130" r="124" stroke-width="5"/>
+          <circle class="stamp-ink" cx="130" cy="130" r="116" stroke-width="1.6"/>
+          <circle class="stamp-ink" cx="130" cy="130" r="76" stroke-width="2.5"/>
+          <text font-size="21" letter-spacing="3.2"><textPath href="#ring" startOffset="0">KHADIM MOTORS &#9670; PLAZA SQUARE &#9670; KARACHI &#9670;</textPath></text>
+          <text x="130" y="112" text-anchor="middle" font-size="22" letter-spacing="6">SINCE</text>
+          <text x="130" y="164" text-anchor="middle" font-size="62" letter-spacing="1">1967</text>
+          <path class="stamp-ink" d="M84 178h92" stroke-width="2.5"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="ledger-sec" id="lookup" aria-labelledby="ledger-h">
+  <div class="wrap">
+    <div class="ledger">
+      <div class="ledger-head">
+        <div>
+          <h2 id="ledger-h">From the shelves</h2>
+          <span class="sample-flag">Sample listing: illustrative part numbers, not live stock</span>
+        </div>
+        <div class="count tnum" id="count" aria-live="polite">14 sample lines</div>
+      </div>
+      <table>
+        <caption class="sr">Sample parts listing with illustrative reference numbers</caption>
+        <thead><tr><th scope="col">Part</th><th scope="col">Type</th><th scope="col">Fits</th><th scope="col">Sample ref.</th><th scope="col"><span class="sr">Add to parts list</span></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty"><b>Not in the sample listing.</b>The full range is held at the counter. Call <a href="tel:+922132721269">021 32721269</a> or add it to your parts list by hand.</div>
+      <div class="ledger-foot">
+        <span>Real part numbers, brands and availability to be supplied by Khadim Motors.</span>
+        <a href="#list" id="list-link">Your parts list: <span id="list-n" class="tnum">0</span> items</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="shelves" aria-labelledby="shelves-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="shelves-h">Five kinds of part, matched at the counter</h2>
+      <p>The range sits in five groups. Most parts are matched by the vehicle and engine, or by the number and sizes stamped on the old part, so bring either when you ask.</p>
+    </div>
+    <ul class="shelves">
+      <li class="shelf">
+        <svg viewBox="0 0 120 84" aria-hidden="true"><ellipse cx="60" cy="22" rx="44" ry="11"/><ellipse class="cu" cx="60" cy="42" rx="44" ry="11"/><ellipse cx="60" cy="62" rx="44" ry="11"/><path d="M60 11v-3M60 31v-3" stroke-width="3" stroke="#fff"/></svg>
+        <h3>Piston rings</h3>
+        <p>Compression and oil-control rings that seal the piston against the cylinder wall. Ask by engine model and size, standard or oversize.</p>
+        <button type="button" data-show="Piston rings">Show in lookup</button>
+      </li>
+      <li class="shelf">
+        <svg viewBox="0 0 120 84" aria-hidden="true"><path d="M10 60 Q60 2 110 60 L98 70 Q60 22 22 70 Z"/><path class="cu" d="M24 56 Q60 18 96 56 L90 62 Q60 32 30 62 Z"/><circle cx="20" cy="66" r="3"/><circle cx="100" cy="66" r="3"/></svg>
+        <h3>Brake pads &amp; shoes</h3>
+        <p>Disc pads and drum shoes. Bring the old part, or the vehicle model and year, so the counter can match the shape.</p>
+        <button type="button" data-show="Brakes">Show in lookup</button>
+      </li>
+      <li class="shelf">
+        <svg viewBox="0 0 120 84" aria-hidden="true"><circle cx="60" cy="42" r="36"/><circle cx="60" cy="42" r="27"/><circle class="cu" cx="60" cy="42" r="20" stroke-dasharray="3 3"/><circle cx="60" cy="42" r="14"/></svg>
+        <h3>Oil seals</h3>
+        <p>Crankshaft, camshaft, hub and gearbox seals. Seals are matched by size, so note the inner diameter, outer diameter and width printed on the old one.</p>
+        <button type="button" data-show="Oil seals">Show in lookup</button>
+      </li>
+      <li class="shelf">
+        <svg viewBox="0 0 120 84" aria-hidden="true"><rect x="30" y="28" width="60" height="30" rx="3"/><path d="M52 28v-12h16v12M56 16v-6h8v6"/><path class="cu" d="M30 32h-12v22h12M90 32h12v22H90"/><path d="M18 43H6M102 43h12"/></svg>
+        <h3>Cylinders</h3>
+        <p>Wheel, master and clutch cylinders are the usual requests. Say which one, and the vehicle it comes from.</p>
+        <button type="button" data-show="Cylinders">Show in lookup</button>
+      </li>
+      <li class="shelf">
+        <svg viewBox="0 0 120 84" aria-hidden="true"><circle cx="30" cy="42" r="18"/><circle cx="92" cy="30" r="12"/><path d="M28 23.5 L91 17.6M31 60.5 L93 42"/><path class="cu" d="M27 19.5 L91 13.5M32 64.5 L95 46" stroke-dasharray="2 3"/><circle cx="30" cy="42" r="4"/><circle cx="92" cy="30" r="3"/></svg>
+        <h3>Timing &amp; fan belts</h3>
+        <p>Timing belts are matched by tooth count and width; fan belts by length and profile. The code printed on the back of the old belt is the quickest route.</p>
+        <button type="button" data-show="Belts">Show in lookup</button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec origin" id="origin" aria-labelledby="origin-h">
+  <div class="wrap">
+    <div>
+      <h2 id="origin-h">Imported from Japan, Singapore and Taiwan</h2>
+      <p>Khadim Motors has imported engine parts since 1967 and brings in more than 30 brands from three sourcing countries. A team of 11 to 15 people runs the counter and the wholesale trade.</p>
+      <p class="src">Source: <a href="https://www.businesslist.pk/company/167703/khadim-motors" target="_blank" rel="noopener">BusinessList.pk listing</a>. A 2022 customer review on the same listing mentions Akebono, JKP cylinders, NEC oil seals, GSP brakes and Kansai belts. The current brand list is to be confirmed by Khadim Motors.</p>
+    </div>
+    <figure style="margin:0">
+      <div class="carton">
+        <div class="label">
+          <div class="name"><span class="k">Importer &amp; wholesaler</span><span class="v">Khadim Motors</span></div>
+          <div class="est"><span class="k">Established</span><span class="v tnum">1967</span></div>
+          <div class="ctry"><span class="k">Origin</span><span class="v">Japan</span></div>
+          <div class="ctry"><span class="k">Origin</span><span class="v">Singapore</span></div>
+          <div class="ctry"><span class="k">Origin</span><span class="v">Taiwan</span></div>
+          <div class="brands"><span class="k">Brands imported</span><span class="v tnum">30+</span></div>
+          <div class="range"><span class="k">Contents</span><span class="v">Piston rings, brake pads &amp; shoes, oil seals, cylinders, timing &amp; fan belts</span></div>
+          <div class="bars" aria-hidden="true"><i></i><small>Al-Hayat Market, Plaza Square, Karachi</small></div>
+        </div>
+      </div>
+      <figcaption class="src" style="margin-top:12px">Drawn as a carton end label for this concept; not an actual Khadim Motors label.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec counter" id="counter" aria-labelledby="counter-h">
+  <div class="wrap">
+    <div>
+      <h2 id="counter-h">Visit the counter</h2>
+      <address class="addr">1, Al-Hayat Market, Plaza Square,<br>M.A. Jinnah Road, Karachi</address>
+      <div class="phones">
+        <a class="phone" href="tel:+922132721269"><b class="tnum">021 32721269</b><span>Call to check stock</span></a>
+        <a class="phone" href="tel:+922132766572"><b class="tnum">021 32766572</b><span>Second line</span></a>
+      </div>
+      <p class="note">Opening hours are to be confirmed by Khadim Motors. Call before you travel so the part can be checked and kept aside.</p>
+    </div>
+    <div class="route">
+      <h3>Finding the shop</h3>
+      <p class="disc" style="margin:0 0 18px">The listed address, from the main road in.</p>
+      <ol>
+        <li><b>M.A. Jinnah Road</b></li>
+        <li><b>Plaza Square</b></li>
+        <li><b>Al-Hayat Market</b></li>
+        <li><b>1, Khadim Motors</b><span>Shop number as listed</span></li>
+      </ol>
+      <p class="disc">Landmark directions and a map pin to be supplied by Khadim Motors.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec list-sec" id="list" aria-labelledby="list-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="list-h">Send parts list</h2>
+      <p>Write the parts once, with the vehicle or the number from the old part, and read the list out on the phone. Lines you add from the lookup land here too.</p>
+    </div>
+    <div class="slip">
+      <form class="slip-form" id="slip" onsubmit="return false">
+        <div class="two">
+          <div class="fld"><label for="shop">Shop or workshop</label><input id="shop" autocomplete="organization" placeholder="e.g. Al-Noor Autos"></div>
+          <div class="fld"><label for="area">Area or city</label><input id="area" placeholder="e.g. Saddar, Karachi"></div>
+        </div>
+        <div class="rows-head" aria-hidden="true"><span>Part</span><span>Vehicle or part no.</span><span>Qty</span><span></span></div>
+        <div id="lines"></div>
+        <div class="actions"><button type="button" class="btn btn-line" id="addline">Add a line</button></div>
+      </form>
+      <div class="slip-out">
+        <h3>Your list</h3>
+        <pre id="out" aria-live="polite"></pre>
+        <div class="actions">
+          <button type="button" class="btn btn-solid" id="copy">Copy list</button>
+          <a class="btn btn-copper" href="tel:+922132721269">Call 021 32721269</a>
+        </div>
+        <p class="status" id="status" role="status"></p>
+        <p class="demo">Concept demo: nothing is sent from this page. No WhatsApp number or email is published for Khadim Motors; once supplied, the list can go straight to WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a class="mark" href="#top" aria-label="Khadim Motors, back to top"><i class="tag" aria-hidden="true"></i><b>Khadim</b><span>Motors</span></a>
+        <p>Importer and wholesaler of engine, brake and seal parts since 1967.</p>
+      </div>
+      <div>
+        <h3>Counter</h3>
+        <ul>
+          <li>1, Al-Hayat Market, Plaza Square, M.A. Jinnah Road, Karachi</li>
+          <li><a href="tel:+922132721269">021 32721269</a></li>
+          <li><a href="tel:+922132766572">021 32766572</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>On this page</h3>
+        <ul><li><a href="#lookup">Part lookup</a></li><li><a href="#shelves">Range</a></li><li><a href="#list">Send parts list</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>Website concept for Khadim Motors, not the official website. Proposed wordmark and design; illustrative part data; details from the BusinessList.pk listing.</span>
+      <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Concept by Muhammad Zaid Qasim</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var parts=[
+    ["Piston ring set, standard","Piston rings","Suzuki Mehran 800cc","KM-PR-0801"],
+    ["Piston ring set, 0.50 oversize","Piston rings","Toyota Corolla 1.3","KM-PR-1350"],
+    ["Piston ring set, standard","Piston rings","Suzuki Bolan","KM-PR-0802"],
+    ["Front disc pads","Brakes","Toyota Corolla","KM-BP-2140"],
+    ["Front disc pads","Brakes","Honda Civic","KM-BP-1621"],
+    ["Rear brake shoes","Brakes","Suzuki Cultus","KM-BS-1001"],
+    ["Rear brake shoes","Brakes","Toyota Hilux","KM-BS-2500"],
+    ["Crankshaft front oil seal","Oil seals","Toyota Corolla 1.3 / 1.6","KM-OS-3548"],
+    ["Rear hub oil seal","Oil seals","Suzuki Mehran","KM-OS-4062"],
+    ["Brake master cylinder","Cylinders","Suzuki Mehran","KM-CY-0800"],
+    ["Rear wheel cylinder","Cylinders","Toyota Corolla","KM-CY-1316"],
+    ["Clutch master cylinder","Cylinders","Daihatsu Cuore","KM-CY-0850"],
+    ["Timing belt","Belts","Suzuki Cultus 1.0","KM-TB-1000"],
+    ["Fan belt","Belts","Toyota Hilux 2.5 diesel","KM-FB-2525"]
+  ];
+  var catName={"Piston rings":"Piston rings","Brakes":"Brake pads & shoes","Oil seals":"Oil seals","Cylinders":"Cylinders","Belts":"Timing & fan belts"};
+  var tbody=document.getElementById("rows"),q=document.getElementById("q"),count=document.getElementById("count"),empty=document.getElementById("empty");
+  var chips=[].slice.call(document.querySelectorAll(".chip")),cat="all";
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  tbody.innerHTML=parts.map(function(p,i){
+    return '<tr data-i="'+i+'"><td class="part">'+esc(p[0])+'</td><td class="cat">'+esc(catName[p[1]])+'</td><td class="fits">'+esc(p[2])+'</td><td class="ref">'+p[3]+'</td><td class="act"><button type="button" class="add" data-i="'+i+'" aria-label="Add '+esc(p[0])+' for '+esc(p[2])+' to parts list">Add to list</button></td></tr>';
+  }).join("");
+  var trs=[].slice.call(tbody.rows);
+  function norm(s){return s.toLowerCase().replace(/[^a-z0-9.]+/g," ");}
+  function filter(){
+    var terms=norm(q.value).split(" ").filter(Boolean),n=0;
+    trs.forEach(function(tr){
+      var p=parts[+tr.dataset.i],hay=norm(p.join(" ")+" "+catName[p[1]]+" "+p[3].replace(/-/g,""));
+      var ok=(cat==="all"||p[1]===cat)&&terms.every(function(t){return hay.indexOf(t)>-1;});
+      tr.hidden=!ok; if(ok)n++;
+    });
+    count.textContent=n===parts.length?parts.length+" sample lines":"Showing "+n+" of "+parts.length+" sample lines";
+    empty.style.display=n?"none":"block";
+  }
+  function setCat(c){cat=c;chips.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.cat===c?"true":"false");});filter();}
+  q.addEventListener("input",filter);
+  document.getElementById("clear").addEventListener("click",function(){q.value="";setCat("all");q.focus();});
+  chips.forEach(function(b){b.addEventListener("click",function(){setCat(b.dataset.cat);});});
+  [].forEach.call(document.querySelectorAll("[data-show]"),function(b){
+    b.addEventListener("click",function(){q.value="";setCat(b.dataset.show);document.getElementById("lookup").scrollIntoView({block:"start"});});
+  });
+
+  /* parts list */
+  var lines=document.getElementById("lines"),out=document.getElementById("out"),listN=document.getElementById("list-n");
+  function addLine(part,ref,qty){
+    var row=document.createElement("div");row.className="row";
+    var k=lines.children.length+1;
+    row.innerHTML='<input aria-label="Part, line '+k+'" placeholder="Part"><input aria-label="Vehicle or part number, line '+k+'" placeholder="Vehicle or part no."><input aria-label="Quantity, line '+k+'" inputmode="numeric" placeholder="Qty"><button type="button" class="rm" aria-label="Remove line '+k+'">&times;</button>';
+    var ins=row.querySelectorAll("input");ins[0].value=part||"";ins[1].value=ref||"";ins[2].value=qty||"";
+    lines.appendChild(row);compose();return row;
+  }
+  lines.addEventListener("input",compose);
+  lines.addEventListener("click",function(e){if(e.target.classList.contains("rm")){e.target.parentNode.remove();if(!lines.children.length)addLine();compose();}});
+  document.getElementById("slip").addEventListener("input",compose);
+  document.getElementById("addline").addEventListener("click",function(){addLine().querySelector("input").focus();});
+  function compose(){
+    var shop=document.getElementById("shop").value.trim(),area=document.getElementById("area").value.trim(),items=[];
+    [].forEach.call(lines.children,function(r){var v=[].map.call(r.querySelectorAll("input"),function(i){return i.value.trim();});if(v[0]||v[1])items.push(v);});
+    listN.textContent=items.length;
+    var t="Parts list for Khadim Motors\n";
+    if(shop||area)t+="From: "+[shop,area].filter(Boolean).join(", ")+"\n";
+    t+="\n";
+    t+=items.length?items.map(function(v,i){return (i+1)+". "+(v[0]||"Part")+(v[1]?" ("+v[1]+")":"")+" x "+(v[2]||"1");}).join("\n"):"No lines yet. Type a part in the form, or use Add to list in the lookup.";
+    t+="\n\nPlease confirm stock and rate.";
+    out.textContent=t;
+  }
+  tbody.addEventListener("click",function(e){
+    var b=e.target.closest(".add");if(!b)return;
+    var p=parts[+b.dataset.i],first=lines.children[0],fi=first&&first.querySelectorAll("input");
+    if(lines.children.length===1&&!fi[0].value&&!fi[1].value){fi[0].value=p[0];fi[1].value=p[2]+", "+p[3];fi[2].value="1";compose();}
+    else addLine(p[0],p[2]+", "+p[3],"1");
+    b.textContent="Added";b.classList.add("added");
+  });
+  document.getElementById("copy").addEventListener("click",function(){
+    var s=document.getElementById("status"),txt=out.textContent;
+    function done(){s.textContent="List copied. Read it out on the call, or paste it into a message.";}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done,function(){s.textContent="Copy is blocked in this browser. Select the list and copy it by hand.";});}
+    else{var r=document.createRange();r.selectNodeContents(out);var sel=getSelection();sel.removeAllRanges();sel.addRange(r);try{document.execCommand("copy");done();}catch(err){s.textContent="Select the list and copy it by hand.";}}
+  });
+  addLine();
+
+  /* mobile menu */
+  var mb=document.querySelector(".menu-btn"),nav=document.getElementById("nav");
+  mb.addEventListener("click",function(){var o=mb.getAttribute("aria-expanded")==="true";mb.setAttribute("aria-expanded",String(!o));nav.classList.toggle("open",!o);mb.textContent=o?"Menu":"Close";});
+  nav.addEventListener("click",function(e){if(e.target.tagName==="A"&&nav.classList.contains("open")){mb.click();}});
+})();
+</script>
+</body>
+</html>

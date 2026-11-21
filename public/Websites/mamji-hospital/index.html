@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mamji Hospital, Federal B. Area | Website concept</title>
+<meta name="description" content="Website concept for Mamji Hospital, an 85-bed general and orthopaedic hospital at C-19, Block 17, Federal B. Area, Karachi. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#16325C; --midnight-deep:#0F2546; --midnight-2:#1E3F6E;
+  --sky:#DCE9F7; --sky-soft:#EEF4FB; --sky-line:#C3D6EC;
+  --crimson:#D7263D; --crimson-deep:#B51D31;
+  --white:#FFFFFF; --slate:#5B6B82; --slate-on-sky:#46566E;
+  --board-text:#E9F1FB; --board-dim:#A9BDD8;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1200px; --gut:clamp(20px,4vw,48px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--midnight);background:var(--white);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em;font-optical-sizing:auto}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:3px solid var(--midnight);outline-offset:3px;border-radius:4px}
+.on-dark :focus-visible,.board :focus-visible,.emerg :focus-visible,footer :focus-visible{outline-color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--midnight);color:#fff;padding:10px 14px;z-index:99;border-radius:6px}
+.skip:focus{top:12px}
+
+/* concept notice */
+.notice{background:var(--sky);color:var(--slate-on-sky);font-size:13.5px;line-height:1.45}
+.notice .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.notice a{color:var(--midnight);font-weight:600}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--sky-line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:74px}
+.mark{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.mark b{font-family:var(--serif);font-weight:600;font-size:27px;letter-spacing:-.02em}
+.mark small{font-size:12.5px;color:var(--slate);margin-top:5px;letter-spacing:.01em}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;padding:8px 12px;border-radius:6px;color:var(--midnight)}
+.nav a:hover{background:var(--sky-soft)}
+.er-pill{display:inline-flex;align-items:center;gap:9px;background:var(--crimson);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:10px 16px;border-radius:999px;white-space:nowrap}
+.er-pill:hover{background:var(--crimson-deep)}
+.dot{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--sky-line);border-radius:8px;padding:9px 12px;font:600 15px var(--sans);color:var(--midnight);cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(var(--white) 0 0) top/100% 100% no-repeat;padding:clamp(40px,6vw,80px) 0 clamp(48px,6vw,88px);position:relative}
+.hero::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38%;background:var(--sky);z-index:0}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:start}
+.hero h1{font-size:clamp(40px,5.2vw,68px);font-weight:400;letter-spacing:-.025em;max-width:11ch}
+.lede{font-size:19px;line-height:1.6;color:var(--slate);max-width:36ch;margin:24px 0 28px}
+.lede strong{color:var(--midnight);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16px var(--sans);text-decoration:none;padding:14px 22px;border-radius:10px;border:2px solid var(--midnight);cursor:pointer}
+.btn-solid{background:var(--midnight);color:#fff}
+.btn-solid:hover{background:var(--midnight-2)}
+.btn-line{background:transparent;color:var(--midnight)}
+.btn-line:hover{background:var(--sky-soft)}
+.hero-note{margin-top:34px;padding-top:20px;border-top:1px solid var(--sky-line);font-size:15px;color:var(--slate);max-width:40ch}
+.hero-note b{color:var(--midnight);font-weight:600}
+
+/* directory board (signature) */
+.board{background:var(--midnight);color:var(--board-text);border-radius:14px;padding:26px 26px 18px;box-shadow:0 30px 60px -30px rgba(15,37,70,.55)}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(233,241,251,.18)}
+.board-head h2{font-size:26px;color:#fff;font-weight:500}
+.board-head span{font-size:13.5px;color:var(--board-dim)}
+.search{position:relative;margin:18px 0 14px}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--board-dim)}
+.search input{width:100%;font:500 17px var(--sans);color:#fff;background:var(--midnight-deep);border:1px solid rgba(233,241,251,.22);border-radius:10px;padding:14px 14px 14px 44px}
+.search input::placeholder{color:#93A9C7}
+.search input:focus{outline:3px solid #fff;outline-offset:2px;border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.chip{font:600 14px var(--sans);color:var(--board-text);background:transparent;border:1px solid rgba(233,241,251,.3);border-radius:999px;padding:7px 14px;cursor:pointer}
+.chip:hover{border-color:#fff}
+.chip[aria-pressed="true"]{background:var(--sky);color:var(--midnight);border-color:var(--sky)}
+.rows{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 0;border-top:1px solid rgba(233,241,251,.12)}
+.row:first-child{border-top:0}
+.row[hidden]{display:none}
+.row svg{color:var(--sky)}
+.row h3{font-family:var(--sans);font-size:17px;font-weight:700;letter-spacing:0;color:#fff;line-height:1.3}
+.row p{margin:2px 0 0;font-size:14.5px;line-height:1.45;color:var(--board-dim)}
+.row a{font:700 14px var(--sans);color:var(--midnight);background:var(--sky);text-decoration:none;padding:8px 13px;border-radius:8px;white-space:nowrap}
+.row a:hover{background:#fff}
+.row.is-er svg{color:#FF8A98}
+.row.is-er a{background:var(--crimson);color:#fff}
+.row.is-er a:hover{background:var(--crimson-deep)}
+.empty{font-size:15px;color:var(--board-text);padding:14px 0 6px;margin:0}
+.empty a{color:#fff;font-weight:700}
+.board-foot{margin:12px 0 0;padding-top:12px;border-top:1px solid rgba(233,241,251,.18);font-size:13px;color:var(--board-dim)}
+.board-foot em{font-style:normal;color:#fff;font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+  .row{animation:rowin .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*60ms + 150ms)}
+  @keyframes rowin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+}
+
+/* emergency band */
+.emerg{background:var(--midnight-deep);color:#fff;padding:clamp(40px,5vw,64px) 0}
+.emerg .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(24px,4vw,56px);align-items:center}
+.cross{width:84px;height:84px;border-radius:18px;background:var(--crimson);display:grid;place-items:center}
+.emerg h2{font-size:clamp(28px,3.4vw,42px);color:#fff}
+.emerg p{color:#C9D7EA;margin:10px 0 0;max-width:56ch}
+.emerg .btn{background:var(--crimson);border-color:var(--crimson);color:#fff;font-size:18px;padding:16px 24px}
+.emerg .btn:hover{background:var(--crimson-deep);border-color:var(--crimson-deep)}
+
+/* section rhythm */
+.sec{padding:clamp(64px,8vw,112px) 0}
+.sec-head{max-width:640px;margin-bottom:clamp(32px,4vw,48px)}
+.sec-head h2{font-size:clamp(32px,3.8vw,48px)}
+.sec-head p{font-size:18px;color:var(--slate);margin-top:16px}
+
+/* radiology light box */
+.lightbox{background:#0B1D38;border-radius:16px;padding:clamp(18px,2.4vw,28px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.film{margin:0}
+.film .plate{aspect-ratio:4/5;border-radius:6px;background:radial-gradient(120% 90% at 50% 40%,#2C4A73 0%,#14284A 60%,#0E1F3B 100%);position:relative;overflow:hidden;display:grid;place-items:center}
+.film .plate::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.07),transparent 30%)}
+.film .plate svg{width:78%;height:auto;color:#D8E6F7}
+.film figcaption{padding:16px 4px 4px;color:#C9D7EA;font-size:15px;line-height:1.5}
+.film figcaption h3{color:#fff;font-size:22px;margin-bottom:6px}
+.lb-note{margin-top:14px;font-size:13.5px;color:var(--slate)}
+
+/* on record */
+.record{background:var(--sky-soft)}
+.record .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.record-text h2{font-size:clamp(32px,3.8vw,48px);margin-bottom:24px}
+.prose{font-family:var(--serif);font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:var(--midnight);max-width:34em}
+.prose sup a{font-family:var(--sans);font-size:12px;font-weight:700;text-decoration:none;color:var(--slate-on-sky);padding:0 2px}
+.sources{margin:28px 0 0;padding:0;list-style:none;font-size:14px;color:var(--slate-on-sky);counter-reset:s}
+.sources li{counter-increment:s;padding-left:24px;position:relative;margin-bottom:6px}
+.sources li::before{content:counter(s);position:absolute;left:0;font-weight:700;color:var(--midnight)}
+.sources a{color:var(--midnight)}
+.photo{margin:0;position:relative}
+.photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+h1,h2{text-wrap:balance}
+.photo figcaption{font-size:13px;color:var(--slate-on-sky);margin-top:10px}
+
+/* panels */
+.panels .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px)}
+.insurers{list-style:none;margin:0 0 28px;padding:0}
+.insurers li{font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);padding:18px 0;border-bottom:1px solid var(--sky-line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.insurers li:first-child{border-top:1px solid var(--sky-line)}
+.insurers small{font-family:var(--sans);font-size:13.5px;color:var(--slate)}
+.bring{background:var(--sky);border-radius:14px;padding:clamp(22px,3vw,34px)}
+.bring h3{font-size:24px;margin-bottom:14px}
+.bring ol{margin:0;padding-left:22px}
+.bring li{margin-bottom:10px;padding-left:4px}
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--slate-on-sky);background:#fff;border-radius:6px;padding:4px 9px;margin-top:10px}
+
+/* visit */
+.visit{background:var(--midnight);color:#fff}
+.visit .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:start}
+.visit h2{font-size:clamp(32px,3.8vw,48px);color:#fff}
+.addr{font-family:var(--serif);font-size:clamp(24px,2.4vw,30px);line-height:1.4;margin:22px 0 10px}
+.visit p{color:#C9D7EA}
+.visit .btn-solid{background:#fff;color:var(--midnight);border-color:#fff}
+.visit .btn-solid:hover{background:var(--sky)}
+.visit .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}
+.visit .btn-line:hover{background:var(--midnight-2)}
+.phones{list-style:none;margin:0;padding:0}
+.phones li{padding:18px 0;border-bottom:1px solid rgba(233,241,251,.18)}
+.phones li:first-child{padding-top:0}
+.phones a{font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);text-decoration:none;color:#fff}
+.phones a:hover{text-decoration:underline;text-underline-offset:5px}
+.phones span{display:block;font-size:14px;color:var(--board-dim);margin-top:4px}
+
+footer{background:var(--midnight-deep);color:#A9BDD8;font-size:14px;padding:32px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#fff}
+.mbar{display:none}
+
+/* responsive */
+@media (max-width:1080px){
+  .nav a{padding:8px 8px;font-size:14.5px}
+  .lightbox{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:74px;background:#fff;flex-direction:column;padding:8px var(--gut) 16px;border-bottom:1px solid var(--sky-line);margin:0}
+  .nav.open{display:flex}
+  .nav a{padding:12px 4px;font-size:17px;border-bottom:1px solid var(--sky-soft)}
+  .top .er-pill{display:none}
+  .hero::after{display:none}
+  .hero .wrap,.record .wrap,.panels .wrap,.visit .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero h1{max-width:14ch}
+  .emerg .wrap{grid-template-columns:auto minmax(0,1fr)}
+  .emerg .btn{grid-column:1/-1;justify-self:start}
+  .photo img{aspect-ratio:16/10}
+}
+@media (max-width:560px){
+  body{font-size:16px;padding-bottom:68px}
+  .top .wrap{height:66px}
+  .nav{top:66px}
+  .mark b{font-size:23px}
+  .lede{font-size:17.5px}
+  .board{padding:20px 16px 14px;border-radius:12px;margin:0 calc(var(--gut) * -0.5)}
+  .row{grid-template-columns:24px minmax(0,1fr) auto;gap:10px}
+  .row svg{width:24px;height:24px}
+  .row h3{font-size:16px}
+  .row p{font-size:13.5px}
+  .row a{font-size:13px;padding:7px 10px}
+  .emerg .wrap{grid-template-columns:minmax(0,1fr)}
+  .cross{width:60px;height:60px;border-radius:14px}
+  .lightbox{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;padding:14px}
+  .film figcaption h3{font-size:19px}
+  .film figcaption{font-size:14px}
+  .insurers li{flex-direction:column;gap:4px}
+  .panels .wrap{gap:0}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid var(--sky-line);padding:10px 12px}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;border-radius:10px;padding:12px 8px}
+  .mbar .m-call{background:var(--midnight);color:#fff}
+  .mbar .m-er{background:var(--crimson);color:#fff}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Mamji Hospital, not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Mamji Hospital, home">
+      <b>Mamji Hospital</b>
+      <small>Federal B. Area, Karachi</small>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#finder">Departments</a>
+      <a href="#radiology">Radiology</a>
+      <a href="#panels">Insurance panels</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="er-pill" href="#emergency"><span class="dot" aria-hidden="true"></span>Emergency 24/7</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1 id="hero-title">Find the right department, then call to book.</h1>
+      <p class="lede"><strong>Mamji Hospital</strong> is an 85-bed general and orthopaedic hospital at C-19, Block 17, Federal B. Area, near Water Pump Chowrangi. It has been here since 1998.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#finder">Find a specialist</a>
+        <a class="btn btn-line" href="tel:+9221111166177">Call 021-111-166-177</a>
+      </div>
+      <p class="hero-note">For an emergency, come straight to the hospital: the emergency department is <b>open 24 hours</b>, every day.</p>
+    </div>
+    <div class="board" id="finder" role="search" aria-labelledby="board-title">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-bone" viewBox="0 0 32 32"><path d="M10 7a3 3 0 1 0-3 3l15 15a3 3 0 1 0 3-3L10 7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 32 32"><path d="M16 26s-10-6-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 16h6l2-3 3 6 2-3h7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+        <symbol id="i-brain" viewBox="0 0 32 32"><path d="M16 6v20M16 8a5 5 0 0 0-9 3 4 4 0 0 0 0 7 5 5 0 0 0 9 4M16 8a5 5 0 0 1 9 3 4 4 0 0 1 0 7 5 5 0 0 1-9 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="i-ribbon" viewBox="0 0 32 32"><path d="M16 5c-3 0-4.5 2.5-4.5 5 0 4 4.5 9 4.5 9s4.5-5 4.5-9c0-2.5-1.5-5-4.5-5zM13 16l-5 11 4-1 2 3 4-9M19 16l5 11-4-1-2 3-4-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="i-scan" viewBox="0 0 32 32"><rect x="7" y="5" width="18" height="22" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 9v14M12 12h8M11 16h10M12 20h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+        <symbol id="i-wave" viewBox="0 0 32 32"><path d="M16 26 6 10a14 14 0 0 1 20 0L16 26z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10.5 13a8 8 0 0 1 11 0M13 16.5a4 4 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+        <symbol id="i-circle" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+        <symbol id="i-tooth" viewBox="0 0 32 32"><path d="M5 13c3 8 19 8 22 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 15.5v3M13 17v3M16 17.4v3M19 17v3M23 15.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 32 32"><path d="M12 5h8v7h7v8h-7v7h-8v-7H5v-8h7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      </svg>
+      <div class="board-head">
+        <h2 id="board-title">Departments</h2>
+        <span id="count" aria-live="polite">9 shown</span>
+      </div>
+      <div class="search">
+        <label class="sr" for="q">Search by department, body part or test</label>
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Try heart, fracture, spine, scan" autocomplete="off">
+      </div>
+      <div class="chips" role="group" aria-label="Filter departments">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="clinic" aria-pressed="false">Specialist care</button>
+        <button class="chip" type="button" data-f="imaging" aria-pressed="false">Imaging</button>
+        <button class="chip" type="button" data-f="urgent" aria-pressed="false">Emergency</button>
+      </div>
+      <ul class="rows" id="rows">
+        <li class="row" style="--i:0" data-cat="clinic" data-k="orthopaedics orthopedics bone bones fracture joint knee hip back spine sports injury"><svg width="30" height="30" aria-hidden="true"><use href="#i-bone"/></svg><div><h3>Orthopaedics</h3><p>Bones, joints and fractures</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:1" data-cat="clinic" data-k="cardiology heart chest pain blood pressure ecg"><svg width="30" height="30" aria-hidden="true"><use href="#i-heart"/></svg><div><h3>Cardiology</h3><p>Heart and blood vessels</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:2" data-cat="clinic" data-k="neurosurgery brain spine nerve head injury neuro"><svg width="30" height="30" aria-hidden="true"><use href="#i-brain"/></svg><div><h3>Neurosurgery</h3><p>Brain, spine and nerves</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:3" data-cat="clinic" data-k="oncology cancer tumour tumor"><svg width="30" height="30" aria-hidden="true"><use href="#i-ribbon"/></svg><div><h3>Oncology</h3><p>Cancer care</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:4" data-cat="imaging" data-k="x-ray xray radiology scan fracture chest bone"><svg width="30" height="30" aria-hidden="true"><use href="#i-scan"/></svg><div><h3>X-ray</h3><p>Radiology</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:5" data-cat="imaging" data-k="ultrasound sonography radiology scan abdomen"><svg width="30" height="30" aria-hidden="true"><use href="#i-wave"/></svg><div><h3>Ultrasound</h3><p>Radiology</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:6" data-cat="imaging" data-k="mammography breast radiology scan screening"><svg width="30" height="30" aria-hidden="true"><use href="#i-circle"/></svg><div><h3>Mammography</h3><p>Radiology</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row" style="--i:7" data-cat="imaging" data-k="opg dental teeth tooth jaw panoramic radiology scan x-ray xray"><svg width="30" height="30" aria-hidden="true"><use href="#i-tooth"/></svg><div><h3>OPG</h3><p>Panoramic X-ray of the teeth and jaw</p></div><a href="tel:+9221111166177">Call to book</a></li>
+        <li class="row is-er" style="--i:8" data-cat="urgent" data-k="emergency accident urgent injury er casualty 24/7 night"><svg width="30" height="30" aria-hidden="true"><use href="#i-plus"/></svg><div><h3>Emergency</h3><p>Open 24 hours, no appointment</p></div><a href="tel:+9221111166177">Call now</a></li>
+      </ul>
+      <p class="empty" id="empty" hidden>No department matches that. Call <a href="tel:+9221111166177">021-111-166-177</a> and reception will tell you who to see.</p>
+      <p class="board-foot">Mamji Hospital lists around 30 specialties; this board shows the ones confirmed in public listings. <em>Full department list to be supplied by the hospital.</em></p>
+    </div>
+  </div>
+</section>
+<section class="emerg" id="emergency" aria-labelledby="er-title">
+  <div class="wrap">
+    <div class="cross" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 32 32"><path d="M12 4h8v8h8v8h-8v8h-8v-8H4v-8h8z" fill="#fff"/></svg></div>
+    <div>
+      <h2 id="er-title">Emergency is open 24 hours, every day.</h2>
+      <p>No appointment is needed. Come to C-19, Block 17, Federal B. Area, near Water Pump Chowrangi, or call ahead so the team knows you are on the way.</p>
+    </div>
+    <a class="btn" href="tel:+9221111166177">Call 021-111-166-177</a>
+  </div>
+</section>
+
+<section class="sec" id="radiology" aria-labelledby="rad-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="rad-title">Radiology under the same roof</h2>
+      <p>Four imaging services are listed for the hospital, so a doctor's request for a scan can usually be done in the same visit. Call to check timings before you come.</p>
+    </div>
+    <div class="lightbox">
+      <figure class="film">
+        <div class="plate"><svg viewBox="0 0 100 125" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+          <path d="M40 122 42 82M60 122 58 82" stroke-width="5"/>
+          <path d="M36 80q14-8 28 0l2-12H34z" stroke-width="3"/>
+          <path d="M33 66 22 26M42 64l-4-46M51 64V12M60 64l5-44M67 68l14-26" stroke-width="5"/>
+          <path d="M22 26l-2-8M38 18l-1-8M51 12V4M65 20l2-8M81 42l5-7" stroke-width="4" opacity=".7"/>
+        </svg></div>
+        <figcaption><h3>X-ray</h3>Quick images of bones and the chest, often the first test after a fall or injury.</figcaption>
+      </figure>
+      <figure class="film">
+        <div class="plate"><svg viewBox="0 0 100 125" aria-hidden="true" fill="none" stroke="currentColor">
+          <path d="M50 18 8 92q42 22 84 0z" stroke-width="2" opacity=".5"/>
+          <path d="M20 80q30 14 60 0M27 66q23 11 46 0M34 52q16 8 32 0" stroke-width="2" opacity=".55"/>
+          <ellipse cx="54" cy="72" rx="13" ry="8" stroke-width="3"/>
+          <circle cx="50" cy="18" r="3" fill="currentColor" stroke="none"/>
+        </svg></div>
+        <figcaption><h3>Ultrasound</h3>Sound-wave imaging of soft tissue and organs, with no radiation.</figcaption>
+      </figure>
+      <figure class="film">
+        <div class="plate"><svg viewBox="0 0 100 125" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round">
+          <path d="M22 18v90q52-6 56-45-4-39-56-45z" stroke-width="3"/>
+          <path d="M22 40q30 2 44 20M22 62q34-2 50 4M22 84q28-4 42-16" stroke-width="1.6" opacity=".5"/>
+          <circle cx="68" cy="63" r="3" fill="currentColor" stroke="none"/>
+        </svg></div>
+        <figcaption><h3>Mammography</h3>A low-dose X-ray of the breast, used for screening and for checking a lump.</figcaption>
+      </figure>
+      <figure class="film">
+        <div class="plate"><svg viewBox="0 0 100 125" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round">
+          <path d="M6 34Q50 118 94 34" stroke-width="2" opacity=".45"/>
+          <path d="M14 30Q50 16 86 30" stroke-width="2" opacity=".45"/>
+          <path d="M18 50v-12M26 53v-12M34 56v-12M42 57v-13M50 58v-13M58 57v-13M66 56v-12M74 53v-12M82 50v-12" stroke-width="5"/>
+          <path d="M18 55v11M26 58v11M34 61v12M42 62v12M50 63v12M58 62v12M66 61v12M74 58v11M82 55v11" stroke-width="5" opacity=".8"/>
+        </svg></div>
+        <figcaption><h3>OPG</h3>One panoramic image of all the teeth and both jaws, often requested by dentists.</figcaption>
+      </figure>
+    </div>
+    <p class="lb-note">Drawings for illustration, not patient images.</p>
+  </div>
+</section>
+<section class="sec record" id="about" aria-labelledby="rec-title">
+  <div class="wrap">
+    <div class="record-text">
+      <h2 id="rec-title">A neighbourhood hospital, on record</h2>
+      <p class="prose">Mamji Hospital was established in 1998 and has 85 beds.<sup><a href="#src1" aria-label="Source 1">1</a></sup> Its public profile lists 114 doctors across around 30 specialties, including cardiology, neurosurgery and oncology, with emergency care around the clock.<sup><a href="#src1" aria-label="Source 1">1</a></sup> The Sindh Healthcare Commission lists it as Mamji Hospital Orthopaedic &amp; General under provisional licence SHCC/DLA/PL/0217.<sup><a href="#src2" aria-label="Source 2">2</a></sup></p>
+      <ol class="sources">
+        <li id="src1"><a href="https://instacare.pk/hospitals/karachi/federal-b-area/mamji-hospital" target="_blank" rel="noopener">Instacare hospital profile</a>, viewed November 2026</li>
+        <li id="src2"><a href="https://shcc.org.pk/wp-content/uploads/2025/05/List-of-HCEs-with-Provisional-License.pdf" target="_blank" rel="noopener">SHCC list of provisionally licensed establishments</a>, May 2025</li>
+      </ol>
+    </div>
+    <figure class="photo">
+      <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&q=70&auto=format&fit=crop" alt="A clean general ward with rows of beds and privacy curtains" width="900" height="1125" loading="lazy">
+      <figcaption>Stock photograph, not Mamji Hospital.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec panels" id="panels" aria-labelledby="pan-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="pan-title">Insured? Check your panel.</h2>
+      <p>Mamji Hospital appears on the hospital panel lists of these insurers. Panel terms depend on your policy, so confirm cover with your insurer or employer before admission.</p>
+    </div>
+    <div>
+      <ul class="insurers">
+        <li>Adamjee Insurance <small>Listed on its hospital panel</small></li>
+        <li>IGI General Insurance <small>Listed on its hospital panel</small></li>
+      </ul>
+      <div class="bring">
+        <h3>Before a planned admission</h3>
+        <ol>
+          <li>Call your insurer or HR desk to confirm Mamji Hospital is on your current panel.</li>
+          <li>Bring your insurance card, CNIC and the doctor's admission advice.</li>
+          <li>Visit the hospital's billing desk on arrival so the claim can be opened.</li>
+        </ol>
+        <span class="tag">Sample guidance, to be confirmed by Mamji Hospital</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec visit" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div>
+      <h2 id="visit-title">Visiting the hospital</h2>
+      <p class="addr">C-19, Block 17,<br>Federal B. Area, Karachi</p>
+      <p>Near Water Pump Chowrangi, in Karachi Central. Visiting hours and parking details to be supplied by the hospital.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Mamji+Hospital+C-19+Block+17+Federal+B+Area+Karachi" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-line" href="tel:+9221111166177">Call reception</a>
+      </div>
+    </div>
+    <ul class="phones">
+      <li><a href="tel:+9221111166177">021-111-166-177</a><span>Hospital line, as listed on Instacare</span></li>
+      <li><a href="tel:+922136804666">021-3680 4666</a><span>Also 3680 4777, from insurer panel lists</span></li>
+      <li><a href="tel:+922136206166">021-3620 6166</a><span>Also 3620 6167, from insurer panel lists</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mamji Hospital, C-19, Block 17, Federal B. Area, Karachi. Proposed wordmark and design.</span>
+    <span>Website concept, not the official website. Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a class="m-call" href="tel:+9221111166177">Call to book</a>
+  <a class="m-er" href="#emergency">Emergency 24/7</a>
+</nav>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open);
+    btn.textContent=open?'Menu':'Close';
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){btn.setAttribute('aria-expanded','false');nav.classList.remove('open');btn.textContent='Menu';}});
+
+  var q=document.getElementById('q'),rows=[].slice.call(document.querySelectorAll('#rows .row')),
+      chips=[].slice.call(document.querySelectorAll('.chip')),empty=document.getElementById('empty'),
+      count=document.getElementById('count'),filter='all';
+  function apply(){
+    var term=q.value.trim().toLowerCase(),n=0;
+    rows.forEach(function(r){
+      var hay=(r.querySelector('h3').textContent+' '+r.dataset.k).toLowerCase();
+      var ok=(filter==='all'||r.dataset.cat===filter)&&(!term||term.split(/\s+/).every(function(w){return hay.indexOf(w)>-1;}));
+      r.hidden=!ok; if(ok){n++;r.style.animation='none';}
+    });
+    empty.hidden=n>0;
+    count.textContent=n+(n===1?' department shown':' shown');
+  }
+  q.addEventListener('input',apply);
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    filter=c.dataset.f;chips.forEach(function(x){x.setAttribute('aria-pressed',String(x===c));});apply();
+  });});
+})();
+</script>
+</body>
+</html>

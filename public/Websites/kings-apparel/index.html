@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kings Apparel Industries — knitted garments from Korangi, Karachi (concept)</title>
+<meta name="description" content="Website concept for Kings Apparel Industries (Pvt.) Ltd.: knitted garments for kids, women and men, knitted, dyed, printed, embroidered and stitched in Korangi Industrial Area, Karachi.">
+<meta name="theme-color" content="#24205A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF7302; --indigo:#24205A; --indigo-2:#2F2A70; --stone:#F2F0ED; --white:#FFFFFF;
+  --grey:#8A8580; --grey-ink:#625D58; --line:#DEDAD5;
+  --wrap:1280px; --gut:clamp(20px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--indigo);font-family:"Epilogue",system-ui,sans-serif;font-weight:350;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.on-dark :focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.02;margin:0}
+h2{font-size:clamp(36px,5vw,64px)}
+p{margin:0 0 1em;max-width:62ch}
+.lede{font-size:clamp(19px,1.6vw,22px);font-weight:300;line-height:1.55}
+.small{font-size:14px;line-height:1.5;color:var(--grey-ink)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--orange);color:var(--indigo);padding:8px 14px;font-weight:700;z-index:99}
+.skip:focus{left:8px}
+
+/* concept notice */
+.notice{background:var(--indigo);color:#D9D7EA;font-size:13px;line-height:1.45}
+.notice .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:space-between;padding-block:8px}
+.notice a{color:#fff;text-underline-offset:3px}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none;margin-right:auto}
+.mark b{font-weight:900;font-size:30px;letter-spacing:-.06em;line-height:1}
+.mark b i{font-style:normal;display:inline-block;width:.32em;height:.32em;background:var(--orange);margin-left:.06em;transform:translateY(-.02em)}
+.mark span{font-weight:400;font-size:12.5px;line-height:1.15;color:var(--grey-ink);max-width:9.5em}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:15.5px;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--orange)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:2px;font:600 16px/1.2 "Epilogue",sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s}
+.btn-o{background:var(--orange);color:var(--indigo)}
+.btn-o:hover{background:#FF8A2E}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.on-dark .btn-line:hover{background:#fff;color:var(--indigo);border-color:#fff}
+.menu-btn{display:none;background:none;border:2px solid var(--indigo);border-radius:2px;height:44px;padding:0 14px;font:600 15px "Epilogue",sans-serif;color:var(--indigo);cursor:pointer}
+
+/* hero */
+.hero-top{padding:clamp(36px,5vw,64px) 0 clamp(28px,3vw,40px)}
+.hero-top .wrap{display:grid;grid-template-columns:1.55fr 1fr;gap:32px 56px;align-items:end}
+.hero-top h1{font-size:clamp(44px,6.6vw,96px);letter-spacing:-.05em;line-height:.95}
+.hero-top .side p{margin-bottom:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.look{display:flex;height:min(76vh,760px);min-height:520px;gap:4px;background:var(--indigo);padding:0 0 4px}
+.panel{position:relative;flex:1 1 0;overflow:hidden;text-decoration:none;color:#fff;transition:flex-grow .55s cubic-bezier(.2,.7,.2,1);min-width:0}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(36,32,90,.96) 0%,rgba(36,32,90,.6) 34%,rgba(36,32,90,0) 60%);pointer-events:none}
+.panel .tag{position:absolute;left:clamp(18px,2.2vw,32px);right:clamp(18px,2.2vw,32px);bottom:clamp(18px,2.4vw,34px);z-index:2}
+.panel .name{display:block;font-weight:900;font-size:clamp(48px,6.4vw,104px);letter-spacing:-.06em;line-height:.85}
+.panel .reveal{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.panel .reveal>div{overflow:hidden}
+.panel .reveal p{margin:16px 0 14px;font-size:16px;line-height:1.5;color:#E8E6F4;max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.chips li{background:#fff;color:var(--indigo);font-size:14px;font-weight:600;padding:6px 10px;border-radius:2px}
+.panel .go{display:inline-block;margin-top:14px;font-weight:600;font-size:15px;color:var(--indigo);background:var(--orange);padding:8px 12px;border-radius:2px}
+.panel .bar{position:absolute;left:0;right:0;top:0;height:6px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .45s;z-index:2}
+.look:hover .panel,.look:focus-within .panel{flex-grow:.8}
+.look .panel:hover,.look .panel:focus-visible{flex-grow:2.1}
+.panel:hover .reveal,.panel:focus-visible .reveal{grid-template-rows:1fr}
+.panel:hover .bar,.panel:focus-visible .bar{transform:scaleX(1)}
+.panel:hover img,.panel:focus-visible img{transform:scale(1.04)}
+.panel:focus-visible{outline:4px solid var(--orange);outline-offset:-4px}
+.look-note{background:var(--indigo);color:#C9C6E2;font-size:13px}
+.look-note .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:10px}
+
+/* process: one tee, six states */
+.roof{background:var(--indigo);color:#fff;padding:clamp(72px,8vw,120px) 0}
+.roof-head{display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.roof-head p{color:#D9D7EA}
+.film{display:grid;grid-template-columns:repeat(6,1fr);gap:0;list-style:none;margin:0;padding:0;border-top:1px solid #4A4590;border-bottom:1px solid #4A4590}
+.film li{padding:28px 20px 30px;border-left:1px solid #4A4590;display:flex;flex-direction:column}
+.film li:first-child{border-left:0;padding-left:0}
+.film .n{font-weight:800;font-size:15px;color:var(--orange);font-variant-numeric:tabular-nums}
+.film svg{width:100%;max-width:150px;height:auto;aspect-ratio:1/1;margin:14px 0 18px;overflow:visible}
+.film h3{font-size:24px;letter-spacing:-.03em;margin-bottom:8px}
+.film p{font-size:15.5px;line-height:1.5;color:#D9D7EA;margin:0}
+.roof-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:#B9B6D8}
+
+/* units */
+.units{padding:clamp(72px,8vw,120px) 0;background:var(--white)}
+.units-grid{display:grid;grid-template-columns:5fr 7fr;gap:40px 72px;align-items:start}
+.ratio{margin:36px 0 14px;display:flex;height:84px}
+.ratio div{display:flex;align-items:flex-end;padding:10px 12px;font-weight:700;font-size:15px}
+.ratio .u1{flex:2550;background:var(--orange);color:var(--indigo)}
+.ratio .u2{flex:530;background:var(--indigo);color:#fff;min-width:96px}
+.unit{border-top:6px solid var(--indigo);padding:22px 0 30px}
+.unit.first{border-top-color:var(--orange)}
+.unit-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.unit h3{font-size:clamp(28px,3vw,38px)}
+.unit .count{font-weight:800;font-size:clamp(28px,3vw,38px);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.unit .count small{font-weight:400;font-size:15px;letter-spacing:0;color:var(--grey-ink);margin-left:6px}
+.unit dl{display:grid;grid-template-columns:9.5em 1fr;gap:6px 18px;margin:16px 0 0;font-size:16px}
+.unit dt{color:var(--grey-ink)}
+.unit dd{margin:0;font-weight:500}
+.units-photo{margin:34px 0 0}
+.units-photo img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 60%}
+figcaption{font-size:13px;color:var(--grey-ink);margin-top:8px}
+
+/* markets */
+.markets{background:var(--stone);padding:clamp(72px,8vw,120px) 0;overflow:hidden}
+.mk-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px 72px;align-items:start}
+.dest{display:block;font-weight:900;font-size:clamp(76px,13vw,200px);letter-spacing:-.07em;line-height:.8;margin:0}
+.dest.usa{color:var(--orange);-webkit-text-stroke:0}
+.dest-lines{border-top:2px solid var(--indigo);margin-top:28px}
+.dest-lines div{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #CFCAC4;font-size:16.5px}
+.dest-lines strong{font-weight:700;font-variant-numeric:tabular-nums}
+.dest-lines a{color:var(--grey-ink);font-size:14px}
+
+/* enquiry */
+.enquire{padding:clamp(72px,8vw,120px) 0;background:var(--white)}
+.enq-grid{display:grid;grid-template-columns:5fr 7fr;gap:40px 72px;align-items:start}
+.call-list{list-style:none;margin:28px 0 0;padding:0}
+.call-list li{border-top:1px solid var(--line);padding:16px 0}
+.call-list a.num{display:block;font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;text-decoration:none}
+.call-list a.num:hover{color:#C24E00}
+.form{background:var(--stone);padding:clamp(24px,3.4vw,44px);border-top:6px solid var(--orange)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.field label,.field legend{font-weight:600;font-size:15px}
+.field input,.field select,.field textarea{font:400 16.5px/1.4 "Epilogue",sans-serif;color:var(--indigo);background:#fff;border:1.5px solid #B9B4AE;border-radius:2px;padding:12px 13px;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--indigo);outline:3px solid var(--orange);outline-offset:1px}
+.field textarea{min-height:110px;resize:vertical}
+fieldset.field{border:0;padding:0;margin:0 0 18px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #B9B4AE;padding:9px 12px;border-radius:2px;font-weight:500;cursor:pointer}
+.checks input{accent-color:var(--indigo);width:18px;height:18px}
+.out{display:none;margin-top:20px;background:#fff;border-left:6px solid var(--indigo);padding:18px}
+.out.show{display:block}
+.out pre{white-space:pre-wrap;font:400 15px/1.55 "Epilogue",sans-serif;margin:0 0 14px}
+.demo{font-size:13.5px;color:var(--grey-ink);margin:14px 0 0}
+
+/* footer */
+.foot{background:var(--indigo);color:#D9D7EA;padding:64px 0 28px;font-size:15.5px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px}
+.foot .mark b{color:#fff;font-size:40px}
+.foot .mark span{color:#B9B6D8}
+.foot h3{font-size:16px;letter-spacing:0;color:#fff;font-weight:700;margin-bottom:10px}
+.foot p{margin:0 0 .6em}
+.foot a{color:#fff;text-underline-offset:3px}
+.foot-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #4A4590;margin-top:44px;padding-top:20px;font-size:13.5px;color:#B9B6D8}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{gap:18px}
+  .film{grid-template-columns:repeat(3,1fr)}
+  .film li:nth-child(4){border-left:0;padding-left:0}
+  .film li:nth-child(-n+3){border-bottom:1px solid #4A4590}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex;align-items:center}
+  .nav{display:none;position:absolute;left:0;right:0;top:72px;background:#fff;flex-direction:column;gap:0;padding:8px var(--gut) 18px;border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:18px}
+  .head-call{display:none}
+  .hero-top .wrap,.roof-head,.units-grid,.mk-grid,.enq-grid{grid-template-columns:1fr}
+  .look{flex-direction:column;height:auto;min-height:0;gap:4px}
+  .panel{flex:none;height:auto;display:flex;flex-direction:column;background:var(--indigo)}
+  .panel img{position:relative;inset:auto;height:min(96vw,540px)}
+  .panel::after{display:none}
+  .panel .tag{position:relative;left:auto;right:auto;bottom:auto;padding:22px var(--gut) 28px}
+  .panel .name{font-size:clamp(56px,16vw,96px)}
+  .panel .reveal{grid-template-rows:1fr}
+  .look-hint{display:none}
+  .panel .bar{transform:scaleX(1)}
+  .look:hover .panel,.look:focus-within .panel,.look .panel:hover{flex-grow:0}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .mark span{display:none}
+  .film{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(-1 * var(--gut));padding-right:var(--gut)}
+  .film li{flex:0 0 72%;scroll-snap-align:start;border-bottom:0 !important;padding-left:20px !important;border-left:1px solid #4A4590 !important}
+  .film li:first-child{padding-left:0 !important;border-left:0 !important}
+  .form .row{grid-template-columns:1fr}
+  .unit dl{grid-template-columns:1fr;gap:0}
+  .unit dd{margin-bottom:10px}
+  .foot-grid{grid-template-columns:1fr}
+  .ratio{height:70px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Kings Apparel Industries (Pvt.) Ltd., not the official website. Proposed design and wordmark; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Kings Apparel Industries, home"><b>Kings<i aria-hidden="true"></i></b><span>Apparel Industries (Pvt.) Ltd.</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#roof">Under one roof</a>
+      <a href="#units">Our units</a>
+      <a href="#markets">Markets</a>
+      <a href="#enquire">Enquire</a>
+    </nav>
+    <a class="btn btn-line head-call" href="tel:+922135054624">Call</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="hero-top">
+    <div class="wrap">
+      <h1 id="hero-h">Knitwear, made under one roof in Karachi.</h1>
+      <div class="side">
+        <p class="lede">Kings Apparel Industries knits, dyes, prints, embroiders and stitches garments for kids, women and men in Korangi Industrial Area, and exports to Europe and the USA.</p>
+        <div class="cta-row">
+          <a class="btn btn-o" href="#enquire">Start a sourcing conversation</a>
+          <a class="btn btn-line" href="tel:+922135054624">Call +92 21 35054624</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="look" id="lookbook" aria-label="Lookbook: choose a range">
+    <a class="panel" href="#enquire" data-cat="Kids">
+      <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=1100&q=72&auto=format&fit=crop" alt="Two children in knitted tees, stock photograph" width="1100" height="1400" style="object-position:55% 30%">
+      <span class="bar" aria-hidden="true"></span>
+      <div class="tag">
+        <span class="name">Kids</span>
+        <div class="reveal"><div>
+          <p>Five ranges on the current Kings Apparel site, from new born up to older boys and girls.</p>
+          <ul class="chips"><li>New born</li><li>Baby boy</li><li>Baby girl</li><li>Boy</li><li>Girl</li></ul>
+          <span class="go">Enquire about kidswear</span>
+        </div></div>
+      </div>
+    </a>
+    <a class="panel" href="#enquire" data-cat="Women">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1100&q=72&auto=format&fit=crop" alt="Woman in a black printed tee against a pink wall, stock photograph" width="1100" height="1400" style="object-position:50% 30%">
+      <span class="bar" aria-hidden="true"></span>
+      <div class="tag">
+        <span class="name">Women</span>
+        <div class="reveal"><div>
+          <p>Knitted garments for women. Styles and fabrics for this range to be supplied by Kings Apparel.</p>
+          <ul class="chips"><li>Women</li></ul>
+          <span class="go">Enquire about womenswear</span>
+        </div></div>
+      </div>
+    </a>
+    <a class="panel" href="#enquire" data-cat="Men">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1100&q=72&auto=format&fit=crop" alt="Man in a plain white knitted tee, stock photograph" width="1100" height="1400" style="object-position:50% 20%">
+      <span class="bar" aria-hidden="true"></span>
+      <div class="tag">
+        <span class="name">Men</span>
+        <div class="reveal"><div>
+          <p>Knitted garments for men. Styles and fabrics for this range to be supplied by Kings Apparel.</p>
+          <ul class="chips"><li>Men</li></ul>
+          <span class="go">Enquire about menswear</span>
+        </div></div>
+      </div>
+    </a>
+  </div>
+  <div class="look-note on-dark">
+    <div class="wrap">
+      <span>Ranges as listed on kingsapparel.com.<span class="look-hint"> Hover or tab through a panel to open it.</span></span>
+      <span>Lookbook photographs are stock images, not Kings Apparel products.</span>
+    </div>
+  </div>
+</section>
+<section class="roof on-dark" id="roof" aria-labelledby="roof-h">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="teeP" d="M40 16 L51 11 Q60 20 69 11 L80 16 L104 32 L94 49 L83 42 L83 110 L37 110 L37 42 L26 49 L16 32 Z"/>
+      <clipPath id="teeClip"><use href="#teeP"/></clipPath>
+      <pattern id="knit" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0 L3.5 6 L7 0" fill="none" stroke="#24205A" stroke-opacity=".22" stroke-width="1.1"/></pattern>
+    </defs>
+  </svg>
+  <div class="wrap">
+    <div class="roof-head">
+      <h2 id="roof-h">From yarn to carton, under one roof.</h2>
+      <p class="lede">Most brands deal with a separate knitter, dye house, printer and sewing unit. At Kings Apparel these stages sit within one company in Korangi, so a style can move from knitting to warehousing without leaving it.</p>
+    </div>
+    <ol class="film">
+      <li><span class="n">1</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="Greige knitted fabric in the shape of a tee"><use href="#teeP" fill="#DAD5CE"/><use href="#teeP" fill="url(#knit)"/></svg>
+        <h3>Knitting</h3><p>Yarn is knitted into fabric on site.</p></li>
+      <li><span class="n">2</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="The same fabric dyed orange"><use href="#teeP" fill="#FF7302"/><use href="#teeP" fill="url(#knit)"/></svg>
+        <h3>Dyeing</h3><p>Greige fabric is dyed to the shade in your order.</p></li>
+      <li><span class="n">3</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="The dyed tee with a printed stripe across the chest"><use href="#teeP" fill="#FF7302"/><use href="#teeP" fill="url(#knit)"/><g clip-path="url(#teeClip)" fill="#fff"><rect x="0" y="52" width="120" height="7"/><rect x="0" y="63" width="120" height="7"/><rect x="0" y="74" width="120" height="7"/></g></svg>
+        <h3>Printing</h3><p>Prints go onto panels or finished pieces.</p></li>
+      <li><span class="n">4</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="The printed tee with a small embroidered badge"><use href="#teeP" fill="#FF7302"/><use href="#teeP" fill="url(#knit)"/><g clip-path="url(#teeClip)" fill="#fff"><rect x="0" y="52" width="120" height="7"/><rect x="0" y="63" width="120" height="7"/><rect x="0" y="74" width="120" height="7"/></g><circle cx="70" cy="34" r="8" fill="#24205A"/><circle cx="70" cy="34" r="5.2" fill="none" stroke="#fff" stroke-width="1.3" stroke-dasharray="2 1.6"/></svg>
+        <h3>Embroidery</h3><p>Logos and details are embroidered in house.</p></li>
+      <li><span class="n">5</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="The finished tee with stitched seams and a ribbed collar"><use href="#teeP" fill="#FF7302"/><use href="#teeP" fill="url(#knit)"/><g clip-path="url(#teeClip)" fill="#fff"><rect x="0" y="52" width="120" height="7"/><rect x="0" y="63" width="120" height="7"/><rect x="0" y="74" width="120" height="7"/></g><circle cx="70" cy="34" r="8" fill="#24205A"/><circle cx="70" cy="34" r="5.2" fill="none" stroke="#fff" stroke-width="1.3" stroke-dasharray="2 1.6"/><g fill="none" stroke="#24205A" stroke-width="1.4" stroke-dasharray="3 2.2"><path d="M51 14 Q60 24 69 14"/><path d="M41 104 L79 104"/><path d="M29 45 L19 31"/><path d="M91 45 L101 31"/><path d="M40 18 L37 42"/><path d="M80 18 L83 42"/></g><path d="M51 11 Q60 20 69 11" fill="none" stroke="#24205A" stroke-width="3"/></svg>
+        <h3>Stitching</h3><p>Panels are sewn and finished into garments.</p></li>
+      <li><span class="n">6</span>
+        <svg viewBox="0 0 120 120" role="img" aria-label="The tee folded and packed in a carton"><path d="M24 58 L96 58 L96 110 L24 110 Z" fill="#D2C3AE"/><path d="M24 58 L10 46 L52 46 L60 58 Z" fill="#C2B096"/><path d="M96 58 L110 46 L68 46 L60 58 Z" fill="#C2B096"/><rect x="34" y="34" width="52" height="28" fill="#FF7302"/><rect x="34" y="34" width="52" height="28" fill="url(#knit)"/><path d="M50 34 Q60 44 70 34" fill="none" stroke="#24205A" stroke-width="3"/><rect x="34" y="47" width="52" height="4" fill="#fff"/><rect x="24" y="58" width="72" height="52" fill="#D2C3AE"/><rect x="48" y="74" width="24" height="14" fill="#fff"/><path d="M52 79 H68 M52 83 H63" stroke="#24205A" stroke-width="1.5"/></svg>
+        <h3>Warehousing</h3><p>Finished goods are packed and held for shipment.</p></li>
+    </ol>
+    <div class="roof-foot">
+      <span>Stages as listed on the Kings Apparel profile on Mustakbil.</span>
+      <span>Drawings show the sequence, not a specific Kings Apparel product.</span>
+    </div>
+  </div>
+</section>
+
+<section class="units" id="units" aria-labelledby="units-h">
+  <div class="wrap units-grid">
+    <div>
+      <h2 id="units-h">Two units in Sector 16, Korangi.</h2>
+      <p class="lede" style="margin-top:22px">Unit 1 runs the fabric mill and garment making together. Unit 2 cuts, makes and trims. Both sit in Sector 16 of Korangi Industrial Area.</p>
+      <div class="ratio" role="img" aria-label="Workers per unit to scale: Unit 1, 2,550; Unit 2, 530">
+        <div class="u1">Unit 1</div><div class="u2">Unit 2</div>
+      </div>
+      <p class="small">Workers per unit, drawn to scale: 3,080 across both units. Figures per the <a href="https://internationalaccord.org/wp-content/uploads/2026/08/Factory-Disclosure-Report-Pakistan-July-2026.pdf" target="_blank" rel="noopener">International Accord factory disclosure, July 2026</a>. Per its Mustakbil profile, the company is also investing in Port Qasim and Nooriabad.</p>
+      <figure class="units-photo">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=70&auto=format&fit=crop" alt="Garments on wooden hangers along a rail, stock photograph" width="900" height="675" loading="lazy">
+        <figcaption>Stock image, not Kings Apparel premises.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <article class="unit first">
+        <div class="unit-row"><h3>Unit 1</h3><span class="count">2,550<small>workers</small></span></div>
+        <dl>
+          <dt>Facility</dt><dd>Integrated CMT and fabric mill</dd>
+          <dt>Address</dt><dd>Plot No. 22, Mehran Tower, Sector 16, Korangi Industrial Area, Karachi</dd>
+          <dt>Phone</dt><dd><a href="tel:+922135054624">+92 21 350 54624/6</a></dd>
+        </dl>
+      </article>
+      <article class="unit">
+        <div class="unit-row"><h3>Unit 2</h3><span class="count">530<small>workers</small></span></div>
+        <dl>
+          <dt>Facility</dt><dd>CMT only (cut, make and trim)</dd>
+          <dt>Address</dt><dd>Plot No. 15, Mehran Town, Sector 16, Korangi Industrial Area, Karachi</dd>
+        </dl>
+      </article>
+      <article class="unit">
+        <div class="unit-row"><h3>Visiting or auditing</h3></div>
+        <p style="margin-top:14px">To arrange a factory visit or an audit, call the number above and say which unit you want to see.</p>
+        <p class="small">Sample content: visit and audit arrangements to be supplied by Kings Apparel.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="markets" id="markets" aria-labelledby="mk-h">
+  <div class="wrap mk-grid">
+    <div aria-hidden="true">
+      <span class="dest">Europe</span>
+      <span class="dest usa">USA</span>
+    </div>
+    <div>
+      <h2 id="mk-h">Made in Korangi, worn in Europe and the USA.</h2>
+      <p class="lede" style="margin-top:22px">Kings Apparel is an export-oriented knitted-garment factory. It ships knitted garments to buyers in Europe and the United States.</p>
+      <div class="dest-lines">
+        <div><span>US import shipments on record</span><strong>634</strong></div>
+        <div><span>US customers on record</span><strong>145</strong></div>
+        <div><span>Most recent US shipment</span><strong>8 Nov 2025</strong></div>
+        <div><span>Source: US customs data on <a href="https://panjiva.com/Kings-Apparel-Industries-Pvt-Ltd/1153563" target="_blank" rel="noopener">Panjiva</a></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enquire" id="enquire" aria-labelledby="enq-h">
+  <div class="wrap enq-grid">
+    <div>
+      <h2 id="enq-h">Start a sourcing conversation.</h2>
+      <p class="lede" style="margin-top:22px">Tell Kings Apparel the range, the garment and the quantities you have in mind. The form turns your answers into a short brief you can copy into an email or read out on a call.</p>
+      <ul class="call-list">
+        <li><a class="num" href="tel:+922135054624">+92 21 35054624-6</a><span class="small">Three lines, as listed on kingsapparel.com</span></li>
+        <li><a class="num" href="tel:+92215067097">+92 21 5067097</a><span class="small">As listed on kingsapparel.com</span></li>
+        <li><a href="https://www.facebook.com/pages/Kings-Apparel-Industries-Pvt-Ltd/363260177090789" target="_blank" rel="noopener">Kings Apparel on Facebook</a></li>
+      </ul>
+    </div>
+    <form class="form" id="enq-form" novalidate>
+      <div class="row">
+        <div class="field"><label for="f-co">Brand or company</label><input id="f-co" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+      </div>
+      <div class="field"><label for="f-range">Range</label>
+        <select id="f-range" name="range">
+          <option>Kids: New born</option><option>Kids: Baby boy</option><option>Kids: Baby girl</option><option>Kids: Boy</option><option>Kids: Girl</option>
+          <option>Women</option><option>Men</option><option>More than one range</option>
+        </select></div>
+      <fieldset class="field"><legend>Shipping to</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="mk" value="Europe"> Europe</label>
+          <label><input type="checkbox" name="mk" value="USA"> USA</label>
+          <label><input type="checkbox" name="mk" value="Other market"> Other</label>
+        </div></fieldset>
+      <div class="field"><label for="f-brief">Garment, fabric and quantities</label><textarea id="f-brief" name="brief" placeholder="For example: printed jersey tees, 3 colourways, sizes 2–8 years, first order around 5,000 pieces"></textarea></div>
+      <button class="btn btn-o" type="submit">Prepare my brief</button>
+      <p class="small" id="f-err" role="alert" style="margin:10px 0 0"></p>
+      <div class="out" id="out" aria-live="polite">
+        <pre id="out-text"></pre>
+        <div class="cta-row">
+          <button class="btn btn-o" type="button" id="copy">Copy brief</button>
+          <a class="btn btn-line" href="tel:+922135054624">Call to discuss</a>
+        </div>
+      </div>
+      <p class="demo">Concept demo: nothing is sent from this page. The current site lists phone numbers only, so the brief is prepared for you to copy.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="mark" href="#top" aria-label="Kings Apparel Industries, back to top"><b>Kings<i aria-hidden="true"></i></b><span>Apparel Industries (Pvt.) Ltd.</span></a>
+        <p style="margin-top:18px">Knitted garments for kids, women and men. Korangi Industrial Area, Karachi.</p>
+      </div>
+      <div><h3>Unit 1</h3><p>Plot No. 22, Mehran Tower, Sector 16, Korangi Industrial Area, Karachi</p><p><a href="tel:+922135054624">+92 21 35054624-6</a><br><a href="tel:+92215067097">+92 21 5067097</a></p></div>
+      <div><h3>Unit 2</h3><p>Plot No. 15, Mehran Town, Sector 16, Korangi Industrial Area, Karachi</p><h3 style="margin-top:20px">Registered address</h3><p>91, Shahrah-e-Iran, Clifton, Karachi 75600 (per US customs records)</p></div>
+      <div><h3>Sources</h3><p><a href="https://kingsapparel.com" target="_blank" rel="noopener">kingsapparel.com</a><br><a href="https://internationalaccord.org/wp-content/uploads/2026/08/Factory-Disclosure-Report-Pakistan-July-2026.pdf" target="_blank" rel="noopener">Accord disclosure, July 2026</a><br><a href="https://www.mustakbil.com/companies/company/135609" target="_blank" rel="noopener">Mustakbil profile</a><br><a href="https://panjiva.com/Kings-Apparel-Industries-Pvt-Ltd/1153563" target="_blank" rel="noopener">Panjiva</a><br><a href="https://www.facebook.com/pages/Kings-Apparel-Industries-Pvt-Ltd/363260177090789" target="_blank" rel="noopener">Facebook</a></p></div>
+    </div>
+    <div class="foot-base">
+      <span>Homepage concept, not the official Kings Apparel website and not endorsed by the company. Wordmark proposed; photographs are stock.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}});
+
+  var sel=document.getElementById('f-range');
+  var map={Kids:'Kids: New born',Women:'Women',Men:'Men'};
+  document.querySelectorAll('.panel').forEach(function(p){
+    p.addEventListener('click',function(){var v=map[p.dataset.cat];if(v)sel.value=v;setTimeout(function(){document.getElementById('f-co').focus({preventScroll:true});},450);});
+  });
+
+  var form=document.getElementById('enq-form'), out=document.getElementById('out'), txt=document.getElementById('out-text'), err=document.getElementById('f-err');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var co=form.company.value.trim();
+    if(!co){err.textContent='Add your brand or company name so Kings Apparel knows who the brief is from.';form.company.focus();return;}
+    err.textContent='';
+    var mk=[].slice.call(form.querySelectorAll('input[name=mk]:checked')).map(function(i){return i.value;});
+    var lines=['Sourcing enquiry for Kings Apparel Industries','From: '+co+(form.name.value.trim()?' ('+form.name.value.trim()+')':''),'Range: '+sel.value,'Shipping to: '+(mk.length?mk.join(', '):'Not decided yet')];
+    if(form.brief.value.trim())lines.push('Brief: '+form.brief.value.trim());
+    txt.textContent=lines.join('\n');
+    out.classList.add('show');
+    document.getElementById('copy').textContent='Copy brief';
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var b=this;
+    if(navigator.clipboard){navigator.clipboard.writeText(txt.textContent).then(function(){b.textContent='Brief copied';},function(){b.textContent='Select the text to copy';});}
+    else{b.textContent='Select the text to copy';}
+  });
+})();
+</script>
+</body>
+</html>

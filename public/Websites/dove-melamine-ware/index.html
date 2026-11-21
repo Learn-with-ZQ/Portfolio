@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dove Melamine Ware — melamine dinner sets, Korangi, Karachi (website concept)</title>
+<meta name="description" content="Website concept for Dove Melamine Ware, Plot 386, Sector 7-A, Korangi Industrial Area, Karachi. Arkon Glow 72-piece melamine dinner set with coloured tempered-glass lids, 15 design options.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dove:#9B97AE;
+  --dove-soft:#E4E2EC;
+  --porcelain:#FBFBFD;
+  --blue:#2E5AAC;
+  --blue-deep:#24498F;
+  --rose:#E7A1A8;
+  --plum:#2C2438;
+  --plum-2:#4A4058;
+  --line:#D9D7E2;
+  --serif:"Young Serif", Georgia, serif;
+  --sans:"Outfit", system-ui, sans-serif;
+  --wrap:1200px;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--porcelain);color:var(--plum);font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.08}
+h3{font-size:1.45rem;line-height:1.2}
+p{margin:0 0 1em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--plum);color:var(--porcelain);padding:8px 14px;z-index:99}
+.skip:focus{left:8px}
+
+/* concept notice */
+.notice{background:var(--plum);color:#E9E6F0;font-size:13.5px;line-height:1.45}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.notice a{color:var(--rose);text-underline-offset:3px}
+
+/* header */
+.top{background:var(--dove);position:relative;z-index:5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-bottom:18px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--plum)}
+.mark b{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1;letter-spacing:-.02em}
+.mark span{font-size:.95rem;font-weight:500;letter-spacing:.02em}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:1rem}
+.nav a:not(.btn):hover{text-decoration:underline;text-underline-offset:5px}
+.menu-btn{display:none;background:none;border:1.5px solid var(--plum);color:var(--plum);border-radius:999px;padding:8px 16px;font:500 15px var(--sans);cursor:pointer}
+
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 24px;font:500 1rem/1.2 var(--sans);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:background .2s,color .2s}
+.btn-plum{background:var(--plum);color:var(--porcelain)}
+.btn-plum:hover{background:var(--plum-2)}
+.btn-line{border-color:var(--plum);color:var(--plum);background:transparent}
+.btn-line:hover{background:rgba(251,251,253,.35)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-deep)}
+
+/* hero */
+.hero{background-color:var(--dove);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(90deg,rgba(44,36,56,.035) 0 1px,transparent 1px 4px);
+  padding:clamp(28px,5vw,64px) 0 clamp(48px,6vw,88px);text-align:center}
+.hero h1{font-size:clamp(2.35rem,5.2vw,4.6rem);line-height:1.04;max-width:15ch;margin:0 auto}
+.hero .lede{max-width:46ch;margin:18px auto 0;font-size:1.12rem}
+.table{display:grid;grid-template-columns:1fr minmax(260px,540px) 1fr;align-items:center;gap:clamp(16px,3vw,40px);margin-top:clamp(20px,3vw,36px)}
+.plate-wrap{position:relative;aspect-ratio:1}
+.plate{width:100%;height:100%;filter:drop-shadow(0 26px 30px rgba(44,36,56,.28)) drop-shadow(0 4px 6px rgba(44,36,56,.18))}
+#spin{transform-box:view-box;transform-origin:50% 50%;transition:transform 1.1s cubic-bezier(.3,.7,.2,1)}
+#rim,#centre{transition:opacity .2s ease}
+.swap #rim,.swap #centre{opacity:0}
+.side{text-align:left}
+.side.right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.now{font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.1;display:block}
+.now-note{font-size:.95rem;margin-top:8px;max-width:22ch}
+.saucers{display:flex;justify-content:center;gap:clamp(8px,1.6vw,18px);margin-top:clamp(18px,3vw,30px);flex-wrap:wrap}
+.saucer{background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;font:500 .85rem var(--sans);color:var(--plum)}
+.saucer svg{width:clamp(44px,5vw,62px);height:auto;border-radius:50%;filter:drop-shadow(0 4px 5px rgba(44,36,56,.25));transition:transform .2s}
+.saucer:hover svg{transform:translateY(-3px)}
+.saucer[aria-pressed="true"] svg{outline:2.5px solid var(--plum);outline-offset:4px}
+.saucer:focus-visible{outline:none}
+.saucer:focus-visible svg{outline:3px solid var(--blue);outline-offset:4px}
+.hero-cap{font-size:.92rem;max-width:58ch;margin:18px auto 0}
+
+/* arkon */
+.arkon{padding:clamp(64px,9vw,128px) 0}
+.arkon-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
+.bowl-fig{margin:0;background:var(--dove-soft);border-radius:50% 50% 24px 24px / 38% 38% 24px 24px;padding:clamp(24px,4vw,48px) clamp(16px,3vw,36px) 20px}
+.bowl-fig figcaption{font-size:.88rem;text-align:center;margin-top:8px;color:var(--plum-2)}
+.arkon h2{max-width:14ch}
+.arkon .intro{font-size:1.12rem;margin:20px 0 28px;max-width:44ch}
+.spec{margin:0 0 30px;border-top:1.5px solid var(--plum)}
+.spec div{display:grid;grid-template-columns:9.5rem 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-weight:500;color:var(--plum-2)}
+.spec dd{margin:0}
+.spec dd small{display:block;font-size:.88rem;color:var(--plum-2)}
+.spec a{color:var(--blue);text-underline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.arkon .btn-line{border-color:var(--plum)}
+
+.fifteen{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:clamp(24px,4vw,56px);align-items:center;padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.fifteen h3{margin-bottom:10px}
+.fifteen p{margin:0;color:var(--plum-2)}
+.slots{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:clamp(8px,1.4vw,16px)}
+.slots li{aspect-ratio:1;border-radius:50%;border:1.5px dashed var(--dove);display:grid;place-items:center;font-size:.85rem;color:var(--plum-2);background:radial-gradient(circle,var(--porcelain) 55%,#F1F0F5 56%)}
+.slots li.tag{border:0;background:none;aspect-ratio:auto;grid-column:span 1;font-size:.8rem;line-height:1.3;text-align:left;place-items:center start;color:var(--blue)}
+
+/* tables */
+.tables{padding:0 0 clamp(64px,9vw,128px)}
+.tables h2{max-width:20ch;margin-bottom:clamp(28px,4vw,48px)}
+.duo{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(16px,2vw,24px)}
+.home{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;background:var(--dove-soft);border-radius:28px;overflow:hidden}
+.home .spread{width:100%;height:auto;aspect-ratio:16/9}
+.home .txt{padding:clamp(22px,3vw,36px)}
+.home .cap{font-size:.82rem;color:var(--plum-2);margin:-4px 0 12px}
+.shop{background:var(--blue);color:#fff;border-radius:28px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.shop svg{width:min(260px,80%);margin:8px auto 0}
+.shop .btn{background:var(--porcelain);color:var(--plum);align-self:flex-start}
+.shop .btn:hover{background:var(--rose)}
+.tables h3{margin-bottom:10px}
+
+/* care */
+.care{background:var(--dove);padding:clamp(64px,9vw,120px) 0}
+.card{--s:14px;background:var(--porcelain);max-width:980px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(22px,5vw,64px);
+  -webkit-mask:radial-gradient(var(--s) at 50% 0,#0000 98%,#000) 50% 0/calc(var(--s)*2.6) 51% repeat-x,radial-gradient(var(--s) at 50% 100%,#0000 98%,#000) 50% 100%/calc(var(--s)*2.6) 51% repeat-x;
+          mask:radial-gradient(var(--s) at 50% 0,#0000 98%,#000) 50% 0/calc(var(--s)*2.6) 51% repeat-x,radial-gradient(var(--s) at 50% 100%,#0000 98%,#000) 50% 100%/calc(var(--s)*2.6) 51% repeat-x}
+.card h2{text-align:center;margin-bottom:8px}
+.card .sub{text-align:center;max-width:52ch;margin:0 auto 36px;color:var(--plum-2)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.cols h3{font-size:1.3rem;padding-bottom:10px;margin-bottom:6px;border-bottom:3px solid var(--blue)}
+.cols .avoid h3{border-color:var(--rose)}
+.cols ul{list-style:none;margin:0;padding:0}
+.cols li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);position:relative}
+.cols li::before{content:"";position:absolute;left:2px;top:19px;width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);box-shadow:inset 0 0 0 3px var(--porcelain),inset 0 0 0 7px var(--blue)}
+.cols .avoid li::before{border-color:#C9727C;box-shadow:none;background:linear-gradient(45deg,transparent 43%,#C9727C 43% 57%,transparent 57%)}
+
+/* trade */
+.trade{background:var(--plum);color:#EEEBF3;padding:clamp(64px,9vw,128px) 0}
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:start}
+.trade h2{color:var(--porcelain);max-width:12ch}
+.trade .intro{margin:20px 0 32px;max-width:42ch}
+.who{font-family:var(--serif);font-size:1.5rem;color:var(--porcelain);line-height:1.25}
+.who small{display:block;font:400 .95rem var(--sans);color:#CFCADB;margin-top:4px}
+.phone{display:inline-block;font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1;color:var(--rose);text-decoration:none;margin:22px 0 10px;letter-spacing:-.01em}
+.phone:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.addr{font-style:normal;margin-top:18px;line-height:1.55}
+.addr a{color:var(--rose);text-underline-offset:3px}
+form{background:#372E45;border-radius:28px;padding:clamp(22px,3.5vw,40px)}
+form h3{color:var(--porcelain);margin-bottom:18px}
+label{display:block;font-weight:500;font-size:.95rem;margin:0 0 6px;color:#EEEBF3}
+.f{margin-bottom:16px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,select,textarea{width:100%;font:400 1rem var(--sans);color:var(--plum);background:var(--porcelain);border:1.5px solid transparent;border-radius:12px;padding:11px 14px}
+textarea{resize:vertical;min-height:84px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+form .btn{background:var(--rose);color:var(--plum);border:0}
+form .btn:hover{background:#F0BCC1}
+.demo{font-size:.85rem;color:#CFCADB;margin:14px 0 0}
+#out{display:none;margin-top:20px;border-top:1px solid #54496A;padding-top:18px}
+#out.on{display:block}
+#out textarea{min-height:150px;background:#F3F2F7}
+#out .row{margin-top:12px}
+#out .btn{padding:10px 18px}
+#out .btn-ghost{background:transparent;color:var(--porcelain);border:1.5px solid var(--porcelain)}
+#copied{font-size:.9rem;color:var(--rose);margin:8px 0 0;min-height:1.4em}
+
+/* footer */
+footer{padding:clamp(48px,6vw,80px) 0 28px;background:var(--porcelain)}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px;align-items:start}
+.foot .mark b{font-size:clamp(3rem,7vw,5.5rem)}
+.foot h3{font-family:var(--sans);font-weight:600;font-size:1rem;margin-bottom:8px}
+.foot p,.foot li{font-size:.95rem;color:var(--plum-2)}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin-bottom:6px}
+.foot a{color:var(--blue);text-underline-offset:3px}
+.credit{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:.88rem;color:var(--plum-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.credit a{color:var(--blue)}
+
+/* responsive */
+@media (max-width:1100px){
+  .table{grid-template-columns:1fr 1fr}
+  .plate-wrap{grid-column:1/-1;grid-row:1;width:min(540px,100%);margin:0 auto}
+  .side{text-align:left}
+}
+@media (max-width:900px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--dove);flex-direction:column;align-items:flex-start;gap:4px;padding:8px var(--gut) 22px;border-top:1px solid rgba(44,36,56,.2)}
+  .nav.open{display:flex}
+  .nav a{padding:10px 0;font-size:1.1rem}
+  .nav .btn{margin-top:8px;padding:13px 24px}
+  .menu-btn{display:inline-block}
+  .arkon-grid,.duo,.trade-grid{grid-template-columns:1fr}
+  .fifteen{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>div:first-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  .mark span{display:none}
+  .table{grid-template-columns:1fr;gap:20px}
+  .side,.side.right{text-align:center;align-items:center}
+  .now-note{margin-left:auto;margin-right:auto}
+  .side.right .btn{width:100%;justify-content:center;max-width:320px}
+  .slots{grid-template-columns:repeat(5,1fr)}
+  .saucers{gap:6px 4px}
+  .saucer{font-size:.72rem;width:56px}
+  .slots li.tag{grid-column:1/-1;text-align:center;place-items:center}
+  .cols{grid-template-columns:1fr}
+  .f2{grid-template-columns:1fr;gap:0}
+  .spec div{grid-template-columns:7rem 1fr;gap:12px}
+  .foot{grid-template-columns:1fr}
+  .card{--s:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Dove Melamine Ware — not the official website. Proposed design; illustrated imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Dove Melamine Ware, home"><b>Dove</b><span>melamine ware</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#designs">Designs</a>
+      <a href="#arkon">Arkon Glow set</a>
+      <a href="#care">Care</a>
+      <a class="btn btn-plum" href="#trade">Order for your shop</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="designs" aria-labelledby="h1">
+  <div class="wrap">
+    <h1 id="h1">Melamine dinner sets, in the design you choose.</h1>
+    <p class="lede">Dove Melamine Ware, Korangi Industrial Area, Karachi. Dinnerware for family tables, for gifting, and for the shops that stock it.</p>
+
+    <div class="table">
+      <div class="side left">
+        <span class="now" id="now" aria-live="polite">Design 1</span>
+        <p class="now-note">An illustrative pattern drawn for this concept. Pick another plate below to turn the table.</p>
+      </div>
+
+      <div class="plate-wrap">
+        <svg class="plate" id="plate" viewBox="-210 -210 420 420" role="img" aria-label="Illustration of a melamine dinner plate with the selected pattern">
+          <defs>
+            <radialGradient id="porc" cx="45%" cy="40%" r="65%">
+              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".75" stop-color="#FBFBFD"/><stop offset="1" stop-color="#E7E5EE"/>
+            </radialGradient>
+            <radialGradient id="well" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FDFDFE"/><stop offset=".86" stop-color="#FAFAFC"/><stop offset="1" stop-color="#E4E2EB"/>
+            </radialGradient>
+            <linearGradient id="gloss" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".55" stop-color="#fff" stop-opacity=".15"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <circle r="198" fill="url(#porc)" stroke="#D3D0DD" stroke-width="1"/>
+          <g id="spin">
+            <g id="rim"></g>
+            <circle r="143" fill="url(#well)"/>
+            <circle r="143" fill="none" stroke="rgba(44,36,56,.08)" stroke-width="1.5"/>
+            <g id="centre"></g>
+          </g>
+          <path d="M-150,-96 C-112,-160 -36,-190 40,-186 C-30,-170 -98,-138 -138,-70 Z" fill="url(#gloss)" opacity=".85"/>
+          <ellipse cx="118" cy="128" rx="34" ry="9" transform="rotate(-42 118 128)" fill="#fff" opacity=".5"/>
+        </svg>
+      </div>
+
+      <div class="side right">
+        <a class="btn btn-plum" href="tel:+923008723705">Call to ask about designs</a>
+        <a class="btn btn-line" href="#trade">Order for your shop</a>
+      </div>
+    </div>
+
+    <div class="saucers" id="saucers" role="group" aria-label="Choose an illustrative pattern"></div>
+    <p class="hero-cap">These six patterns are illustrations, not Dove’s catalogue. The Arkon Glow dinner set is listed in 15 design options. Ask Dove to see them.</p>
+  </div>
+</section>
+
+<section class="arkon" id="arkon" aria-labelledby="arkon-h">
+  <div class="wrap">
+    <div class="arkon-grid">
+      <figure class="bowl-fig">
+        <svg viewBox="0 0 400 290" role="img" aria-label="Illustration of a melamine serving dish with a coloured glass lid">
+          <defs>
+            <linearGradient id="body" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCD9E5"/>
+            </linearGradient>
+            <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#5D82C6" stop-opacity=".55"/><stop offset="1" stop-color="#2E5AAC" stop-opacity=".72"/>
+            </linearGradient>
+            <linearGradient id="hl" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="200" cy="270" rx="150" ry="14" fill="rgba(44,36,56,.18)"/>
+          <path d="M54,178 C62,236 120,266 200,266 C280,266 338,236 346,178 Z" fill="url(#body)"/>
+          <path d="M66,206 C100,224 150,232 200,232 C250,232 300,224 334,206 L328,220 C296,238 250,246 200,246 C150,246 104,238 72,220 Z" fill="#2E5AAC"/>
+          <g fill="#E7A1A8"><circle cx="120" cy="231" r="3.4"/><circle cx="160" cy="238" r="3.4"/><circle cx="200" cy="240" r="3.4"/><circle cx="240" cy="238" r="3.4"/><circle cx="280" cy="231" r="3.4"/></g>
+          <ellipse cx="200" cy="178" rx="146" ry="22" fill="#F4F3F8" stroke="#D3D0DD"/>
+          <path d="M68,176 C76,92 140,58 200,58 C260,58 324,92 332,176 Z" fill="url(#glass)"/>
+          <ellipse cx="200" cy="176" rx="132" ry="15" fill="#2E5AAC" opacity=".55"/>
+          <path d="M96,160 C100,112 132,84 170,74 C140,96 118,124 112,162 Z" fill="url(#hl)"/>
+          <rect x="186" y="44" width="28" height="18" rx="5" fill="#2C2438"/>
+          <ellipse cx="200" cy="42" rx="30" ry="9" fill="#4A4058"/>
+          <ellipse cx="192" cy="40" rx="12" ry="3" fill="#fff" opacity=".35"/>
+        </svg>
+        <figcaption>Illustration of a lidded dish, not a product photograph.</figcaption>
+      </figure>
+
+      <div>
+        <h2 id="arkon-h">Arkon Glow <span style="white-space:nowrap">72-piece</span> dinner set</h2>
+        <p class="intro">A melamine dinner set that comes with coloured tempered-glass lids, offered in 15 design options.</p>
+        <dl class="spec">
+          <div><dt>Pieces</dt><dd>72</dd></div>
+          <div><dt>Material</dt><dd>Melamine, with coloured tempered-glass lids</dd></div>
+          <div><dt>Designs</dt><dd>15 options</dd></div>
+          <div><dt>SKU</dt><dd>AGA0001</dd></div>
+          <div><dt>Availability</dt><dd>Ready to ship, in stock<small>As shown on the <a href="https://pakistantradeportal.gov.pk/product/dove-melamine-ware-arkon-glow-72pcs-dinnerset-11743" target="_blank" rel="noopener">Pakistan Trade Portal listing</a> (undated). Confirm with Dove.</small></dd></div>
+        </dl>
+        <div class="row">
+          <a class="btn btn-blue" href="tel:+923008723705">Call about the Arkon Glow set</a>
+          <a class="btn btn-line" href="https://pakistantradeportal.gov.pk/product/dove-melamine-ware-arkon-glow-72pcs-dinnerset-11743" target="_blank" rel="noopener">View the listing</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fifteen">
+      <div>
+        <h3>Fifteen designs</h3>
+        <p>One place for each design option the set is listed in. Photographs of the 15 designs to be supplied by Dove Melamine Ware.</p>
+      </div>
+      <ol class="slots" aria-label="Fifteen design slots awaiting photographs">
+        <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
+        <li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li>
+        <li class="tag" aria-hidden="true">Sample content</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="tables" aria-labelledby="tables-h">
+  <div class="wrap">
+    <h2 id="tables-h">For the family table, and for the shop shelf.</h2>
+    <div class="duo">
+      <article class="home">
+        <svg class="spread" id="spread" viewBox="0 0 640 360" role="img" aria-label="Illustration of a table laid with patterned plates, seen from above"><rect width="640" height="360" fill="#9B97AE"/></svg>
+        <div class="txt">
+          <p class="cap">Illustration using the concept’s sample patterns.</p>
+          <h3>At home</h3>
+          <p>Seventy-two pieces lays a full table for everyday meals and for guests. A complete dinner set is also a ready-made gift for a new home or a wedding.</p>
+        </div>
+      </article>
+      <article class="shop">
+        <div>
+          <h3>For retailers and wholesale buyers</h3>
+          <p>Ask which designs are ready, how many sets you need, and how to collect or receive them from Korangi.</p>
+        </div>
+        <svg viewBox="0 0 260 120" aria-hidden="true">
+          <g>
+            <ellipse cx="130" cy="108" rx="112" ry="9" fill="rgba(0,0,0,.18)"/>
+            <rect x="22" y="88" width="216" height="14" rx="7" fill="#FBFBFD"/><rect x="40" y="94" width="180" height="3" fill="#E7A1A8"/>
+            <rect x="26" y="72" width="208" height="14" rx="7" fill="#FBFBFD"/><rect x="44" y="78" width="172" height="3" fill="#9B97AE"/>
+            <rect x="20" y="56" width="216" height="14" rx="7" fill="#FBFBFD"/><rect x="38" y="62" width="180" height="3" fill="#E7A1A8"/>
+            <rect x="28" y="40" width="208" height="14" rx="7" fill="#FBFBFD"/><rect x="46" y="46" width="172" height="3" fill="#2C2438"/>
+            <rect x="24" y="24" width="212" height="14" rx="7" fill="#FBFBFD"/><rect x="42" y="30" width="176" height="3" fill="#E7A1A8"/>
+          </g>
+        </svg>
+        <a class="btn" href="#trade">Order for your shop</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="care" id="care" aria-labelledby="care-h">
+  <div class="wrap">
+    <div class="card">
+      <h2 id="care-h">Looking after melamine</h2>
+      <p class="sub">General guidance for melamine dinnerware and tempered-glass lids. Follow the instructions supplied with your Dove set.</p>
+      <div class="cols">
+        <div class="use">
+          <h3>Do</h3>
+          <ul>
+            <li>Wash with warm, soapy water and a soft sponge.</li>
+            <li>Serve hot and cold food straight to the table.</li>
+            <li>Let glass lids cool before washing them.</li>
+            <li>Stack plates dry, with like sizes together.</li>
+          </ul>
+        </div>
+        <div class="avoid">
+          <h3>Avoid</h3>
+          <ul>
+            <li>Microwave and oven use; most melamine is not made for either.</li>
+            <li>Steel wool and scouring powder, which dull the gloss.</li>
+            <li>Plunging a hot glass lid into cold water.</li>
+            <li>Cutting directly on the plate with a sharp knife.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trade" id="trade" aria-labelledby="trade-h">
+  <div class="wrap trade-grid">
+    <div>
+      <h2 id="trade-h">Order for your shop</h2>
+      <p class="intro">Trade and wholesale enquiries go to the contact person listed for Dove Melamine Ware on the Pakistan Trade Portal.</p>
+      <p class="who">Saad Bin Jawed Khawaja<small>Contact person, Dove Melamine Ware</small></p>
+      <a class="phone" href="tel:+923008723705">0300 8723705</a>
+      <address class="addr">Plot #386, Sector 7-A<br>Korangi Industrial Area, Karachi, Sindh<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=Plot+386+Sector+7-A+Korangi+Industrial+Area+Karachi" target="_blank" rel="noopener">Open in Google Maps</a></address>
+    </div>
+
+    <form id="enq" novalidate>
+      <h3>Prepare a trade enquiry</h3>
+      <div class="f2">
+        <div class="f"><label for="shop">Shop or business name</label><input id="shop" name="shop" autocomplete="organization"></div>
+        <div class="f"><label for="city">City or area</label><input id="city" name="city" autocomplete="address-level2"></div>
+      </div>
+      <div class="f2">
+        <div class="f"><label for="item">Interested in</label>
+          <select id="item" name="item">
+            <option>Arkon Glow 72-piece dinner set</option>
+            <option>Other melamine designs</option>
+            <option>Not sure yet</option>
+          </select></div>
+        <div class="f"><label for="qty">Sets needed (approx.)</label><input id="qty" name="qty" inputmode="numeric"></div>
+      </div>
+      <div class="f"><label for="note">Designs or questions</label><textarea id="note" name="note"></textarea></div>
+      <button class="btn" type="submit">Prepare message</button>
+      <p class="demo">Concept demo: nothing is sent from this page. It writes a message you can copy, text or read out on a call.</p>
+      <div id="out" aria-live="polite">
+        <label for="msg">Your message</label>
+        <textarea id="msg" readonly></textarea>
+        <div class="row">
+          <button class="btn" type="button" id="copy">Copy message</button>
+          <a class="btn btn-ghost" id="sms" href="sms:+923008723705">Send as text</a>
+          <a class="btn btn-ghost" href="tel:+923008723705">Call 0300 8723705</a>
+        </div>
+        <p id="copied"></p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="mark" href="#main"><b>Dove</b></a><p style="margin-top:10px">Melamine ware, Korangi Industrial Area, Karachi. Proposed wordmark.</p></div>
+      <div>
+        <h3>Visit or call</h3>
+        <p>Plot #386, Sector 7-A, Korangi Industrial Area, Karachi, Sindh<br><a href="tel:+923008723705">0300 8723705</a></p>
+      </div>
+      <div>
+        <h3>Sources</h3>
+        <ul>
+          <li><a href="https://pakistantradeportal.gov.pk/company/dove-melamine-ware-3239" target="_blank" rel="noopener">Company listing, Pakistan Trade Portal</a></li>
+          <li><a href="https://pakistantradeportal.gov.pk/product/dove-melamine-ware-arkon-glow-72pcs-dinnerset-11743" target="_blank" rel="noopener">Arkon Glow product listing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="credit">
+      <span>Website concept for Dove Melamine Ware — not the official website. Plate patterns, dish and table are illustrations, not Dove’s products.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* mobile nav */
+  var mb=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  mb.addEventListener('click',function(){var o=mb.getAttribute('aria-expanded')==='true';mb.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open',!o);mb.textContent=o?'Menu':'Close'});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&mb.offsetParent){mb.setAttribute('aria-expanded','false');nav.classList.remove('open');mb.textContent='Menu'}});
+
+  /* plate patterns (illustrative) */
+  var B='#2E5AAC',R='#E7A1A8',P='#2C2438',L='#9B97AE',W='#FBFBFD';
+  function around(n,r,motif,off){var s='';for(var i=0;i<n;i++){var a=(360/n)*i+(off||0);s+='<g transform="rotate('+a.toFixed(2)+') translate(0,'+(-r)+')">'+motif+'</g>'}return s}
+  function ring(r,c,w){return '<circle r="'+r+'" fill="none" stroke="'+c+'" stroke-width="'+w+'"/>'}
+  function petals(n,rx,ry,dist,c){var s='';for(var i=0;i<n;i++){s+='<ellipse rx="'+rx+'" ry="'+ry+'" cy="'+(-dist)+'" fill="'+c+'" transform="rotate('+(360/n*i)+')"/>'}return s}
+  var leaf='<path d="M0,-12 C7,-5 7,5 0,12 C-7,5 -7,-5 0,-12Z" fill="'+B+'"/>';
+  function wave(){var d='';for(var t=0;t<=360;t+=2){var rad=t*Math.PI/180,r=168+7*Math.sin(rad*12);d+=(t?'L':'M')+(r*Math.sin(rad)).toFixed(1)+','+(-r*Math.cos(rad)).toFixed(1)}return '<path d="'+d+'Z" fill="none" stroke="'+B+'" stroke-width="2.2"/>'}
+  var annulus='<path d="M0,-186 A186,186 0 1 1 0,186 A186,186 0 1 1 0,-186Z M0,-152 A152,152 0 1 0 0,152 A152,152 0 1 0 0,-152Z" fill-rule="evenodd" fill="'+P+'"/>';
+  var designs=[
+    {rim:ring(185,B,3)+ring(152,B,1.5)+around(16,168,leaf)+around(16,168,'<circle r="3" fill="'+R+'"/>',11.25),
+     centre:'<rect x="-30" y="-30" width="60" height="60" fill="'+B+'"/><rect x="-30" y="-30" width="60" height="60" fill="'+B+'" transform="rotate(45)"/><circle r="17" fill="'+W+'"/><circle r="7" fill="'+R+'"/>'+ring(60,B,1.2)},
+    {rim:ring(185,R,2.5)+around(10,167,petals(5,5,9,9,R)+'<circle r="3.6" fill="'+P+'"/>')+around(10,167,'<path d="M0,-7 C4,-2 4,2 0,7 C-4,2 -4,-2 0,-7Z" fill="'+L+'"/>',18),
+     centre:petals(8,13,28,30,R)+'<circle r="13" fill="'+P+'"/>'+around(24,74,'<circle r="2.4" fill="'+L+'"/>')},
+    {rim:annulus+around(24,169,'<path d="M0,-9 L6,0 L0,9 L-6,0Z" fill="'+W+'"/>')+around(24,169,'<circle r="1.8" fill="'+R+'"/>',7.5),
+     centre:ring(42,P,2)+around(8,42,'<path d="M0,-8 L5,0 L0,8 L-5,0Z" fill="'+P+'"/>')+'<circle r="8" fill="'+R+'"/>'},
+    {rim:ring(183,L,7)+ring(171,B,2)+ring(162,L,1.2)+ring(153,R,3.5),
+     centre:ring(38,L,4)+ring(26,B,2)+'<circle r="9" fill="'+R+'"/>'},
+    {rim:around(24,186,'<path d="M-14,0 A14,14 0 0 0 14,0Z" fill="'+R+'"/>')+ring(186,B,1.8)+around(24,160,'<circle r="2.6" fill="'+B+'"/>',7.5),
+     centre:around(12,30,'<path d="M-8,0 A8,8 0 0 1 8,0Z" fill="'+B+'"/>')+'<circle r="6" fill="'+R+'"/>'},
+    {rim:wave()+around(12,168,'<path d="M0,-10 C6,-4 6,4 0,10 C-6,4 -6,-4 0,-10Z" fill="'+R+'"/>',15)+ring(186,B,1.2),
+     centre:petals(6,7,20,22,B)+'<circle r="8" fill="'+R+'"/>'+ring(56,R,1.5)}
+  ];
+
+  var rim=document.getElementById('rim'),centre=document.getElementById('centre'),spin=document.getElementById('spin'),
+      plate=document.getElementById('plate'),now=document.getElementById('now'),wrap=document.getElementById('saucers');
+  var turn=0,cur=0;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function paint(i){rim.innerHTML=designs[i].rim;centre.innerHTML=designs[i].centre}
+  designs.forEach(function(d,i){
+    var b=document.createElement('button');b.type='button';b.className='saucer';b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.innerHTML='<svg viewBox="-200 -200 400 400" aria-hidden="true"><circle r="198" fill="#FBFBFD"/>'+d.rim+'<circle r="143" fill="#FDFDFE"/>'+d.centre+'</svg><span>Design '+(i+1)+'</span>';
+    b.addEventListener('click',function(){choose(i)});
+    wrap.appendChild(b);
+  });
+  function choose(i){
+    if(i===cur)return;
+    var dir=i>cur?1:-1;cur=i;
+    [].forEach.call(wrap.children,function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false')});
+    now.textContent='Design '+(i+1);
+    if(still){paint(i);return}
+    plate.classList.add('swap');
+    turn+=dir*72;spin.style.transform='rotate('+turn+'deg)';
+    setTimeout(function(){paint(i);plate.classList.remove('swap')},200);
+  }
+  paint(0);
+
+  /* table spread: plates from above, reusing the sample patterns */
+  var sp=document.getElementById('spread'),lay=[[120,110,92,0],[320,92,70,4],[520,120,92,1],[210,268,78,3],[430,262,84,5],[640,300,70,2],[0,320,70,2]],g='';
+  for(var t=0;t<640;t+=16){g+='<rect x="'+t+'" y="0" width="1" height="360" fill="rgba(255,255,255,.06)"/>'}
+  lay.forEach(function(p){var s=p[2]/200,d=designs[p[3]];
+    g+='<g transform="translate('+p[0]+','+p[1]+') scale('+s.toFixed(3)+')"><circle r="200" cy="14" fill="rgba(44,36,56,.22)"/><circle r="198" fill="#FBFBFD"/>'+d.rim+'<circle r="143" fill="#FDFDFE"/>'+d.centre+'</g>'});
+  g+='<g fill="#FBFBFD" opacity=".9"><rect x="228" y="60" width="6" height="110" rx="3"/><rect x="246" y="60" width="6" height="110" rx="3"/><rect x="408" y="70" width="6" height="104" rx="3"/></g>';
+  sp.insertAdjacentHTML('beforeend',g);
+
+  /* enquiry composer */
+  var f=document.getElementById('enq'),out=document.getElementById('out'),msg=document.getElementById('msg'),sms=document.getElementById('sms'),copied=document.getElementById('copied');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var lines=['Assalam o Alaikum Saad sahib,','Trade enquiry for Dove Melamine Ware.'];
+    if(v('shop'))lines.push('Shop: '+v('shop'));
+    if(v('city'))lines.push('City / area: '+v('city'));
+    lines.push('Interested in: '+v('item'));
+    if(v('qty'))lines.push('Sets needed (approx.): '+v('qty'));
+    if(v('note'))lines.push('Notes: '+v('note'));
+    lines.push('Please share available designs and trade terms.');
+    msg.value=lines.join('\n');
+    sms.href='sms:+923008723705?body='+encodeURIComponent(msg.value);
+    out.classList.add('on');copied.textContent='';
+    msg.focus();
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var done=function(){copied.textContent='Message copied.'};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg.value).then(done,function(){msg.select();document.execCommand('copy');done()})}
+    else{msg.select();document.execCommand('copy');done()}
+  });
+})();
+</script>
+</body>
+</html>

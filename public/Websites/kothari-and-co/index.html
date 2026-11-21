@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kothari — Haji Suleman Adam Kothari &amp; Co., Karachi (website concept)</title>
+<meta name="description" content="Website concept for Haji Suleman Adam Kothari & Co., a Karachi trading house established in 1923: dates, dry fruits, seeds, spices, medicinal herbs and pharmaceutical products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#E3A72F;
+  --saffron-soft:#F0C66E;
+  --date:#4A2C21;
+  --date-deep:#361F17;
+  --cardamom:#6B7A3A;
+  --sesame:#EDE6D8;
+  --white:#FFFFFF;
+  --ink:#2E1B14;
+  --muted:#6A5248;
+  --display:"Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+  --text:"Libre Caslon Text", Georgia, serif;
+  --wrap:1240px;
+  --gut:clamp(20px, 4vw, 48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--text);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:2px}
+.on-saffron :focus-visible{outline-color:var(--date)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;background:var(--white);padding:8px 14px;z-index:99}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.005em}
+
+/* concept notice */
+.notice{background:var(--date-deep);color:#E9DCCB;font-size:13.5px;line-height:1.45}
+.notice .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.notice em{color:var(--saffron-soft)}
+.notice a{color:var(--saffron-soft);text-underline-offset:3px}
+
+/* header */
+.top{background:var(--white);position:sticky;top:0;z-index:20;box-shadow:0 1px 0 rgba(74,44,33,.12)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.mark{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.mark b{font-family:var(--display);font-weight:400;font-size:34px;color:var(--date);letter-spacing:.01em}
+.mark span{font-size:12.5px;font-style:italic;color:var(--muted);margin-top:4px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{text-decoration:none;font-size:16px;color:var(--date)}
+.nav a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--saffron);text-decoration-thickness:2px}
+.nav .call{background:var(--date);color:var(--white);padding:10px 18px;border-radius:6px}
+.nav .call:hover{background:var(--date-deep);text-decoration:none}
+.menu-btn{display:none;background:none;border:2px solid var(--date);color:var(--date);font:inherit;font-size:15px;padding:6px 14px;border-radius:6px;cursor:pointer}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);min-height:760px}
+.hero-copy{background:var(--date);color:var(--white);padding:72px var(--gut) 72px max(var(--gut), calc((100vw - var(--wrap))/2 + var(--gut)));display:flex;flex-direction:column;justify-content:center}
+.year{position:relative;margin:0 0 48px;line-height:.8;padding-bottom:.06em}
+.year .since{display:block;font-family:var(--text);font-style:italic;font-size:clamp(26px,2.6vw,38px);color:var(--sesame);margin:0 0 4px 6px;line-height:1.2}
+.year .num{display:block;font-family:var(--display);font-size:clamp(132px,17.5vw,272px);color:var(--saffron);letter-spacing:-.035em;line-height:.82}
+.year .where{position:absolute;right:0;bottom:12%;font-style:italic;font-size:15px;color:#D9C9B6;text-align:right;line-height:1.4}
+.hero h1{font-size:clamp(32px,3.3vw,48px);max-width:19ch;color:var(--white)}
+.hero .lede{max-width:52ch;margin:22px 0 34px;color:#EADFD2;font-size:18.5px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--text);font-size:17px;padding:14px 22px;border-radius:6px;border:2px solid transparent;cursor:pointer;line-height:1.2}
+.btn-saffron{background:var(--saffron);color:var(--date-deep);font-weight:700}
+.btn-saffron:hover{background:var(--saffron-soft)}
+.btn-line{border-color:rgba(255,255,255,.55);color:var(--white)}
+.btn-line:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+
+.hero-tray{background:var(--saffron);color:var(--date-deep);padding:56px var(--gut);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.tray{background:var(--date);border-radius:30px;padding:clamp(18px,2.2vw,28px);box-shadow:inset 0 0 0 6px #5A3628, 0 18px 0 -6px rgba(54,31,23,.35);width:min(100%,470px)}
+.tray ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,18px) clamp(8px,1.2vw,16px)}
+.bowl-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;border-radius:12px;padding:4px 2px 6px}
+.bowl-btn svg{width:100%;height:auto;aspect-ratio:1;display:block;transition:transform .25s ease}
+.bowl-btn span{font-size:13.5px;font-style:italic;color:#E8DACA;text-align:center;line-height:1.25}
+.bowl-btn:hover svg{transform:scale(1.04)}
+.bowl-btn[aria-pressed="true"] span{color:var(--saffron);font-style:normal;font-weight:700}
+.bowl-btn[aria-pressed="true"] svg{transform:scale(1.06)}
+.bowl-btn:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
+.tray-note{width:min(100%,470px);min-height:118px}
+.tray-note h2{font-size:30px;color:var(--date-deep)}
+.tray-note p{margin:6px 0 8px;font-size:16.5px;line-height:1.55}
+.tray-note a{font-size:16px;color:var(--date-deep);text-underline-offset:4px;text-decoration-thickness:2px}
+.tray-cap{font-size:13px;font-style:italic;color:#5A3628;width:min(100%,470px);margin:0}
+
+@media (prefers-reduced-motion:no-preference){
+  .tray li{animation:fill .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
+  @keyframes fill{from{opacity:0;transform:translateY(8px) scale(.9)}to{opacity:1;transform:none}}
+}
+
+/* sections */
+section{scroll-margin-top:80px}
+.sec{padding:112px 0}
+.sec-head{max-width:640px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(36px,4.2vw,58px);color:var(--date)}
+.sec-head p{margin:18px 0 0;color:var(--muted);max-width:58ch}
+
+/* range */
+.range{display:flex;flex-direction:column;gap:22px}
+.fam{display:grid;grid-template-columns:340px minmax(0,1fr);background:var(--white);border-radius:4px;overflow:hidden;min-height:260px}
+.fam .field{position:relative;min-height:240px}
+.fam:nth-child(1) .field{background:var(--saffron)}
+.fam:nth-child(2) .field{background:var(--cardamom)}
+.fam:nth-child(3) .field{background:var(--date)}
+.fam:nth-child(4) .field{background:var(--sesame)}
+.fam .field svg{position:absolute;filter:drop-shadow(0 8px 0 rgba(0,0,0,.14))}
+.fam .body{padding:34px 0 34px 44px;display:flex;flex-direction:column;justify-content:center}
+.fam h3{font-size:clamp(30px,3vw,42px);color:var(--date)}
+.fam .items{font-family:var(--display);font-size:clamp(20px,1.9vw,25px);color:var(--cardamom);margin:8px 0 12px;line-height:1.35}
+.fam .desc{margin:0 0 16px;max-width:60ch;color:var(--ink)}
+.fam .ask{align-self:flex-start;color:var(--date);font-size:16.5px;text-underline-offset:5px;text-decoration-color:var(--saffron);text-decoration-thickness:2px}
+.fam .ask:hover{color:var(--date-deep);text-decoration-color:var(--date)}
+.src{font-size:14px;font-style:italic;color:var(--muted);margin:28px 0 0}
+.src a{color:var(--date)}
+
+/* photos */
+.photos{display:grid;grid-template-columns:2fr 1fr 1.35fr;gap:10px;height:360px;margin-top:72px}
+.photos figure{margin:0;overflow:hidden;border-radius:4px;background:var(--sesame)}
+.photos img{width:100%;height:100%;object-fit:cover}
+.photo-cap{font-size:14px;font-style:italic;color:var(--muted);margin:12px 0 0}
+
+/* process */
+.process{background:var(--cardamom);color:var(--white)}
+.process .sec-head h2{color:var(--white)}
+.process .sec-head p{color:#EEF0E3}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
+.steps li{position:relative;padding:0 30px 0 0}
+.steps li + li{padding-left:30px;box-shadow:inset 2px 0 0 rgba(255,255,255,.22)}
+.steps .n{font-family:var(--display);font-size:96px;line-height:.85;color:var(--saffron);display:block;margin-bottom:18px}
+.steps h3{font-size:28px;margin-bottom:12px}
+.steps p{margin:0;font-size:17px;color:#F3F4EC;line-height:1.6}
+.steps-note{margin:44px 0 0;font-size:14.5px;font-style:italic;color:#EEF0E3}
+
+/* century */
+.century .band{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:stretch;border-radius:4px;overflow:hidden}
+.century .end{background:var(--date);color:var(--white);padding:40px 44px;max-width:380px}
+.century .end b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(56px,6vw,84px);line-height:.9;color:var(--saffron);margin-bottom:14px}
+.century .end p{margin:0;font-size:16.5px;color:#EADFD2}
+.century .gap{background:var(--sesame);padding:40px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.century .gap::before{content:"";position:absolute;left:0;right:0;top:50%;height:10px;margin-top:-5px;background:repeating-linear-gradient(90deg,var(--date) 0 22px,transparent 22px 36px);opacity:.18}
+.century .gap p{position:relative;margin:0 auto;max-width:36ch;text-align:center;background:var(--sesame);padding:10px 16px;font-size:16.5px}
+.tag{display:inline-block;font-size:13.5px;font-style:italic;background:var(--white);color:var(--date);padding:3px 10px;border-radius:999px;margin-top:8px}
+.century .src{margin-top:20px}
+
+/* enquiry */
+.enquiry .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0;border-radius:4px;overflow:hidden}
+.form-side{background:var(--sesame);padding:52px}
+.form-side h2{font-size:clamp(34px,3.6vw,50px);color:var(--date)}
+.form-side > p{margin:14px 0 30px;color:var(--muted);max-width:52ch}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-size:15px;color:var(--date);font-weight:700}
+label small{font-weight:400;font-style:italic;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16.5px;color:var(--ink);background:var(--white);border:2px solid #D3C7B2;border-radius:6px;padding:11px 13px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--date);box-shadow:0 0 0 3px rgba(227,167,47,.55)}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
+.btn-date{background:var(--date);color:var(--white);font-weight:700}
+.btn-date:hover{background:var(--date-deep)}
+.demo{font-size:14px;font-style:italic;color:var(--muted);margin:0;max-width:46ch}
+.status{grid-column:1/-1;margin:0;background:var(--white);border-left:5px solid var(--cardamom);padding:12px 16px;font-size:16px}
+.status[hidden]{display:none}
+.contact-side{background:var(--date);color:var(--white);padding:52px;display:flex;flex-direction:column;gap:30px}
+.contact-side h3{font-size:22px;color:var(--saffron);font-family:var(--text);font-style:italic}
+.contact-side .big{font-family:var(--display);font-size:clamp(30px,3vw,42px);text-decoration:none;color:var(--white);display:inline-block;line-height:1.1;margin-top:6px}
+.contact-side .big:hover{color:var(--saffron-soft)}
+.contact-side p{margin:6px 0 0;color:#EADFD2;font-size:16.5px}
+.contact-side a{text-underline-offset:4px}
+
+/* footer */
+.foot{background:var(--date-deep);color:#D9C9B6;padding:56px 0 40px;font-size:15px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.foot .mark b{color:var(--saffron)}
+.foot .mark span{color:#C9B7A2}
+.foot p{margin:0;max-width:62ch}
+.foot a{color:var(--saffron-soft)}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero{grid-template-columns:1fr}
+  .hero-copy{padding:64px var(--gut)}
+  .hero-tray{padding:56px var(--gut) 64px}
+  .steps{grid-template-columns:1fr 1fr;gap:48px 0}
+  .steps li:nth-child(3){padding-left:0;box-shadow:none}
+  .enquiry .grid{grid-template-columns:1fr}
+  .century .band{grid-template-columns:1fr 1fr}
+  .century .gap{grid-column:1/-1;grid-row:2}
+  .century .end{max-width:none}
+}
+@media (max-width:860px){
+  .nav{position:absolute;top:76px;left:0;right:0;background:var(--white);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 20px;box-shadow:0 12px 20px -12px rgba(54,31,23,.3);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;font-size:18px;border-bottom:1px solid rgba(74,44,33,.1)}
+  .nav .call{margin-top:12px;text-align:center;border-bottom:0}
+  .menu-btn{display:inline-block}
+  .fam{grid-template-columns:1fr}
+  .fam .field{min-height:220px}
+  .fam .body{padding:26px 4px 30px}
+  .photos{grid-template-columns:1fr 1fr;height:auto}
+  .photos figure{aspect-ratio:4/3}
+  .photos figure:first-child{grid-column:1/-1;aspect-ratio:16/9}
+}
+@media (max-width:600px){
+  body{font-size:17px}
+  .sec{padding:76px 0}
+  .sec-head{margin-bottom:38px}
+  .mark b{font-size:29px}
+  .mark span{font-size:11.5px}
+  .year .where{position:static;display:block;text-align:left;margin-top:14px;margin-left:4px}
+  .hero-copy{padding:48px var(--gut) 52px}
+  .btn{width:100%;justify-content:center}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .steps li,.steps li + li{padding:0;box-shadow:none}
+  .steps .n{font-size:72px;margin-bottom:10px}
+  .century .band{grid-template-columns:1fr}
+  .century .gap{grid-row:auto}
+  .century .end{padding:32px 26px}
+  .century .gap{padding:28px 20px}
+  form{grid-template-columns:1fr}
+  .form-side,.contact-side{padding:36px 22px}
+  .bowl-btn span{font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span><em>Website concept</em> for Haji Suleman Adam Kothari &amp; Co. — not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Kothari, home">
+      <b>Kothari</b>
+      <span>Haji Suleman Adam Kothari &amp; Co.</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#range">Range</a>
+      <a href="#process">Export enquiries</a>
+      <a href="#century">Since 1923</a>
+      <a href="#enquiry">Contact</a>
+      <a class="call" href="tel:+922132427396">Call +92-21-32427396</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="year" aria-label="Since 1923">
+      <span class="since" aria-hidden="true">Since</span>
+      <span class="num" aria-hidden="true">1923</span>
+      <span class="where" aria-hidden="true">Shahrah-e-Liaquat<br>Karachi</span>
+    </p>
+    <h1 id="hero-title">Dates, dry fruits, spices and herbs from a Karachi trading house.</h1>
+    <p class="lede">Haji Suleman Adam Kothari &amp; Co. trades dates, dry fruits, seeds, whole and ground spices, medicinal herbs and pharmaceutical products from Shahrah-e-Liaquat, Karachi. Overseas importers and local bulk buyers can send an enquiry for any line in the range.</p>
+    <div class="ctas">
+      <a class="btn btn-saffron" href="#enquiry">Send an export enquiry</a>
+      <a class="btn btn-line" href="tel:+922132427396">Call +92-21-32427396</a>
+    </div>
+  </div>
+
+  <div class="hero-tray on-saffron">
+    <div class="tray" role="group" aria-label="The range, by commodity. Choose one to read about it.">
+      <ul>
+        <li style="--i:0"><button class="bowl-btn" type="button" data-k="dates" aria-pressed="true"><svg data-bowl="dates" aria-hidden="true"></svg><span>Dry dates</span></button></li>
+        <li style="--i:1"><button class="bowl-btn" type="button" data-k="raisins" aria-pressed="false"><svg data-bowl="raisins" aria-hidden="true"></svg><span>Raisins</span></button></li>
+        <li style="--i:2"><button class="bowl-btn" type="button" data-k="pistachios" aria-pressed="false"><svg data-bowl="pistachios" aria-hidden="true"></svg><span>Pistachios</span></button></li>
+        <li style="--i:3"><button class="bowl-btn" type="button" data-k="almonds" aria-pressed="false"><svg data-bowl="almonds" aria-hidden="true"></svg><span>Almonds</span></button></li>
+        <li style="--i:4"><button class="bowl-btn" type="button" data-k="seeds" aria-pressed="false"><svg data-bowl="seeds" aria-hidden="true"></svg><span>Seeds</span></button></li>
+        <li style="--i:5"><button class="bowl-btn" type="button" data-k="whole" aria-pressed="false"><svg data-bowl="whole" aria-hidden="true"></svg><span>Whole spices</span></button></li>
+        <li style="--i:6"><button class="bowl-btn" type="button" data-k="ground" aria-pressed="false"><svg data-bowl="ground" aria-hidden="true"></svg><span>Ground spices</span></button></li>
+        <li style="--i:7"><button class="bowl-btn" type="button" data-k="chillies" aria-pressed="false"><svg data-bowl="chillies" aria-hidden="true"></svg><span>Dried red chillies</span></button></li>
+        <li style="--i:8"><button class="bowl-btn" type="button" data-k="herbs" aria-pressed="false"><svg data-bowl="herbs" aria-hidden="true"></svg><span>Medicinal herbs</span></button></li>
+      </ul>
+    </div>
+    <div class="tray-note" aria-live="polite">
+      <h2 id="tray-name">Dry dates</h2>
+      <p id="tray-text">Listed with fresh fruit in the dates family. Ask for varieties, grades and packing.</p>
+      <a id="tray-link" href="#range-dates">See dates and fresh fruit</a>
+    </div>
+    <p class="tray-cap">Illustrated tray. Categories as listed on Kothari's Pakistan Trade Portal profile.</p>
+  </div>
+</section>
+
+<section class="sec" id="range" aria-labelledby="range-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="range-title">The range, by family</h2>
+      <p>Four families of goods, as listed on the company's trade profile. Grades, origins and packing are discussed per enquiry.</p>
+    </div>
+
+    <div class="range">
+      <article class="fam" id="range-dates">
+        <div class="field" aria-hidden="true">
+          <svg data-bowl="dates" style="width:190px;left:50%;top:50%;transform:translate(-50%,-50%)"></svg>
+        </div>
+        <div class="body">
+          <h3>Dates and fresh fruit</h3>
+          <p class="items">Dry dates, fresh fruit</p>
+          <p class="desc">Dry dates sit alongside fresh fruit in the profile. Tell us the variety, grade and the season you are buying for.</p>
+          <a class="ask" href="#enquiry" data-family="Dates and fresh fruit">Enquire about dates</a>
+        </div>
+      </article>
+
+      <article class="fam" id="range-dryfruit">
+        <div class="field" aria-hidden="true">
+          <svg data-bowl="raisins" style="width:132px;left:9%;top:12%"></svg>
+          <svg data-bowl="pistachios" style="width:150px;right:8%;top:18%"></svg>
+          <svg data-bowl="almonds" style="width:120px;left:28%;bottom:8%"></svg>
+        </div>
+        <div class="body">
+          <h3>Dry fruits and seeds</h3>
+          <p class="items">Raisins, pistachios, almonds, seeds</p>
+          <p class="desc">Dry fruits for importers and bulk buyers, with seeds in the same family. Send the size or count, quantity and the packing you need.</p>
+          <a class="ask" href="#enquiry" data-family="Dry fruits and seeds">Enquire about dry fruits</a>
+        </div>
+      </article>
+
+      <article class="fam" id="range-spices">
+        <div class="field" aria-hidden="true">
+          <svg data-bowl="whole" style="width:140px;left:8%;top:10%"></svg>
+          <svg data-bowl="ground" style="width:118px;right:10%;top:14%"></svg>
+          <svg data-bowl="chillies" style="width:150px;left:34%;bottom:6%"></svg>
+        </div>
+        <div class="body">
+          <h3>Spices</h3>
+          <p class="items">Whole spices, ground spices, dried red chillies</p>
+          <p class="desc">Whole and ground spices, with dried red chillies listed by name. Say whether you need whole, crushed or ground, and how it should be packed.</p>
+          <a class="ask" href="#enquiry" data-family="Spices and dried red chillies">Enquire about spices</a>
+        </div>
+      </article>
+
+      <article class="fam" id="range-herbs">
+        <div class="field" aria-hidden="true">
+          <svg data-bowl="herbs" style="width:190px;left:50%;top:50%;transform:translate(-50%,-50%)"></svg>
+        </div>
+        <div class="body">
+          <h3>Herbs and pharmaceutical products</h3>
+          <p class="items">Medicinal herbs and crude drugs, pharmaceutical products</p>
+          <p class="desc">Medicinal herbs and crude drugs, plus pharmaceutical products. Name the botanical or product, the quantity and any documents your market requires.</p>
+          <a class="ask" href="#enquiry" data-family="Medicinal herbs and pharmaceutical products">Enquire about herbs</a>
+        </div>
+      </article>
+    </div>
+    <p class="src">Range as published on the <a href="https://pakistantradeportal.gov.pk/company/haji-suleman-adam-kothari-and-co-4611" target="_blank" rel="noopener">Pakistan Trade Portal company profile</a>. Bowl illustrations are drawn for this concept.</p>
+
+    <div class="photos">
+      <figure><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=70&auto=format&fit=crop" alt="Bowls of whole and ground spices on a dark table" width="1200" height="800" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=700&q=70&auto=format&fit=crop" alt="A mix of nuts and dried fruit" width="700" height="800" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=900&q=70&auto=format&fit=crop" alt="Colourful ground spices in small bowls" width="900" height="800" loading="lazy"></figure>
+    </div>
+    <p class="photo-cap">Stock photography, for illustration only. Not Kothari's premises or stock.</p>
+  </div>
+</section>
+
+<section class="sec process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="process-title">How an export enquiry works</h2>
+      <p>From the first email to the container leaving port, an order moves through four stages.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">1</span><h3>Enquiry</h3><p>Send the product, approximate quantity, packing and destination port. Email info@kothari.com.pk or call +92-21-32427396.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>Specification and samples</h3><p>Grade, size, moisture, packing and labelling are pinned down, with samples where the product calls for them.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Contract</h3><p>Price, quantity, payment terms, shipment window and the documents required are set out in writing.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Shipment</h3><p>Goods are packed to the agreed specification and shipped with the agreed export documents.</p></li>
+    </ol>
+    <p class="steps-note">A general outline of an export order. Kothari confirms the terms of each order directly.</p>
+  </div>
+</section>
+
+<section class="sec century" id="century" aria-labelledby="century-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="century-title">From 1923 to today</h2>
+      <p>Two dates are on the public record. The years between are the company's to tell.</p>
+    </div>
+    <div class="band">
+      <div class="end">
+        <b>1923</b>
+        <p>Haji Suleman Adam Kothari &amp; Co. established, per its trade profile.</p>
+      </div>
+      <div class="gap">
+        <p>Founders, first shipments, markets served, the move to Shahrah-e-Liaquat.<br><span class="tag">Sample content — milestones to be supplied by Kothari</span></p>
+      </div>
+      <div class="end">
+        <b>Today</b>
+        <p>The company's own site marks “100 Years of Excellence”. Its profile lists dates, dry fruits, seeds, spices, herbs and pharmaceutical products.</p>
+      </div>
+    </div>
+    <p class="src">Sources: <a href="https://www.kothari.com.pk" target="_blank" rel="noopener">kothari.com.pk</a> and the <a href="https://pakistantradeportal.gov.pk/company/haji-suleman-adam-kothari-and-co-4611" target="_blank" rel="noopener">Pakistan Trade Portal</a>.</p>
+  </div>
+</section>
+
+<section class="sec enquiry" id="enquiry" aria-labelledby="enquiry-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid">
+      <div class="form-side">
+        <h2 id="enquiry-title">Send an export enquiry</h2>
+        <p>Fill in what you know. The form opens your email app with the enquiry addressed to info@kothari.com.pk, ready for you to review and send.</p>
+        <form id="enq" novalidate>
+          <div class="f">
+            <label for="fam">Product family</label>
+            <select id="fam" name="family">
+              <option>Dates and fresh fruit</option>
+              <option>Dry fruits and seeds</option>
+              <option>Spices and dried red chillies</option>
+              <option>Medicinal herbs and pharmaceutical products</option>
+              <option>More than one family</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="prod">Product <small>(required)</small></label>
+            <input id="prod" name="product" required placeholder="e.g. pistachios, in shell">
+          </div>
+          <div class="f">
+            <label for="qty">Quantity</label>
+            <input id="qty" name="quantity" placeholder="e.g. one 20 ft container">
+          </div>
+          <div class="f">
+            <label for="dest">Destination country or port</label>
+            <input id="dest" name="destination" placeholder="e.g. Jebel Ali, UAE">
+          </div>
+          <div class="f full">
+            <label for="spec">Specification and packing</label>
+            <textarea id="spec" name="spec" placeholder="Grade, size, moisture, bag or carton size, labelling, documents needed"></textarea>
+          </div>
+          <div class="f">
+            <label for="name">Your name <small>(required)</small></label>
+            <input id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="f">
+            <label for="co">Company</label>
+            <input id="co" name="company" autocomplete="organization">
+          </div>
+          <div class="f full">
+            <label for="em">Your email <small>(required)</small></label>
+            <input id="em" name="email" type="email" required autocomplete="email">
+          </div>
+          <p class="status" id="status" role="status" hidden></p>
+          <div class="form-foot">
+            <button class="btn btn-date" type="submit">Prepare the email</button>
+            <p class="demo">Concept demo: nothing is sent from this page.</p>
+          </div>
+        </form>
+      </div>
+
+      <aside class="contact-side" aria-label="Contact details">
+        <div>
+          <h3>Call the office</h3>
+          <a class="big" href="tel:+922132427396">+92-21-32427396</a>
+          <p>Also listed on the Pakistan Trade Portal: <a href="tel:+922132437158">+92-21-32437158</a></p>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <a class="big" href="mailto:info@kothari.com.pk" style="font-size:clamp(24px,2.3vw,32px)">info@kothari.com.pk</a>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p style="font-size:19px;color:var(--white)">Shahrah-e-Liaquat, Karachi<br>Sindh, Pakistan</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="mark"><b>Kothari</b><span>Haji Suleman Adam Kothari &amp; Co., established 1923</span></div>
+    <p>Website concept for Haji Suleman Adam Kothari &amp; Co. — not the official website. Proposed design and wordmark; stock imagery; details from public listings. Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* mobile nav */
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    btn.textContent=open?'Menu':'Close';
+    nav.classList.toggle('open',!open);
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A' && nav.classList.contains('open')){btn.click();}
+  });
+
+  /* bowls: seeded, drawn top-down */
+  var NS='http://www.w3.org/2000/svg', uid=0;
+  function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+  function pick(r,a){return a[Math.floor(r()*a.length)]}
+  function pt(r,R){var a=r()*Math.PI*2,d=Math.sqrt(r())*(R||42);return[50+Math.cos(a)*d,50+Math.sin(a)*d]}
+  function g(p,r,x,y,rot){return el('g',{transform:'translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+(rot==null?r()*360:rot).toFixed(0)+')'},p)}
+  var K={
+    dates:{base:'#3a1d12',draw:function(p,r){for(var i=0;i<52;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('ellipse',{rx:7.6,ry:3.9,fill:pick(r,['#5b2c18','#6f3820','#4a2213','#7a4026','#64321c'])},q);el('ellipse',{rx:4.2,ry:.9,cy:-1.4,fill:'rgba(255,222,186,.2)'},q);}}},
+    raisins:{base:'#2a1410',draw:function(p,r){for(var i=0;i<190;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('ellipse',{rx:2.4+r()*1.2,ry:1.9+r()*.6,fill:pick(r,['#3d1d17','#55281d','#6b3a22','#8a5a2b','#4a2219'])},q);}}},
+    pistachios:{base:'#8c7a4c',draw:function(p,r){for(var i=0;i<70;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('ellipse',{rx:5.2,ry:3.6,fill:pick(r,['#dccb9e','#cdb986','#e6d8b2']),stroke:'#a8945f','stroke-width':.4},q);el('ellipse',{rx:2.8,ry:1.6,cx:.6,fill:pick(r,['#8aa13e','#9bb04c','#7b8f34','#6e3b44'])},q);}}},
+    almonds:{base:'#6e3d20',draw:function(p,r){for(var i=0;i<62;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('path',{d:'M-6.5 0Q-2 -4.4 6.5 0Q-2 4.4 -6.5 0Z',fill:pick(r,['#a8642f','#b8743b','#9a5728','#c0813f'])},q);el('path',{d:'M-3 -1.2Q1 -1.8 4 -.4M-3 1Q1 1.6 4 .4',stroke:'rgba(60,25,10,.28)','stroke-width':.5,fill:'none'},q);}}},
+    seeds:{base:'#5f4a2e',draw:function(p,r){for(var i=0;i<700;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('ellipse',{rx:1.7,ry:.6,fill:pick(r,['#8a7248','#7b6340','#a08758','#5f4a2e','#94804f'])},q);}}},
+    whole:{base:'#32241a',draw:function(p,r){var i,c,q;for(i=0;i<110;i++){c=pt(r);el('circle',{cx:c[0],cy:c[1],r:1.8,fill:pick(r,['#2a201a','#3a2c22','#1f1712','#4a382a'])},p);}
+      for(i=0;i<22;i++){c=pt(r,38);q=g(p,r,c[0],c[1]);el('ellipse',{rx:3.4,ry:2,fill:pick(r,['#8a9a52','#9aa860','#7a8a46'])},q);}
+      for(i=0;i<8;i++){c=pt(r,32);q=g(p,r,c[0],c[1]);el('rect',{x:-8,y:-1.6,width:16,height:3.2,rx:1.4,fill:'#8b4a24',stroke:'#6a3618','stroke-width':.5},q);}
+      for(i=0;i<26;i++){c=pt(r,40);q=g(p,r,c[0],c[1]);el('path',{d:'M-3 0H2',stroke:'#4a2a1a','stroke-width':.9},q);el('circle',{cx:2.4,r:1.1,fill:'#5a321e'},q);}}},
+    ground:{base:'#c98a1c',draw:function(p,r){for(var i=0;i<900;i++){var c=pt(r,44);el('circle',{cx:c[0].toFixed(1),cy:c[1].toFixed(1),r:.5+r()*.4,fill:pick(r,['#d79a24','#b8761a','#e0a93a','#a86414'])},p);}
+      el('ellipse',{cx:42,cy:40,rx:20,ry:14,fill:'rgba(255,236,190,.22)'},p);}},
+    chillies:{base:'#5e110d',draw:function(p,r){for(var i=0;i<46;i++){var c=pt(r),q=g(p,r,c[0],c[1]);el('path',{d:'M-9 0Q-1 -3.6 9 -.6Q1 2.4 -9 0Z',fill:pick(r,['#a3201a','#8c1a14','#b52a1f','#7a140f','#c0392b'])},q);el('path',{d:'M-9 0l-2.2 -1',stroke:'#5a6b2a','stroke-width':1.1,'stroke-linecap':'round'},q);}}},
+    herbs:{base:'#3f4822',draw:function(p,r){var i,c,q;for(i=0;i<16;i++){c=pt(r,38);q=g(p,r,c[0],c[1]);el('path',{d:'M-9 0H9',stroke:'#6a5034','stroke-width':.8},q);}
+      for(i=0;i<110;i++){c=pt(r);q=g(p,r,c[0],c[1]);el('ellipse',{rx:4.6,ry:1.4,fill:pick(r,['#6b7a3a','#7f8c4a','#5a6630','#8e9a62','#9c8a5a','#a8a46c'])},q);}}}
+  };
+  document.querySelectorAll('svg[data-bowl]').forEach(function(svg,n){
+    var k=svg.getAttribute('data-bowl'),cfg=K[k],r=rng(97+n*131+k.length*7),id='b'+(uid++);
+    svg.setAttribute('viewBox','0 0 100 100');
+    var d=el('defs',{},svg);
+    el('circle',{cx:50,cy:50,r:44},el('clipPath',{id:id+'c'},d));
+    var rg=el('radialGradient',{id:id+'s',cx:'50%',cy:'50%',r:'50%'},d);
+    el('stop',{offset:'70%','stop-color':'#000','stop-opacity':0},rg);
+    el('stop',{offset:'100%','stop-color':'#000','stop-opacity':.42},rg);
+    el('circle',{cx:50,cy:50,r:48,fill:'#EDE6D8'},svg);
+    el('circle',{cx:50,cy:50,r:44.5,fill:cfg.base},svg);
+    var inner=el('g',{'clip-path':'url(#'+id+'c)'},svg);
+    cfg.draw(inner,r);
+    el('circle',{cx:50,cy:50,r:44.5,fill:'url(#'+id+'s)'},svg);
+    el('circle',{cx:50,cy:50,r:46.6,fill:'none',stroke:'#d6cab4','stroke-width':1.2},svg);
+  });
+
+  /* tray selection */
+  var info={
+    dates:['Dry dates','Listed with fresh fruit in the dates family. Ask for varieties, grades and packing.','#range-dates','See dates and fresh fruit'],
+    raisins:['Raisins','One of the dry fruits named on the profile, with pistachios and almonds.','#range-dryfruit','See dry fruits and seeds'],
+    pistachios:['Pistachios','Named among the dry fruits. Tell us in-shell or kernel, size and quantity.','#range-dryfruit','See dry fruits and seeds'],
+    almonds:['Almonds','Named among the dry fruits. Send the type, size and packing you buy in.','#range-dryfruit','See dry fruits and seeds'],
+    seeds:['Seeds','Listed alongside the dry fruits. Name the seed and the grade you need.','#range-dryfruit','See dry fruits and seeds'],
+    whole:['Whole spices','Whole spices form one half of the spice range; ground spices the other.','#range-spices','See spices'],
+    ground:['Ground spices','Ground spices for bulk buyers. Say the spice, the mesh and the pack size.','#range-spices','See spices'],
+    chillies:['Dried red chillies','Listed by name in the spice range. Whole, crushed or ground on request.','#range-spices','See spices'],
+    herbs:['Medicinal herbs','Medicinal herbs and crude drugs, in the same family as pharmaceutical products.','#range-herbs','See herbs and pharmaceutical products']
+  };
+  var bowls=document.querySelectorAll('.bowl-btn'),tn=document.getElementById('tray-name'),tt=document.getElementById('tray-text'),tl=document.getElementById('tray-link');
+  bowls.forEach(function(b){b.addEventListener('click',function(){
+    bowls.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    var v=info[b.getAttribute('data-k')];tn.textContent=v[0];tt.textContent=v[1];tl.href=v[2];tl.textContent=v[3];
+  })});
+
+  /* preselect family from range links */
+  var sel=document.getElementById('fam');
+  document.querySelectorAll('[data-family]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.getAttribute('data-family');setTimeout(function(){document.getElementById('prod').focus({preventScroll:true})},400)})});
+
+  /* enquiry -> mailto */
+  var f=document.getElementById('enq'),st=document.getElementById('status');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var missing=[].filter.call(f.querySelectorAll('[required]'),function(i){return !i.value.trim()||(i.type==='email'&&!i.checkValidity())});
+    if(missing.length){st.hidden=false;st.textContent='Add '+missing.map(function(i){return f.querySelector('label[for="'+i.id+'"]').firstChild.textContent.trim().toLowerCase()}).join(', ')+' to prepare the email.';missing[0].focus();return;}
+    var v=function(n){return f.elements[n].value.trim()};
+    var body=['Product family: '+v('family'),'Product: '+v('product'),'Quantity: '+(v('quantity')||'-'),'Destination: '+(v('destination')||'-'),'Specification and packing: '+(v('spec')||'-'),'','Name: '+v('name'),'Company: '+(v('company')||'-'),'Email: '+v('email')].join('\n');
+    var subject='Export enquiry: '+v('product');
+    window.location.href='mailto:info@kothari.com.pk?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    st.hidden=false;st.textContent='Your email app should open with this enquiry addressed to info@kothari.com.pk. Review it and press send there. (Concept demo: nothing is sent from this page.)';
+  });
+})();
+</script>
+</body>
+</html>

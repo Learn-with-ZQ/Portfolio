@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awadh General Hospital, Landhi — website concept</title>
+<meta name="description" content="Website concept for Awadh General Hospital, Landhi No. 3, Karachi. 24/7 emergency, OPD clinics, operation theatres, lab, pharmacy and blood bank. Call 021-35017428.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Noto+Nastaliq+Urdu:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0B4F6C; --teal-deep:#083A50; --teal-ink:#062B3B;
+  --red:#D62828; --red-deep:#B01E1E;
+  --pale:#EEF6F8; --pale-2:#DDECF1; --line:#C9DEE5;
+  --sun:#FFC93C; --white:#FFFFFF;
+  --ink:#12303D; --muted:#46626E;
+  --en:'Lexend', system-ui, sans-serif;
+  --ur:'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--en);font-weight:350;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-weight:600;line-height:1.12;letter-spacing:-.02em;margin:0}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:40px}
+.ur{font-family:var(--ur);font-weight:500;line-height:2.15;letter-spacing:0}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- concept notice ---------- */
+.notice{background:var(--pale-2);color:var(--ink);font-size:13px;line-height:1.5;padding:7px 0}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between}
+.notice a{color:var(--teal);font-weight:500}
+
+/* ---------- emergency bar ---------- */
+.ebar{position:sticky;top:0;z-index:60;background:var(--red);color:var(--white)}
+.ebar .wrap{display:flex;align-items:center;gap:24px;min-height:58px}
+.ebar-en{font-weight:600;font-size:18px;letter-spacing:-.01em}
+.ebar-ur{font-size:19px;line-height:1.9;padding-top:2px}
+.ebar-sep{width:2px;height:24px;background:rgba(255,255,255,.4)}
+.ebar-call{margin-left:auto;display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--red-deep);text-decoration:none;font-weight:600;padding:9px 18px 9px 14px;border-radius:999px;font-size:17px;white-space:nowrap}
+.ebar-call svg{width:20px;height:20px}
+.ebar-call:hover{background:var(--pale)}
+.ebar :focus-visible{outline-color:var(--white)}
+
+/* ---------- header ---------- */
+.site-head{background:var(--white);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:32px;min-height:84px}
+.mark{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--teal)}
+.mark-en{display:flex;flex-direction:column;line-height:1}
+.mark-en b{font-size:30px;font-weight:700;letter-spacing:-.035em}
+.mark-en span{font-size:13px;font-weight:500;letter-spacing:.01em;margin-top:5px;color:var(--ink)}
+.mark-bar{width:4px;align-self:stretch;margin:6px 0;background:var(--sun);border-radius:2px}
+.mark-ur{font-family:var(--ur);font-size:19px;line-height:1.9;color:var(--teal);font-weight:600}
+.nav{margin-left:auto;display:flex;align-items:center;gap:6px}
+.nav a{text-decoration:none;font-size:16px;font-weight:450;padding:8px 12px;border-radius:6px}
+.nav a:hover{background:var(--pale)}
+.nav .nav-cta{background:var(--teal);color:var(--white);font-weight:550;padding:10px 18px;margin-left:8px}
+.nav .nav-cta:hover{background:var(--teal-deep)}
+.menu-btn{display:none;margin-left:auto;background:var(--pale);border:0;border-radius:8px;padding:10px 14px;font-weight:550;color:var(--teal);cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{background:var(--teal);color:var(--white);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr minmax(260px,320px) 1fr;gap:56px;align-items:center;padding-block:40px 72px}
+.hero h1{font-size:clamp(40px,4.4vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1.04;max-width:12ch}
+.hero-ur h2{font-family:var(--ur);font-weight:700;font-size:clamp(34px,3.4vw,50px);line-height:1.85;letter-spacing:0}
+.hero-lede{margin-top:22px;font-size:19px;line-height:1.6;color:#D6E8EE;max-width:34ch}
+.hero-ur .hero-lede{font-family:var(--ur);font-size:20px;line-height:2.15;margin-top:10px;max-width:30ch}
+.hero-ur{text-align:right}
+.hero-ur .hero-lede{margin-left:auto}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:550;font-size:17px;border-radius:10px;padding:15px 22px;border:2px solid transparent;cursor:pointer;line-height:1.2}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-deep)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:var(--white)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-teal{background:var(--teal);color:var(--white)}
+.btn-teal:hover{background:var(--teal-deep)}
+.btn-line{border-color:var(--teal);color:var(--teal);background:transparent}
+.btn-line:hover{background:var(--pale)}
+.btn-sun{background:var(--sun);color:var(--teal-ink)}
+.btn-sun:hover{background:#FFD566}
+.btn-ur{font-family:var(--ur);font-weight:600;font-size:18px;line-height:1.7;padding-block:10px}
+.hero-ur .cta-row{justify-content:flex-start}
+
+/* the lit emergency sign */
+.sign{position:relative;padding-top:64px;justify-self:center;width:100%}
+.sign::before,.sign::after{content:"";position:absolute;top:-40px;width:6px;height:108px;background:#2C4552;border-radius:3px}
+.sign::before{left:24%}.sign::after{right:24%}
+.sign-box{position:relative;z-index:1;background:var(--red);border:10px solid #23343D;border-radius:8px;text-align:center;padding:26px 18px 22px;color:var(--white);
+  box-shadow:0 0 0 2px #3B5260,0 0 70px 10px rgba(214,40,40,.55),inset 0 0 24px rgba(255,255,255,.18);
+  animation:switchOn 1.6s .35s both}
+.sign-en{display:block;font-size:clamp(30px,2.6vw,40px);font-weight:700;letter-spacing:.07em;line-height:1}
+.sign-ur{display:block;font-family:var(--ur);font-size:clamp(30px,2.5vw,38px);font-weight:700;line-height:1.9;margin-top:6px}
+.sign-rule{height:3px;background:rgba(255,255,255,.55);margin:6px 18% 14px;border-radius:2px}
+.sign-247{display:flex;justify-content:center;align-items:baseline;gap:16px;font-weight:600;font-size:22px}
+.sign-247 .ur{font-size:21px;line-height:1.7}
+.sign-cap{margin-top:18px;text-align:center;font-size:14px;color:#BFD9E2}
+@keyframes switchOn{
+  0%{background:#5E1D1D;color:rgba(255,255,255,.25);box-shadow:0 0 0 2px #3B5260}
+  8%{background:var(--red);color:#fff;box-shadow:0 0 0 2px #3B5260,0 0 70px 10px rgba(214,40,40,.55),inset 0 0 24px rgba(255,255,255,.18)}
+  11%{background:#5E1D1D;color:rgba(255,255,255,.25);box-shadow:0 0 0 2px #3B5260}
+  19%{background:#5E1D1D;color:rgba(255,255,255,.25);box-shadow:0 0 0 2px #3B5260}
+  23%{background:var(--red);color:#fff;box-shadow:0 0 0 2px #3B5260,0 0 40px 4px rgba(214,40,40,.4)}
+  27%{background:#7A2222;color:rgba(255,255,255,.5);box-shadow:0 0 0 2px #3B5260}
+  40%,100%{background:var(--red);color:#fff;box-shadow:0 0 0 2px #3B5260,0 0 70px 10px rgba(214,40,40,.55),inset 0 0 24px rgba(255,255,255,.18)}
+}
+.hero-foot{background:var(--teal-deep)}
+.hero-foot .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding-block:16px;font-size:16px;color:#D6E8EE}
+.hero-foot strong{color:var(--white);font-weight:550}
+.hero-foot a{color:var(--sun);font-weight:500;margin-left:auto}
+
+/* ---------- section heads ---------- */
+.sec{padding-block:96px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-bottom:48px}
+.sec-head h2{font-size:clamp(32px,3.2vw,46px);color:var(--teal);max-width:18ch}
+.sec-head .ur{font-size:clamp(24px,2.2vw,32px);color:var(--teal);font-weight:600;line-height:2}
+.sec-intro{max-width:56ch;color:var(--muted);margin-top:16px}
+
+/* ---------- quick paths: directory board ---------- */
+.paths{background:var(--pale)}
+.board-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:stretch}
+.board{background:var(--sun);border-radius:12px;padding:10px;box-shadow:0 2px 0 #D9A51F, 0 18px 40px -24px rgba(8,58,80,.45);display:flex;flex-direction:column}
+.board-title{display:flex;justify-content:space-between;align-items:center;padding:10px 16px 12px;color:var(--teal-ink);font-weight:600;font-size:15px;border-bottom:2px solid rgba(6,43,59,.18)}
+.board-title .ur{font-size:17px;line-height:1.8}
+.path{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:18px;padding:14px 16px;min-height:92px;border-radius:8px;cursor:pointer;color:var(--teal-ink);position:relative}
+.path + .path{border-top:2px solid rgba(6,43,59,.14)}
+.path[aria-selected="true"] + .path{border-top-color:transparent}
+.path-ico{width:56px;height:56px;border-radius:8px;background:var(--teal);display:grid;place-items:center}
+.path-ico svg{width:30px;height:30px;stroke:var(--sun);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.path-en{font-size:22px;font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.path-en small{display:block;font-size:14px;font-weight:400;opacity:.8;margin-top:4px;letter-spacing:0}
+.path-ur{font-family:var(--ur);font-size:21px;font-weight:600;line-height:1.9;direction:rtl}
+.path:hover{background:rgba(255,255,255,.35)}
+.path[aria-selected="true"]{background:var(--teal);color:var(--white)}
+.path[aria-selected="true"] .path-ico{background:var(--sun)}
+.path[aria-selected="true"] .path-ico svg{stroke:var(--teal)}
+.path.is-emerg[aria-selected="true"]{background:var(--red)}
+.path.is-emerg[aria-selected="true"] .path-ico{background:var(--white)}
+.path.is-emerg[aria-selected="true"] .path-ico svg{stroke:var(--red)}
+.path:focus-visible{outline:3px solid var(--teal-ink);outline-offset:2px}
+.panel{background:var(--white);border-radius:12px;padding:40px 40px 36px;border-top:8px solid var(--teal);display:flex;flex-direction:column}
+.panel[hidden]{display:none}
+.panel.is-emerg{border-top-color:var(--red)}
+.panel h3{font-size:30px;color:var(--teal)}
+.panel.is-emerg h3{color:var(--red-deep)}
+.panel .ur-line{font-family:var(--ur);font-size:21px;line-height:2.2;color:var(--ink);direction:rtl;text-align:right;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.panel p{margin-top:14px;max-width:46ch}
+.panel ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.panel li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
+.panel li::before{content:"";flex:none;width:10px;height:10px;margin-top:9px;border-radius:2px;background:var(--sun);box-shadow:0 0 0 2px var(--teal)}
+.panel .cta-row{margin-top:auto;padding-top:28px}
+.sample{display:inline-block;margin-top:16px;font-size:14px;color:var(--muted);background:var(--pale);border-left:3px solid var(--sun);padding:6px 10px;border-radius:0 6px 6px 0}
+
+/* ---------- specialties ---------- */
+.spec-grid{display:grid;grid-template-columns:minmax(260px,.8fr) 2fr;gap:64px;align-items:start}
+.spec-side{position:sticky;top:100px}
+.spec-side h2{font-size:clamp(32px,3.2vw,46px);color:var(--teal)}
+.spec-side .ur{display:block;font-size:clamp(24px,2.2vw,32px);color:var(--teal);font-weight:600;margin-top:4px}
+.spec-side p{margin-top:18px;color:var(--muted);max-width:34ch}
+.spec-list{list-style:none;margin:0;padding:0;border-bottom:2px solid var(--teal)}
+.spec{display:grid;grid-template-columns:minmax(180px,1fr) 1.5fr minmax(150px,auto);gap:12px 32px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.spec:first-child{border-top:2px solid var(--teal)}
+.spec-en{font-size:23px;font-weight:600;color:var(--teal);letter-spacing:-.015em}
+.spec-desc{font-size:16px;color:var(--muted);line-height:1.55}
+.spec-ur{font-family:var(--ur);font-size:22px;font-weight:600;line-height:2;text-align:right;direction:rtl;color:var(--ink)}
+
+/* ---------- facilities: door plates ---------- */
+.fac{background:var(--pale)}
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.plate{position:relative;background:var(--teal);color:var(--white);border-radius:8px;padding:30px 30px 28px;box-shadow:inset 0 0 0 3px rgba(255,255,255,.1),0 1px 0 rgba(6,43,59,.25)}
+.plate::before,.plate::after{content:"";position:absolute;top:12px;width:8px;height:8px;border-radius:50%;background:#9FBFCB;box-shadow:inset -1px -1px 0 rgba(0,0,0,.35)}
+.plate::before{left:12px}.plate::after{right:12px}
+.plate .screws::before,.plate .screws::after{content:"";position:absolute;bottom:12px;width:8px;height:8px;border-radius:50%;background:#9FBFCB;box-shadow:inset -1px -1px 0 rgba(0,0,0,.35)}
+.plate .screws::before{left:12px}.plate .screws::after{right:12px}
+.plate svg{width:40px;height:40px;stroke:var(--sun);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.plate-names{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:18px;flex-wrap:wrap}
+.plate h3{font-size:24px;font-weight:600}
+.plate .ur{font-size:21px;color:var(--sun);font-weight:600;line-height:1.9}
+.plate p{margin-top:8px;font-size:16px;color:#D6E8EE}
+.plate.is-emerg{background:var(--red)}
+.plate.is-emerg svg{stroke:var(--white)}
+.plate.is-emerg .ur{color:var(--white)}
+.plate.is-emerg p{color:#FFE3E3}
+
+/* ---------- OPD booking ---------- */
+.opd-grid{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.opd-photo{margin:0}
+.opd-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--pale)}
+.opd-photo figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.form{background:var(--pale);border-radius:12px;padding:40px}
+.form h2{font-size:clamp(30px,3vw,42px);color:var(--teal)}
+.form .ur-h{font-family:var(--ur);font-size:24px;color:var(--teal);font-weight:600;line-height:2;direction:rtl;text-align:right;margin-top:-4px}
+.form .lead{color:var(--muted);margin-top:8px;max-width:50ch}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:28px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:15px;font-weight:500}
+.field label .ur{font-size:16px;line-height:1.7;font-weight:500;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--white);border:2px solid var(--line);border-radius:8px;padding:12px 14px;font-size:17px;min-height:52px}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);outline:3px solid var(--sun);outline-offset:1px}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:26px}
+.form-actions .or{font-size:16px;color:var(--muted)}
+.form-actions .or a{color:var(--teal);font-weight:600}
+.confirm{margin-top:22px;background:var(--white);border-left:6px solid var(--teal);border-radius:0 8px 8px 0;padding:16px 18px;font-size:16px}
+.confirm[hidden]{display:none}
+.confirm strong{color:var(--teal)}
+
+/* ---------- corporate panels ---------- */
+.panelsec{background:var(--teal);color:var(--white)}
+.pan-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
+.panelsec h2{font-size:clamp(32px,3.2vw,46px);max-width:16ch}
+.panelsec .ur-h{font-family:var(--ur);font-size:clamp(24px,2.2vw,30px);color:var(--sun);font-weight:600;line-height:2;margin-top:8px}
+.panelsec p{color:#D6E8EE;margin-top:20px;max-width:52ch}
+.panelsec .ur-p{font-family:var(--ur);font-size:19px;line-height:2.2;direction:rtl;text-align:right;color:#D6E8EE;margin-top:18px;max-width:none}
+.ready{background:var(--teal-deep);border-radius:12px;padding:36px}
+.ready h3{font-size:22px}
+.ready ul{list-style:none;margin:18px 0 0;padding:0}
+.ready li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);font-size:17px;color:#E4F0F4}
+.ready li:first-child{border-top:0}
+.ready li svg{width:22px;height:22px;margin-top:2px;stroke:var(--sun);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.panelsec :focus-visible{outline-color:var(--sun)}
+
+/* ---------- directions ---------- */
+.dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.dir-grid h2{font-size:clamp(32px,3.2vw,46px);color:var(--teal)}
+.dir-grid .ur-h{font-family:var(--ur);font-size:clamp(24px,2.2vw,30px);color:var(--teal);font-weight:600;line-height:2;margin-top:4px}
+.addr{margin:28px 0 0;display:grid;gap:18px}
+.addr div{border-left:4px solid var(--sun);padding-left:16px}
+.addr dt{font-size:14px;font-weight:500;color:var(--muted)}
+.addr dd{margin:2px 0 0;font-size:19px;font-weight:450}
+.addr .warn{border-left-color:var(--teal);font-size:16px;color:var(--muted)}
+.dir-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chit-wrap{display:flex;justify-content:center;padding:24px 0}
+.chit{position:relative;background:#FFFEF8;width:min(100%,500px);padding:44px 40px 32px;border-radius:4px;transform:rotate(-1.6deg);
+  box-shadow:0 1px 2px rgba(6,43,59,.15),0 24px 40px -22px rgba(6,43,59,.45);
+  background-image:repeating-linear-gradient(to bottom,transparent 0 55px,#E3EEF2 55px 56px);background-position:0 92px}
+.chit::before{content:"";position:absolute;top:-14px;left:50%;width:120px;height:30px;transform:translateX(-50%) rotate(2deg);background:rgba(255,201,60,.85)}
+.chit-en{font-size:15px;color:var(--muted)}
+.chit-ur{font-family:var(--ur);font-size:clamp(26px,2.4vw,34px);line-height:2.25;font-weight:600;color:var(--teal-ink);direction:rtl;text-align:right;margin-top:10px}
+.chit-ur .name{color:var(--red-deep)}
+.chit-ur .cl{display:block;white-space:nowrap}
+.chit-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:2px dashed var(--line)}
+.copy-btn{background:var(--teal);color:var(--white);border:0;border-radius:8px;padding:11px 16px;font-weight:550;font-size:16px;cursor:pointer}
+.copy-btn:hover{background:var(--teal-deep)}
+.copy-msg{font-size:15px;color:var(--teal);font-weight:500;min-height:1.4em}
+
+/* ---------- footer ---------- */
+.foot{background:var(--teal-ink);color:#CFE2E9;font-size:16px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:48px;padding-block:72px 48px}
+.foot .mark{color:var(--white)}
+.foot .mark-en span{color:#CFE2E9}
+.foot .mark-ur{color:var(--sun)}
+.foot h3{font-size:15px;font-weight:600;color:var(--white);margin-bottom:12px;letter-spacing:0}
+.foot a{color:var(--white)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot .big-tel{display:inline-block;font-size:28px;font-weight:600;text-decoration:none;color:var(--white);letter-spacing:-.01em}
+.foot .big-tel:hover{color:var(--sun)}
+.foot-note{border-top:1px solid rgba(255,255,255,.14);padding-block:22px 28px;font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;color:#A9C6D1}
+.foot-note a{color:var(--sun)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .nav a:not(.nav-cta){padding:8px 8px;font-size:15px}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:40px 48px;padding-top:24px}
+  .sign{grid-column:1/-1;grid-row:1;max-width:340px}
+  .spec{grid-template-columns:1fr auto;}
+  .spec-desc{grid-column:1/-1;grid-row:2}
+}
+@media (max-width:980px){
+  .menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--white);padding:12px 20px 20px;border-bottom:1px solid var(--line);box-shadow:0 18px 30px -20px rgba(6,43,59,.4);z-index:40}
+  .nav.open{display:flex}
+  .nav a:not(.nav-cta){font-size:18px;padding:12px 8px}
+  .nav .nav-cta{margin:8px 0 0;text-align:center}
+  .site-head{position:relative}
+  .board-grid,.spec-grid,.opd-grid,.pan-grid,.dir-grid{grid-template-columns:1fr;gap:40px}
+  .spec-side{position:static}
+  .plates{grid-template-columns:1fr 1fr}
+  .opd-photo img{aspect-ratio:16/9}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > :first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .wrap{padding-inline:20px}
+  .sec{padding-block:64px}
+  .hero-grid{grid-template-columns:1fr;gap:36px;padding-bottom:56px}
+  .sign{max-width:300px;padding-top:52px}
+  .sign::before,.sign::after{height:96px}
+  .hero-ur{border-top:1px solid rgba(255,255,255,.2);padding-top:24px}
+  .hero-foot a{margin-left:0}
+  .ebar .wrap{gap:12px;min-height:56px}
+  .ebar-sep{display:none}
+  .ebar-txt{display:flex;flex-direction:column;line-height:1.1}
+  .ebar-en{font-size:15px}
+  .ebar-ur{font-size:15px;line-height:1.8;padding-top:0}
+  .ebar-call{font-size:15px;padding:8px 14px 8px 11px}
+  .mark-en b{font-size:26px}
+  .mark-ur{font-size:16px}
+  .site-head .wrap{min-height:72px;gap:14px}
+  .path{grid-template-columns:48px 1fr;gap:14px;min-height:84px}
+  .path-ico{width:48px;height:48px}
+  .path-ur{grid-column:2;margin-top:-8px;font-size:19px;text-align:left}
+  .panel{padding:28px 22px}
+  .panel h3{font-size:26px}
+  .spec{grid-template-columns:1fr;gap:4px}
+  .spec-ur{text-align:right;grid-row:auto}
+  .spec-desc{grid-row:auto}
+  .plates{grid-template-columns:1fr}
+  .form{padding:28px 20px}
+  .fields{grid-template-columns:1fr}
+  .ready{padding:26px 20px}
+  .chit{padding:40px 22px 24px}
+  .chit-ur{font-size:24px}
+  .foot-grid{grid-template-columns:1fr;gap:32px;padding-top:56px}
+  .notice{font-size:12px}
+}
+@media (max-width:400px){
+  .mark-bar,.mark-ur{display:none}
+  .ebar-call .num-long{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Awadh General Hospital — not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<div class="ebar">
+  <div class="wrap">
+    <div class="ebar-txt">
+      <span class="ebar-en">24/7 Emergency</span>
+      <span class="ebar-ur" lang="ur" dir="rtl">ایمرجنسی ۲۴ گھنٹے</span>
+    </div>
+    <span class="ebar-sep" aria-hidden="true"></span>
+    <a class="ebar-call" href="tel:+922135017428" aria-label="Call emergency 021-35017428">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span><span class="num-long">Call </span>021-35017428</span>
+    </a>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Awadh General Hospital, home">
+      <span class="mark-en"><b>Awadh</b><span>General Hospital, Landhi</span></span>
+      <span class="mark-bar" aria-hidden="true"></span>
+      <span class="mark-ur" lang="ur" dir="rtl">اودھ جنرل اسپتال</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#paths">Find care</a>
+      <a href="#specialties">Clinics</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#panels">Company panels</a>
+      <a href="#directions">Directions</a>
+      <a class="nav-cta" href="#opd">Book an OPD visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-en">
+      <h1 id="hero-title">Emergency is open, day and night.</h1>
+      <p class="hero-lede">A general hospital in Landhi No. 3, with emergency, operation theatres, a diagnostic lab, pharmacy and blood bank in one place.</p>
+      <div class="cta-row">
+        <a class="btn btn-red" href="tel:+922135017428">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call emergency 021-35017428</a>
+        <a class="btn btn-ghost" href="#opd">Book an OPD visit</a>
+      </div>
+    </div>
+
+    <div class="sign">
+      <div class="sign-box" role="img" aria-label="Lit sign: Emergency, open 24 hours">
+        <span class="sign-en">EMERGENCY</span>
+        <span class="sign-ur" lang="ur" dir="rtl">ایمرجنسی</span>
+        <div class="sign-rule"></div>
+        <div class="sign-247"><span>24/7</span><span class="ur" lang="ur" dir="rtl">۲۴ گھنٹے</span></div>
+      </div>
+      <p class="sign-cap">Open 24/7, as listed on oladoc and Instacare</p>
+    </div>
+
+    <div class="hero-ur" lang="ur" dir="rtl">
+      <h2>ایمرجنسی دن رات کھلی رہتی ہے۔</h2>
+      <p class="hero-lede">لانڈھی نمبر ۳ کا جنرل اسپتال — ایمرجنسی، آپریشن تھیٹر، لیبارٹری، فارمیسی اور بلڈ بینک، سب ایک ہی جگہ۔</p>
+      <div class="cta-row">
+        <a class="btn btn-red btn-ur" href="tel:+922135017428">ایمرجنسی کال <span class="ltr">۰۲۱-۳۵۰۱۷۴۲۸</span></a>
+        <a class="btn btn-ghost btn-ur" href="#opd">او پی ڈی میں وقت لیں</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <span><strong>Landhi No. 3</strong> &nbsp;Plot ST 23-A/1, Sector 37/C, near Baber Market</span>
+      <span>Open 24 hours, every day</span>
+      <a href="#directions">How to get here</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec paths" id="paths" aria-labelledby="paths-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="paths-title">What do you need today?</h2>
+      <p class="ur" lang="ur" dir="rtl">آپ کو کیا چاہیے؟</p>
+    </div>
+    <div class="board-grid">
+      <div class="board">
+        <div class="board-title"><span>Choose one</span><span class="ur" lang="ur" dir="rtl">ایک چنیں</span></div>
+        <div role="tablist" aria-label="What do you need?" aria-orientation="vertical" id="pathlist">
+          <button class="path is-emerg" role="tab" id="t-emerg" aria-controls="p-emerg" aria-selected="true">
+            <span class="path-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17v-5a5 5 0 0 1 10 0v5"/><path d="M4 17h16v4H4z"/><path d="M12 2v2"/><path d="M19.8 5.2l-1.4 1.4"/><path d="M4.2 5.2l1.4 1.4"/></svg></span>
+            <span class="path-en">Emergency<small>Any hour, any day</small></span>
+            <span class="path-ur" lang="ur">ایمرجنسی</span>
+          </button>
+          <button class="path" role="tab" id="t-doc" aria-controls="p-doc" aria-selected="false" tabindex="-1">
+            <span class="path-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3H4v6a5 5 0 0 0 10 0V3h-1"/><path d="M9 14v1a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/></svg></span>
+            <span class="path-en">See a doctor<small>OPD clinics</small></span>
+            <span class="path-ur" lang="ur">ڈاکٹر کو دکھانا ہے</span>
+          </button>
+          <button class="path" role="tab" id="t-lab" aria-controls="p-lab" aria-selected="false" tabindex="-1">
+            <span class="path-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>
+            <span class="path-en">Lab &amp; reports<small>Tests on site</small></span>
+            <span class="path-ur" lang="ur">لیب ٹیسٹ اور رپورٹ</span>
+          </button>
+          <button class="path" role="tab" id="t-panel" aria-controls="p-panel" aria-selected="false" tabindex="-1">
+            <span class="path-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
+            <span class="path-en">Company panel<small>For HR and admin teams</small></span>
+            <span class="path-ur" lang="ur">کارپوریٹ پینل</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="panel is-emerg" role="tabpanel" id="p-emerg" aria-labelledby="t-emerg" tabindex="0">
+        <h3>Come in at any hour</h3>
+        <p>The emergency department is open 24/7. If you can, call ahead on 021-35017428 so the team knows you are coming. Bring what you can of:</p>
+        <ul>
+          <li>The patient's CNIC, or a family member's</li>
+          <li>The medicines they take, or the empty packets</li>
+          <li>Old prescriptions, reports or discharge papers</li>
+        </ul>
+        <p class="ur-line" lang="ur">دن ہو یا رات، کسی بھی وقت آئیں۔ ہو سکے تو پہلے <span class="ltr">۰۲۱-۳۵۰۱۷۴۲۸</span> پر کال کر دیں۔</p>
+        <div class="cta-row"><a class="btn btn-red" href="tel:+922135017428">Call emergency 021-35017428</a></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-doc" aria-labelledby="t-doc" tabindex="0" hidden>
+        <h3>See a doctor in the OPD</h3>
+        <p>Outpatient clinics cover endocrinology, ENT, general surgery, paediatrics, dermatology and gynaecology. Call to ask which clinics are running today, or send a visit request and the desk will call you back.</p>
+        <p class="ur-line" lang="ur">او پی ڈی کا وقت لینے یا یہ پوچھنے کے لیے کہ آج کون سا کلینک ہے، کال کریں۔</p>
+        <div class="cta-row">
+          <a class="btn btn-teal" href="#opd">Book an OPD visit</a>
+          <a class="btn btn-line" href="#specialties">See the clinics</a>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-lab" aria-labelledby="t-lab" tabindex="0" hidden>
+        <h3>Tests and reports</h3>
+        <p>There is a diagnostic lab inside the hospital. Bring the doctor's test slip, and ask at reception when and where your report will be ready.</p>
+        <span class="sample">Sample content: test list and report times to be supplied by Awadh General Hospital.</span>
+        <p class="ur-line" lang="ur">اسپتال کے اندر تشخیصی لیبارٹری موجود ہے۔ رپورٹ کب اور کہاں سے ملے گی، استقبالیہ سے پوچھیں۔</p>
+        <div class="cta-row"><a class="btn btn-teal" href="tel:+922135017428">Call 021-35017428</a></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-panel" aria-labelledby="t-panel" tabindex="0" hidden>
+        <h3>Treatment for your staff</h3>
+        <p>For HR and admin teams at factories and offices nearby. Corporate and panel accounts are handled by the hospital's billing office.</p>
+        <p class="ur-line" lang="ur">فیکٹریوں اور دفاتر کے ایچ آر اور ایڈمن کے لیے: کارپوریٹ اور پینل اکاؤنٹس بلنگ آفس دیکھتا ہے۔</p>
+        <div class="cta-row"><a class="btn btn-teal" href="#panels">How panels work</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="specialties" aria-labelledby="spec-title">
+  <div class="wrap spec-grid">
+    <div class="spec-side">
+      <h2 id="spec-title">Clinics in the OPD</h2>
+      <span class="ur" lang="ur" dir="rtl">او پی ڈی کے شعبے</span>
+      <p>Specialties as listed on Instacare. oladoc lists 17 panel doctors for the hospital.</p>
+      <span class="sample">Sample content: doctor names and clinic days to be supplied by Awadh General Hospital.</span>
+    </div>
+    <ul class="spec-list">
+      <li class="spec"><span class="spec-en">Endocrinology</span><span class="spec-desc">Diabetes, thyroid and other hormone conditions.</span><span class="spec-ur" lang="ur">ذیابیطس، تھائیرائیڈ اور ہارمون</span></li>
+      <li class="spec"><span class="spec-en">ENT</span><span class="spec-desc">Ear, nose and throat problems, from infections to hearing.</span><span class="spec-ur" lang="ur">ناک، کان اور گلا</span></li>
+      <li class="spec"><span class="spec-en">General surgery</span><span class="spec-desc">Operations such as hernia, gallbladder and appendix.</span><span class="spec-ur" lang="ur">جنرل سرجری</span></li>
+      <li class="spec"><span class="spec-en">Paediatrics</span><span class="spec-desc">Care for babies, children and teenagers.</span><span class="spec-ur" lang="ur">بچوں کے امراض</span></li>
+      <li class="spec"><span class="spec-en">Dermatology</span><span class="spec-desc">Skin, hair and nail conditions.</span><span class="spec-ur" lang="ur">جلد کے امراض</span></li>
+      <li class="spec"><span class="spec-en">Gynaecology</span><span class="spec-desc">Women's health and conditions of the reproductive system.</span><span class="spec-ur" lang="ur">امراضِ نسواں</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec fac" id="facilities" aria-labelledby="fac-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 id="fac-title">Under one roof</h2>
+        <p class="sec-intro">Facilities as listed on Healthwire.</p>
+      </div>
+      <p class="ur" lang="ur" dir="rtl">سب سہولیات ایک ہی جگہ</p>
+    </div>
+    <div class="plates">
+      <div class="plate is-emerg"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17v-5a5 5 0 0 1 10 0v5"/><path d="M4 17h16v4H4z"/><path d="M12 2v2"/><path d="M19.8 5.2l-1.4 1.4"/><path d="M4.2 5.2l1.4 1.4"/></svg>
+        <div class="plate-names"><h3>Emergency</h3><span class="ur" lang="ur" dir="rtl">ایمرجنسی</span></div>
+        <p>Open 24 hours, every day.</p>
+      </div>
+      <div class="plate"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="6"/><circle cx="12" cy="14" r="2"/><path d="M12 8V3"/><path d="M8 3h8"/></svg>
+        <div class="plate-names"><h3>Operation theatres</h3><span class="ur" lang="ur" dir="rtl">آپریشن تھیٹر</span></div>
+        <p>Theatres for surgical procedures.</p>
+      </div>
+      <div class="plate"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 20.5a5 5 0 0 1-7-7l7-7a5 5 0 0 1 7 7z"/><path d="M7 10l7 7"/></svg>
+        <div class="plate-names"><h3>Pharmacy</h3><span class="ur" lang="ur" dir="rtl">فارمیسی</span></div>
+        <p>Medicines dispensed inside the hospital.</p>
+      </div>
+      <div class="plate"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 14.5h5"/><path d="M12 12v5"/></svg>
+        <div class="plate-names"><h3>Blood bank</h3><span class="ur" lang="ur" dir="rtl">بلڈ بینک</span></div>
+        <p>Blood for transfusion, on site.</p>
+      </div>
+      <div class="plate"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg>
+        <div class="plate-names"><h3>Diagnostic lab</h3><span class="ur" lang="ur" dir="rtl">لیبارٹری</span></div>
+        <p>Tests and reports, on site.</p>
+      </div>
+      <div class="plate"><span class="screws" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6v14"/><path d="M3 16h18"/><path d="M21 20v-6a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="12" r="2"/></svg>
+        <div class="plate-names"><h3>OPD &amp; wards</h3><span class="ur" lang="ur" dir="rtl">او پی ڈی اور داخلہ</span></div>
+        <p>Outpatient clinics and inpatient admission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="opd" aria-labelledby="opd-title">
+  <div class="wrap opd-grid">
+    <figure class="opd-photo">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=70&auto=format&fit=crop" alt="Hands typing on a laptop beside a stethoscope on a clinic desk" width="900" height="1125" loading="lazy">
+      <figcaption>Stock image, not Awadh General Hospital.</figcaption>
+    </figure>
+    <form class="form" id="opd-form" novalidate>
+      <h2 id="opd-title">Book an OPD visit</h2>
+      <p class="ur-h" lang="ur">او پی ڈی میں وقت لیں</p>
+      <p class="lead">Tell us who the visit is for and which clinic. The OPD desk calls you back to confirm a time. For anything urgent, call 021-35017428.</p>
+      <div class="fields">
+        <div class="field">
+          <label for="f-name"><span>Patient's name</span><span class="ur" lang="ur" dir="rtl">مریض کا نام</span></label>
+          <input id="f-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone"><span>Phone number</span><span class="ur" lang="ur" dir="rtl">فون نمبر</span></label>
+          <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03xx-xxxxxxx" required>
+        </div>
+        <div class="field">
+          <label for="f-clinic"><span>Clinic</span><span class="ur" lang="ur" dir="rtl">شعبہ</span></label>
+          <select id="f-clinic" name="clinic">
+            <option>Not sure, please advise</option>
+            <option>Endocrinology</option><option>ENT</option><option>General surgery</option>
+            <option>Paediatrics</option><option>Dermatology</option><option>Gynaecology</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-day"><span>Preferred day</span><span class="ur" lang="ur" dir="rtl">دن</span></label>
+          <select id="f-day" name="day"><option>As soon as possible</option><option>Today</option><option>Tomorrow</option><option>Later this week</option></select>
+        </div>
+        <div class="field full">
+          <label for="f-note"><span>What is the problem? (optional)</span><span class="ur" lang="ur" dir="rtl">مسئلہ کیا ہے؟</span></label>
+          <textarea id="f-note" name="note"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-teal" type="submit">Send visit request</button>
+        <span class="or">or call <a href="tel:+922135017428">021-35017428</a></span>
+      </div>
+      <div class="confirm" id="opd-confirm" role="status" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section class="sec panelsec" id="panels" aria-labelledby="pan-title">
+  <div class="wrap pan-grid">
+    <div>
+      <h2 id="pan-title">Treatment for your staff, on a company panel</h2>
+      <p class="ur-h" lang="ur" dir="rtl">کمپنیوں کے ملازمین کے لیے پینل</p>
+      <p>We work with companies on panel arrangements — contact our billing office. If you look after HR or admin for a factory or office in Landhi or Korangi, call and ask for billing to talk through what a panel would cover.</p>
+      <p class="ur-p" lang="ur">ہم کمپنیوں کے ساتھ پینل کے انتظامات کرتے ہیں۔ تفصیل کے لیے بلنگ آفس سے رابطہ کریں۔</p>
+      <div class="cta-row"><a class="btn btn-sun" href="tel:+922135017428">Call 021-35017428 and ask for billing</a></div>
+    </div>
+    <div class="ready">
+      <h3>Useful to have ready when you call</h3>
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>How many employees the panel would cover</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Whether family members are included</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Which services to cover: OPD, admission, lab, emergency</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>How, and how often, you want to be billed</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>A contact person in your HR or admin team</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="directions" aria-labelledby="dir-title">
+  <div class="wrap dir-grid">
+    <div>
+      <h2 id="dir-title">Finding the hospital</h2>
+      <p class="ur-h" lang="ur" dir="rtl">اسپتال تک کیسے پہنچیں</p>
+      <dl class="addr">
+        <div><dt>Address on oladoc</dt><dd>Plot ST 23-A/1, Sector 37/C, near Baber Market, Landhi No. 3, Karachi</dd></div>
+        <div><dt>Also listed on Instacare and Healthwire as</dt><dd>House No. 400, Area C-1, Sector 37/C, Landhi Road, Landhi Town</dd></div>
+        <div class="warn"><dt class="sr">Note</dt><dd>Directory listings give two versions of the address. Call 021-35017428 to confirm before you set off.</dd></div>
+      </dl>
+      <div class="dir-actions">
+        <a class="btn btn-teal" href="https://www.google.com/maps/search/?api=1&amp;query=Awadh+General+Hospital+Landhi+Karachi" target="_blank" rel="noopener">Open in Google Maps</a>
+        <a class="btn btn-line" href="tel:+922135017428">Call for directions</a>
+      </div>
+    </div>
+    <div class="chit-wrap">
+      <div class="chit">
+        <p class="chit-en">Show this to your rickshaw or ride driver</p>
+        <p class="chit-ur" lang="ur" id="chit-text"><span class="name cl">اودھ جنرل اسپتال</span><span class="cl">بابر مارکیٹ کے قریب</span><span class="cl">سیکٹر ۳۷ سی، لانڈھی نمبر ۳</span><span class="cl">کراچی</span></p>
+        <div class="chit-actions">
+          <button class="copy-btn" type="button" id="copy-addr">Copy Urdu address</button>
+          <span class="copy-msg" id="copy-msg" role="status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="mark" href="#top" aria-label="Awadh General Hospital, back to top">
+        <span class="mark-en"><b>Awadh</b><span>General Hospital, Landhi</span></span>
+        <span class="mark-bar" aria-hidden="true"></span>
+        <span class="mark-ur" lang="ur" dir="rtl">اودھ جنرل اسپتال</span>
+      </a>
+      <p style="margin-top:18px;max-width:36ch">A general hospital in Landhi No. 3, Karachi. Emergency open 24/7. Proposed wordmark for this concept.</p>
+    </div>
+    <div>
+      <h3>Emergency and enquiries</h3>
+      <a class="big-tel" href="tel:+922135017428">021-35017428</a>
+      <ul style="margin-top:14px">
+        <li><a href="https://www.facebook.com/p/Awadh-General-Hospital-AIMPG-100054424782203/" target="_blank" rel="noopener">Facebook page</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Where these details come from</h3>
+      <ul>
+        <li><a href="https://oladoc.com/pakistan/karachi/h/awadh-general-hospital/479" target="_blank" rel="noopener">oladoc listing</a></li>
+        <li><a href="https://instacare.pk/hospitals/karachi/landhi-town/awadh-general-hospital" target="_blank" rel="noopener">Instacare listing</a></li>
+        <li><a href="https://healthwire.pk/hospitals/karachi/awadh-hospital" target="_blank" rel="noopener">Healthwire listing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-note">
+    <span>Website concept for Awadh General Hospital — not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&nav.classList.contains('open')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}});
+
+  var tabs=[].slice.call(document.querySelectorAll('#pathlist [role=tab]'));
+  function select(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t);});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      else if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true);}
+    });
+  });
+
+  var form=document.getElementById('opd-form'),conf=document.getElementById('opd-confirm');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=form.elements,name=f['name'].value.trim(),phone=f['phone'].value.trim();
+    conf.hidden=false;
+    if(!name||!phone){conf.innerHTML='<strong>Add the patient\'s name and a phone number</strong> so the OPD desk can call you back.';(name?f['phone']:f['name']).focus();return;}
+    conf.textContent='';
+    var s=document.createElement('strong');s.textContent='Visit request ready for '+name+' ('+f['clinic'].value+', '+f['day'].value.toLowerCase()+').';
+    conf.appendChild(s);
+    conf.appendChild(document.createTextNode(' Concept demo: nothing was sent. On the live site this request would reach the OPD desk, who would call '+phone+' back. To book now, call 021-35017428.'));
+  });
+
+  var cb=document.getElementById('copy-addr'),msg=document.getElementById('copy-msg');
+  cb.addEventListener('click',function(){
+    var txt=[].map.call(document.querySelectorAll('#chit-text .cl'),function(x){return x.textContent;}).join('، ');
+    function ok(){msg.textContent='Copied. Paste it into a message to your driver.';}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(ok,function(){msg.textContent='Copy blocked. Select the address and copy it.';});}
+    else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok();}catch(err){msg.textContent='Copy blocked. Select the address and copy it.';}ta.remove();}
+  });
+})();
+</script>
+</body>
+</html>

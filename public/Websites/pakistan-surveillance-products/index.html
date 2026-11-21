@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pakistan Surveillance Products: CCTV supply for the trade, Saddar, Karachi (concept)</title>
+<meta name="description" content="Website concept for Pakistan Surveillance Products, a CCTV distributor supplying dealers, installers and system integrators from Showroom #10, CCTV and Solar Market, Zamzama Centre, Saddar, Karachi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  Token plan (proposed identity)
+  navy #1B1F4B (hardware, bands, text) | signal orange #FF6A13 (fills only: REC, selected, primary button; navy text on it)
+  panel #F2F4F7 (page ground) | steel #8C96A8 (decor on navy) | steel-ink #535C6F (secondary text on light) | white
+  Chakra Petch = display, OSD, spec headings. Public Sans = body.
+  Signature: the hero monitor wall (illustrated IR scenes, 1/4/9 split like a recorder, live PKT clock). Everything else stays quiet.
+-->
+<style>
+:root{
+  --navy:#1B1F4B; --navy-2:#252A5C; --navy-deep:#13163A;
+  --orange:#FF6A13; --panel:#F2F4F7; --steel:#8C96A8; --steel-ink:#535C6F;
+  --white:#fff; --line:#D7DCE5; --ir:#B9C1D3;
+  --display:"Chakra Petch", "Segoe UI", sans-serif;
+  --body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+  --wrap:1280px; --gut:clamp(20px,4vw,48px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--panel);color:var(--navy);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* concept notice */
+.notice{background:var(--white);border-bottom:1px solid var(--line);font-size:13px;color:var(--steel-ink)}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;padding-top:7px;padding-bottom:7px}
+.notice a{color:var(--navy);font-weight:600}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(242,244,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.mark b{font:700 26px/1 var(--display);letter-spacing:.02em;display:flex;align-items:center;gap:7px}
+.mark b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--orange)}
+.mark span{font:500 13px/1.15 var(--display);color:var(--steel-ink);max-width:12em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:15px}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:3px;font:600 16px/1 var(--display);letter-spacing:.01em;text-decoration:none;border:2px solid var(--navy);cursor:pointer;background:none;color:var(--navy)}
+.btn-go{background:var(--orange);border-color:var(--orange);color:var(--navy)}
+.btn-go:hover{background:#ff7d33}
+.btn-line:hover{background:var(--navy);color:var(--white)}
+.nav .btn{min-height:40px;font-size:15px;padding:0 16px}
+.menu{display:none;background:none;border:2px solid var(--navy);border-radius:3px;height:40px;padding:0 14px;font:600 15px var(--display);color:var(--navy);cursor:pointer}
+
+/* hero */
+.hero{padding:clamp(40px,6vw,84px) 0 clamp(56px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.5rem,4.6vw,4.25rem);max-width:11ch}
+.lede{margin-top:24px;font-size:19px;max-width:34em;color:#2C3160}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.also{margin-top:18px;font-size:15px;color:var(--steel-ink)}
+.also a{color:var(--navy);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* monitor wall */
+.wall{background:var(--navy);border-radius:8px;padding:10px 10px 0;box-shadow:0 30px 60px -30px rgba(27,31,75,.55)}
+.grid{display:grid;gap:3px;background:var(--navy-deep);grid-template-columns:repeat(3,1fr)}
+.wall[data-split="4"] .grid{grid-template-columns:repeat(2,1fr)}
+.wall[data-split="4"] .cam:nth-child(n+5){display:none}
+.wall[data-split="1"] .grid{grid-template-columns:1fr}
+.wall[data-split="1"] .cam:not(.is-on){display:none}
+.cam{position:relative;aspect-ratio:16/9;padding:0;border:0;background:#161a42;cursor:zoom-in;overflow:hidden;container-type:inline-size;color:#E9ECF4;font-family:var(--display);text-align:left}
+.wall[data-split="1"] .cam{cursor:zoom-out}
+.cam svg{position:absolute;inset:0;width:100%;height:100%}
+.cam::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+.cam:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.osd{position:absolute;z-index:2;font-size:clamp(8px,4.6cqi,15px);font-weight:500;letter-spacing:.06em;text-shadow:0 1px 2px rgba(0,0,0,.7);line-height:1}
+.osd-n{top:5%;left:4%;background:rgba(10,12,35,.6);padding:.25em .4em}
+.osd-r{top:6%;right:5%;display:flex;align-items:center;gap:.4em}
+.osd-r i{width:.65em;height:.65em;border-radius:50%;background:var(--orange)}
+.osd-t{bottom:6%;left:5%;display:none}
+.wall[data-split="1"] .osd-t{display:block}
+.cam.is-on .osd-r i{animation:blink 1.2s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 4px 12px;color:var(--ir);font:500 13px/1.2 var(--display)}
+.split{display:flex;align-items:center;gap:6px}
+.split button{width:34px;height:30px;border:1px solid #4A5180;background:transparent;color:var(--ir);font:600 13px var(--display);border-radius:2px;cursor:pointer;display:grid;place-items:center}
+.split button svg{width:16px;height:16px}
+.split button[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:var(--navy)}
+.clock{font-variant-numeric:tabular-nums;color:#E9ECF4}
+.demo{margin-left:auto;color:var(--steel)}
+/* one orchestrated moment: channels power on */
+@media (prefers-reduced-motion:no-preference){
+  .cam svg{animation:on .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
+  @keyframes on{0%{transform:scaleY(.015);filter:brightness(4);opacity:0}40%{transform:scaleY(.015);filter:brightness(4);opacity:1}100%{transform:none;filter:none;opacity:1}}
+}
+/* scene drawing */
+.sc *{fill:none;stroke:var(--ir);stroke-width:.7;stroke-linejoin:round;stroke-linecap:round}
+.sc .fl{fill:rgba(185,193,211,.07);stroke:none}
+.sc .th{stroke-width:.4;opacity:.75}
+.sc .bx{fill:rgba(185,193,211,.13)}
+.sc .fig{fill:rgba(205,211,226,.55);stroke:none}
+.sc .gl{fill:#EEF1F8;stroke:none;filter:url(#bloom)}
+.sc .bg{fill:url(#irbg);stroke:none}
+.sc .vg{fill:url(#vig);stroke:none}
+
+/* sections */
+section{scroll-margin-top:80px}
+.sec{padding:clamp(64px,8vw,112px) 0}
+.sec-white{background:var(--white)}
+.h2{font-size:clamp(2rem,3.4vw,3rem);max-width:16ch}
+.intro{margin-top:16px;max-width:36em;color:var(--steel-ink);font-size:18px}
+
+/* trade */
+.trade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,88px);align-items:start}
+.rows{margin-top:40px;border-top:2px solid var(--navy)}
+.row{display:grid;grid-template-columns:11em 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:22px;font-weight:600}
+.row p{color:#30355F;max-width:30em}
+.fig-photo{margin:0}
+.fig-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.05);border-radius:4px}
+.fig-photo figcaption{font-size:13px;color:var(--steel-ink);margin-top:8px}
+.record{margin-top:28px;background:var(--panel);border-left:4px solid var(--navy);padding:22px 24px}
+.record h3{font-size:19px;margin-bottom:12px}
+.record dl{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;margin:0;font-size:16px}
+.record dt{color:var(--steel-ink)}
+.record dd{margin:0;font-weight:600}
+.record p{margin-top:14px;font-size:13px;color:var(--steel-ink)}
+
+/* products */
+.tabs{display:flex;gap:0;margin-top:40px;border-bottom:2px solid var(--navy);overflow-x:auto;scrollbar-width:thin}
+.tab{flex:1 0 auto;display:flex;align-items:center;gap:10px;padding:14px 20px;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;font:600 17px var(--display);color:var(--steel-ink);cursor:pointer;white-space:nowrap}
+.tab svg{width:28px;height:28px;flex:none}
+.tab svg *{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tab:hover{color:var(--navy)}
+.tab[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--orange)}
+.panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-top:40px}
+.panel[hidden]{display:none}
+.draw{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:16px;
+  background-image:linear-gradient(var(--panel) 1px,transparent 1px),linear-gradient(90deg,var(--panel) 1px,transparent 1px);background-size:20px 20px}
+.draw svg{width:100%;height:auto}
+.draw .o{fill:none;stroke:var(--navy);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.draw .f{fill:#E4E8EF}
+.draw .d{fill:none;stroke:var(--steel-ink);stroke-width:1}
+.draw .ds{fill:none;stroke:var(--steel-ink);stroke-width:1;stroke-dasharray:4 4}
+.draw text{font:500 12px var(--display);fill:var(--steel-ink)}
+.draw figcaption{font-size:13px;color:var(--steel-ink);margin-top:10px}
+.spec h3{font-size:28px}
+.spec>p{margin-top:10px;color:#30355F;max-width:30em}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:16px}
+caption{caption-side:bottom;text-align:left;font-size:13px;color:var(--steel-ink);padding-top:10px}
+th,td{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font:600 13px var(--display);color:var(--steel-ink);letter-spacing:.02em;border-bottom:2px solid var(--navy)}
+tbody th{font:500 16px var(--display);width:52%}
+td{color:var(--steel-ink)}
+.spec .btn{margin-top:24px}
+.note{margin-top:36px;font-size:14px;color:var(--steel-ink);border-top:1px solid var(--line);padding-top:14px}
+
+/* dealer */
+.dealer{background:var(--navy);color:var(--white)}
+.dealer .h2{color:var(--white)}
+.dealer .intro{color:#C9CEDC}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);margin-top:44px;align-items:start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fld{display:grid;gap:7px}
+.fld.full,fieldset{grid-column:1/-1}
+label,legend{font:500 15px var(--display);color:#DDE1EB}
+input[type=text],textarea{width:100%;background:var(--navy-2);border:1px solid #4A5180;border-radius:3px;color:var(--white);font:400 16px var(--body);padding:12px 14px}
+input[type=text]::placeholder,textarea::placeholder{color:#9AA2B6}
+textarea{min-height:96px;resize:vertical}
+fieldset{border:0;padding:0;margin:0}
+legend{margin-bottom:10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-block;padding:9px 14px;border:1px solid #4A5180;border-radius:3px;font:500 15px var(--display);color:#DDE1EB}
+.chip input:checked+span{background:var(--orange);border-color:var(--orange);color:var(--navy)}
+.chip input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}
+.slip{background:var(--panel);color:var(--navy);border-radius:4px;padding:24px;position:sticky;top:92px}
+.slip h3{font-size:20px}
+.slip pre{white-space:pre-wrap;font:400 15px/1.55 var(--body);margin:14px 0 0;padding:16px;background:var(--white);border:1px solid var(--line);border-radius:3px;min-height:180px}
+.slip .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.slip small{display:block;margin-top:14px;font-size:13px;color:var(--steel-ink);line-height:1.5}
+.copied{font:500 14px var(--display);color:var(--navy);margin-top:10px;min-height:1.4em}
+
+/* showroom */
+.show{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+.big{font:700 clamp(3.4rem,9vw,8.5rem)/.9 var(--display);letter-spacing:-.03em}
+.way{list-style:none;margin:36px 0 0;padding:0;border-left:2px solid var(--navy)}
+.way li{position:relative;padding:10px 0 10px 26px;font-size:19px}
+.way li::before{content:"";position:absolute;left:-7px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--navy)}
+.way li:last-child{font-weight:700;font-family:var(--display);font-size:22px}
+.way li:last-child::before{background:var(--orange);border-color:var(--orange)}
+.way small{display:block;color:var(--steel-ink);font-size:14px}
+.contact h3{font-size:22px;margin-bottom:10px}
+.phones{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+.phones li{border-bottom:1px solid var(--line)}
+.phones a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;text-decoration:none}
+.phones a b{font:600 clamp(22px,2.4vw,28px) var(--display);font-variant-numeric:tabular-nums}
+.phones a span{color:var(--steel-ink);font-size:14px}
+.phones a:hover b{text-decoration:underline;text-underline-offset:4px}
+.people{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:6px 20px}
+.people dt{color:var(--steel-ink)}
+.people dd{margin:0;font-weight:600}
+.contact .btn{margin-top:28px}
+.contact p.tbc{margin-top:14px;font-size:14px;color:var(--steel-ink)}
+
+/* footer */
+footer{background:var(--navy-deep);color:#C9CEDC;padding:48px 0 40px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1fr auto;gap:24px 48px;align-items:end}
+footer .mark b{color:var(--white)}
+footer .mark span{color:var(--steel)}
+footer p{max-width:46em;margin-top:14px}
+footer a{color:var(--white)}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero h1{max-width:14ch}
+  .trade,.show{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .panel,.dgrid{grid-template-columns:1fr}
+  .slip{position:static}
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--panel);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 20px;border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:12px;border-bottom:2px solid var(--navy)}
+  .menu{display:block}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .mark span{display:none}
+  .lede{font-size:17px}
+  .cta .btn{width:100%}
+  .row{grid-template-columns:1fr;gap:6px}
+  form{grid-template-columns:1fr}
+  .tab{padding:12px 14px;font-size:16px}
+  .demo{margin-left:0;width:100%}
+  .wall{padding:6px 6px 0;border-radius:6px}
+  .phones a{flex-direction:column;gap:2px}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cam.is-on .osd-r i{animation:none}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Pakistan Surveillance Products, not the official website. Proposed design and identity; illustrated and stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Pakistan Surveillance Products, home"><b>PSP</b><span>Pakistan Surveillance Products</span></a>
+    <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#trade">Who we supply</a>
+      <a href="#products">Products</a>
+      <a href="#dealer">Dealer pricing</a>
+      <a href="#showroom">Showroom</a>
+      <a class="btn btn-line" href="tel:+922135641433">Call 021-35641433</a>
+    </nav>
+  </div>
+</header>
+
+<!-- shared defs for the camera scenes -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="irbg" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#323A6A"/><stop offset="1" stop-color="#12153A"/></radialGradient>
+    <radialGradient id="vig" cx="50%" cy="50%" r="72%"><stop offset=".55" stop-color="#05061A" stop-opacity="0"/><stop offset="1" stop-color="#05061A" stop-opacity=".6"/></radialGradient>
+    <filter id="bloom" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.2"/></filter>
+  </defs>
+</svg>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">CCTV supply for the people who install it.</h1>
+      <p class="lede">Pakistan Surveillance Products distributes video surveillance products to dealers, installers and system integrators, from a showroom in the CCTV and Solar Market at Zamzama Centre, Saddar. In business since 2010.</p>
+      <div class="cta">
+        <a class="btn btn-go" href="#dealer">Apply for dealer pricing</a>
+        <a class="btn btn-line" href="tel:+922135641433">Call 021-35641433</a>
+      </div>
+      <p class="also">Mobiles: <a href="tel:+923458098533">0345-8098533</a> and <a href="tel:+923323682268">0332-3682268</a></p>
+    </div>
+
+    <div class="wall" id="wall" data-split="9">
+      <div class="grid" role="group" aria-label="Demo camera view, illustrated scenes">
+        <button class="cam is-on" style="--i:0" aria-label="Channel 1, market aisle. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 90 L60 50 H100 L160 90Z"/>
+            <path d="M0 0 L60 28 V50 L0 90 M160 0 L100 28 V50 L160 90 M60 28 H100"/>
+            <path class="th" d="M0 13.5 L60 31.3 M0 27 L60 34.6 M0 40.5 L60 37.9 M0 54 L60 41.2 M0 67.5 L60 44.5 M160 13.5 L100 31.3 M160 27 L100 34.6 M160 40.5 L100 37.9 M160 54 L100 41.2 M160 67.5 L100 44.5"/>
+            <path d="M22 10 V75 M42 20 V62 M138 10 V75 M118 20 V62"/>
+            <circle class="gl" cx="80" cy="18" r="5"/>
+            <circle class="fig" cx="86" cy="52" r="2.2"/><path class="fig" d="M83 67 V58 Q83 55 86 55 Q89 55 89 58 V67Z"/>
+            <circle class="fig" cx="70" cy="56" r="2.8"/><path class="fig" d="M66 76 V62 Q66 59 70 59 Q74 59 74 62 V76Z"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH1 MARKET AISLE</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:1" aria-label="Channel 2, parking. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 30 L160 18 V90 H0Z"/>
+            <path d="M0 30 L160 18 M20 90 L40 28.5 M55 90 L72 26.5 M90 90 L104 24 M125 90 L136 21.8"/>
+            <g transform="rotate(17 47 62)"><rect class="bx" x="37" y="44" width="20" height="36" rx="5"/><path d="M39 54 H55 M39 70 H55"/></g>
+            <g transform="rotate(13 114 58)"><rect class="bx" x="104" y="40" width="20" height="36" rx="5"/><path d="M106 50 H122 M106 66 H122"/></g>
+            <path d="M146 6 V20"/><circle class="gl" cx="146" cy="7" r="6"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH2 PARKING</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:2" aria-label="Channel 3, front gate. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 60 H160 V90 H0Z"/>
+            <path class="fl" d="M0 32 H44 V60 H0Z M116 32 H160 V60 H116Z"/>
+            <path d="M0 32 H44 M116 32 H160 M0 60 H160"/>
+            <rect x="44" y="22" width="8" height="38"/><rect x="108" y="22" width="8" height="38"/>
+            <path d="M52 28 H108 M52 44 H108 M58 28 V60 M64 28 V60 M70 28 V60 M76 28 V60 M82 28 V60 M88 28 V60 M94 28 V60 M100 28 V60"/>
+            <path class="th" d="M66 90 L76 60 M94 90 L84 60"/>
+            <circle class="gl" cx="48" cy="18" r="4"/><circle class="gl" cx="112" cy="18" r="4"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH3 FRONT GATE</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:3" aria-label="Channel 4, counter. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path d="M0 12 H160 M0 28 H160 M0 44 H160"/>
+            <path class="bx" d="M6 4 h12 v8 h-12z M22 6 h10 v6 h-10z M36 3 h14 v9 h-14z M100 5 h12 v7 h-12z M116 3 h10 v9 h-10z M130 6 h16 v6 h-16z M8 20 h14 v8 h-14z M26 21 h9 v7 h-9z M104 19 h14 v9 h-14z M122 21 h12 v7 h-12z M140 20 h12 v8 h-12z M10 37 h12 v7 h-12z M118 36 h16 v8 h-16z M138 38 h10 v6 h-10z"/>
+            <circle class="fig" cx="72" cy="42" r="5"/><path class="fig" d="M58 64 V56 Q58 49 72 49 Q86 49 86 56 V64Z"/>
+            <path class="fl" d="M8 62 L152 54 L160 68 L14 78Z"/>
+            <path d="M8 62 L152 54 L160 68 L14 78Z M14 78 V90 M160 68 V90"/>
+            <rect class="bx" x="100" y="56" width="12" height="7" transform="rotate(-3 106 60)"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH4 COUNTER</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:4" aria-label="Channel 5, stairs. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M20 90 V80 H35 V70 H50 V60 H65 V50 H80 V40 H95 V30 H110 V20 H125 V10 H140 V90Z"/>
+            <path d="M20 90 V80 H35 V70 H50 V60 H65 V50 H80 V40 H95 V30 H110 V20 H125 V10 H140"/>
+            <path d="M16 66 L136 -4"/>
+            <path class="th" d="M28 59 V80 M43 50 V70 M58 41 V60 M73 32 V50 M88 24 V40 M103 15 V30 M118 6 V20"/>
+            <circle class="gl" cx="150" cy="6" r="5"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH5 STAIRS</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:5" aria-label="Channel 6, storeroom. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 90 L64 52 H96 L160 90Z"/>
+            <path d="M8 0 V86 M30 8 V73 M48 17 V62 M8 20 L48 35.6 M8 45 L48 46.7 M8 70 L48 57.8"/>
+            <path d="M152 0 V86 M130 8 V73 M112 17 V62 M152 20 L112 35.6 M152 45 L112 46.7 M152 70 L112 57.8"/>
+            <path class="bx" d="M11 12 h14 v9 h-14z M33 22 h10 v8 h-10z M11 36 h16 v9 h-16z M33 39 h11 v7 h-11z M12 62 h14 v9 h-14z M132 22 h12 v8 h-12z M134 36 h15 v9 h-15z M116 40 h10 v7 h-10z M134 61 h14 v9 h-14z M114 52 h10 v6 h-10z"/>
+            <circle class="gl" cx="80" cy="14" r="5"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH6 STOREROOM</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:6" aria-label="Channel 7, rooftop. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 74 V50 H18 V40 H30 V55 H44 V34 H60 V46 H78 V38 H96 V52 H112 V30 H128 V44 H146 V36 H160 V74Z"/>
+            <path d="M0 50 H18 V40 H30 V55 H44 V34 H60 V46 H78 V38 H96 V52 H112 V30 H128 V44 H146 V36 H160"/>
+            <path class="bx" d="M21 34 h6 v6 h-6z M48 28 h7 v6 h-7z M116 24 h6 v6 h-6z M150 30 h6 v6 h-6z"/>
+            <path class="gl" d="M50 40 h2 v2 h-2z M82 44 h2 v2 h-2z M118 36 h2 v2 h-2z M132 50 h2 v2 h-2z"/>
+            <path d="M0 74 H160"/>
+            <path class="bx" d="M14 88 L28 76 H54 L40 88Z M64 88 L78 76 H104 L90 88Z M114 88 L128 76 H154 L140 88Z"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH7 ROOFTOP</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:7" aria-label="Channel 8, street. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M18 90 L74 42 H86 L142 90Z"/>
+            <path d="M18 90 L74 42 M142 90 L86 42 M80 46 V50 M80 56 V63 M80 70 V82"/>
+            <path d="M0 4 L66 34 V46 L0 74 M160 4 L94 34 V46 L160 74"/>
+            <path class="th" d="M14 14 V68 M30 21 V61 M46 28 V54 M146 14 V68 M130 21 V61 M114 28 V54"/>
+            <circle class="gl" cx="94" cy="70" r="3"/><circle class="gl" cx="62" cy="58" r="2"/><circle class="gl" cx="66" cy="58" r="2"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH8 STREET</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+        <button class="cam" style="--i:8" aria-label="Channel 9, loading. Show full view">
+          <svg class="sc" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect class="bg" width="160" height="90"/>
+            <path class="fl" d="M0 72 H160 V90 H0Z"/>
+            <rect x="46" y="18" width="68" height="56" rx="3"/>
+            <path class="fl" d="M46 20 L30 26 V70 L46 74Z M114 20 L130 26 V70 L114 74Z"/>
+            <path d="M46 20 L30 26 V70 L46 74 M114 20 L130 26 V70 L114 74"/>
+            <path class="bx" d="M52 52 h18 v20 h-18z M72 56 h16 v16 h-16z M90 48 h18 v24 h-18z M56 36 h16 v16 h-16z M76 40 h14 v16 h-14z"/>
+            <rect x="44" y="74" width="72" height="5"/>
+            <path class="bx" d="M136 76 h14 v10 h-14z"/>
+            <circle class="gl" cx="80" cy="8" r="5"/>
+            <rect class="vg" width="160" height="90"/>
+          </svg>
+          <span class="osd osd-n">CH9 LOADING</span><span class="osd osd-r"><i></i>REC</span><span class="osd osd-t clock-tile"></span>
+        </button>
+      </div>
+      <div class="bar">
+        <div class="split" role="group" aria-label="Split view">
+          <button type="button" data-n="1" aria-pressed="false" aria-label="Show one channel"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+          <button type="button" data-n="4" aria-pressed="false" aria-label="Show four channels"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 2.5h13v11h-13z M8 2.5v11 M1.5 8h13" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+          <button type="button" data-n="9" aria-pressed="true" aria-label="Show nine channels"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 2.5h13v11h-13z M5.8 2.5v11 M10.2 2.5v11 M1.5 6.2h13 M1.5 9.8h13" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+        </div>
+        <span class="clock" id="clock" aria-label="Karachi time">--</span>
+        <span class="demo">Demo view: illustrated scenes, not live footage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="trade" aria-labelledby="trade-h">
+  <div class="wrap trade">
+    <div>
+      <h2 class="h2" id="trade-h">A supplier, not a shop front</h2>
+      <p class="intro">The business sells to the trade. Whichever part of it you work in, the showroom is set up to supply the job, not a single home.</p>
+      <div class="rows">
+        <div class="row"><h3>Dealers</h3><p>Restocking your own counter. Ask for the current models, quantities on hand and trade terms.</p></div>
+        <div class="row"><h3>Installers</h3><p>Fitting out a site this week. Collect the cameras, the recorder and the cabling for the job in one visit to Saddar.</p></div>
+        <div class="row"><h3>System integrators</h3><p>Planning a larger system. Bring the drawing or the camera count and talk through models for each area.</p></div>
+      </div>
+    </div>
+    <div>
+      <figure class="fig-photo">
+        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1000&q=70&auto=format&fit=crop" alt="Wall-mounted security camera against a plain wall" width="1000" height="750" loading="lazy">
+        <figcaption>Stock image, not a Pakistan Surveillance Products photo.</figcaption>
+      </figure>
+      <div class="record">
+        <h3>From the public listing</h3>
+        <dl>
+          <dt>Established</dt><dd>2010</dd>
+          <dt>Team</dt><dd>6–10 people</dd>
+          <dt>Supplies</dt><dd>Dealers, installers and system integrators</dd>
+          <dt>Showroom</dt><dd>#10, CCTV and Solar Market, Zamzama Centre, Saddar</dd>
+        </dl>
+        <p>Source: <a href="https://www.businesslist.pk/company/243266/pakistan-surveillance-products" target="_blank" rel="noopener">BusinessList.pk listing</a>, last updated 18 July 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="products" aria-labelledby="prod-h">
+  <div class="wrap">
+    <h2 class="h2" id="prod-h">Browse by category</h2>
+    <p class="intro">Each category lists the specifications to compare before you order. Values change from model to model, so ask for the current list.</p>
+
+    <div class="tabs" role="tablist" aria-label="Product categories">
+      <button class="tab" role="tab" id="t-dome" aria-controls="p-dome" aria-selected="true"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 8h20M6 8v2h16V8M8 10a6 6 0 0 0 12 0"/><circle cx="14" cy="13" r="2"/></svg>Dome</button>
+      <button class="tab" role="tab" id="t-bullet" aria-controls="p-bullet" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 7v14M3 14h5M8 10h15a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H8z M7 8h18"/></svg>Bullet</button>
+      <button class="tab" role="tab" id="t-ptz" aria-controls="p-ptz" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M12 2h4v5h-4zM7 7h14v6H7zM8 13a6 6 0 0 0 12 0"/><circle cx="14" cy="17" r="1.8"/></svg>PTZ</button>
+      <button class="tab" role="tab" id="t-rec" aria-controls="p-rec" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 10h22v9H3zM6 22v-3M22 22v-3"/><circle cx="7" cy="14.5" r="1"/><path d="M14 14.5h8"/></svg>DVR / NVR</button>
+      <button class="tab" role="tab" id="t-acc" aria-controls="p-acc" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 28" aria-hidden="true"><ellipse cx="12" cy="14" rx="8" ry="8"/><ellipse cx="12" cy="14" rx="4" ry="4"/><path d="M20 14h4v6"/></svg>Cabling &amp; accessories</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-dome" aria-labelledby="t-dome">
+      <figure class="draw" style="margin:0">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Line drawing of a ceiling dome camera, side view">
+          <path class="d" d="M20 40 H300"/><text x="20" y="32">Ceiling</text>
+          <rect class="o f" x="70" y="40" width="180" height="14" rx="2"/>
+          <path class="o f" d="M90 54 A70 66 0 0 0 230 54Z"/>
+          <path class="ds" d="M104 70 A56 50 0 0 0 216 70"/>
+          <circle class="o" cx="160" cy="92" r="17"/><circle class="o" cx="160" cy="92" r="7"/>
+          <path class="d" d="M70 160 H250 M70 154 V166 M250 154 V166"/><text x="160" y="182" text-anchor="middle">Diameter: per model</text>
+        </svg>
+        <figcaption>Illustration of the category, not a specific product.</figcaption>
+      </figure>
+      <div class="spec">
+        <h3>Dome cameras</h3>
+        <p>Compact cameras for ceilings indoors: shop floors, offices, corridors and counters.</p>
+        <table><caption>Spec headings for this category. Values vary per model.</caption>
+          <thead><tr><th scope="col">Specification</th><th scope="col">Value</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Resolution</th><td>Per model</td></tr>
+            <tr><th scope="row">Lens</th><td>Per model</td></tr>
+            <tr><th scope="row">Night vision (IR range)</th><td>Per model</td></tr>
+            <tr><th scope="row">Signal type</th><td>Per model</td></tr>
+            <tr><th scope="row">Housing</th><td>Per model</td></tr>
+          </tbody></table>
+        <button class="btn btn-line ask" data-cat="Dome">Ask for the dome model list</button>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-bullet" aria-labelledby="t-bullet" hidden>
+      <figure class="draw" style="margin:0">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Line drawing of a wall-mounted bullet camera, side view">
+          <path class="d" d="M28 30 V170"/><text x="20" y="22">Wall</text>
+          <rect class="o f" x="30" y="70" width="14" height="60" rx="2"/>
+          <path class="o" d="M44 100 H70 L88 92"/>
+          <path class="o" d="M80 62 H272 L284 72"/>
+          <rect class="o f" x="86" y="70" width="176" height="48" rx="10"/>
+          <ellipse class="o" cx="262" cy="94" rx="7" ry="20"/>
+          <path class="d" d="M86 160 H262 M86 154 V166 M262 154 V166"/><text x="174" y="182" text-anchor="middle">Length: per model</text>
+        </svg>
+        <figcaption>Illustration of the category, not a specific product.</figcaption>
+      </figure>
+      <div class="spec">
+        <h3>Bullet cameras</h3>
+        <p>Longer-reach cameras for outdoor walls: gates, perimeters, lanes and parking.</p>
+        <table><caption>Spec headings for this category. Values vary per model.</caption>
+          <thead><tr><th scope="col">Specification</th><th scope="col">Value</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Resolution</th><td>Per model</td></tr>
+            <tr><th scope="row">Lens</th><td>Per model</td></tr>
+            <tr><th scope="row">Night vision (IR range)</th><td>Per model</td></tr>
+            <tr><th scope="row">Weather rating</th><td>Per model</td></tr>
+            <tr><th scope="row">Signal type</th><td>Per model</td></tr>
+          </tbody></table>
+        <button class="btn btn-line ask" data-cat="Bullet">Ask for the bullet model list</button>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-ptz" aria-labelledby="t-ptz" hidden>
+      <figure class="draw" style="margin:0">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Line drawing of a pendant PTZ camera with pan and tilt arrows">
+          <rect class="o f" x="150" y="14" width="20" height="40" rx="2"/>
+          <rect class="o f" x="110" y="54" width="100" height="48" rx="8"/>
+          <path class="o f" d="M116 102 A44 44 0 0 0 204 102Z"/>
+          <circle class="o" cx="160" cy="122" r="13"/>
+          <ellipse class="ds" cx="160" cy="78" rx="96" ry="18"/>
+          <path class="d" d="M248 70 l8 8 -10 4"/><text x="262" y="70">Pan</text>
+          <path class="ds" d="M226 96 A70 70 0 0 1 200 170"/><text x="214" y="190">Tilt</text>
+          <text x="20" y="196">Range: per model</text>
+        </svg>
+        <figcaption>Illustration of the category, not a specific product.</figcaption>
+      </figure>
+      <div class="spec">
+        <h3>PTZ cameras</h3>
+        <p>Pan, tilt and zoom cameras that one operator can steer across a wide area: yards, plazas and large car parks.</p>
+        <table><caption>Spec headings for this category. Values vary per model.</caption>
+          <thead><tr><th scope="col">Specification</th><th scope="col">Value</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Optical zoom</th><td>Per model</td></tr>
+            <tr><th scope="row">Pan and tilt range</th><td>Per model</td></tr>
+            <tr><th scope="row">Preset positions</th><td>Per model</td></tr>
+            <tr><th scope="row">Night vision (IR range)</th><td>Per model</td></tr>
+            <tr><th scope="row">Signal type</th><td>Per model</td></tr>
+          </tbody></table>
+        <button class="btn btn-line ask" data-cat="PTZ">Ask for the PTZ model list</button>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-rec" aria-labelledby="t-rec" hidden>
+      <figure class="draw" style="margin:0">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Line drawing of a video recorder, front and rear views">
+          <text x="30" y="40">Front</text>
+          <rect class="o f" x="30" y="50" width="260" height="46" rx="4"/>
+          <circle class="o" cx="50" cy="73" r="3"/><circle class="o" cx="62" cy="73" r="3"/>
+          <path class="o" d="M190 66 H270 M190 80 H270"/>
+          <path class="o" d="M44 96 v6 M276 96 v6"/>
+          <text x="30" y="132">Rear</text>
+          <rect class="o f" x="30" y="142" width="260" height="46" rx="4"/>
+          <circle class="o" cx="52" cy="160" r="5"/><circle class="o" cx="70" cy="160" r="5"/><circle class="o" cx="88" cy="160" r="5"/><circle class="o" cx="106" cy="160" r="5"/>
+          <path class="ds" d="M120 160 H150"/>
+          <rect class="o" x="190" y="154" width="18" height="14"/><rect class="o" x="216" y="154" width="12" height="14"/><circle class="o" cx="256" cy="165" r="7"/>
+          <text x="30" y="208">Inputs: per model</text>
+        </svg>
+        <figcaption>Illustration of the category, not a specific product.</figcaption>
+      </figure>
+      <div class="spec">
+        <h3>DVR / NVR recorders</h3>
+        <p>The box that records, stores and plays back the camera feeds on site. DVRs take cable-run cameras; NVRs take network cameras.</p>
+        <table><caption>Spec headings for this category. Values vary per model.</caption>
+          <thead><tr><th scope="col">Specification</th><th scope="col">Value</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Channels</th><td>Per model</td></tr>
+            <tr><th scope="row">Recording resolution</th><td>Per model</td></tr>
+            <tr><th scope="row">Hard-drive bays</th><td>Per model</td></tr>
+            <tr><th scope="row">Compatible cameras</th><td>Per model</td></tr>
+            <tr><th scope="row">Remote viewing</th><td>Per model</td></tr>
+          </tbody></table>
+        <button class="btn btn-line ask" data-cat="DVR / NVR">Ask for the recorder model list</button>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-acc" aria-labelledby="t-acc" hidden>
+      <figure class="draw" style="margin:0">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Line drawing of a cable coil with a connector">
+          <ellipse class="o f" cx="130" cy="110" rx="90" ry="80"/>
+          <ellipse class="o" cx="130" cy="110" rx="74" ry="66"/>
+          <ellipse class="o" cx="130" cy="110" rx="58" ry="52"/>
+          <ellipse class="o f" cx="130" cy="110" rx="34" ry="30"/>
+          <path class="o" d="M214 140 C240 150 250 170 262 172"/>
+          <rect class="o f" x="262" y="164" width="22" height="16" rx="2"/><path class="o" d="M284 168 h12 M284 176 h12"/>
+          <text x="196" y="40">Length: per item</text>
+        </svg>
+        <figcaption>Illustration of the category, not a specific product.</figcaption>
+      </figure>
+      <div class="spec">
+        <h3>Cabling and accessories</h3>
+        <p>The parts that connect a system and keep it running: cable, connectors, power and mounting.</p>
+        <table><caption>Item types for this category. Availability per item.</caption>
+          <thead><tr><th scope="col">Item</th><th scope="col">Value</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cable</th><td>Per item</td></tr>
+            <tr><th scope="row">Connectors</th><td>Per item</td></tr>
+            <tr><th scope="row">Power supplies</th><td>Per item</td></tr>
+            <tr><th scope="row">Mounts and brackets</th><td>Per item</td></tr>
+            <tr><th scope="row">Storage drives</th><td>Per item</td></tr>
+          </tbody></table>
+        <button class="btn btn-line ask" data-cat="Cabling &amp; accessories">Ask for the accessories list</button>
+      </div>
+    </div>
+
+    <p class="note">Categories proposed for this concept. Model lists, specifications, stock and trade prices to be supplied by Pakistan Surveillance Products.</p>
+  </div>
+</section>
+
+<section class="sec dealer" id="dealer" aria-labelledby="dealer-h">
+  <div class="wrap">
+    <h2 class="h2" id="dealer-h">Apply for dealer pricing</h2>
+    <p class="intro">Tell the showroom who you are and what you buy. The form writes the message for you; send it from your own phone.</p>
+    <div class="dgrid">
+      <form id="apply" novalidate>
+        <div class="fld"><label for="f-name">Your name</label><input type="text" id="f-name" autocomplete="name"></div>
+        <div class="fld"><label for="f-biz">Business name</label><input type="text" id="f-biz" autocomplete="organization"></div>
+        <fieldset>
+          <legend>You are a</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="role" value="Dealer" checked><span>Dealer</span></label>
+            <label class="chip"><input type="radio" name="role" value="Installer"><span>Installer</span></label>
+            <label class="chip"><input type="radio" name="role" value="System integrator"><span>System integrator</span></label>
+          </div>
+        </fieldset>
+        <div class="fld full"><label for="f-area">Area or city</label><input type="text" id="f-area" placeholder="e.g. Gulshan-e-Iqbal, Karachi"></div>
+        <fieldset>
+          <legend>Categories you buy</legend>
+          <div class="chips" id="cats">
+            <label class="chip"><input type="checkbox" value="Dome"><span>Dome</span></label>
+            <label class="chip"><input type="checkbox" value="Bullet"><span>Bullet</span></label>
+            <label class="chip"><input type="checkbox" value="PTZ"><span>PTZ</span></label>
+            <label class="chip"><input type="checkbox" value="DVR / NVR"><span>DVR / NVR</span></label>
+            <label class="chip"><input type="checkbox" value="Cabling &amp; accessories"><span>Cabling &amp; accessories</span></label>
+          </div>
+        </fieldset>
+        <div class="fld full"><label for="f-note">Anything else</label><textarea id="f-note" placeholder="Typical order size, a current job, models you are after"></textarea></div>
+      </form>
+      <div class="slip" aria-live="polite">
+        <h3>Your message</h3>
+        <pre id="msg"></pre>
+        <div class="acts">
+          <a class="btn btn-go" id="sms" href="sms:+923458098533">Send by SMS to 0345-8098533</a>
+          <button class="btn btn-line" type="button" id="copy">Copy message</button>
+        </div>
+        <p class="copied" id="copied"></p>
+        <small>Concept demo: nothing is sent from this page. Your phone's messaging app opens with the text filled in. Dealer terms, and whether these numbers take WhatsApp, to be confirmed by Pakistan Surveillance Products.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="showroom" aria-labelledby="show-h">
+  <div class="wrap show">
+    <div>
+      <h2 class="big" id="show-h">Showroom #10</h2>
+      <ol class="way" aria-label="How to find the showroom">
+        <li>Saddar, Karachi</li>
+        <li>Zamzama Centre<small>Near the Passport Office</small></li>
+        <li>CCTV and Solar Market</li>
+        <li>Showroom #10</li>
+      </ol>
+    </div>
+    <div class="contact">
+      <h3>Call before you come</h3>
+      <ul class="phones">
+        <li><a href="tel:+922135641433"><b>021-35641433</b><span>Showroom landline</span></a></li>
+        <li><a href="tel:+923458098533"><b>0345-8098533</b><span>Mobile</span></a></li>
+        <li><a href="tel:+923323682268"><b>0332-3682268</b><span>Mobile</span></a></li>
+      </ul>
+      <dl class="people">
+        <dt>Contact</dt><dd>Mohammad Bilal</dd>
+        <dt>Manager</dt><dd>Syed Asim Hassan</dd>
+      </dl>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Zamzama+Centre+CCTV+and+Solar+Market+Saddar+Karachi" target="_blank" rel="noopener">Open Zamzama Centre in Google Maps</a>
+      <p class="tbc">Opening hours to be confirmed by Pakistan Surveillance Products.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="mark" href="#top" aria-label="Back to top"><b>PSP</b><span>Pakistan Surveillance Products</span></a>
+      <p>Showroom #10, CCTV and Solar Market, Zamzama Centre, Near Passport Office, Saddar, Karachi. Proposed identity and wordmark: www.pspcctv.com did not resolve when this concept was made (18 November 2026).</p>
+      <p>Website concept for Pakistan Surveillance Products, not the official website. Camera scenes are illustrations; the photo is stock. Details from the public BusinessList.pk listing. Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a>.</p>
+    </div>
+    <a class="btn btn-go" href="tel:+922135641433">Call 021-35641433</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // mobile nav
+  var menu=document.querySelector('.menu'),nav=document.getElementById('nav');
+  menu.addEventListener('click',function(){var o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+
+  // clock, Karachi time
+  var clock=document.getElementById('clock'),tiles=document.querySelectorAll('.clock-tile');
+  var fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Karachi',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+  function tick(){var p={};fmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    var s=p.day+'-'+p.month+'-'+p.year+' '+p.hour+':'+p.minute+':'+p.second;
+    clock.textContent=s+' PKT';tiles.forEach(function(t){t.textContent=s})}
+  tick();setInterval(tick,1000);
+
+  // split view
+  var wall=document.getElementById('wall'),btns=wall.querySelectorAll('.split button'),cams=wall.querySelectorAll('.cam'),last='9';
+  function split(n){wall.dataset.split=n;btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.n===n)});
+    cams.forEach(function(c){c.setAttribute('aria-label',c.getAttribute('aria-label').replace(/\. (Show full view|Back to split view)$/,n==='1'?'. Back to split view':'. Show full view'))})}
+  if(window.matchMedia('(max-width:600px)').matches){split('4');last='4'}
+  btns.forEach(function(b){b.addEventListener('click',function(){if(b.dataset.n!=='1')last=b.dataset.n;split(b.dataset.n)})});
+  cams.forEach(function(c){c.addEventListener('click',function(){
+    if(wall.dataset.split==='1'){split(last);return}
+    cams.forEach(function(x){x.classList.toggle('is-on',x===c)});split('1')})});
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function show(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+    document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus()}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){show(t)});
+    t.addEventListener('keydown',function(e){var k=e.key,j=null;if(k==='ArrowRight')j=(i+1)%tabs.length;if(k==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+      if(k==='Home')j=0;if(k==='End')j=tabs.length-1;if(j!==null){e.preventDefault();show(tabs[j],true)}})});
+
+  // dealer form
+  var form=document.getElementById('apply'),msg=document.getElementById('msg'),sms=document.getElementById('sms');
+  function val(id){return document.getElementById(id).value.trim()}
+  function compose(){
+    var role=form.querySelector('input[name=role]:checked').value;
+    var cats=[].map.call(form.querySelectorAll('#cats input:checked'),function(x){return x.value});
+    var t='Assalam o alaikum. I would like to apply for dealer pricing.\n\n'+
+      'Name: '+(val('f-name')||'—')+'\nBusiness: '+(val('f-biz')||'—')+'\nI am a: '+role+'\nArea: '+(val('f-area')||'—')+
+      '\nCategories: '+(cats.length?cats.join(', '):'—')+(val('f-note')?'\n\n'+val('f-note'):'');
+    msg.textContent=t;sms.href='sms:+923458098533?body='+encodeURIComponent(t);return t}
+  form.addEventListener('input',compose);form.addEventListener('change',compose);compose();
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=compose(),out=document.getElementById('copied');
+    function done(){out.textContent='Message copied. Paste it into SMS or a call note.'}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){out.textContent='Copy blocked by the browser. Select the message text instead.'})}
+    else{out.textContent='Select the message text above to copy it.'}});
+  document.querySelectorAll('.ask').forEach(function(b){b.addEventListener('click',function(){
+    form.querySelectorAll('#cats input').forEach(function(x){if(x.value===b.dataset.cat)x.checked=true});compose();
+    document.getElementById('dealer').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+    setTimeout(function(){document.getElementById('f-name').focus({preventScroll:true})},400)})});
+})();
+</script>
+</body>
+</html>
