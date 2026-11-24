@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City Electronics — home and kitchen appliances, Gulshan-e-Iqbal (website concept)</title>
+<meta name="description" content="Website concept for City Electronics, Gulshan-e-Iqbal, Karachi. Air conditioners, refrigerators, geysers and kitchen appliances. Confirm today's price on WhatsApp, then visit the showroom on University Road.">
+<meta name="theme-color" content="#14213D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#14213D; --midnight-2:#1E2F55; --midnight-3:#2B3E68;
+  --mint:#3CC8B4; --mint-ink:#0B7A6B; --mint-tint:#DDF4EF;
+  --coral:#FF6B4A; --coral-ink:#B23A1B; --coral-tint:#FFE6DC;
+  --cream:#FFF8EE; --white:#FFFFFF; --ink-2:#4A5672; --line:#E6DDCF;
+  --season:var(--mint); --season-ink:var(--mint-ink); --season-tint:var(--mint-tint);
+  --display:"Sora",system-ui,sans-serif; --body:"DM Sans",system-ui,sans-serif;
+  --wrap:1240px;
+}
+[data-season="winter"]{--season:var(--coral); --season-ink:var(--coral-ink); --season-tint:var(--coral-tint)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--midnight);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em;font-weight:700}
+p{margin:0}
+.wrap{width:min(var(--wrap),100% - 48px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--midnight);outline-offset:3px;border-radius:6px}
+.on-dark :focus-visible,.on-dark:focus-visible{outline-color:var(--mint)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--midnight);color:#fff;padding:10px 14px;border-radius:8px;z-index:50}
+.skip:focus{top:12px}
+
+/* concept notice */
+.notice{background:var(--midnight);color:#C8D0E2;font-size:13.5px;line-height:1.45}
+.notice .wrap{display:flex;justify-content:space-between;gap:6px 20px;padding:8px 0;flex-wrap:wrap}
+.notice a{color:var(--mint);text-underline-offset:3px}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--cream) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 21px/1 var(--display);letter-spacing:-.03em}
+.mark .lamp{width:11px;height:11px;border-radius:50%;background:var(--season);box-shadow:0 0 0 4px color-mix(in srgb,var(--season) 25%,transparent);transition:background .5s,box-shadow .5s}
+.mark small{display:block;font:500 12px/1.2 var(--body);letter-spacing:0;color:var(--ink-2);margin-top:3px}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:15.5px;padding:8px 12px;border-radius:999px}
+.nav a:hover{background:var(--season-tint)}
+.head-cta{display:inline-flex;align-items:center;gap:8px;background:var(--midnight);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px;white-space:nowrap}
+.head-cta:hover{background:var(--midnight-3)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1.5px solid var(--midnight);border-radius:999px;padding:9px 16px;font:700 15px var(--body);color:var(--midnight);cursor:pointer}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
+.btn-wa{background:var(--midnight);color:#fff}
+.btn-wa:hover{background:var(--midnight-3)}
+.btn-line{border-color:var(--midnight);color:var(--midnight);background:transparent}
+.btn-line:hover{background:var(--midnight);color:#fff}
+.btn-coral{background:var(--coral);color:var(--midnight)}
+.btn-coral:hover{background:#FF8466}
+.btn svg{flex:none}
+
+/* HERO: season switch */
+.hero{background:var(--season-tint);transition:background-color .6s ease;padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center}
+.hero-kicker{font-weight:500;color:var(--ink-2);margin-bottom:18px}
+.hero h1{font-size:clamp(40px,5.4vw,78px);line-height:1;letter-spacing:-.045em;font-weight:800;max-width:11ch}
+.hero-lead{font-size:19px;max-width:44ch;margin-top:22px;color:#28365A}
+.season-list{list-style:none;margin:30px 0 0;padding:0;border-top:1.5px solid var(--midnight)}
+.season-list li{border-bottom:1px solid color-mix(in srgb,var(--midnight) 22%,transparent)}
+.season-list a{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:4px 16px;padding:13px 2px;text-decoration:none}
+.season-list b{font:600 19px/1.25 var(--display);letter-spacing:-.01em}
+.season-list span{grid-column:1;font-size:15px;color:var(--ink-2)}
+.season-list em{grid-row:1/span 2;grid-column:2;align-self:center;font-style:normal;font-weight:700;font-size:14.5px;color:var(--season-ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.season-list a:hover b{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.panel[hidden]{display:none}
+
+.wall{position:relative;aspect-ratio:1/1.02;border-radius:28px;background:var(--season);transition:background-color .6s ease;overflow:hidden}
+.wall svg.art{position:absolute;inset:0;width:100%;height:100%}
+.art .scene{transition:opacity .55s ease,transform .55s ease}
+[data-season="summer"] .art .winter-scene,[data-season="winter"] .art .summer-scene{opacity:0;transform:translateY(14px)}
+.flow{stroke-dasharray:10 16;animation:flow 2.4s linear infinite}
+.steam{animation:steam 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom}
+.steam.d2{animation-delay:1s}.steam.d3{animation-delay:2s}
+@keyframes flow{to{stroke-dashoffset:-52}}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}35%{opacity:.9}100%{opacity:0;transform:translateY(-26px)}}
+.wall-note{position:absolute;right:18px;bottom:14px;font-size:12.5px;color:var(--midnight);opacity:.8}
+
+/* the switch plate */
+.plate{position:absolute;left:28px;bottom:28px;width:176px;padding:22px 20px 18px;background:#FBFBF8;border-radius:20px;box-shadow:0 1px 0 #fff inset,0 10px 0 -4px rgba(20,33,61,.18),0 2px 0 rgba(20,33,61,.12)}
+.plate::before,.plate::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#B9BCC4);top:10px;left:10px;box-shadow:146px 0 0 0 #C9CCD3}
+.plate::after{top:auto;bottom:10px}
+.plate-label{display:flex;justify-content:space-between;align-items:center;font:600 12.5px/1 var(--display);color:var(--ink-2);margin:0 2px 12px}
+.plate-label i{width:10px;height:10px;border-radius:50%;background:var(--season);box-shadow:0 0 8px 2px color-mix(in srgb,var(--season) 70%,transparent);transition:background .5s}
+.rocker{display:grid;border-radius:12px;background:#E9EAE6;padding:5px;gap:5px}
+.rocker button{appearance:none;border:0;border-radius:9px;min-height:50px;font:700 17px/1 var(--display);letter-spacing:-.01em;color:var(--ink-2);background:#F2F2EF;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 14px;box-shadow:0 3px 0 #CFD1CC;transition:box-shadow .15s,transform .15s,background .3s,color .3s}
+.rocker button svg{opacity:.55}
+.rocker button[aria-selected="true"]{background:var(--midnight);color:#fff;box-shadow:inset 0 2px 4px rgba(0,0,0,.35);transform:translateY(2px)}
+.rocker button[aria-selected="true"] svg{opacity:1;color:var(--season)}
+.rocker button:focus-visible{outline:3px solid var(--midnight);outline-offset:2px}
+
+/* section shells */
+section{scroll-margin-top:84px}
+.sec{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2,.h2{font-size:clamp(30px,3.6vw,50px);line-height:1.05;letter-spacing:-.035em}
+.sec-head p{margin-top:16px;color:var(--ink-2);font-size:18px;max-width:56ch}
+
+/* price composer */
+.prices .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.why blockquote{margin:30px 0 0;padding:22px 0 0;border-top:1.5px solid var(--midnight);font:600 clamp(22px,2.3vw,30px)/1.22 var(--display);letter-spacing:-.02em}
+.why blockquote p::before{content:"\201C"}.why blockquote p::after{content:"\201D"}
+.why cite{display:block;margin-top:12px;font:500 14.5px/1.4 var(--body);font-style:normal;color:var(--ink-2)}
+.why .h2+p{margin-top:16px;color:var(--ink-2);font-size:18px}
+.why-body{margin-top:24px;font-size:17px;max-width:46ch}
+.why-body p+p{margin-top:12px}
+.why-body a{font-weight:700;color:var(--mint-ink);text-underline-offset:3px}
+
+.composer{background:var(--midnight);color:#fff;border-radius:26px;padding:34px}
+.composer h3{font-size:24px;letter-spacing:-.02em}
+.composer .sub{color:#B9C3DA;font-size:15.5px;margin-top:6px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:500;font-size:14.5px;color:#D5DCEA}
+.field select,.field input{font:500 16px var(--body);color:var(--midnight);background:#fff;border:2px solid #fff;border-radius:12px;height:50px;padding:0 14px;width:100%}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2314213D' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field select:focus-visible,.field input:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.preview{margin-top:24px;background:#0E1830;border-radius:18px;padding:18px}
+.preview-top{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:#9FAAC4;margin-bottom:10px}
+.bubble{background:#DCF8C6;color:#14213D;border-radius:14px 14px 4px 14px;padding:12px 14px;font-size:15.5px;line-height:1.45;margin-left:auto;max-width:92%;white-space:pre-line}
+.composer-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.composer-actions .alt{color:#C8D0E2;font-size:15px}
+.composer-actions .alt a{color:var(--mint);font-weight:700;text-underline-offset:3px}
+
+/* categories */
+.cats{background:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:14px}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;border-radius:18px;text-decoration:none;overflow:hidden;background:var(--cream);border:1.5px solid var(--line)}
+.tile h3{font-size:21px;line-height:1.15;letter-spacing:-.02em}
+.tile p{font-size:14.5px;color:var(--ink-2);margin-top:5px;line-height:1.4}
+.tile .ask{margin-top:10px;font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.tile:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.t-ac{grid-column:span 3;grid-row:span 2;background:var(--midnight);color:#fff;border:0}
+.t-ac p{color:#C8D0E2}.t-ac .ask{color:var(--mint)}
+.t-ac h3{font-size:clamp(26px,2.6vw,36px)}
+.t-ac svg{position:absolute;right:20px;top:22px;width:min(62%,330px);height:auto}
+.t-photo{grid-column:span 2;grid-row:span 2;padding:0;border:0;background:var(--midnight);color:#fff}
+.t-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.t-photo .cap{position:relative;margin:auto 12px 12px;background:var(--midnight);border-radius:12px;padding:14px 16px}
+.t-photo .cap p{color:#C8D0E2}
+.t-photo .ask{color:var(--mint)}
+.stock{position:absolute;top:12px;left:12px;background:rgba(255,248,238,.92);color:var(--midnight);font-size:12px;font-weight:500;padding:4px 9px;border-radius:999px}
+.t-cool{background:var(--mint-tint);border-color:#BFE8E0}
+.t-warm{background:var(--coral-tint);border-color:#F8CDBF}
+.t-wide{grid-column:span 2}
+.t-tag{position:absolute;top:16px;right:16px;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px}
+.t-cool .t-tag{background:var(--mint);color:var(--midnight)}
+.t-warm .t-tag{background:var(--coral);color:var(--midnight)}
+.t-dark{background:var(--midnight-2);color:#fff;border:0}.t-dark p{color:#C8D0E2}.t-dark .ask{color:var(--mint)}
+
+/* brands */
+.brands{background:var(--midnight);color:#fff}
+.brands .sec-head p{color:#C8D0E2}
+.wallof{display:flex;flex-wrap:wrap;gap:6px 0;align-items:baseline;font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(28px,4.2vw,58px);line-height:1.15}
+.wallof button{appearance:none;background:none;border:0;padding:0 .12em;margin:0;font:inherit;letter-spacing:inherit;color:#F3EEE5;cursor:pointer;border-radius:8px}
+.wallof button:hover{color:var(--mint)}
+.wallof button:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.wallof .sep{color:var(--midnight-3);padding:0 .14em;font-weight:400}
+.wallof button.alt{color:#8FA0C3;font-weight:400}
+.brands-foot{margin-top:36px;color:#AEB9D2;font-size:15px;max-width:62ch}
+
+/* installments */
+.qist{background:var(--coral);padding:72px 0}
+.qist .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+.qist p.lead{font-size:19px;margin-top:16px;max-width:46ch}
+.sample{display:inline-block;margin-top:18px;background:rgba(20,33,61,.1);border:1.5px dashed rgba(20,33,61,.55);border-radius:10px;padding:8px 12px;font-size:14.5px;font-weight:500}
+.qist-form{background:var(--cream);border-radius:22px;padding:26px}
+.qist-form label{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+.qist-form select{font:500 16px var(--body);width:100%;height:50px;border-radius:12px;border:2px solid var(--midnight);padding:0 14px;color:var(--midnight);background:#fff}
+.qist-form .btn{width:100%;margin-top:14px}
+.qist-form small{display:block;margin-top:10px;color:var(--ink-2);font-size:13.5px}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.addr{margin-top:26px;font:600 clamp(21px,2vw,26px)/1.3 var(--display);letter-spacing:-.015em;font-style:normal}
+.landmark{margin-top:10px;color:var(--ink-2)}
+.dl{margin:26px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:16.5px}
+.dl dt{color:var(--ink-2)}
+.dl dd{margin:0;font-weight:500}
+.dl a{text-underline-offset:3px}
+.visit .hero-ctas{margin-top:28px}
+.map{background:var(--white);border-radius:26px;border:1.5px solid var(--line);padding:14px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--ink-2);padding:10px 8px 2px}
+
+/* footer */
+.foot{background:var(--midnight);color:#C8D0E2;padding:56px 0 28px;font-size:15px}
+.foot .top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--midnight-3)}
+.foot .mark{color:#fff}.foot .mark small{color:#AEB9D2}
+.foot h3{font:600 15px var(--display);color:#fff;margin-bottom:10px;letter-spacing:0}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{color:#E4E9F3;text-underline-offset:3px}
+.foot .legal{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;padding-top:22px;font-size:13.5px}
+.foot .legal a{color:var(--mint)}
+
+/* mobile action bar */
+.dock{display:none}
+
+@media (max-width:1100px){
+  .nav a{padding:8px 9px;font-size:15px}
+}
+@media (max-width:1024px){
+  .hero .wrap{gap:36px}
+  .prices .wrap,.visit .wrap{gap:40px}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .t-ac{grid-column:span 4}
+  .t-photo{grid-column:span 2}
+  .foot .top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav,.head-cta{display:none}
+  .menu-btn{display:inline-flex}
+  .nav.open{display:flex;position:absolute;left:0;right:0;top:72px;flex-direction:column;background:var(--cream);border-bottom:1px solid var(--line);padding:10px 16px 18px}
+  .nav.open a{padding:12px 10px;font-size:17px;border-radius:10px}
+  .hero .wrap,.prices .wrap,.visit .wrap,.qist .wrap{grid-template-columns:1fr}
+  .hero{padding:36px 0 56px}
+  .wall{aspect-ratio:auto;height:440px;max-width:560px}
+  .sec{padding:72px 0}
+}
+@media (max-width:768px){
+  body{padding-bottom:72px}
+  .dock{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--cream);border-top:1px solid var(--line)}
+  .dock a{min-height:48px}
+}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 32px)}
+  .site-head .wrap{height:64px}
+  .nav.open{top:64px}
+  .mark{font-size:19px}
+  .hero h1{font-size:44px}
+  .hero-lead{font-size:17.5px}
+  .wall{height:380px;border-radius:22px}
+  .plate{left:16px;bottom:16px;width:156px;padding:20px 14px 14px}
+  .plate::before,.plate::after{box-shadow:128px 0 0 0 #C9CCD3}
+  .hero-ctas .btn{width:100%}
+  .composer{padding:22px 18px;border-radius:20px}
+  .fields{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:10px}
+  .grid .tile{grid-column:span 1;grid-row:auto;min-height:150px;padding:16px}
+  .grid .t-ac,.grid .t-photo,.grid .t-wide{grid-column:span 2}
+  .grid .t-ac{min-height:300px}
+  .grid .t-photo{min-height:300px;padding:0}
+  .t-ac svg{width:74%;right:14px;top:16px}
+  .tile h3{font-size:18.5px}
+  .wallof{font-size:30px}
+  .dl{grid-template-columns:1fr;gap:2px}
+  .dl dd{margin-bottom:10px}
+  .foot .top{grid-template-columns:1fr}
+}
+[data-season="summer"] .s-win,[data-season="winter"] .s-sum{display:none}
+.rocker button{gap:10px}
+@media (max-width:900px){
+  .hero-copy{display:contents}
+  .hero .wrap{gap:0}
+  .hero-kicker{order:1}.hero-head{order:2}.wall{order:3;margin-top:26px}.panel{order:4}.hero-ctas{order:5}
+}
+@media (max-width:560px){
+  .wall{height:330px}
+  .wall-note{top:12px;bottom:auto;right:16px;font-size:12px}
+  .plate{bottom:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body data-season="summer">
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for City Electronics — not the official website. Proposed design and wordmark; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="City Electronics, back to top"><span class="lamp" aria-hidden="true"></span><span>City Electronics<small>Gulshan-e-Iqbal, Karachi</small></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#top">Seasons</a>
+      <a href="#prices">Prices</a>
+      <a href="#categories">Categories</a>
+      <a href="#brands">Brands</a>
+      <a href="#installments">Installments</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="head-cta" href="https://wa.me/923178787847" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+      WhatsApp 0317 8787847</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-label="Appliances by season">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="hero-kicker">Home and kitchen appliances on University Road, Gulshan-e-Iqbal</p>
+
+      <div class="hero-head" aria-live="polite">
+        <h1><span class="s-sum">Keep the house cool this summer.</span><span class="s-win">Hot water and a warm kitchen this winter.</span></h1>
+        <p class="hero-lead"><span class="s-sum">Air conditioners, air coolers, refrigerators and deep freezers, in the brands City Electronics carries.</span><span class="s-win">Geysers for the morning rush, microwaves and roti makers for hot food, and inverter air conditioners.</span> Pick one, check today's price on WhatsApp, then see it at the showroom.</p>
+      </div>
+
+      <div class="panel" id="panel-summer" role="tabpanel" aria-labelledby="tab-summer">
+        <ul class="season-list">
+          <li><a href="#prices" data-cat="ac-inv"><b>Air conditioners</b><span>Inverter and non-inverter</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="cooler"><b>Air coolers</b><span>For rooms and verandas</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="fridge-inv"><b>Refrigerators</b><span>Inverter and non-inverter</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="freezer"><b>Deep freezers</b><span>For Eid meat, ice and bulk shopping</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="home" data-item="Fan"><b>Fans</b><span>From the home appliances range</span><em>Ask today's price</em></a></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="panel-winter" role="tabpanel" aria-labelledby="tab-winter" hidden>
+        <ul class="season-list">
+          <li><a href="#prices" data-cat="geyser"><b>Geysers</b><span>Hot water for the whole house</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="ac-inv" data-item="Inverter AC with heating"><b>Inverter air conditioners</b><span>Ask which models also heat</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="microwave"><b>Microwaves</b><span>Reheat, defrost, cook</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="kitchen" data-item="Roti maker or toaster"><b>Roti makers and toasters</b><span>From the kitchen appliances range</span><em>Ask today's price</em></a></li>
+          <li><a href="#prices" data-cat="home" data-item="Water dispenser"><b>Water dispensers</b><span>From the home appliances range</span><em>Ask today's price</em></a></li>
+        </ul>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="#prices">Confirm a price on WhatsApp</a>
+        <a class="btn btn-line" href="#visit">Visit the showroom</a>
+      </div>
+    </div>
+
+    <div class="wall">
+      <svg class="art" viewBox="0 0 560 572" role="img" aria-label="Drawing: a split air conditioner blowing cool air in summer, or a geyser with steam in winter">
+        <g class="scene summer-scene">
+          <path d="M486 196 V300 Q486 318 504 318 H560" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="12" stroke-linecap="round"/>
+          <rect x="62" y="84" width="440" height="132" rx="28" fill="#14213D" fill-opacity=".16"/>
+          <rect x="56" y="70" width="440" height="132" rx="28" fill="#fff"/>
+          <rect x="56" y="156" width="440" height="46" rx="0" fill="#EEF2F4"/>
+          <path d="M56 156 H496 V174 Q496 202 468 202 H84 Q56 202 56 174 Z" fill="#E7ECEF"/>
+          <path d="M92 182 H460" stroke="#14213D" stroke-width="5" stroke-linecap="round"/>
+          <rect x="394" y="100" width="70" height="30" rx="8" fill="#14213D"/>
+          <g stroke="#3CC8B4" stroke-width="2.4" stroke-linecap="round"><path d="M429 106 V124 M421 110 L437 120 M437 110 L421 120"/></g>
+          <circle cx="94" cy="114" r="5" fill="#3CC8B4"/>
+          <g fill="none" stroke="#14213D" stroke-opacity=".55" stroke-width="5" stroke-linecap="round">
+            <path class="flow" d="M150 222 C150 300 230 320 226 420"/>
+            <path class="flow" d="M230 222 C232 300 318 330 318 448"/>
+            <path class="flow" d="M310 222 C318 292 404 316 420 420"/>
+            <path class="flow" d="M390 222 C402 276 470 300 500 372"/>
+          </g>
+        </g>
+        <g class="scene winter-scene">
+          <rect x="318" y="70" width="156" height="300" rx="78" fill="#14213D" fill-opacity=".16"/>
+          <rect x="310" y="58" width="156" height="300" rx="78" fill="#fff"/>
+          <rect x="310" y="140" width="156" height="10" fill="#FBE3DA"/>
+          <circle cx="388" cy="222" r="30" fill="#fff" stroke="#14213D" stroke-width="5"/>
+          <path d="M388 222 L404 206" stroke="#B23A1B" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="388" cy="222" r="4" fill="#14213D"/>
+          <circle cx="388" cy="296" r="7" fill="#FF6B4A"/>
+          <g fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round">
+            <path d="M362 358 V434"/>
+            <path d="M414 358 V398 Q414 410 426 410 H560" stroke-opacity=".55"/>
+          </g>
+          <rect x="342" y="430" width="40" height="26" rx="8" fill="#14213D"/>
+          <path d="M362 456 V470" stroke="#14213D" stroke-width="8" stroke-linecap="round"/>
+          <path d="M362 482 V540" stroke="#fff" stroke-opacity=".6" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/>
+          <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-opacity=".85">
+            <path class="steam" d="M318 540 c-12 -14 12 -24 0 -38 c-12 -14 12 -24 0 -38"/>
+            <path class="steam d2" d="M406 528 c-12 -14 12 -24 0 -38 c-12 -14 12 -24 0 -38"/>
+            <path class="steam d3" d="M448 548 c-12 -14 12 -24 0 -38 c-12 -14 12 -24 0 -38"/>
+          </g>
+        </g>
+      </svg>
+
+      <div class="plate">
+        <p class="plate-label" id="season-label"><span>Season</span><i aria-hidden="true"></i></p>
+        <div class="rocker" role="tablist" aria-labelledby="season-label">
+          <button type="button" role="tab" id="tab-summer" aria-controls="panel-summer" aria-selected="true">Summer
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10"/></g></svg></button>
+          <button type="button" role="tab" id="tab-winter" aria-controls="panel-winter" aria-selected="false" tabindex="-1">Winter
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c1 3.5 5 5.6 5 10.2A5 5 0 0 1 7 12.5C7 9.8 9 8.6 9.3 6c1.6 1 2.3 2.6 2.2 4.4C13 9 12.9 5.6 12 2Z"/></svg></button>
+        </div>
+      </div>
+      <p class="wall-note">Illustration drawn for this concept</p>
+    </div>
+  </div>
+</section>
+<section class="sec prices" id="prices" aria-labelledby="prices-h">
+  <div class="wrap">
+    <div class="why">
+      <h2 class="h2" id="prices-h">Confirm today's price before you order.</h2>
+      <blockquote>
+        <p>Prices may increase due to currency devaluation without any prior notice</p>
+        <cite>The notice on City Electronics' current online store</cite>
+      </blockquote>
+      <div class="why-body">
+        <p>Appliance prices in Pakistan follow the rupee, and the rupee moves. Rather than leave an old price online, City Electronics asks you to confirm it first.</p>
+        <p>Choose what you're looking at and this form writes the WhatsApp message for you. Prefer to talk? Call <a href="tel:+923178787847">+92 317 8787847</a>.</p>
+      </div>
+    </div>
+
+    <form class="composer on-dark" id="composer" aria-labelledby="composer-h">
+      <h3 id="composer-h">Price check</h3>
+      <p class="sub">Sends to City Electronics on WhatsApp, +92 317 8787847.</p>
+      <div class="fields">
+        <div class="field">
+          <label for="f-cat">Category</label>
+          <select id="f-cat" name="cat">
+            <option value="ac-inv">Air conditioner (inverter)</option>
+            <option value="ac-non">Air conditioner (non-inverter)</option>
+            <option value="cooler">Air cooler</option>
+            <option value="fridge-inv">Refrigerator (inverter)</option>
+            <option value="fridge-non">Refrigerator (non-inverter)</option>
+            <option value="freezer">Deep freezer</option>
+            <option value="geyser">Geyser</option>
+            <option value="tv">LED TV</option>
+            <option value="washer">Washing machine / dryer-spinner</option>
+            <option value="microwave">Microwave</option>
+            <option value="kitchen">Kitchen appliance</option>
+            <option value="home">Home appliance</option>
+            <option value="hob">Hob &amp; hood</option>
+            <option value="care">Personal care</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-brand">Brand</label>
+          <select id="f-brand" name="brand">
+            <option value="">Any brand</option>
+            <option>Haier</option><option>Dawlance</option><option>PEL</option><option>Gree</option><option>Samsung</option><option>LG</option><option>TCL</option><option>Hisense</option><option>Panasonic</option><option>Kenwood</option><option>Midea</option><option>Orient</option><option>Sharp</option><option>Super Asia</option><option>West Point</option><option>Anex</option><option>Philips</option><option>Electrolux</option><option>Ecostar</option><option>Moulinex</option><option>Hitachi</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="f-item">Model, size or item (optional)</label>
+          <input id="f-item" name="item" type="text" autocomplete="off" placeholder="e.g. 1.5 ton, or the model number">
+        </div>
+        <div class="field">
+          <label for="f-name">Your name (optional)</label>
+          <input id="f-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-area">Your area (optional)</label>
+          <input id="f-area" name="area" type="text" autocomplete="address-level2" placeholder="e.g. Gulistan-e-Jauhar">
+        </div>
+      </div>
+      <div class="preview" aria-live="polite">
+        <div class="preview-top"><span>Your message</span><span>to +92 317 8787847</span></div>
+        <p class="bubble" id="bubble"></p>
+      </div>
+      <div class="composer-actions">
+        <a class="btn btn-coral" id="send" href="https://wa.me/923178787847" target="_blank" rel="noopener">Confirm a price on WhatsApp</a>
+        <span class="alt">or call <a href="tel:+923352218985">+92 335 2218985</a></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec cats" id="categories" aria-labelledby="cats-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="cats-h">What's in the showroom</h2>
+      <p>The categories City Electronics lists in its store. Tap one to start a price check.</p>
+    </div>
+    <div class="grid">
+      <a class="tile t-ac" href="#prices" data-cat="ac-inv">
+        <svg viewBox="0 0 330 150" aria-hidden="true"><rect x="6" y="10" width="318" height="96" rx="22" fill="#fff"/><path d="M6 76 H324 V84 Q324 106 302 106 H28 Q6 106 6 84 Z" fill="#DDE3EA"/><path d="M34 92 H296" stroke="#14213D" stroke-width="4" stroke-linecap="round"/><rect x="248" y="32" width="50" height="22" rx="6" fill="#14213D"/><g fill="none" stroke="#3CC8B4" stroke-width="4" stroke-linecap="round"><path d="M80 118 C80 132 100 136 98 150"/><path d="M150 118 C152 132 172 138 172 150"/><path d="M220 118 C226 130 246 136 252 150"/></g></svg>
+        <h3>Air conditioners</h3>
+        <p>Inverter and non-inverter split units</p>
+        <span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile t-photo" href="#prices" data-cat="fridge-inv">
+        <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=720&q=70&auto=format&fit=crop" alt="A mint-green refrigerator against a white wall with plants" width="720" height="720" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="cap"><h3>Refrigerators</h3><p>Inverter and non-inverter</p><span class="ask">Ask today's price</span></div>
+      </a>
+      <a class="tile t-cool" href="#prices" data-cat="cooler">
+        <span class="t-tag">Summer</span>
+        <h3>Air coolers</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile t-cool" href="#prices" data-cat="freezer">
+        <span class="t-tag">Summer</span>
+        <h3>Deep freezers</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile t-photo" href="#prices" data-cat="tv">
+        <img src="https://images.unsplash.com/photo-1461151304267-38535e780c79?w=720&q=70&auto=format&fit=crop" alt="A flat-screen TV on a white media unit in a living room" width="720" height="720" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="cap"><h3>LED TVs</h3><p>Ask which brands and sizes are in stock</p><span class="ask">Ask today's price</span></div>
+      </a>
+      <a class="tile t-photo" href="#prices" data-cat="washer">
+        <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=720&q=70&auto=format&fit=crop" alt="A white front-loading washing machine in a laundry corner" width="720" height="720" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="cap"><h3>Washing machines</h3><p>Including dryers and spinners</p><span class="ask">Ask today's price</span></div>
+      </a>
+      <a class="tile t-photo" href="#prices" data-cat="kitchen">
+        <img src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=720&q=70&auto=format&fit=crop" alt="A glass blender jug filled with sliced fruit" width="720" height="720" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="cap"><h3>Kitchen appliances</h3><p>Air fryers, blenders, juicers, roti makers, toasters</p><span class="ask">Ask today's price</span></div>
+      </a>
+      <a class="tile t-photo" href="#prices" data-cat="home">
+        <img src="https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?w=720&q=70&auto=format&fit=crop" alt="A metal desk fan photographed against a dark background" width="720" height="720" loading="lazy">
+        <span class="stock">Stock photo</span>
+        <div class="cap"><h3>Home appliances</h3><p>Fans, irons, vacuum cleaners, water dispensers</p><span class="ask">Ask today's price</span></div>
+      </a>
+      <a class="tile t-warm" href="#prices" data-cat="geyser">
+        <span class="t-tag">Winter</span>
+        <h3>Geysers</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile" href="#prices" data-cat="microwave">
+        <h3>Microwaves</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile" href="#prices" data-cat="hob">
+        <h3>Hob &amp; hood</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile" href="#prices" data-cat="care">
+        <h3>Personal care</h3><span class="ask">Ask today's price</span>
+      </a>
+      <a class="tile t-wide t-dark" href="#prices" data-item="Today's Best Deals">
+        <h3>Best deals</h3><p>The store's deals section changes often. Ask what's on it today.</p><span class="ask">Ask about today's deals</span>
+      </a>
+      <a class="tile t-wide t-warm" href="#installments">
+        <h3>Installments</h3><p>Buy now and pay over time. See how to ask below.</p><span class="ask">About installments</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec brands on-dark" id="brands" aria-labelledby="brands-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="brands-h">Brands on the shelves</h2>
+      <p>The brands City Electronics lists in its store. Tap a name to add it to your price check.</p>
+    </div>
+    <div class="wallof" id="wallof">
+      <button type="button">Haier</button><span class="sep" aria-hidden="true">/</span><button type="button">Dawlance</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">PEL</button><span class="sep" aria-hidden="true">/</span><button type="button">Gree</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Samsung</button><span class="sep" aria-hidden="true">/</span><button type="button">LG</button><span class="sep" aria-hidden="true">/</span><button type="button">TCL</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Hisense</button><span class="sep" aria-hidden="true">/</span><button type="button">Panasonic</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Kenwood</button><span class="sep" aria-hidden="true">/</span><button type="button">Midea</button><span class="sep" aria-hidden="true">/</span><button type="button">Orient</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Sharp</button><span class="sep" aria-hidden="true">/</span><button type="button">Super Asia</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">West Point</button><span class="sep" aria-hidden="true">/</span><button type="button">Anex</button><span class="sep" aria-hidden="true">/</span><button type="button">Philips</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Electrolux</button><span class="sep" aria-hidden="true">/</span><button type="button">Ecostar</button><span class="sep" aria-hidden="true">/</span><button type="button" class="alt">Moulinex</button><span class="sep" aria-hidden="true">/</span><button type="button">Hitachi</button>
+    </div>
+    <p class="brands-foot">Listed as brands the store carries, not as authorised dealerships. Which models are on the floor changes, so ask before you visit.</p>
+  </div>
+</section>
+
+<section class="qist" id="installments" aria-labelledby="qist-h">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="qist-h">Pay for it in installments.</h2>
+      <p class="lead">City Electronics has an Installment section in its online store. Ask on WhatsApp which appliances it covers and what you would need to apply.</p>
+      <p class="sample">Sample content: plans, monthly amounts and required documents to be supplied by City Electronics.</p>
+    </div>
+    <div class="qist-form">
+      <label for="q-cat">I'm thinking of buying</label>
+      <select id="q-cat">
+        <option>an air conditioner</option><option>a refrigerator</option><option>a deep freezer</option><option>a washing machine</option><option>an LED TV</option><option>a geyser</option><option>an air cooler</option><option>a microwave</option><option>something else</option>
+      </select>
+      <a class="btn btn-wa" id="q-send" href="https://wa.me/923178787847" target="_blank" rel="noopener">Ask about installments on WhatsApp</a>
+      <small>Opens WhatsApp with a message to +92 317 8787847. Nothing is sent until you press send.</small>
+    </div>
+  </div>
+</section>
+
+<section class="sec visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="visit-h">Visit the showroom.</h2>
+      <address class="addr">Shop No. 1, Sheikh Centre, Block 13-B, Gulshan-e-Iqbal, Karachi</address>
+      <p class="landmark">On Main University Road, opposite Bait-ul-Mukarram Masjid.</p>
+      <dl class="dl">
+        <dt>Phone and WhatsApp</dt><dd><a href="tel:+923178787847">+92 317 8787847</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+923352218985">+92 335 2218985</a></dd>
+        <dt>Email</dt><dd><a href="mailto:info@cityelectronics.com.pk">info@cityelectronics.com.pk</a></dd>
+        <dt>Opening hours</dt><dd>To be supplied by City Electronics</dd>
+      </dl>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://www.google.com/maps/search/?api=1&amp;query=City%20Electronics%20Sheikh%20Centre%20Gulshan-e-Iqbal%20Block%2013-B%20Karachi" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-line" href="tel:+923178787847">Call before you come</a>
+      </div>
+    </div>
+    <figure class="map" style="margin:0">
+      <svg viewBox="0 0 640 430" role="img" aria-label="Schematic map: City Electronics in Sheikh Centre on Main University Road, opposite Bait-ul-Mukarram Masjid">
+        <rect width="640" height="430" rx="16" fill="#F6F1E8"/>
+        <rect x="150" y="0" width="34" height="430" fill="#fff"/>
+        <rect x="478" y="0" width="34" height="430" fill="#fff"/>
+        <rect x="0" y="186" width="640" height="64" fill="#14213D"/>
+        <path d="M0 218 H640" stroke="#FFF8EE" stroke-width="2" stroke-dasharray="16 14" opacity=".55"/>
+        <text x="24" y="210" fill="#FFF8EE" font-family="DM Sans, sans-serif" font-size="15" font-weight="500">Main University Road</text>
+        <rect x="236" y="54" width="194" height="108" rx="10" fill="#E3DACB"/>
+        <path d="M303 98 a30 30 0 0 1 60 0 Z" fill="#fff" stroke="#14213D" stroke-width="3"/>
+        <rect x="296" y="98" width="74" height="40" fill="#fff" stroke="#14213D" stroke-width="3"/>
+        <path d="M392 72 V138" stroke="#14213D" stroke-width="3"/><circle cx="392" cy="68" r="4" fill="#14213D"/>
+        <text x="333" y="40" text-anchor="middle" fill="#14213D" font-family="Sora, sans-serif" font-size="15" font-weight="600">Bait-ul-Mukarram Masjid</text>
+        <rect x="226" y="272" width="214" height="98" rx="10" fill="#14213D"/>
+        <rect x="244" y="290" width="58" height="62" rx="6" fill="#3CC8B4"/>
+        <text x="314" y="314" fill="#fff" font-family="Sora, sans-serif" font-size="15" font-weight="700">Sheikh Centre</text>
+        <text x="314" y="336" fill="#C8D0E2" font-family="DM Sans, sans-serif" font-size="13.5">Shop No. 1,</text>
+        <text x="314" y="353" fill="#C8D0E2" font-family="DM Sans, sans-serif" font-size="13.5">City Electronics</text>
+        <path d="M273 272 V256" stroke="#FF6B4A" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="273" cy="252" r="9" fill="#FF6B4A"/>
+        <text x="333" y="402" text-anchor="middle" fill="#4A5672" font-family="DM Sans, sans-serif" font-size="13">Gulshan-e-Iqbal, Block 13-B</text>
+      </svg>
+      <figcaption>Schematic drawn for this concept, not to scale. Use "Get directions" for the live map.</figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a class="mark" href="#top"><span class="lamp" aria-hidden="true"></span><span>City Electronics<small>Home and kitchen appliances, Gulshan-e-Iqbal</small></span></a>
+        <p style="margin-top:16px;max-width:36ch">Shop No. 1, Sheikh Centre, Block 13-B, Gulshan-e-Iqbal, Karachi. Opposite Bait-ul-Mukarram Masjid, Main University Road.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="https://wa.me/923178787847" target="_blank" rel="noopener">WhatsApp +92 317 8787847</a></li>
+          <li><a href="tel:+923178787847">Call +92 317 8787847</a></li>
+          <li><a href="tel:+923352218985">Call +92 335 2218985</a></li>
+          <li><a href="mailto:info@cityelectronics.com.pk">info@cityelectronics.com.pk</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>On this page</h3>
+        <ul>
+          <li><a href="#prices">Confirm a price</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#installments">Installments</a></li>
+          <li><a href="#visit">Visit the showroom</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>Website concept for City Electronics — not the official website. Proposed design and wordmark; stock imagery; details from public listings.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" aria-label="Quick contact">
+  <a class="btn btn-line" href="tel:+923178787847">Call</a>
+  <a class="btn btn-wa" href="https://wa.me/923178787847" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var WA = 'https://wa.me/923178787847?text=';
+  var body = document.body;
+
+  // mobile menu
+  var mb = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  mb.addEventListener('click', function(){
+    var open = mb.getAttribute('aria-expanded') === 'true';
+    mb.setAttribute('aria-expanded', String(!open));
+    mb.textContent = open ? 'Menu' : 'Close';
+    nav.classList.toggle('open', !open);
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A' && nav.classList.contains('open')) { mb.click(); }
+  });
+
+  // season switch (ARIA tabs)
+  var tabs = [].slice.call(document.querySelectorAll('.rocker [role="tab"]'));
+  function setSeason(name, focus){
+    body.setAttribute('data-season', name);
+    tabs.forEach(function(t){
+      var on = t.id === 'tab-' + name;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ setSeason(t.id.replace('tab-',''), false); });
+    t.addEventListener('keydown', function(e){
+      var k = e.key, n = null;
+      if (k === 'ArrowDown' || k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (k === 'ArrowUp' || k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (k === 'Home') n = tabs[0];
+      if (k === 'End') n = tabs[tabs.length - 1];
+      if (n){ e.preventDefault(); setSeason(n.id.replace('tab-',''), true); }
+    });
+  });
+  // December to February opens on winter; the rest of the year on summer
+  var m = new Date().getMonth();
+  if (m === 11 || m <= 1) setSeason('winter', false);
+
+  // price composer
+  var cat = document.getElementById('f-cat'), brand = document.getElementById('f-brand'),
+      item = document.getElementById('f-item'), nm = document.getElementById('f-name'),
+      area = document.getElementById('f-area'), bubble = document.getElementById('bubble'),
+      send = document.getElementById('send');
+  function compose(){
+    var lines = ['Assalam-o-Alaikum City Electronics,', 'please confirm today\'s price for:',
+      '- ' + cat.options[cat.selectedIndex].text + (brand.value ? ', ' + brand.value : ', any brand')];
+    if (item.value.trim()) lines.push('- ' + item.value.trim());
+    if (area.value.trim()) lines.push('I am in ' + area.value.trim() + '.');
+    lines.push(nm.value.trim() ? 'Thank you, ' + nm.value.trim() : 'Thank you');
+    var msg = lines.join('\n');
+    bubble.textContent = msg;
+    send.href = WA + encodeURIComponent(msg);
+  }
+  [cat, brand, item, nm, area].forEach(function(el){ el.addEventListener('input', compose); el.addEventListener('change', compose); });
+  document.getElementById('composer').addEventListener('submit', function(e){ e.preventDefault(); send.click(); });
+  compose();
+
+  document.querySelectorAll('[data-cat],[data-item]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (a.hasAttribute('data-cat')) cat.value = a.getAttribute('data-cat');
+      item.value = a.getAttribute('data-item') || '';
+      compose();
+    });
+  });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('wallof').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    brand.value = b.textContent;
+    compose();
+    document.getElementById('prices').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+    brand.focus({preventScroll:true});
+  });
+
+  // installments
+  var qc = document.getElementById('q-cat'), qs = document.getElementById('q-send');
+  function q(){
+    qs.href = WA + encodeURIComponent('Assalam-o-Alaikum City Electronics,\nI\'m thinking of buying ' + qc.value + ' on installments. Which models are covered, and what documents do I need?\nThank you');
+  }
+  qc.addEventListener('change', q); q();
+})();
+</script>
+</body>
+</html>

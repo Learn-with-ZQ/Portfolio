@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meditec Instruments Co. | Lab analyzers, sales and service (website concept)</title>
+<meta name="description" content="Website concept for Meditec Instruments Co., Karachi: electrolyte, blood-gas and fluorescence immunoassay analyzers with offices in Karachi, Lahore, Rawalpindi, Peshawar and Quetta.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Martian+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --graphite:#1F2D3A;      /* bench graphite: text, bench, footer */
+  --graphite-2:#2A3B4B;
+  --white:#F7F9FA;         /* analyzer white: page + casing */
+  --wall:#EDF1F4;
+  --green:#13A36A;         /* readout green: LCD only */
+  --green-hi:#5BE3A4;      /* LCD lit segments */
+  --green-dim:#1C4A3A;     /* LCD unlit segments */
+  --violet:#6C5CE7;        /* sodium violet: links, selection */
+  --violet-ink:#4F3FCF;    /* violet for small text on white */
+  --grey:#C9D1D9;          /* specimen grey: casing edges, rules */
+  --muted:#4C5D6C;
+  --lcd:#0C1A15;
+  --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Martian Mono",ui-monospace,Consolas,monospace;
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--graphite);font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;overflow-x:hidden}
+::selection{background:var(--violet);color:#fff}
+img{max-width:100%;display:block}
+a{color:var(--violet-ink);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;z-index:100}
+.skip:focus{left:12px}
+h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.022em;margin:0}
+h2{font-size:clamp(34px,4.2vw,52px);font-weight:800;max-width:16ch}
+p{margin:0 0 1em}
+.mono{font-family:var(--mono);font-size:.82em;letter-spacing:-.01em}
+
+/* concept notice */
+.notice{background:var(--graphite);color:#D5DDE4;font-size:13px;line-height:1.45}
+.notice .wrap{display:flex;justify-content:space-between;gap:6px 20px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.notice a{color:#fff;font-weight:600}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(247,249,250,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--grey)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:70px}
+.mark{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--graphite);line-height:1}
+.mark b{font-weight:800;font-size:26px;letter-spacing:-.045em}
+.mark span{font-size:14px;font-weight:500;color:var(--muted);letter-spacing:-.005em}
+.nav{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav a{color:var(--graphite);text-decoration:none;font-size:15px;font-weight:500;padding:8px 12px;border-radius:6px}
+.nav a:hover{background:var(--wall)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16px/1 var(--sans);text-decoration:none;padding:15px 22px;border-radius:8px;border:2px solid var(--graphite);cursor:pointer;transition:background .15s,color .15s}
+.btn-solid{background:var(--graphite);color:#fff}
+.btn-solid:hover{background:var(--graphite-2)}
+.btn-line{background:transparent;color:var(--graphite)}
+.btn-line:hover{background:var(--graphite);color:#fff}
+.nav .btn{padding:11px 16px;font-size:15px;margin-left:10px;color:#fff}
+.menu-btn{display:none;margin-left:auto;font:600 15px var(--sans);background:none;border:2px solid var(--graphite);border-radius:8px;padding:9px 14px;color:var(--graphite);cursor:pointer}
+
+/* hero: a wall and a bench */
+.hero{position:relative;background:linear-gradient(var(--wall) 0 calc(100% - 120px),var(--graphite) calc(100% - 120px));padding:72px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:56px;align-items:end}
+.hero-copy{padding-bottom:180px}
+.hero h1{font-size:clamp(40px,5.4vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;max-width:12ch}
+.hero .lede{font-size:19px;line-height:1.55;max-width:44ch;margin:26px 0 32px;color:#33434F}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the analyzer */
+.rig{position:relative;padding-bottom:64px}
+.analyzer{position:relative;background:linear-gradient(180deg,#FFFFFF,#EEF2F5 70%,#E2E8ED);border:1px solid #B9C3CC;border-radius:22px 22px 14px 14px;padding:26px 26px 22px;box-shadow:0 2px 0 #fff inset,0 -6px 0 #D3DAE0 inset,0 40px 50px -24px rgba(9,20,30,.55);max-width:640px;margin-left:auto}
+.analyzer::after{content:"";position:absolute;left:8%;right:8%;bottom:-18px;height:18px;background:#9AA6B1;border-radius:0 0 10px 10px;z-index:-1}
+.a-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px}
+.a-brand{font-weight:800;letter-spacing:-.04em;font-size:18px;color:var(--graphite)}
+.a-brand small{font:500 10px var(--mono);color:var(--muted);letter-spacing:0;margin-left:6px}
+.printer{width:150px;height:14px;background:#2B3742;border-radius:4px;position:relative;box-shadow:0 1px 0 #fff}
+.printer::before{content:"";position:absolute;left:14px;right:14px;top:-26px;height:30px;background:repeating-linear-gradient(#fff 0 5px,#F1F3F2 5px 6px);border-radius:2px 2px 0 0;box-shadow:0 -1px 2px rgba(0,0,0,.08)}
+.a-body{display:grid;grid-template-columns:1fr 92px;gap:20px}
+.lcd-bezel{background:#2B3742;border-radius:12px;padding:12px;box-shadow:inset 0 2px 6px rgba(0,0,0,.5)}
+.lcd{position:relative;background:radial-gradient(120% 90% at 30% 20%,#12281F,var(--lcd));border-radius:6px;min-height:288px;padding:18px 20px 16px;color:var(--green-hi);font-family:var(--mono);overflow:hidden}
+.lcd::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);pointer-events:none}
+.lcd-top{display:flex;justify-content:space-between;font-size:11px;color:#8FD9B5;border-bottom:1px solid var(--green-dim);padding-bottom:8px;margin-bottom:10px;gap:10px}
+.lcd-rows{display:grid;gap:4px}
+.lcd-row{display:grid;grid-template-columns:4.2em 1fr auto;align-items:baseline;gap:10px}
+.lcd-row .k{font-size:13px;color:#8FD9B5}
+.lcd-row .v{font-size:clamp(26px,3.2vw,38px);font-weight:500;letter-spacing:-.04em;text-align:right;text-shadow:0 0 12px rgba(19,163,106,.65)}
+.lcd-row .u{font-size:11px;color:#8FD9B5;width:5.5em}
+.lcd-big{font-size:clamp(44px,6vw,72px);font-weight:700;letter-spacing:-.06em;text-shadow:0 0 18px rgba(19,163,106,.7);line-height:1;margin:14px 0 10px}
+.lcd-line{font-size:12.5px;color:#BFF2D9;margin:0 0 4px}
+.lcd-foot{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:9px;border-top:1px solid var(--green-dim);font-size:10.5px}
+.seg{padding:2px 6px;border:1px solid var(--green-dim);color:#5E9E80;border-radius:2px}
+.seg.on{background:var(--green);border-color:var(--green);color:#03140C}
+.cursor{display:inline-block;width:.6em;height:1em;background:var(--green-hi);vertical-align:-2px;margin-left:4px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lcd.boot .lcd-screen{animation:boot .38s ease-out}
+@keyframes boot{0%{opacity:0;filter:brightness(2.2)}40%{opacity:.6}100%{opacity:1;filter:none}}
+.demo-tag{margin:10px 2px 0;font-size:12.5px;color:#3E4E5B;display:flex;gap:8px;align-items:center}
+.demo-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(19,163,106,.2)}
+.a-side{display:flex;flex-direction:column;gap:12px;align-items:center}
+.port{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#2B3742 0 26%,#C3CCD4 27% 56%,#E8EDF1 57%);box-shadow:inset 0 2px 4px rgba(0,0,0,.25)}
+.port-l{font:500 10px var(--mono);color:var(--muted);text-align:center}
+.vent{width:64px;height:58px;background:repeating-linear-gradient(0deg,#C9D1D9 0 3px,transparent 3px 8px);border-radius:4px;margin-top:auto}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.key{font:600 15px var(--sans);color:var(--graphite);background:linear-gradient(#FFFFFF,#E4E9EE);border:1px solid #AEB9C3;border-bottom-width:4px;border-radius:9px;padding:12px 8px 10px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:3px;transition:transform .08s}
+.key small{font:400 10.5px var(--mono);color:var(--muted)}
+.key:active{transform:translateY(2px);border-bottom-width:2px}
+.key[aria-selected="true"]{background:linear-gradient(#E9E6FF,#DAD5FB);border-color:var(--violet);color:#2C2290}
+.key[aria-selected="true"] small{color:#3C30B8}
+.key .led{width:22px;height:4px;border-radius:2px;background:#C9D1D9;margin-bottom:6px}
+.key[aria-selected="true"] .led{background:var(--green);box-shadow:0 0 8px var(--green)}
+.bench-note{position:absolute;right:0;bottom:22px;color:#AEBBC7;font-size:13px}
+
+/* sections */
+section{padding:112px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:end;margin-bottom:56px}
+.sec-head p{font-size:18px;color:#3A4A57;max-width:52ch;margin:0}
+
+/* instruments rack */
+.rack{border-top:2px solid var(--graphite)}
+.unit{display:grid;grid-template-columns:200px minmax(0,1.2fr) minmax(0,1fr) auto;gap:36px;padding:34px 0;border-bottom:1px solid var(--grey);align-items:start}
+.unit-art{height:110px;display:flex;align-items:flex-end}
+.unit h3{font-size:30px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+.unit .cls{font-size:15px;color:var(--muted);font-weight:500}
+.unit .models{font-family:var(--mono);font-size:12.5px;color:var(--graphite);margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.unit .models span{border:1px solid var(--grey);border-radius:4px;padding:3px 8px;background:#fff}
+.unit ul{margin:0;padding:0;list-style:none}
+.unit li{padding-left:18px;position:relative;margin-bottom:8px;max-width:44ch}
+.unit li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--green)}
+.unit .q{white-space:nowrap;font-weight:600;font-size:15px;align-self:center}
+.unit.minor h3{font-size:24px}
+/* mini instrument drawings */
+.mini{position:relative;width:170px;height:96px;background:linear-gradient(#fff,#E6EBEF);border:1px solid #B5C0CA;border-radius:10px 10px 6px 6px;box-shadow:0 10px 14px -10px rgba(9,20,30,.5)}
+.mini i{position:absolute;left:12px;top:14px;width:84px;height:50px;background:var(--lcd);border:4px solid #2B3742;border-radius:4px}
+.mini i::after{content:"";position:absolute;left:8px;top:9px;width:44px;height:3px;background:var(--green);box-shadow:0 9px 0 var(--green),0 18px 0 #1C6B4A}
+.mini b{position:absolute;right:16px;top:20px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#2B3742 0 25%,#C3CCD4 26% 58%,#E8EDF1 59%)}
+.mini em{position:absolute;left:12px;bottom:10px;width:84px;height:8px;background:repeating-linear-gradient(90deg,#C9D1D9 0 22px,transparent 22px 30px);border-radius:2px}
+.mini.tall{width:130px;height:110px}
+.mini.tall i{width:70px;height:40px}
+.mini.tall b{border-radius:6px;width:30px;height:46px;top:14px;background:linear-gradient(#C9D1D9,#9AA6B1)}
+.mini.hand{width:96px;height:104px;border-radius:14px}
+.mini.hand i{width:62px;height:40px;left:13px}
+.mini.hand b{width:58px;height:10px;border-radius:2px;left:18px;right:auto;top:auto;bottom:24px;background:#2B3742}
+.mini.hand em{display:none}
+
+/* since 1989 */
+.history{background:#fff;border-top:1px solid var(--grey);border-bottom:1px solid var(--grey)}
+.history .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+.plate{display:inline-block;background:linear-gradient(135deg,#E9EDF0,#C9D1D9 45%,#EEF1F3 60%,#BCC5CD);border-radius:6px;padding:20px 26px 18px;color:#24323F;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.25);position:relative;margin:28px 0 30px}
+.plate::before,.plate::after{content:"";position:absolute;top:10px;width:7px;height:7px;border-radius:50%;background:radial-gradient(#7C8894,#4A5663)}
+.plate::before{left:9px}.plate::after{right:9px}
+.plate dl{margin:0;display:grid;grid-template-columns:auto auto;gap:4px 22px;font-family:var(--mono);font-size:12.5px}
+.plate dt{color:#4A5866}
+.plate dd{margin:0;font-weight:700}
+.history p{font-size:18px;line-height:1.65;max-width:54ch}
+.photo{margin:0}
+.photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 62%;border-radius:4px}
+.photo figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* offices */
+.offices table{width:100%;border-collapse:collapse;font-size:16px}
+.offices th{text-align:left;font-weight:600;font-size:14px;color:var(--muted);padding:0 20px 12px 0;border-bottom:2px solid var(--graphite)}
+.offices td{padding:22px 20px 22px 0;border-bottom:1px solid var(--grey);vertical-align:top}
+.offices td:first-child{font-weight:700;font-size:21px;letter-spacing:-.02em;width:18%}
+.offices td:first-child small{display:block;font-weight:500;font-size:13px;color:var(--green);letter-spacing:0;margin-top:4px;color:#0D7A4E}
+.offices td:nth-child(2){width:40%;max-width:40ch}
+.offices .tels a{font-family:var(--mono);font-size:13.5px;color:var(--graphite);text-decoration:none;display:inline-block;margin:0 14px 6px 0;border-bottom:1px solid var(--grey)}
+.offices .tels a:hover{border-color:var(--violet);color:var(--violet-ink)}
+.off-note{margin-top:22px;font-size:15px;color:var(--muted);max-width:70ch}
+
+/* composer */
+.desk{background:var(--wall)}
+.desk .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+.switch{display:inline-flex;background:#fff;border:1px solid var(--grey);border-radius:10px;padding:4px;margin:28px 0 26px}
+.switch button{font:600 15px var(--sans);border:0;background:none;padding:11px 18px;border-radius:7px;color:var(--graphite);cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--graphite);color:#fff}
+form .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f{display:flex;flex-direction:column;gap:7px}
+.f.full{grid-column:1/-1}
+.f label{font-size:14.5px;font-weight:600}
+.f label span{font-weight:400;color:var(--muted)}
+.f input,.f select,.f textarea{font:400 16px var(--sans);color:var(--graphite);background:#fff;border:1px solid #AEB9C3;border-radius:7px;padding:12px 13px;width:100%}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:3px solid rgba(108,92,231,.35);border-color:var(--violet)}
+.form-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px}
+.form-actions p{font-size:14px;color:var(--muted);margin:0;max-width:38ch}
+.slip-wrap{position:sticky;top:96px}
+.slip-label{font-size:14px;color:var(--muted);margin-bottom:10px}
+.slip{background:#fff;font-family:var(--mono);font-size:12.5px;line-height:1.7;padding:24px 22px 30px;color:#1E2A33;box-shadow:0 16px 30px -20px rgba(9,20,30,.45);position:relative;white-space:pre-wrap;word-break:break-word;min-height:300px;
+  -webkit-mask:radial-gradient(circle 6px at 6px 100%,transparent 98%,#000) -6px 0/12px 100% repeat-x;mask:radial-gradient(circle 6px at 6px 100%,transparent 98%,#000) -6px 0/12px 100% repeat-x}
+.slip .to{display:block;border-bottom:1px dashed #9AA6B1;padding-bottom:10px;margin-bottom:12px;color:#3A4A57}
+.slip .to b{color:var(--graphite)}
+
+/* footer */
+.foot{background:var(--graphite);color:#D5DDE4;padding:80px 0 36px}
+.foot .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px}
+.foot h2{color:#fff;font-size:clamp(28px,2.6vw,36px);margin-bottom:18px;max-width:none}
+.foot h3{font-size:15px;color:#fff;margin-bottom:12px;letter-spacing:0;font-weight:600}
+.foot a{color:#fff}
+.foot .tel{font-family:var(--mono);font-size:14px;display:block;margin-bottom:6px;text-decoration:none}
+.foot .tel:hover{text-decoration:underline}
+.foot address{font-style:normal;line-height:1.6}
+.foot .base{margin-top:64px;padding-top:22px;border-top:1px solid #3A4C5D;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;color:#AEBBC7}
+
+/* responsive */
+@media (max-width:1100px){
+  .unit{grid-template-columns:160px minmax(0,1fr) minmax(0,1fr);}
+  .unit .q{grid-column:2/-1;justify-self:start}
+  .mini{width:150px}
+}
+@media (max-width:980px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .nav.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:70px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--grey);padding:12px 20px 20px;gap:4px}
+  .nav.open a{padding:12px 10px;font-size:17px}
+  .nav.open .btn{margin:8px 0 0}
+  .hero{background:linear-gradient(var(--wall) 0 calc(100% - 90px),var(--graphite) calc(100% - 90px))}
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero-copy{padding-bottom:0}
+  .analyzer{margin:0 auto}
+  .sec-head,.history .wrap,.desk .wrap{grid-template-columns:1fr;gap:32px}
+  .photo img{aspect-ratio:16/10}
+  .slip-wrap{position:static}
+  .foot .grid{grid-template-columns:1fr 1fr}
+  .foot .grid > :first-child{grid-column:1/-1}
+}
+@media (max-width:700px){
+  .wrap{padding:0 18px}
+  section{padding:76px 0}
+  .hero{padding-top:44px}
+  .hero .lede{font-size:17.5px}
+  .analyzer{padding:16px 14px 14px;border-radius:16px 16px 10px 10px}
+  .a-body{grid-template-columns:1fr}
+  .a-side{display:none}
+  .printer{width:96px}
+  .lcd{min-height:230px;padding:13px 13px 12px}
+  .lcd-row{grid-template-columns:3.6em 1fr auto;gap:6px}
+  .lcd-row .u{width:4.6em}
+  .keys{gap:6px}
+  .key{font-size:13.5px;padding:10px 7px 8px}
+  .key small{font-size:9.5px}
+  .bench-note{position:static;padding:14px 0 0;text-align:left}
+  .rig{padding-bottom:30px}
+  .unit{grid-template-columns:1fr;gap:16px;padding:28px 0}
+  .unit .q{grid-column:auto}
+  .unit-art{height:auto}
+  .offices thead{display:none}
+  .offices tr{display:block;border-bottom:1px solid var(--grey);padding:20px 0}
+  .offices td{display:block;border:0;padding:3px 0;width:auto !important}
+  form .grid{grid-template-columns:1fr}
+  .switch{display:flex}
+  .switch button{flex:1;padding:11px 8px}
+  .foot .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Meditec Instruments Co., not the official website. Proposed design; drawn instruments and stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Meditec Instruments Co., home"><b>Meditec</b><span>Instruments Co.</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#instruments">Instruments</a>
+      <a href="#since-1989">Since 1989</a>
+      <a href="#offices">Offices</a>
+      <a href="#desk" data-mode="service">Service</a>
+      <a class="btn btn-solid" href="#desk" data-mode="quote">Request a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 id="hero-h">Lab analyzers, supplied and serviced from Karachi since 1989.</h1>
+      <p class="lede">Electrolyte, blood-gas and fluorescence immunoassay analyzers for laboratories and hospitals, with offices in Karachi, Lahore, Rawalpindi, Peshawar and Quetta. A family firm, now in its second generation.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#desk" data-mode="quote">Request a quote</a>
+        <a class="btn btn-line" href="#desk" data-mode="service">Book a service visit</a>
+      </div>
+    </div>
+
+    <div class="rig">
+      <div class="analyzer">
+        <div class="a-head">
+          <span class="a-brand">Meditec<small>front panel</small></span>
+          <span class="printer" aria-hidden="true"></span>
+        </div>
+        <div class="a-body">
+          <div>
+            <div class="lcd-bezel">
+              <div class="lcd" id="lcd" role="tabpanel" aria-live="polite" aria-labelledby="k-lyte">
+                <div class="lcd-screen" id="lcd-screen">
+                  <div class="lcd-top"><span>EasyLyte</span><span>Electrolytes</span></div>
+                  <div class="lcd-rows">
+                    <div class="lcd-row"><span class="k">Na+</span><span class="v">140.2</span><span class="u">mmol/L</span></div>
+                    <div class="lcd-row"><span class="k">K+</span><span class="v">4.12</span><span class="u">mmol/L</span></div>
+                    <div class="lcd-row"><span class="k">Cl-</span><span class="v">101.6</span><span class="u">mmol/L</span></div>
+                  </div>
+                  <div class="lcd-foot"><span class="seg on">Whole blood</span><span class="seg">Serum</span><span class="seg">Plasma</span><span class="seg">Urine</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="demo-tag">Demo readout, illustrative values. Not a performance claim.</p>
+          </div>
+          <div class="a-side" aria-hidden="true">
+            <span class="port"></span>
+            <span class="port-l">sample</span>
+            <span class="vent"></span>
+          </div>
+        </div>
+        <div class="keys" role="tablist" aria-label="Choose an instrument to show on the screen">
+          <button class="key" role="tab" id="k-lyte" aria-selected="true" aria-controls="lcd" data-i="lyte"><span class="led"></span>EasyLyte<small>electrolytes</small></button>
+          <button class="key" role="tab" id="k-stat" aria-selected="false" aria-controls="lcd" tabindex="-1" data-i="stat"><span class="led"></span>EasyStat<small>blood gas</small></button>
+          <button class="key" role="tab" id="k-fine" aria-selected="false" aria-controls="lcd" tabindex="-1" data-i="fine"><span class="led"></span>Finecare<small>FIA meter</small></button>
+        </div>
+      </div>
+      <p class="bench-note">A drawn front panel, not a product photograph.</p>
+    </div>
+  </div>
+</section>
+<section id="instruments" aria-labelledby="inst-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="inst-h">The instruments on Meditec's bench</h2>
+      <p>Electrolytes, blood gas and immunoassay, sold and supported by one technical desk. This page describes each instrument only as far as Meditec publishes it; full specifications and product sheets come with a quote.</p>
+    </div>
+    <div class="rack">
+      <article class="unit">
+        <div class="unit-art" aria-hidden="true"><div class="mini"><i></i><b></b><em></em></div></div>
+        <div>
+          <h3>EasyLyte</h3>
+          <div class="cls">Electrolyte analyzer</div>
+          <div class="models"><span>EasyLyte</span></div>
+        </div>
+        <ul>
+          <li>Runs whole blood, serum, plasma and urine.</li>
+          <li>Results in under 60 seconds, as stated on Meditec's site.</li>
+        </ul>
+        <a class="q" href="#desk" data-inst="EasyLyte" data-mode="quote">Quote for EasyLyte</a>
+      </article>
+      <article class="unit">
+        <div class="unit-art" aria-hidden="true"><div class="mini tall"><i></i><b></b><em></em></div></div>
+        <div>
+          <h3>EasyStat and Easy Blood Gas</h3>
+          <div class="cls">Blood-gas analyzers</div>
+          <div class="models"><span>MEDICA EasyStat</span><span>Easy Blood Gas</span></div>
+        </div>
+        <ul>
+          <li>EasyStat keeps its liquid calibrants in a reagent module, so there are no gas tanks on the bench.</li>
+          <li>Easy Blood Gas is listed in Meditec's shop; ask the desk for its specification.</li>
+        </ul>
+        <a class="q" href="#desk" data-inst="EasyStat" data-mode="quote">Quote for blood gas</a>
+      </article>
+      <article class="unit">
+        <div class="unit-art" aria-hidden="true"><div class="mini hand"><i></i><b></b></div></div>
+        <div>
+          <h3>Finecare</h3>
+          <div class="cls">Fluorescence immunoassay (FIA) meters</div>
+          <div class="models"><span>FIA Meter FS-114</span><span>FIA Meter III Plus FS-205</span></div>
+        </div>
+        <ul>
+          <li>Several meter models, from the FS-114 to the III Plus FS-205.</li>
+          <li>The shop also lists Finecare Meter, Finecare Meter Plus and Finecare Meter 3 Plus. Ask which model fits your lab.</li>
+        </ul>
+        <a class="q" href="#desk" data-inst="Finecare FIA Meter FS-114" data-mode="quote">Quote for Finecare</a>
+      </article>
+      <article class="unit minor">
+        <div class="unit-art" aria-hidden="true"><div class="mini"><i></i><em></em></div></div>
+        <div>
+          <h3>BC – 30</h3>
+          <div class="cls">Listed in Meditec's shop</div>
+          <div class="models"><span>BC – 30</span></div>
+        </div>
+        <ul>
+          <li>Specification and availability on request from the desk.</li>
+        </ul>
+        <a class="q" href="#desk" data-inst="BC – 30" data-mode="quote">Quote for BC – 30</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="history" id="since-1989" aria-labelledby="hist-h">
+  <div class="wrap">
+    <div>
+      <h2 id="hist-h">A Karachi family firm, since 1989</h2>
+      <div class="plate" role="group" aria-label="Company plate">
+        <dl>
+          <dt>Incorporated</dt><dd>12 Oct 1989</dd>
+          <dt>City</dt><dd>Karachi</dd>
+          <dt>Founder</dt><dd>Hatim H. Gabaji</dd>
+          <dt>Run by</dt><dd>Tasneem &amp; Hozaifa Hashim</dd>
+        </dl>
+      </div>
+      <p>Mr. Hatim H. Gabaji started Meditec Instruments after 22 years at a multinational trading company working in medical and diagnostic products. The company was incorporated in Karachi on 12 October 1989.</p>
+      <p>Today it is run by his daughter, Tasneem, and his son-in-law, Hozaifa Hashim, with the company's sales and technical staff.</p>
+    </div>
+    <figure class="photo">
+      <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1000&q=72&auto=format&fit=crop" width="1000" height="1250" loading="lazy" alt="A clinical laboratory with benchtop analyzers lined up along a counter">
+      <figcaption>Stock photograph of a clinical laboratory. Not Meditec's premises or equipment.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="offices" id="offices" aria-labelledby="off-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="off-h">Five offices you can visit or call</h2>
+      <p>Addresses and numbers as published on Meditec's contact page. Karachi is the head office and handles quotes and the technical desk.</p>
+    </div>
+    <table>
+      <thead><tr><th scope="col">Office</th><th scope="col">Address</th><th scope="col">Phone</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Karachi<small>Head office</small></td>
+          <td>Tahir Plaza Suite #202, 2nd Floor, Plot No. A-20, K.C.H.S.U., Karachi</td>
+          <td class="tels"><a href="tel:+922134314280">+92-21-34314280</a><a href="tel:+922134314281">+92-21-34314281</a><a href="tel:+922134314282">92-21-34314282</a><a href="tel:+923340022551">03340022551</a><a href="tel:+923340022552">03340022552</a></td>
+        </tr>
+        <tr>
+          <td>Lahore</td>
+          <td>House # 6-B, Golding Road, Near Ali Jan Motors</td>
+          <td class="tels"><a href="tel:+924236302777">04236302777</a><a href="tel:+923340022554">03340022554</a></td>
+        </tr>
+        <tr>
+          <td>Rawalpindi</td>
+          <td>House# 209-A, Ground Floor, St # 10, Race Course Road, Westridge</td>
+          <td class="tels"><a href="tel:+92515174203">+92-51-5174203</a><a href="tel:+92515174283">+92-51-5174283</a><a href="tel:+923340022556">03340022556</a></td>
+        </tr>
+        <tr>
+          <td>Peshawar</td>
+          <td>1-2/B, Gul Plaza, Charsadda Road</td>
+          <td class="tels"><a href="tel:+92912246594">091-2246594</a><a href="tel:+92912582467">091-2582467</a><a href="tel:+923340022555">0334-0022555</a></td>
+        </tr>
+        <tr>
+          <td>Quetta</td>
+          <td>Natha Singh Street, Masjid Road</td>
+          <td class="tels"><a href="tel:+92812837072">081-2837072</a><a href="tel:+923340022557">0334-0022557</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="off-note">92-21-34314282 appears as a phone line on Meditec's site and as a fax number in one directory listing.</p>
+  </div>
+</section>
+
+<section class="desk" id="desk" aria-labelledby="desk-h">
+  <div class="wrap">
+    <div>
+      <h2 id="desk-h">Request a quote</h2>
+      <div class="switch" role="group" aria-label="What do you need?">
+        <button type="button" aria-pressed="true" data-set="quote">Request a quote</button>
+        <button type="button" aria-pressed="false" data-set="service">Book a service visit</button>
+      </div>
+      <p id="desk-intro">Tell the sales desk which instrument you are considering and where your lab is. This writes an email to quote@meditec.com.pk for you to check and send.</p>
+      <form id="composer" novalidate>
+        <div class="grid">
+          <div class="f full">
+            <label for="f-inst">Instrument</label>
+            <select id="f-inst">
+              <option>EasyLyte</option>
+              <option>EasyStat</option>
+              <option>Easy Blood Gas</option>
+              <option>Finecare FIA Meter FS-114</option>
+              <option>FIA Meter III Plus FS-205</option>
+              <option>Finecare Meter</option>
+              <option>Finecare Meter Plus</option>
+              <option>Finecare Meter 3 Plus</option>
+              <option>BC – 30</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="f-lab">Lab or hospital</label>
+            <input id="f-lab" autocomplete="organization">
+          </div>
+          <div class="f">
+            <label for="f-city">City</label>
+            <input id="f-city" list="cities" autocomplete="address-level2">
+            <datalist id="cities"><option value="Karachi"><option value="Lahore"><option value="Rawalpindi"><option value="Peshawar"><option value="Quetta"></datalist>
+          </div>
+          <div class="f">
+            <label for="f-name">Your name</label>
+            <input id="f-name" autocomplete="name">
+          </div>
+          <div class="f">
+            <label for="f-phone">Phone <span>(for a call back)</span></label>
+            <input id="f-phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="f full" id="serial-f" hidden>
+            <label for="f-serial">Serial number <span>(on the instrument's rear label)</span></label>
+            <input id="f-serial">
+          </div>
+          <div class="f full">
+            <label for="f-notes" id="notes-l">What should the quote cover? <span>(optional)</span></label>
+            <textarea id="f-notes"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="btn btn-solid" id="send" href="mailto:quote@meditec.com.pk">Email this quote request</a>
+          <p id="send-note">Opens your email app with the message on the right. Nothing is sent from this page.</p>
+        </div>
+      </form>
+    </div>
+    <div class="slip-wrap">
+      <div class="slip-label">Your message</div>
+      <div class="slip" id="slip" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2 id="foot-h">Meditec Instruments Co.</h2>
+        <address>Tahir Plaza Suite #202, 2nd Floor,<br>Plot No. A-20, K.C.H.S.U., Karachi</address>
+      </div>
+      <div>
+        <h3>Call the head office</h3>
+        <a class="tel" href="tel:+922134314280">+92-21-34314280</a>
+        <a class="tel" href="tel:+922134314281">+92-21-34314281</a>
+        <a class="tel" href="tel:+923340022551">03340022551</a>
+      </div>
+      <div>
+        <h3>Write to a desk</h3>
+        <p style="margin:0 0 6px">Quotes: <a href="mailto:quote@meditec.com.pk">quote@meditec.com.pk</a></p>
+        <p style="margin:0 0 6px">Service: <a href="mailto:technical@meditec.com.pk">technical@meditec.com.pk</a></p>
+        <p style="margin:0">General: <a href="mailto:info@meditec.com.pk">info@meditec.com.pk</a></p>
+      </div>
+    </div>
+    <div class="base">
+      <span>Homepage concept for Meditec Instruments Co. Not the official website.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* mobile menu */
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function closeNav(){btn.setAttribute('aria-expanded','false');nav.classList.remove('open');btn.textContent='Menu';}
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    if(open){closeNav();}else{btn.setAttribute('aria-expanded','true');nav.classList.add('open');btn.textContent='Close';}
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')closeNav();});
+
+  /* analyzer screen */
+  var screens={
+    lyte:{top:['EasyLyte','Result &lt; 60 s'],rows:[['Na+','140.2','mmol/L'],['K+','4.12','mmol/L'],['Cl-','101.6','mmol/L']],foot:['Whole blood','Serum','Plasma','Urine']},
+    stat:{top:['EasyStat','Blood gas'],rows:[['pH','7.41',''],['pCO2','39.8','mmHg'],['pO2','96.0','mmHg']],foot:['Liquid calibrants','Reagent module','Gas tanks: none']},
+    fine:{top:['Finecare','FIA meter'],big:'READY',lines:['Insert test cartridge'],foot:['FS-114','FS-205']}
+  };
+  var lcd=document.getElementById('lcd'),scr=document.getElementById('lcd-screen'),keys=[].slice.call(document.querySelectorAll('.key'));
+  function render(id){
+    var s=screens[id],h='<div class="lcd-top"><span>'+s.top[0]+'</span><span>'+s.top[1]+'</span></div>';
+    if(s.rows){h+='<div class="lcd-rows">'+s.rows.map(function(r){return '<div class="lcd-row"><span class="k">'+r[0]+'</span><span class="v">'+r[1]+'</span><span class="u">'+r[2]+'</span></div>';}).join('')+'</div>';}
+    if(s.big){h+='<div class="lcd-big">'+s.big+'<span class="cursor"></span></div>'+s.lines.map(function(l){return '<p class="lcd-line">'+l+'</p>';}).join('');}
+    h+='<div class="lcd-foot">'+s.foot.map(function(f){return '<span class="seg on">'+f+'</span>';}).join('')+'</div>';
+    scr.innerHTML=h;
+  }
+  function select(k,focus){
+    keys.forEach(function(x){var on=x===k;x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1;});
+    lcd.setAttribute('aria-labelledby',k.id);
+    render(k.dataset.i);
+    lcd.classList.remove('boot');void lcd.offsetWidth;lcd.classList.add('boot');
+    if(focus)k.focus();
+  }
+  keys.forEach(function(k,i){
+    k.addEventListener('click',function(){select(k);});
+    k.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=keys[(i+1)%keys.length];
+      if(e.key==='ArrowLeft')n=keys[(i+keys.length-1)%keys.length];
+      if(e.key==='Home')n=keys[0];
+      if(e.key==='End')n=keys[keys.length-1];
+      if(n){e.preventDefault();select(n,true);}
+    });
+  });
+  render('lyte');
+
+  /* quote / service composer */
+  var mode='quote',el=function(id){return document.getElementById(id);};
+  var cfg={
+    quote:{to:'quote@meditec.com.pk',h:'Request a quote',send:'Email this quote request',
+      intro:'Tell the sales desk which instrument you are considering and where your lab is. This writes an email to quote@meditec.com.pk for you to check and send.',
+      notes:'What should the quote cover? <span>(optional)</span>',subj:'Quote request'},
+    service:{to:'technical@meditec.com.pk',h:'Book a service visit',send:'Email this service request',
+      intro:'Tell the technical desk which instrument needs attention and where it is installed. This writes an email to technical@meditec.com.pk for you to check and send.',
+      notes:'What is the instrument doing? <span>(error message, since when)</span>',subj:'Service visit request'}
+  };
+  var switches=[].slice.call(document.querySelectorAll('.switch button'));
+  function v(id){return el(id).value.trim();}
+  function compose(){
+    var c=cfg[mode],inst=v('f-inst'),lab=v('f-lab'),city=v('f-city');
+    var subject=c.subj+': '+inst+(lab?' for '+lab:'')+(city?', '+city:'');
+    var lines=['Dear Meditec '+(mode==='quote'?'sales':'technical')+' desk,','',
+      mode==='quote'?'Please send a quotation for the instrument below.':'Please arrange a service visit for the instrument below.','',
+      'Instrument: '+inst];
+    if(mode==='service')lines.push('Serial number: '+(v('f-serial')||'(to be added)'));
+    lines.push('Lab / hospital: '+(lab||'(to be added)'),'City: '+(city||'(to be added)'));
+    if(v('f-notes'))lines.push('',(mode==='quote'?'Notes: ':'Problem: ')+v('f-notes'));
+    lines.push('','Regards,',v('f-name')||'(your name)');
+    if(v('f-phone'))lines.push('Phone: '+v('f-phone'));
+    var body=lines.join('\n');
+    var slip=el('slip');slip.textContent='';
+    var to=document.createElement('span');to.className='to';
+    to.innerHTML='To: <b></b>\nSubject: <b></b>';to.querySelectorAll('b')[0].textContent=c.to;to.querySelectorAll('b')[1].textContent=subject;
+    slip.appendChild(to);slip.appendChild(document.createTextNode(body));
+    el('send').href='mailto:'+c.to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }
+  function setMode(m){
+    mode=m;var c=cfg[m];
+    switches.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===m));});
+    el('desk-h').textContent=c.h;el('desk-intro').textContent=c.intro;el('send').textContent=c.send;
+    el('notes-l').innerHTML=c.notes;el('serial-f').hidden=m!=='service';
+    compose();
+  }
+  switches.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.set);});});
+  document.querySelectorAll('a[data-mode]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(a.dataset.inst)el('f-inst').value=a.dataset.inst;
+      setMode(a.dataset.mode);
+    });
+  });
+  el('composer').addEventListener('input',compose);
+  el('composer').addEventListener('change',compose);
+  el('composer').addEventListener('submit',function(e){e.preventDefault();});
+  compose();
+})();
+</script>
+</body>
+</html>

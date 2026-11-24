@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niraav Foods Pakistan (website concept)</title>
+<meta name="description" content="Website concept for Niraav Foods Pakistan, a venture of M. Wali Group: rice, eggs, chicken and edible oil; Pioneer Feeds; Meilan poultry vaccine. Head office Korangi Industrial Area, factory Port Qasim, Karachi.">
+<meta name="theme-color" content="#3E6B35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F6F1E4;
+  --ivory-2:#ECE3CC;
+  --paper:#FBF8F0;
+  --green:#3E6B35;
+  --green-deep:#2F5228;
+  --green-soft:#D9E2C9;
+  --yolk:#F2B134;
+  --husk:#B08D57;
+  --husk-deep:#7A5C2C;
+  --ink:#232A1F;
+  --ink-2:#4B5444;
+  --display:"Cormorant Garamond",Garamond,"Times New Roman",serif;
+  --text:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1280px;
+  --gut:clamp(16px,4vw,48px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yolk);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:12px;background:var(--paper);padding:8px 14px;z-index:99}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;line-height:1.04;letter-spacing:-.01em}
+p{margin:0}
+
+/* concept notice */
+.notice{background:var(--ink);color:#DCD6C4;font-size:13.5px;line-height:1.45}
+.notice .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;padding-top:8px;padding-bottom:8px}
+.notice a{color:var(--yolk);text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(246,241,228,.96);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid rgba(176,141,87,.45)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.mark b{font-family:var(--display);font-weight:600;font-size:36px;letter-spacing:.01em;line-height:1}
+.mark span{font-size:14px;color:var(--ink-2)}
+.mark svg{align-self:center;margin-right:-2px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:16px}
+.nav a:not(.btn):hover{text-decoration:underline;text-decoration-color:var(--husk);text-decoration-thickness:2px;text-underline-offset:6px}
+.menu-btn{display:none;font:inherit;font-size:15px;font-weight:500;background:none;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:7px 16px;cursor:pointer}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:600;font-size:16px;line-height:1.2;text-decoration:none;border-radius:999px;padding:14px 24px;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.btn-green{background:var(--green);color:var(--paper)}
+.btn-green:hover{background:var(--green-deep)}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--ivory)}
+.btn-small{padding:10px 18px;font-size:15px}
+
+/* hero */
+.hero{padding:clamp(36px,5vw,72px) 0 clamp(56px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:clamp(32px,5vw,80px);align-items:start}
+.hero h1{font-size:clamp(42px,5.1vw,76px);line-height:.98;max-width:12ch}
+.hero .lede{margin-top:24px;font-size:19px;line-height:1.55;color:var(--ink-2);max-width:40ch}
+.hero .lede strong{color:var(--ink);font-weight:600}
+
+.switch{margin-top:clamp(28px,3.4vw,44px)}
+.tabs{display:flex;flex-wrap:wrap;gap:4px 26px;border-bottom:1px solid rgba(176,141,87,.6)}
+.tab{position:relative;font-family:var(--display);font-weight:600;font-size:clamp(24px,2.3vw,31px);line-height:1;color:var(--husk-deep);background:none;border:0;padding:10px 0 16px;cursor:pointer}
+.tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;border-radius:4px 4px 0 0;background:var(--yolk);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::after{transform:scaleX(1)}
+.panel{padding-top:22px}
+.panel .official{font-size:15px;color:var(--green);font-weight:600}
+.lines{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+.lines li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed rgba(122,92,44,.45);font-size:19px;font-weight:500}
+.lines li small{font-size:14px;font-weight:400;color:var(--ink-2);text-align:right}
+.lines.one{grid-template-columns:minmax(0,1fr)}
+.panel .note{margin-top:14px;font-size:15px;color:var(--ink-2);max-width:52ch}
+.panel .note a{color:var(--green-deep);text-underline-offset:3px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+.stage-col{position:relative}
+.stage{position:relative;background:var(--green);border-radius:50% 50% 6px 6px / 42% 42% 6px 6px;overflow:hidden;aspect-ratio:600/700;box-shadow:inset 0 -60px 80px rgba(35,42,31,.18)}
+.stage svg{width:100%;height:100%}
+.m{transition:transform .95s cubic-bezier(.22,.8,.22,1),opacity .55s ease;will-change:transform}
+.stage-cap{margin-top:12px;font-size:13.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:12px}
+.stage-cap b{font-family:var(--display);font-size:20px;font-weight:600;color:var(--ink)}
+
+/* export */
+.export{padding:clamp(64px,8vw,120px) 0;border-top:1px solid rgba(176,141,87,.45)}
+.export .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,88px);align-items:start}
+.photos{position:relative;padding-bottom:90px}
+.photos figure{margin:0}
+.photos .rice img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 4px 4px}
+.photos .eggs{position:absolute;right:-6%;bottom:0;width:52%;background:var(--ivory);padding:10px 10px 0;border-radius:4px}
+.photos .eggs img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px}
+.photos figcaption{font-size:13px;color:var(--ink-2);padding-top:6px}
+.export h2{font-size:clamp(36px,4.2vw,60px);max-width:14ch}
+.export .intro{margin-top:20px;font-size:18px;color:var(--ink-2);max-width:50ch}
+.export .said{margin-top:26px;font-family:var(--display);font-size:clamp(24px,2.3vw,30px);line-height:1.25;font-style:italic;color:var(--green-deep);max-width:30ch}
+.export .said span{display:block;font-family:var(--text);font-style:normal;font-size:14px;color:var(--ink-2);margin-top:6px}
+.slip{margin-top:36px;background:var(--paper);border:1px solid rgba(176,141,87,.55);border-radius:6px;padding:26px 28px 22px;position:relative}
+.slip::before{content:"";position:absolute;left:28px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--ivory);border:1px solid rgba(176,141,87,.55)}
+.slip h3{font-size:26px;font-weight:600}
+.slip dl{margin:16px 0 0;display:grid;grid-template-columns:minmax(120px,max-content) minmax(0,1fr);gap:0 24px}
+.slip dt,.slip dd{padding:10px 0;border-top:1px solid rgba(176,141,87,.35);margin:0;font-size:16px}
+.slip dt{color:var(--ink-2)}
+.slip dd{font-weight:500}
+.slip .src{margin-top:12px;font-size:14px;color:var(--ink-2)}
+.slip .src a,.export .links a{color:var(--green-deep);text-underline-offset:3px}
+.export .links{margin-top:22px;font-size:16px;display:grid;gap:8px}
+
+/* sites */
+.sites{background:var(--green);color:var(--paper);padding:clamp(64px,8vw,112px) 0}
+.sites h2{font-size:clamp(36px,4.2vw,60px)}
+.sites .sub{margin-top:14px;font-size:18px;color:#E3EAD6;max-width:52ch}
+.route{margin-top:clamp(32px,4vw,56px);position:relative}
+.route{height:40px;--sg:clamp(24px,5vw,96px)}
+.route::before{content:"";position:absolute;left:8px;width:calc(50% + var(--sg)/2);top:19px;border-top:2px dashed rgba(246,241,228,.55)}
+.route span{position:absolute;top:11px;width:18px;height:18px;border-radius:50%;background:var(--yolk);box-shadow:0 0 0 6px rgba(242,177,52,.25)}
+.route .d1{left:0}
+.route .d2{left:calc(50% + var(--sg)/2)}
+.site-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,5vw,96px);margin-top:-8px}
+.site h3{font-size:clamp(30px,3vw,42px);font-weight:600}
+.site .role{font-size:15px;color:var(--yolk);font-weight:600;margin-bottom:6px}
+.site address{font-style:normal;margin-top:14px;font-size:18px;line-height:1.55;max-width:34ch}
+.site .tel{display:inline-block;margin-top:16px;font-size:20px;font-weight:600;color:var(--paper);text-decoration:none;border-bottom:2px solid var(--yolk);padding-bottom:2px}
+.site .tel:hover{color:var(--yolk)}
+.site .fine{margin-top:10px;font-size:14px;color:#D3DDC3;max-width:40ch}
+
+/* heritage */
+.heritage{background:var(--ivory-2);padding:clamp(72px,9vw,136px) 0;overflow:hidden}
+.heritage .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.heritage blockquote{margin:0}
+.heritage blockquote p{font-family:var(--display);font-weight:500;font-size:clamp(40px,5.6vw,88px);line-height:1;letter-spacing:-.015em;max-width:15ch}
+.heritage .attr{margin-top:28px;font-size:18px;color:var(--ink-2);max-width:52ch}
+.heritage .attr a{color:var(--green-deep);text-underline-offset:3px}
+.millstone{width:100%;max-width:420px;justify-self:center}
+
+/* enquiry */
+.enquiry{padding:clamp(64px,8vw,120px) 0}
+.enquiry .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end}
+.enquiry h2{font-size:clamp(36px,4.2vw,60px);max-width:13ch}
+.enquiry .head p{font-size:18px;color:var(--ink-2);max-width:46ch}
+.enq-grid{margin-top:44px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:start}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.f{display:flex;flex-direction:column;gap:7px}
+.f.full{grid-column:1/-1}
+label{font-size:15px;font-weight:600}
+label small{font-weight:400;color:var(--ink-2)}
+input,select,textarea{font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1.5px solid rgba(122,92,44,.55);border-radius:6px;padding:12px 14px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--green);outline:3px solid rgba(242,177,52,.7);outline-offset:1px}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:6px}
+.demo{font-size:14px;color:var(--ink-2)}
+.status{grid-column:1/-1;background:var(--green-soft);border-left:4px solid var(--green);padding:12px 16px;font-size:15.5px;border-radius:0 6px 6px 0}
+
+.draft{background:var(--ink);color:#E9E4D4;border-radius:6px;padding:24px 26px;position:sticky;top:100px}
+.draft h3{font-size:24px;color:var(--paper);font-weight:600}
+.draft .meta{margin-top:14px;font-size:14.5px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px}
+.draft .meta dt{color:#A9B29B}
+.draft .meta dd{margin:0;overflow-wrap:anywhere}
+.draft pre{margin:14px 0 0;padding-top:14px;border-top:1px solid rgba(233,228,212,.22);font-family:var(--text);font-size:14.5px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;color:#E9E4D4;min-height:150px}
+.contact-list{margin-top:26px;display:grid;gap:18px}
+.contact-list div{border-top:1px solid rgba(176,141,87,.55);padding-top:14px}
+.contact-list h3{font-size:22px;font-weight:600}
+.contact-list a.big{display:inline-block;margin-top:4px;font-size:21px;font-weight:600;text-decoration:none;color:var(--green-deep)}
+.contact-list a.big:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-list p{font-size:14.5px;color:var(--ink-2);margin-top:4px}
+.contact-list .social{display:flex;gap:18px;font-size:16px}
+.contact-list .social a{color:var(--green-deep);text-underline-offset:3px}
+
+/* footer */
+footer{background:var(--ink);color:#D6D1C1;padding:48px 0 40px;font-size:15px}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px 64px;align-items:start}
+footer .mark{color:var(--paper)}
+footer .mark span{color:#B9B4A3}
+footer p+p{margin-top:10px}
+footer a{color:var(--yolk);text-underline-offset:3px}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+  .lines{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .menu-btn{display:inline-block}
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 20px;border-bottom:1px solid rgba(176,141,87,.6)}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;border-bottom:1px solid rgba(176,141,87,.3);font-size:18px}
+  .nav a.btn{margin-top:14px;border-bottom:0}
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .stage-col{order:2;max-width:520px;width:100%}
+  .hero .copy{display:contents}
+  .hero .intro-block{order:1}
+  .switch{order:3;margin-top:0}
+  .hero .ctas{order:4;margin-top:0}
+  .lines{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .export .wrap,.heritage .wrap,.enquiry .head,.enq-grid,footer .wrap{grid-template-columns:minmax(0,1fr)}
+  .photos{max-width:520px}
+  .photos .eggs{right:0}
+  .site-grid{grid-template-columns:minmax(0,1fr);gap:40px;margin-top:36px}
+  .photos .rice figcaption{max-width:44%}
+  .route{display:none}
+  .millstone{max-width:280px;justify-self:start}
+  .draft{position:static}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .top .wrap{height:68px}
+  .nav{top:68px}
+  .mark b{font-size:31px}
+  .mark span{display:none}
+  .hero .lede{font-size:17.5px}
+  .tabs{gap:0 14px;flex-wrap:nowrap}
+  .tab{font-size:20px;white-space:nowrap}
+  .lines{grid-template-columns:minmax(0,1fr)}
+  .lines li{font-size:18px}
+  .hero .ctas .btn{width:100%}
+  form{grid-template-columns:minmax(0,1fr)}
+  .slip{padding:22px 18px 18px}
+  .slip dl{grid-template-columns:minmax(0,1fr)}
+  .slip dt{padding-bottom:0}
+  .slip dd{border-top:0;padding-top:2px}
+  .photos{padding-bottom:70px}
+  .photos .eggs{width:56%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Niraav Foods Pakistan, not the official website. Proposed design; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Niraav Foods Pakistan, proposed wordmark, back to top">
+      <svg width="14" height="30" viewBox="0 0 14 30" aria-hidden="true"><path d="M7 1C12 6 12 24 7 29C2 24 2 6 7 1Z" fill="#3E6B35"/></svg>
+      <b>Niraav</b><span>Foods Pakistan</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#divisions">Divisions</a>
+      <a href="#export">Export</a>
+      <a href="#sites">Two sites</a>
+      <a href="#heritage">The group</a>
+      <a class="btn btn-green btn-small" href="#enquiry">Send an export enquiry</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="divisions" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="copy">
+      <div class="intro-block">
+        <h1 id="hero-title">Rice and eggs for the table. Feed and vaccine for the farm.</h1>
+        <p class="lede"><strong>Niraav Foods Pakistan</strong> is a venture of M.&nbsp;Wali Group, with a background in the human food and animal feed sector. Three divisions, one head office in Korangi Industrial Area and a factory at Port Qasim, Karachi.</p>
+      </div>
+
+      <div class="switch">
+        <div class="tabs" role="tablist" aria-label="Divisions">
+          <button class="tab" role="tab" id="tab-human" aria-controls="panel-human" aria-selected="true" data-div="human">Human food</button>
+          <button class="tab" role="tab" id="tab-feed" aria-controls="panel-feed" aria-selected="false" tabindex="-1" data-div="feed">Animal food</button>
+          <button class="tab" role="tab" id="tab-health" aria-controls="panel-health" aria-selected="false" tabindex="-1" data-div="health">Animal health</button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-human" aria-labelledby="tab-human" tabindex="0">
+          <p class="official">Human Foods division</p>
+          <ul class="lines">
+            <li>Rice <small>Varieties in brochure</small></li>
+            <li>Egg</li>
+            <li>Chicken</li>
+            <li>Edible oil</li>
+          </ul>
+          <p class="note">Rice varieties are set out in the company&rsquo;s <a href="https://niraav.com/wp-content/uploads/2022/10/Niraav-Rice-varieties.pdf" target="_blank" rel="noopener">rice brochure (PDF on niraav.com)</a>.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-feed" aria-labelledby="tab-feed" tabindex="0" hidden>
+          <p class="official">Animal Foods division</p>
+          <ul class="lines one">
+            <li>Pioneer Feeds <small>Animal feed</small></li>
+          </ul>
+          <p class="note">Listed by name under Animal Foods on the company website. Feed types and pack sizes: sample content, to be supplied by Niraav.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-health" aria-labelledby="tab-health" tabindex="0" hidden>
+          <p class="official">Animal Health Care division</p>
+          <ul class="lines one">
+            <li>Meilan poultry vaccine <small>1000 doses / vial</small></li>
+            <li>Meilan <small>500 ml</small></li>
+          </ul>
+          <p class="note">Both listed under Animal Health Care on the company website. Usage and storage details: to be supplied by Niraav.</p>
+        </div>
+      </div>
+
+      <div class="ctas">
+        <a class="btn btn-green" id="hero-enquire" href="#enquiry" data-product="Rice">Send an export enquiry</a>
+        <a class="btn btn-line" href="tel:+922135070191">Call head office</a>
+      </div>
+    </div>
+
+    <div class="stage-col">
+      <div class="stage">
+        <svg viewBox="0 0 600 660" role="img" aria-labelledby="stage-title" preserveAspectRatio="xMidYMid slice">
+          <title id="stage-title">Drawn motif for the selected division: rice grains and an egg for human food, feed pellets for animal food, a vaccine vial for animal health.</title>
+          <g fill="none" stroke="#36602F" stroke-width="2" opacity=".9">
+            <path d="M-20 520 Q300 470 620 520"/>
+            <path d="M-20 560 Q300 505 620 560"/>
+            <path d="M-20 602 Q300 542 620 602"/>
+            <path d="M-20 646 Q300 582 620 646"/>
+          </g>
+          <circle class="m" id="sun" r="92" fill="#F2B134"/>
+          <g id="grains"></g>
+          <g id="pellets"></g>
+          <g class="m" id="egg">
+            <ellipse cx="8" cy="82" rx="54" ry="9" fill="#233A1E" opacity=".35"/>
+            <path d="M0-80C40-80 62-12 62 22C62 60 34 80 0 80C-34 80-62 60-62 22C-62-12-40-80 0-80Z" fill="#FBF7EC"/>
+            <path d="M-34-28C-26-52-12-64 0-66" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".8"/>
+            <path d="M44 30C40 56 24 68 4 70" stroke="#E4D7B6" stroke-width="6" stroke-linecap="round" fill="none"/>
+          </g>
+          <g class="m" id="vial">
+            <ellipse cx="6" cy="84" rx="52" ry="8" fill="#233A1E" opacity=".35"/>
+            <rect x="-40" y="-66" width="80" height="148" rx="13" fill="#F6F1E4" fill-opacity=".16" stroke="#F6F1E4" stroke-width="3"/>
+            <rect x="-34" y="-22" width="68" height="98" rx="9" fill="#DDE8C9"/>
+            <rect x="-40" y="10" width="80" height="42" fill="#FBF8F0"/>
+            <rect x="-28" y="21" width="56" height="5" rx="2" fill="#3E6B35"/>
+            <rect x="-28" y="33" width="34" height="5" rx="2" fill="#B08D57"/>
+            <rect x="-23" y="-88" width="46" height="26" fill="#F6F1E4" fill-opacity=".16" stroke="#F6F1E4" stroke-width="3"/>
+            <rect x="-30" y="-110" width="60" height="28" rx="4" fill="#B08D57"/>
+            <rect x="-21" y="-124" width="42" height="16" rx="5" fill="#232A1F"/>
+            <path d="M-26-56V60" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+          </g>
+        </svg>
+      </div>
+      <p class="stage-cap"><b id="stage-name">Human food</b><span>Illustration drawn for this concept</span></p>
+    </div>
+  </div>
+</section>
+<section class="export" id="export" aria-labelledby="export-title">
+  <div class="wrap">
+    <div class="photos">
+      <figure class="rice">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=900&q=70&auto=format&fit=crop" width="900" height="1125" alt="Close-up of uncooked long-grain rice" loading="lazy">
+        <figcaption>Stock photo, long-grain rice</figcaption>
+      </figure>
+      <figure class="eggs">
+        <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=600&q=70&auto=format&fit=crop" width="600" height="600" alt="Brown eggs set in a moulded egg tray" loading="lazy">
+        <figcaption>Stock photo, eggs in a tray</figcaption>
+      </figure>
+    </div>
+
+    <div>
+      <h2 id="export-title">For importers and distributors</h2>
+      <p class="intro">Niraav supplies human food, animal feed and poultry health products from Karachi. Tell the head office the product, the quantity and the port you ship to, and your enquiry reaches the right division.</p>
+      <p class="said">&ldquo;Meeting global demand for protein.&rdquo;<span>A line from the company&rsquo;s own website.</span></p>
+
+      <div class="slip">
+        <h3>Listed in the REAP member directory</h3>
+        <dl>
+          <dt>Member</dt><dd>Niraav Foods Pakistan</dd>
+          <dt>Exports</dt><dd>Rice, corn, sesame seeds, eggs and other poultry and agriculture products</dd>
+          <dt>Milling capacity</dt><dd>100,000 ton</dd>
+          <dt>Certifications listed</dt><dd>ISO 9001:2015, ISO 22000:2018, GMP, HACCP, ACERTA</dd>
+          <dt>Membership no.</dt><dd>2-1-15-6638</dd>
+        </dl>
+        <p class="src">As published in the <a href="https://reap.com.pk/memberDetails/111" target="_blank" rel="noopener">Rice Exporters Association of Pakistan member entry</a>. Certificate copies: to be supplied by Niraav.</p>
+      </div>
+
+      <div class="links">
+        <p><a href="https://niraav.com/wp-content/uploads/2022/10/Niraav-Rice-varieties.pdf" target="_blank" rel="noopener">Download the rice varieties brochure (PDF, niraav.com)</a></p>
+        <p>Trade shows on the company&rsquo;s news page, 2015 to 2016: Fine Foods Australia, China International Meat Exhibition, PLMA 2016 and an exhibition in Thailand, 9&ndash;11 December 2016.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sites" id="sites" aria-labelledby="sites-title">
+  <div class="wrap">
+    <h2 id="sites-title">Two sites in Karachi</h2>
+    <p class="sub">The head office sits in Korangi Industrial Area. The factory is in the Eastern Industrial Zone at Port Qasim.</p>
+    <div class="route" aria-hidden="true"><span class="d1"></span><span class="d2"></span></div>
+    <div class="site-grid">
+      <div class="site">
+        <p class="role">Head office</p>
+        <h3>Korangi Industrial Area</h3>
+        <address>G-2, Sector 5, Green Belt,<br>Korangi Industrial Area,<br>Karachi, Pakistan</address>
+        <a class="tel" href="tel:+922135070191">+92-21-35070191-3</a>
+        <p class="fine">The company&rsquo;s contact page gives the range as 35070191-4. The REAP directory lists the address as Plot S-2, Sector 05, Green Belt, G/2.</p>
+      </div>
+      <div class="site">
+        <p class="role">Factory</p>
+        <h3>Port Qasim</h3>
+        <address>Plot A-66, Eastern Industrial Zone,<br>Port Qasim, Code 75020,<br>Karachi, Pakistan</address>
+        <a class="tel" href="tel:+922134740351">+92-21-34740351-4</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="heritage" id="heritage" aria-labelledby="heritage-title">
+  <div class="wrap">
+    <div>
+      <h2 id="heritage-title" class="skip">The group</h2>
+      <blockquote>
+        <p>M.&nbsp;Wali Group began with a small flour mill in 1963.</p>
+      </blockquote>
+      <p class="attr">Group founder Mian Akbar Ali started the business with a small flour mill in 1963, according to the <a href="https://niraav.com/" target="_blank" rel="noopener">company website</a>. Niraav Pakistan is a venture of M.&nbsp;Wali Group.</p>
+    </div>
+    <svg class="millstone" viewBox="0 0 420 420" aria-hidden="true">
+      <circle cx="210" cy="210" r="196" fill="#F3ECDA" stroke="#7A5C2C" stroke-width="2"/>
+      <circle cx="210" cy="210" r="186" fill="none" stroke="#B08D57" stroke-width="1"/>
+      <g id="furrows" stroke="#B08D57" stroke-width="2" stroke-linecap="round"></g>
+      <circle cx="210" cy="210" r="30" fill="#ECE3CC" stroke="#7A5C2C" stroke-width="2"/>
+      <rect x="196" y="203" width="28" height="14" rx="3" fill="#7A5C2C"/>
+    </svg>
+  </div>
+</section>
+
+<section class="enquiry" id="enquiry" aria-labelledby="enq-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="enq-title">Send an export enquiry</h2>
+      <p>Choose a product, add the quantity and your destination port. This page writes the email for you; it opens in your own email app, addressed to info@niraav.com, for you to check and send.</p>
+    </div>
+
+    <div class="enq-grid">
+      <form id="enq" novalidate>
+        <div class="f full">
+          <label for="prod">Product <small>(required)</small></label>
+          <select id="prod" name="product" required>
+            <optgroup label="Human food">
+              <option>Rice</option>
+              <option>Eggs</option>
+              <option>Chicken</option>
+              <option>Edible oil</option>
+            </optgroup>
+            <optgroup label="Also in the REAP export listing">
+              <option>Corn</option>
+              <option>Sesame seeds</option>
+            </optgroup>
+            <optgroup label="Animal food">
+              <option>Pioneer Feeds</option>
+            </optgroup>
+            <optgroup label="Animal health">
+              <option>Meilan poultry vaccine (1000 doses / vial)</option>
+              <option>Meilan (500 ml)</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>More than one product</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="f">
+          <label for="qty">Quantity</label>
+          <input id="qty" name="quantity" placeholder="e.g. two 20 ft containers">
+        </div>
+        <div class="f">
+          <label for="port">Destination port</label>
+          <input id="port" name="port" placeholder="e.g. Jebel Ali, UAE">
+        </div>
+        <div class="f full">
+          <label for="spec">Grade, packing and documents</label>
+          <textarea id="spec" name="spec" placeholder="Variety or grade, bag or carton size, labelling, shipping terms, documents you need"></textarea>
+        </div>
+        <div class="f">
+          <label for="name">Your name <small>(required)</small></label>
+          <input id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="f">
+          <label for="co">Company and country</label>
+          <input id="co" name="company" autocomplete="organization">
+        </div>
+        <div class="f full">
+          <label for="em">Your email <small>(required)</small></label>
+          <input id="em" name="email" type="email" required autocomplete="email">
+        </div>
+        <p class="status" id="status" role="status" hidden></p>
+        <div class="form-foot">
+          <button class="btn btn-green" type="submit">Prepare the email</button>
+          <p class="demo">Concept demo: nothing is sent from this page.</p>
+        </div>
+      </form>
+
+      <aside aria-label="Email preview and contact details">
+        <div class="draft" aria-live="off">
+          <h3>Your email, as it will open</h3>
+          <dl class="meta">
+            <dt>To</dt><dd>info@niraav.com</dd>
+            <dt>Subject</dt><dd id="pv-subject">Export enquiry: Rice</dd>
+          </dl>
+          <pre id="pv-body"></pre>
+        </div>
+        <div class="contact-list">
+          <div>
+            <h3>Call head office</h3>
+            <a class="big" href="tel:+922135070191">+92-21-35070191-3</a>
+            <p>Contact listed in the REAP directory: Mian Ahmed Akbar.</p>
+          </div>
+          <div>
+            <h3>Call the factory</h3>
+            <a class="big" href="tel:+922134740351">+92-21-34740351-4</a>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <a class="big" href="mailto:info@niraav.com">info@niraav.com</a>
+          </div>
+          <div class="social">
+            <a href="https://www.facebook.com/niraav.foods.pakistan" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.linkedin.com/company/niraav-foods-pakistan" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="mark" href="#main" aria-label="Back to top">
+        <svg width="14" height="30" viewBox="0 0 14 30" aria-hidden="true"><path d="M7 1C12 6 12 24 7 29C2 24 2 6 7 1Z" fill="#F2B134"/></svg>
+        <b>Niraav</b><span>Foods Pakistan</span>
+      </a>
+      <p style="margin-top:12px">A venture of M.&nbsp;Wali Group. Korangi Industrial Area and Port Qasim, Karachi.</p>
+    </div>
+    <div>
+      <p>Website concept for Niraav Foods Pakistan, not the official website. Proposed design and wordmark; stock imagery; details from public listings (the company website and the REAP member directory).</p>
+      <p>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS='http://www.w3.org/2000/svg';
+
+  /* menu */
+  var mb=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o?'true':'false');mb.textContent=o?'Close':'Menu'});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu'}});
+
+  /* seeded random so the drawing is the same on every visit */
+  var seed=1963;function rnd(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+  function el(tag,attrs){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e}
+
+  var NG=34,NP=15,grains=[],pellets=[];
+  var gG=document.getElementById('grains'),gP=document.getElementById('pellets');
+  for(var i=0;i<NG;i++){
+    var g=el('g',{'class':'m'});
+    g.appendChild(el('path',{d:'M0-21C5.5-14 5.5 14 0 21C-5.5 14-5.5-14 0-21Z',fill:'#FBF7EC'}));
+    g.appendChild(el('path',{d:'M0-14V14',stroke:'#DCCFAB','stroke-width':'1.3'}));
+    g.style.transitionDelay=(i*14)+'ms';gG.appendChild(g);grains.push(g);
+  }
+  for(var j=0;j<NP;j++){
+    var p=el('g',{'class':'m'});
+    p.appendChild(el('rect',{x:-8,y:-14,width:16,height:28,rx:7,fill:'#B08D57'}));
+    p.appendChild(el('ellipse',{cx:0,cy:-8.5,rx:6,ry:3,fill:'#D2B47F'}));
+    p.style.transitionDelay=(j*22)+'ms';gP.appendChild(p);pellets.push(p);
+  }
+
+  /* layouts: [x,y,rotation,scale,opacity] */
+  var L={human:{g:[],p:[]},feed:{g:[],p:[]},health:{g:[],p:[]}};
+  // human food: rice spilled around a large egg
+  for(i=0;i<NG;i++){
+    var x,y,tries=0;
+    do{x=50+rnd()*500;y=250+rnd()*380;tries++}while(tries<60&&(Math.pow((x-370)/112,2)+Math.pow((y-400)/138,2)<1));
+    L.human.g.push([x,y,rnd()*180,.92+rnd()*.2,1]);
+  }
+  // animal food: grains gather into a drooping rice panicle, pellets heap up
+  for(i=0;i<NG;i++){
+    var t=(Math.floor(i/2))/(NG/2),side=i%2?1:-1;
+    var sx=150+70*t*t,sy=110+330*t,ang=Math.atan2(330,140*t)*180/Math.PI-90;
+    L.feed.g.push([sx+side*14+(rnd()*4-2),sy,ang+side*30,.9-(t*.12),1]);
+  }
+  var row=0,idx=0;
+  for(var r=5;r>0;r--){for(var c=0;c<r;c++){L.feed.p.push([390-(r-1)*22+c*44+(rnd()*6-3),570-row*40,rnd()*50-25,1.6,1]);idx++}row++}
+  // animal health: grains stand in an even ring around the vial
+  for(i=0;i<NG;i++){
+    var a=i/NG*Math.PI*2-Math.PI/2;
+    L.health.g.push([300+Math.cos(a)*226,370+Math.sin(a)*226,a*180/Math.PI+90,.95,1]);
+  }
+  for(j=0;j<NP;j++){var hp=L.feed.p[j];L.human.p.push([hp[0],hp[1]+40,hp[2],0,0]);L.health.p.push([hp[0],hp[1]+40,hp[2],0,0])}
+  L.human.sun=[440,175,0,1,1];L.feed.sun=[470,160,0,.62,1];L.health.sun=[300,370,0,1.78,1];
+  L.human.egg=[365,410,-8,1.38,1];L.feed.egg=[150,575,12,.62,1];L.health.egg=[505,600,10,.5,1];
+  L.human.vial=[300,820,0,.8,0];L.feed.vial=[300,820,0,.8,0];L.health.vial=[300,372,0,1.3,1];
+
+  var sun=document.getElementById('sun'),egg=document.getElementById('egg'),vial=document.getElementById('vial');
+  function put(n,v){n.style.transform='translate('+v[0].toFixed(1)+'px,'+v[1].toFixed(1)+'px) rotate('+v[2].toFixed(1)+'deg) scale('+v[3]+')';n.style.opacity=v[4]}
+  function arrange(k){var s=L[k];grains.forEach(function(n,i){put(n,s.g[i])});pellets.forEach(function(n,i){put(n,s.p[i])});put(sun,s.sun);put(egg,s.egg);put(vial,s.vial)}
+
+  // one load moment: grains fall into place
+  if(!reduce){grains.forEach(function(n,i){var v=L.human.g[i];put(n,[v[0],v[1]-560,v[2]-60,v[3],1])});put(sun,[440,175,0,.2,0]);put(egg,[365,410,-8,.9,0]);pellets.forEach(function(n,i){put(n,L.human.p[i])});put(vial,L.human.vial);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){arrange('human')})});
+  }else{arrange('human')}
+
+  /* tabs */
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  var names={human:'Human food',feed:'Animal food',health:'Animal health'};
+  var prodFor={human:'Rice',feed:'Pioneer Feeds',health:'Meilan poultry vaccine (1000 doses / vial)'};
+  var heroBtn=document.getElementById('hero-enquire'),stageName=document.getElementById('stage-name');
+  function select(tab,focus){
+    tabs.forEach(function(t){var on=t===tab;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on});
+    var k=tab.getAttribute('data-div');arrange(k);stageName.textContent=names[k];heroBtn.setAttribute('data-product',prodFor[k]);
+    if(focus)tab.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){var n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(e.key==='Home')n=tabs[0];else if(e.key==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true)}});
+  });
+
+  /* millstone furrows: eight harps of straight furrows */
+  var fg=document.getElementById('furrows');
+  for(var h=0;h<8;h++){
+    var A=h*Math.PI/4,d=[Math.cos(A),Math.sin(A)],nn=[-Math.sin(A),Math.cos(A)];
+    for(var o=0;o<4;o++){
+      var off=o*21,t0=36+off*1.1,t1=Math.sqrt(184*184-off*off)-4;
+      var x0=210+nn[0]*off+d[0]*t0,y0=210+nn[1]*off+d[1]*t0,x1=210+nn[0]*off+d[0]*t1,y1=210+nn[1]*off+d[1]*t1;
+      fg.appendChild(el('line',{x1:x0.toFixed(1),y1:y0.toFixed(1),x2:x1.toFixed(1),y2:y1.toFixed(1),'stroke-width':o===0?3:2}));
+    }
+  }
+
+  /* enquiry preview + mailto */
+  var f=document.getElementById('enq'),st=document.getElementById('status'),pvS=document.getElementById('pv-subject'),pvB=document.getElementById('pv-body');
+  function v(n){return f.elements[n].value.trim()}
+  function compose(){
+    var subject='Export enquiry: '+v('product')+(v('port')?' to '+v('port'):'');
+    var body=['Hello Niraav Foods,','','I would like a quotation for the following.','','Product: '+v('product'),'Quantity: '+(v('quantity')||'-'),'Destination port: '+(v('port')||'-'),'Grade, packing and documents: '+(v('spec')||'-'),'','Name: '+(v('name')||'-'),'Company and country: '+(v('company')||'-'),'Email: '+(v('email')||'-')].join('\n');
+    return {subject:subject,body:body};
+  }
+  function preview(){var m=compose();pvS.textContent=m.subject;pvB.textContent=m.body}
+  f.addEventListener('input',preview);f.addEventListener('change',preview);preview();
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var missing=[].filter.call(f.querySelectorAll('[required]'),function(i){return !i.value.trim()||(i.type==='email'&&!i.checkValidity())});
+    if(missing.length){st.hidden=false;st.textContent='Add '+missing.map(function(i){return f.querySelector('label[for="'+i.id+'"]').firstChild.textContent.trim().toLowerCase()}).join(' and ')+' to prepare the email.';missing[0].focus();return}
+    var m=compose();
+    window.location.href='mailto:info@niraav.com?subject='+encodeURIComponent(m.subject)+'&body='+encodeURIComponent(m.body);
+    st.hidden=false;st.textContent='Your email app should now open with this enquiry addressed to info@niraav.com. Check it and press send there. (Concept demo: nothing is sent from this page.)';
+  });
+
+  /* hero button preselects the product of the chosen division */
+  heroBtn.addEventListener('click',function(){var p=heroBtn.getAttribute('data-product');f.elements.product.value=p;preview();setTimeout(function(){document.getElementById('qty').focus({preventScroll:true})},500)});
+})();
+</script>
+</body>
+</html>

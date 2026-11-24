@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SR Sattar Medical Center, Korangi No. 1 — website concept</title>
+<meta name="description" content="Website concept for SR Sattar Medical Center, S-19 Gulzar Colony, Sector 32/B, Korangi No. 1, Karachi. General OPD, dental, physiotherapy, laboratory, hijama, hydra facial, PRP and home healthcare. Call or WhatsApp 0371 2312224.">
+<meta name="theme-color" content="#7A1F2B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Gabarito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pom:#7A1F2B; --pom-deep:#5C1621; --pom-soft:#F4E7E8;
+  --cream:#FCFBF8; --sage:#7FA38A; --sage-ink:#3D6A50; --sage-wash:#EBF2ED; --sage-light:#C4DBCB;
+  --lamp:#F2B84B; --ink:#1E1A1D; --ink-2:#5B5357; --line:#E3DBD8; --line-2:#CFC4C1;
+  --display:"Gabarito",system-ui,sans-serif; --body:"Be Vietnam Pro",system-ui,sans-serif;
+  --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--pom)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:-.015em;color:var(--ink)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:40px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* concept notice */
+.notice{background:var(--ink);color:#EDE6E3;font-size:13px;line-height:1.5;padding:7px 0}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:space-between}
+.notice a{color:var(--lamp);font-weight:500}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(252,251,248,.96);border-bottom:1px solid var(--line);backdrop-filter:saturate(1.2) blur(6px)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:76px}
+.mark{display:flex;flex-direction:column;text-decoration:none;color:var(--pom);line-height:1}
+.mark b{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.03em}
+.mark span{font-family:var(--display);font-weight:500;font-size:13.5px;color:var(--ink-2);margin-top:4px;letter-spacing:.01em}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15.5px;padding:8px 12px;border-radius:8px}
+.nav a:hover{background:var(--pom-soft);color:var(--pom)}
+.head-call{display:inline-flex;align-items:center;gap:8px;background:var(--pom);color:var(--cream);text-decoration:none;font-weight:600;font-size:15.5px;padding:10px 18px;border-radius:999px;white-space:nowrap}
+.head-call:hover{background:var(--pom-deep)}
+.head-call svg{width:17px;height:17px}
+.menu-btn{display:none;margin-left:auto;font:600 15px var(--body);background:none;border:1.5px solid var(--line-2);color:var(--ink);padding:8px 14px;border-radius:999px;cursor:pointer}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16.5px/1.2 var(--body);text-decoration:none;padding:15px 24px;border-radius:999px;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--pom);color:var(--cream)}
+.btn-wa:hover{background:var(--pom-deep)}
+.btn-line{background:transparent;color:var(--pom);border-color:var(--pom)}
+.btn-line:hover{background:var(--pom-soft)}
+
+/* hero */
+.hero{padding:64px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:64px;align-items:start}
+.hero-copy{padding-top:28px}
+.hero h1{font-size:clamp(38px,4.5vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1.03;max-width:15ch}
+.promise{font-size:20px;line-height:1.55;color:var(--ink-2);margin-top:26px;max-width:34ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-facts{margin:44px 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:15.5px}
+.hero-facts dt{font-family:var(--display);font-weight:600;color:var(--pom)}
+.hero-facts dd{margin:0;color:var(--ink)}
+
+/* duty board */
+.board{background:var(--pom);color:var(--cream);border-radius:18px;padding:26px 26px 20px;position:relative;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 48px -28px rgba(92,22,33,.6)}
+.board::before{content:"";position:absolute;inset:8px;border:1px solid rgba(252,251,248,.14);border-radius:12px;pointer-events:none}
+.board-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.board h2{color:var(--cream);font-size:32px;font-weight:700;letter-spacing:-.02em}
+.board-clock{text-align:right;font-family:var(--display);line-height:1.15}
+.board-clock b{display:block;font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.board-clock span{font-size:14px;color:#E9D6D8}
+.open-line{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:rgba(0,0,0,.16);border-radius:10px;font-size:15.5px}
+.open-line strong{font-weight:600}
+.lamp{width:14px;height:14px;border-radius:50%;flex:none;border:2px solid rgba(242,184,75,.55);background:transparent}
+.lamp.on{background:var(--lamp);border-color:var(--lamp);box-shadow:0 0 0 4px rgba(242,184,75,.2),0 0 18px rgba(242,184,75,.7)}
+.lamp.shut{border-color:rgba(252,251,248,.35)}
+.duty{list-style:none;margin:14px 0 0;padding:0}
+.duty li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:13px 4px;border-top:1px solid rgba(252,251,248,.14)}
+.duty li:first-child{border-top:0}
+.duty .who{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.2}
+.duty .what{grid-column:2;font-size:14px;color:#E6D3D5;line-height:1.35}
+.duty .when{grid-row:1 / span 2;grid-column:3;text-align:right;font-size:14.5px;line-height:1.3;font-variant-numeric:tabular-nums}
+.duty .when b{display:block;font-family:var(--display);font-weight:600;font-size:16px}
+.duty li.in .when b{color:var(--lamp)}
+.duty li.later,.duty li.done{color:#F0E3E4}
+.duty li.done .who{color:#D9C1C4}
+.duty .lamp{grid-row:1 / span 2;align-self:center}
+.board-next{margin-top:6px;padding:14px 4px 4px;border-top:1px dashed rgba(252,251,248,.3);font-size:15px;color:#F3E7E8}
+.board-next b{color:var(--lamp);font-weight:600}
+.board-tools{margin-top:16px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 12px;padding:14px;background:rgba(252,251,248,.07);border-radius:10px}
+.board-tools p{flex-basis:100%;font-size:14px;color:#EBDADC}
+.board-tools label{display:flex;flex-direction:column;font-size:13px;color:#EBDADC;gap:4px}
+.board-tools select{font:500 15px var(--body);color:var(--ink);background:var(--cream);border:0;border-radius:8px;padding:8px 10px;min-width:118px}
+.board-tools button{font:600 14.5px var(--body);background:transparent;color:var(--cream);border:1.5px solid rgba(252,251,248,.55);border-radius:999px;padding:8px 14px;cursor:pointer}
+.board-tools button:hover{background:rgba(252,251,248,.12)}
+.board-note{margin-top:14px;font-size:13.5px;color:#EBDADC;line-height:1.5}
+.board :focus-visible{outline-color:var(--lamp)}
+
+/* section scaffolding */
+.sec{padding:96px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end;margin-bottom:44px}
+.sec-head h2{font-size:clamp(32px,3.6vw,46px);font-weight:700;max-width:16ch}
+.sec-head p{color:var(--ink-2);font-size:18px;max-width:52ch}
+
+/* services directory */
+.dir{border-top:2px solid var(--ink);margin:0;padding:0;list-style:none}
+.dir li{display:grid;grid-template-columns:minmax(0,3.2fr) minmax(0,5fr) minmax(0,3.8fr);gap:28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.dir h3{font-size:24px;font-weight:600;letter-spacing:-.01em}
+.dir .desc{color:var(--ink-2);max-width:46ch}
+.dir .hrs{font-size:15px;line-height:1.5}
+.dir .hrs span{display:block}
+.dir .hrs em{font-style:normal;color:var(--sage-ink);font-weight:600}
+.dir a.inline{font-weight:600}
+
+/* day timeline */
+.day{background:var(--sage-wash);border-top:1px solid var(--sage-light);border-bottom:1px solid var(--sage-light)}
+.tl{position:relative;background:var(--cream);border:1px solid var(--sage-light);border-radius:16px;padding:24px 28px 18px}
+.tl-row{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:center;min-height:52px;border-top:1px solid var(--line)}
+.tl-row.axis{border-top:0;min-height:30px}
+.tl-label{font-size:15px;line-height:1.3}
+.tl-label b{display:block;font-family:var(--display);font-weight:600;font-size:17px}
+.tl-label span{color:var(--ink-2);font-size:13.5px}
+.track{position:relative;height:30px}
+.track .grid{position:absolute;inset:0;background-image:linear-gradient(to right,var(--line) 1px,transparent 1px);background-size:calc(100% / 12) 100%}
+.bar{position:absolute;top:3px;bottom:3px;border-radius:6px;background:var(--pom);color:var(--cream);font-size:13px;font-weight:600;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}
+.bar.dental{background:#9A3442}
+.bar.physio{background:var(--sage-ink)}
+.bar.oncall{background:repeating-linear-gradient(135deg,transparent 0 7px,rgba(127,163,138,.28) 7px 14px);border:1.5px dashed var(--sage-ink);color:var(--sage-ink)}
+.bar.open{background:var(--lamp);color:var(--ink)}
+.axis .track{height:22px}
+.axis .tick{position:absolute;top:0;white-space:nowrap;transform:translateX(-50%);font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.axis .tick:first-child{transform:none}
+.axis .tick:last-child{transform:translateX(-100%)}
+.nowline{position:absolute;top:58px;bottom:16px;width:2px;background:var(--ink);pointer-events:none}
+.nowline span{position:absolute;top:-24px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--cream);font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.tl-legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:14.5px;color:var(--ink-2)}
+.tl-legend i{display:inline-block;width:22px;height:10px;border-radius:3px;margin-right:8px;vertical-align:middle}
+.week{margin-top:28px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.week div{background:var(--cream);border:1px solid var(--sage-light);border-radius:10px;padding:12px 10px;text-align:center;font-size:14px;line-height:1.35}
+.week div b{display:block;font-family:var(--display);font-size:16px;font-weight:600}
+.week div.today{border:2px solid var(--pom)}
+.week div.short{background:#FFF7E6}
+
+/* home care */
+.home .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.home h2{font-size:clamp(32px,3.6vw,46px);font-weight:700;max-width:17ch}
+.home .lede{color:var(--ink-2);font-size:18px;margin-top:20px;max-width:40ch}
+.home-art{margin-top:36px;max-width:340px}
+.visits{list-style:none;margin:0;padding:0}
+.visits li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.visits li:last-child{border-bottom:1px solid var(--line)}
+.visits svg{width:48px;height:48px;color:var(--pom)}
+.visits h3{font-size:23px;font-weight:600}
+.visits p{color:var(--ink-2);margin-top:6px;max-width:50ch}
+.home-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+.home-foot p{font-size:15px;color:var(--ink-2);max-width:40ch}
+
+/* composer */
+.book{background:var(--pom);color:var(--cream)}
+.book .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:56px;align-items:start}
+.book h2{color:var(--cream);font-size:clamp(32px,3.6vw,46px);font-weight:700;max-width:14ch}
+.book .lede{color:#F0E1E3;font-size:18px;margin-top:18px;max-width:44ch}
+.form{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px 18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1 / -1}
+.field label{font-weight:600;font-size:15px}
+.field .hint{font-size:13.5px;color:#EBD8DA}
+.field input,.field select,.field textarea{font:500 16.5px var(--body);color:var(--ink);background:var(--cream);border:2px solid transparent;border-radius:10px;padding:12px 14px;width:100%}
+.field textarea{min-height:84px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--lamp);outline-offset:2px}
+.match{grid-column:1 / -1;display:flex;gap:12px;align-items:flex-start;background:rgba(0,0,0,.18);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.5}
+.match .lamp{margin-top:4px}
+.slip{background:var(--cream);color:var(--ink);border-radius:16px;padding:26px;position:sticky;top:100px}
+.slip h3{font-size:21px;font-weight:600}
+.slip .to{font-size:14px;color:var(--ink-2);margin-top:4px}
+.slip pre{font:500 15.5px/1.6 var(--body);white-space:pre-wrap;word-break:break-word;margin:18px 0 0;padding:18px;background:var(--sage-wash);border-left:4px solid var(--sage);border-radius:4px 10px 10px 4px}
+.slip .btn{width:100%;margin-top:20px}
+.slip .small{font-size:13.5px;color:var(--ink-2);margin-top:14px}
+section[id]{scroll-margin-top:84px}
+.err{grid-column:1 / -1;color:var(--lamp);font-weight:600;font-size:14.5px;min-height:1.5em}
+
+/* find us + careers */
+.find .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px}
+.addr{font-family:var(--display);font-weight:600;font-size:clamp(26px,2.8vw,36px);line-height:1.18;margin-top:22px;letter-spacing:-.015em;max-width:20ch}
+.landmark{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--sage-wash);border:1px solid var(--sage-light);padding:8px 14px;border-radius:999px;font-weight:500;font-size:15.5px}
+.landmark svg{width:18px;height:18px;color:var(--sage-ink)}
+.contact-list{margin:32px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 24px;font-size:16.5px}
+.contact-list dt{font-weight:600;color:var(--ink-2)}
+.contact-list dd{margin:0}
+.contact-list a{font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.find-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.careers{border:2px solid var(--ink);border-radius:16px;padding:28px}
+.careers h2{font-size:30px;font-weight:700}
+.careers p{color:var(--ink-2);margin-top:10px}
+.roles{list-style:none;margin:20px 0 0;padding:0}
+.roles li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--line);font-size:16px}
+.roles li span{color:var(--ink-2);font-size:14.5px;white-space:nowrap}
+.careers .btn{margin-top:22px}
+
+/* footer */
+.foot{background:var(--ink);color:#E9E2DF;padding:56px 0 36px}
+.foot .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:flex-end;padding-bottom:30px;border-bottom:1px solid rgba(233,226,223,.18)}
+.foot .mark{color:var(--cream)}
+.foot .mark span{color:#CFC6C3}
+.foot .tag{font-family:var(--display);font-size:24px;font-weight:500;max-width:26ch;line-height:1.25}
+.foot .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:22px;font-size:13.5px;color:#CFC6C3}
+.foot a{color:var(--lamp)}
+
+/* mobile action bar */
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .hero-copy{padding-top:0}
+  .hero h1{max-width:16ch}
+  .dir li{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:8px 28px}
+  .dir .hrs{grid-column:2}
+  .book .wrap,.find .wrap,.home .wrap{grid-template-columns:minmax(0,1fr);gap:44px}
+  .btn{max-width:100%;min-width:0;white-space:normal;text-align:center;overflow-wrap:anywhere}
+  .slip{position:static}
+  .home-art{display:none}
+}
+@media (max-width:880px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--cream);border-bottom:1px solid var(--line);padding:10px 24px 18px;gap:0}
+  .nav.open{display:flex}
+  .nav a{padding:13px 4px;border-bottom:1px solid var(--line);border-radius:0;font-size:17px}
+  .menu-btn{display:inline-block}
+  .head-call{display:none}
+  .sec-head{grid-template-columns:1fr;gap:16px}
+  .tl-row{grid-template-columns:1fr;gap:6px;padding:10px 0}
+  .tl-row.axis{padding:0}
+  .tl-row.axis .tl-label{display:none}
+  .nowline{display:none}
+  .week{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:18px}
+  body{font-size:16.5px;padding-bottom:72px}
+  .hero{padding:36px 0 64px}
+  .promise{font-size:18px}
+  .hero-ctas .btn{flex:1 1 100%}
+  .board{padding:20px 16px 16px;border-radius:14px}
+  .board::before{inset:6px}
+  .board h2{font-size:26px}
+  .board-clock b{font-size:24px}
+  .duty li{grid-template-columns:14px minmax(0,1fr);}
+  .duty .when{grid-row:auto;grid-column:2;text-align:left;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+  .duty .when b{display:inline}
+  .duty .lamp{grid-row:1 / span 3;align-self:start;margin-top:5px}
+  .board-tools select{min-width:0;width:100%}
+  .board-tools label{flex:1 1 40%}
+  .sec{padding:68px 0}
+  .dir li{grid-template-columns:1fr;gap:6px}
+  .dir .hrs{grid-column:auto}
+  .dir h3{font-size:22px}
+  .tl{padding:16px 14px 12px}
+  .axis .tick:nth-child(even){display:none}
+  .week{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .week div:last-child{grid-column:1 / -1}
+  .form{grid-template-columns:1fr}
+  .slip{padding:20px}
+  .careers{padding:22px}
+  .roles li{flex-direction:column;gap:2px}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--cream);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .mbar .btn{padding:12px 10px;font-size:15.5px}
+  .foot .tag{font-size:20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .lamp.on{animation:glow 2.6s ease-in-out infinite}
+  @keyframes glow{50%{box-shadow:0 0 0 6px rgba(242,184,75,.12),0 0 26px rgba(242,184,75,.85)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for SR Sattar Medical Center — not the official website. Proposed design; drawn artwork; details from the centre's own public site.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="SR Sattar Medical Center, back to top"><b>SR Sattar</b><span>Medical Center, Korangi No. 1</span></a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#duty">On duty</a>
+      <a href="#services">Services</a>
+      <a href="#shifts">Shift times</a>
+      <a href="#home-care">Home care</a>
+      <a href="#book">Book</a>
+      <a href="#find">Find us</a>
+    </nav>
+    <a class="head-call" href="tel:+923712312224"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call 0371 2312224</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="duty" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 id="hero-title">A neighbourhood clinic in Korangi No. 1, open till 10 at night.</h1>
+      <p class="promise">Doctors, dentists and physiotherapists under one roof in Gulzar Colony. Walk in, call, or send a WhatsApp, and check who is in before you leave home.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="#book"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>Book on WhatsApp</a>
+        <a class="btn btn-line" href="tel:+923712312224"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call 0371 2312224</a>
+      </div>
+      <dl class="hero-facts">
+        <dt>Hours</dt><dd>Monday to Saturday 10 AM – 10 PM, Sunday 12 PM – 8 PM</dd>
+        <dt>Address</dt><dd>S-19 Gulzar Colony, Sector 32/B, Korangi No. 1, near New Meezan Bank</dd>
+      </dl>
+    </div>
+
+    <div class="board" aria-labelledby="board-title">
+      <div class="board-top">
+        <h2 id="board-title">On duty now</h2>
+        <div class="board-clock" aria-live="polite"><b id="b-time">—</b><span id="b-day">Pakistan time</span></div>
+      </div>
+      <p class="open-line"><span class="lamp" id="b-lamp" aria-hidden="true"></span><span id="b-open"><strong>Mon–Sat 10 AM – 10 PM, Sun 12 – 8 PM.</strong></span></p>
+      <ul class="duty" id="b-list">
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Qirat Arif</span><span class="what">General Physician</span><span class="when"><b>7 – 10 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Ibrahim</span><span class="what">Dental Surgeon, morning</span><span class="when"><b>12 – 5 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Fariha</span><span class="what">Dental Surgeon, evening</span><span class="when"><b>5 – 10 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Misbah</span><span class="what">Physiotherapist, morning</span><span class="when"><b>11 AM – 4 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. S.M Khurram</span><span class="what">Physiotherapy &amp; Hijama, evening</span><span class="when"><b>5 – 10 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Saliha</span><span class="what">Physiotherapist, evening</span><span class="when"><b>5 – 10 PM</b></span></li>
+        <li><span class="lamp" aria-hidden="true"></span><span class="who">Dr. Shariz</span><span class="what">Hydra Facial Specialist</span><span class="when"><b>On call</b></span></li>
+      </ul>
+      <p class="board-next" id="b-next" aria-live="polite"></p>
+      <form class="board-tools" id="b-tools" aria-label="Check another day and time">
+        <p>Planning a visit? See the board for another day and time.</p>
+        <label>Day<select id="b-dsel"></select></label>
+        <label>Time<select id="b-tsel"></select></label>
+        <button type="button" id="b-now" hidden>Back to now</button>
+      </form>
+      <p class="board-note">Based on published shift times, in Pakistan time, not live attendance. Call 0371 2312224 to check a doctor is in before you travel.</p>
+    </div>
+  </div>
+</section>
+<section class="sec" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="svc-title">Eight services in one building</h2>
+      <p>What each department does and who covers it, with the shift times the centre publishes. Ask at the front desk or on WhatsApp for anything not listed here.</p>
+    </div>
+    <ul class="dir">
+      <li><h3>General OPD</h3><p class="desc">Consultations with the general physician for everyday illness, check-ups and follow-up visits.</p><p class="hrs"><span><em>Dr. Qirat Arif</em>, General Physician</span><span class="tnum">7 – 10 PM</span></p></li>
+      <li><h3>Dental Care</h3><p class="desc">Crowns, scaling, fillings, root canals and cosmetic restorations.</p><p class="hrs"><span><em>Dr. Ibrahim</em>, morning, <span class="tnum" style="display:inline">12 – 5 PM</span></span><span><em>Dr. Fariha</em>, evening, <span class="tnum" style="display:inline">5 – 10 PM</span></span></p></li>
+      <li><h3>Physiotherapy</h3><p class="desc">Physiotherapy sessions in a morning or evening shift, so you can come before or after work.</p><p class="hrs"><span><em>Dr. Misbah</em>, morning, <span class="tnum" style="display:inline">11 AM – 4 PM</span></span><span><em>Dr. S.M Khurram</em>, evening, <span class="tnum" style="display:inline">5 – 10 PM</span></span><span><em>Dr. Saliha</em>, evening, <span class="tnum" style="display:inline">5 – 10 PM</span></span></p></li>
+      <li><h3>Laboratory Services</h3><p class="desc">Blood tests, pathology and hormonal panels.</p><p class="hrs"><span>Ask the centre about sample times and when reports are ready.</span></p></li>
+      <li><h3>Hijama Therapy</h3><p class="desc">Cupping therapy, offered in the evening alongside physiotherapy.</p><p class="hrs"><span><em>Dr. S.M Khurram</em>, Physiotherapy &amp; Hijama</span><span class="tnum">5 – 10 PM</span></p></li>
+      <li><h3>Hydra Facial</h3><p class="desc">Facial skin treatment with the centre's hydra facial specialist.</p><p class="hrs"><span><em>Dr. Shariz</em>, on call</span><span>Message ahead to arrange a time.</span></p></li>
+      <li><h3>PRP Treatments</h3><p class="desc">Platelet-rich plasma treatment. Ask the centre which practitioner handles it and what it involves.</p><p class="hrs"><span>No shift published. Ask on WhatsApp.</span></p></li>
+      <li><h3>Home Healthcare</h3><p class="desc">Doctor or physio visits at home, sample collection and elderly care.</p><p class="hrs"><span><a class="inline" href="#home-care">How home visits work</a></span></p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec day" id="shifts" aria-labelledby="shift-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="shift-title">A day at the centre, shift by shift</h2>
+      <p>The published shifts, laid out across opening hours. The centre lists one set of shift times; on Sunday it opens 12 PM – 8 PM, so call to confirm who covers Sunday.</p>
+    </div>
+    <div class="tl" id="tl">
+      <div class="tl-row axis" aria-hidden="true"><div class="tl-label"></div><div class="track" id="tl-axis">
+        <span class="tick" style="left:0">10 AM</span><span class="tick" style="left:16.667%">12 PM</span><span class="tick" style="left:33.333%">2 PM</span><span class="tick" style="left:50%">4 PM</span><span class="tick" style="left:66.667%">6 PM</span><span class="tick" style="left:83.333%">8 PM</span><span class="tick" style="left:100%">10 PM</span>
+      </div></div>
+      <div class="tl-row"><div class="tl-label"><b>Centre open</b><span>Monday to Saturday</span></div><div class="track"><i class="grid"></i><span class="bar open" style="left:0;width:100%">10 AM – 10 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Centre open</b><span>Sunday</span></div><div class="track"><i class="grid"></i><span class="bar open" style="left:16.667%;width:66.667%">12 PM – 8 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Misbah</b><span>Physiotherapist, morning</span></div><div class="track"><i class="grid"></i><span class="bar physio" style="left:8.333%;width:41.667%">11 AM – 4 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Ibrahim</b><span>Dental Surgeon, morning</span></div><div class="track"><i class="grid"></i><span class="bar dental" style="left:16.667%;width:41.667%">12 – 5 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Fariha</b><span>Dental Surgeon, evening</span></div><div class="track"><i class="grid"></i><span class="bar dental" style="left:58.333%;width:41.667%">5 – 10 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. S.M Khurram</b><span>Physiotherapy &amp; Hijama, evening</span></div><div class="track"><i class="grid"></i><span class="bar physio" style="left:58.333%;width:41.667%">5 – 10 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Saliha</b><span>Physiotherapist, evening</span></div><div class="track"><i class="grid"></i><span class="bar physio" style="left:58.333%;width:41.667%">5 – 10 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Qirat Arif</b><span>General Physician</span></div><div class="track"><i class="grid"></i><span class="bar" style="left:75%;width:25%">7 – 10 PM</span></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Dr. Shariz</b><span>Hydra Facial Specialist</span></div><div class="track"><i class="grid"></i><span class="bar oncall" style="left:0;width:100%">On call, arranged by message</span></div></div>
+      <div class="nowline" id="tl-now" hidden><span id="tl-now-t">Now</span></div>
+    </div>
+    <div class="tl-legend" aria-hidden="true">
+      <span><i style="background:var(--pom)"></i>General OPD</span>
+      <span><i style="background:#9A3442"></i>Dental</span>
+      <span><i style="background:var(--sage-ink)"></i>Physiotherapy and hijama</span>
+      <span><i style="background:var(--lamp)"></i>Opening hours</span>
+    </div>
+    <div class="week" id="week" aria-label="Opening hours by day">
+      <div data-d="1"><b>Monday</b>10 AM – 10 PM</div>
+      <div data-d="2"><b>Tuesday</b>10 AM – 10 PM</div>
+      <div data-d="3"><b>Wednesday</b>10 AM – 10 PM</div>
+      <div data-d="4"><b>Thursday</b>10 AM – 10 PM</div>
+      <div data-d="5"><b>Friday</b>10 AM – 10 PM</div>
+      <div data-d="6"><b>Saturday</b>10 AM – 10 PM</div>
+      <div data-d="0" class="short"><b>Sunday</b>12 PM – 8 PM</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec home" id="home-care" aria-labelledby="home-title">
+  <div class="wrap">
+    <div>
+      <h2 id="home-title">When the patient can't come to Korangi No. 1</h2>
+      <p class="lede">The centre lists home healthcare among its services. Tell them who needs care, where, and when, and they will tell you what they can arrange.</p>
+      <svg class="home-art" viewBox="0 0 340 220" fill="none" stroke="#7A1F2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 200h300"/>
+        <path d="M60 200V104l80-62 80 62v96"/>
+        <path d="M44 116 140 42l96 74"/>
+        <rect x="118" y="140" width="44" height="60" rx="3"/>
+        <rect x="76" y="124" width="30" height="28" rx="2"/><rect x="174" y="124" width="30" height="28" rx="2"/>
+        <rect x="236" y="148" width="78" height="52" rx="8" fill="#FCFBF8"/>
+        <path d="M258 148v-10a6 6 0 0 1 6-6h22a6 6 0 0 1 6 6v10"/>
+        <path d="M275 162v24M263 174h24" stroke="#3D6A50"/>
+        <circle cx="140" cy="88" r="12" stroke="#F2B84B"/>
+      </svg>
+    </div>
+    <div>
+      <ul class="visits">
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v12a8 8 0 0 0 16 0V6"/><path d="M20 26v6a9 9 0 0 0 18 0v-4"/><circle cx="38" cy="24" r="4"/><path d="M9 6h6M25 6h6"/></svg>
+          <div><h3>Doctor or physio visit</h3><p>A doctor or physiotherapist comes to the home, for patients who find the trip difficult or are recovering in bed.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6h12M20 6v30a4 4 0 0 0 8 0V6"/><path d="M20 22h8"/><path d="M34 30h8M38 26v8"/></svg>
+          <div><h3>Sample collection at home</h3><p>Blood and other samples taken at home for the centre's laboratory, so the patient doesn't wait in a queue.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 40S8 30 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 12-16 22-16 22Z"/><path d="M16 22h5l2-4 3 8 2-4h4"/></svg>
+          <div><h3>Elderly care</h3><p>Care at home for older family members. Describe what is needed and the centre will say how it can help.</p></div>
+        </li>
+      </ul>
+      <div class="home-foot">
+        <a class="btn btn-wa" href="#book" data-service="home">Ask about a home visit</a>
+        <p>Visit areas, timings and charges are not published. Ask the centre before you book.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    <div>
+      <h2 id="book-title">Book on WhatsApp</h2>
+      <p class="lede">Pick a service and a time. We check it against the published shifts and write the message for you. Nothing is sent until you press send in WhatsApp.</p>
+      <form class="form" id="bk" novalidate>
+        <div class="field full"><label for="bk-name">Patient's name</label><input id="bk-name" name="name" autocomplete="name" required aria-describedby="bk-err"></div>
+        <div class="field full"><label for="bk-svc">Service</label>
+          <select id="bk-svc" name="service">
+            <option value="opd">General OPD</option>
+            <option value="dental">Dental Care</option>
+            <option value="physio">Physiotherapy</option>
+            <option value="lab">Laboratory Services</option>
+            <option value="hijama">Hijama Therapy</option>
+            <option value="hydra">Hydra Facial</option>
+            <option value="prp">PRP Treatments</option>
+            <option value="home">Home Healthcare</option>
+          </select></div>
+        <div class="field"><label for="bk-day">Preferred day</label><select id="bk-day" name="day"></select></div>
+        <div class="field"><label for="bk-time">Preferred time</label><select id="bk-time" name="time"></select></div>
+        <p class="match" id="bk-match" aria-live="polite"><span class="lamp" aria-hidden="true"></span><span></span></p>
+        <div class="field full"><label for="bk-note">Anything the centre should know <span class="hint">(optional)</span></label><textarea id="bk-note" name="note" placeholder="For example: tooth pain since Monday, or home visit in Sector 33"></textarea></div>
+        <p class="err full" id="bk-err" role="alert"></p>
+      </form>
+    </div>
+    <aside class="slip" aria-labelledby="slip-title">
+      <h3 id="slip-title">Your message</h3>
+      <p class="to">To SR Sattar Medical Center, WhatsApp +92 371 2312224</p>
+      <pre id="bk-preview"></pre>
+      <a class="btn btn-wa" id="bk-send" href="https://wa.me/923712312224" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>Book on WhatsApp</a>
+      <p class="small">Your visit is booked once the centre replies to confirm. Prefer to talk? <a href="tel:+923712312224">Call 0371 2312224</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="sec find" id="find" aria-labelledby="find-title">
+  <div class="wrap">
+    <div>
+      <h2 id="find-title" style="font-size:clamp(32px,3.6vw,46px);font-weight:700">How to find us</h2>
+      <p class="addr">S-19 Gulzar Colony, Sector 32/B, Korangi No. 1, Karachi</p>
+      <p class="landmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Landmark: near New Meezan Bank</p>
+      <dl class="contact-list">
+        <dt>Phone</dt><dd><a href="tel:+923712312224">0371 2312224</a></dd>
+        <dt>WhatsApp</dt><dd><a href="https://wa.me/923712312224" target="_blank" rel="noopener">+92 371 2312224</a></dd>
+        <dt>Hours</dt><dd>Monday to Saturday 10 AM – 10 PM<br>Sunday 12 PM – 8 PM</dd>
+      </dl>
+      <div class="find-ctas">
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=S-19+Gulzar+Colony+Sector+32%2FB+Korangi+No.+1+Karachi" target="_blank" rel="noopener">Search the address on Google Maps</a>
+      </div>
+    </div>
+    <div class="careers" aria-labelledby="jobs-title">
+      <h2 id="jobs-title">The centre is hiring</h2>
+      <p>Send your CV by email and mention the role you are applying for.</p>
+      <ul class="roles">
+        <li>General Physician (OPD)<span>Full-time</span></li>
+        <li>Dental Surgeon<span>Full-time</span></li>
+        <li>Physiotherapist<span>Full-time</span></li>
+        <li>Lab Technician<span>Full-time</span></li>
+        <li>Front-desk Receptionist<span>Full-time</span></li>
+        <li>Aesthetic Therapist<span>Part-time</span></li>
+      </ul>
+      <a class="btn btn-line" href="mailto:assattar997@gmail.com?subject=Job%20application%20%E2%80%93%20SR%20Sattar%20Medical%20Center">Email assattar997@gmail.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a class="mark" href="#top"><b>SR Sattar</b><span>Medical Center, Korangi No. 1</span></a>
+        <p style="margin-top:14px;font-size:14.5px;max-width:44ch">The centre states it has served Korangi since 2014. Proposed wordmark for this concept.</p>
+      </div>
+      <p class="tag">Where you meet caring, friendly people.</p>
+    </div>
+    <div class="bottom">
+      <span>Website concept for SR Sattar Medical Center — not the official website. Proposed design; drawn artwork; details from the centre's own public site.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-line" href="tel:+923712312224">Call</a>
+  <a class="btn btn-wa" href="#book">Book on WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  /* menu */
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}});
+
+  /* published schedule (minutes from midnight, Pakistan time) */
+  var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var HOURS=[[720,1200],[600,1320],[600,1320],[600,1320],[600,1320],[600,1320],[600,1320]];
+  var P=[
+    {n:'Dr. Qirat Arif',r:'General Physician',s:1140,e:1320,svc:['opd']},
+    {n:'Dr. Ibrahim',r:'Dental Surgeon, morning',s:720,e:1020,svc:['dental']},
+    {n:'Dr. Fariha',r:'Dental Surgeon, evening',s:1020,e:1320,svc:['dental']},
+    {n:'Dr. Misbah',r:'Physiotherapist, morning',s:660,e:960,svc:['physio']},
+    {n:'Dr. S.M Khurram',r:'Physiotherapy & Hijama, evening',s:1020,e:1320,svc:['physio','hijama']},
+    {n:'Dr. Saliha',r:'Physiotherapist, evening',s:1020,e:1320,svc:['physio']},
+    {n:'Dr. Shariz',r:'Hydra Facial Specialist',oncall:true,svc:['hydra']}
+  ];
+  var WD={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+
+  function karachiNow(){
+    try{
+      var parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Karachi',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date()),o={};
+      parts.forEach(function(p){o[p.type]=p.value;});
+      return {d:WD[o.weekday],m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }catch(err){
+      var t=new Date(Date.now()+5*3600000);
+      return {d:t.getUTCDay(),m:t.getUTCHours()*60+t.getUTCMinutes()};
+    }
+  }
+  function fmt(m,noSuffix){
+    var h=Math.floor(m/60)%24,mm=m%60,suf=h>=12?'PM':'AM',h12=h%12||12;
+    return h12+(mm?':'+(mm<10?'0':'')+mm:'')+(noSuffix?'':' '+suf);
+  }
+  function range(a,b){
+    var same=(Math.floor(a/60)>=12)===(Math.floor(b/60)%24>=12);
+    return fmt(a,same)+' – '+fmt(b);
+  }
+  function win(p,d){
+    if(p.oncall)return null;
+    var o=HOURS[d],s=Math.max(p.s,o[0]),e=Math.min(p.e,o[1]);
+    return s<e?[s,e]:null;
+  }
+  function statusAt(p,d,m){
+    if(p.oncall)return {k:'oncall',o:2,head:'On call',sub:'arranged by message'};
+    var w=win(p,d);
+    if(!w)return {k:'done',o:3,head:'Not on today',sub:''};
+    if(m>=w[0]&&m<w[1])return {k:'in',o:0,head:'In now',sub:'until '+fmt(w[1]),w:w};
+    if(m<w[0])return {k:'later',o:1,head:'From '+fmt(w[0]),sub:'shift '+range(w[0],w[1]),w:w};
+    return {k:'done',o:3,head:'Finished',sub:'shift was '+range(w[0],w[1]),w:w};
+  }
+  function dayName(d,base){return d===base?'today':(d===(base+1)%7?'tomorrow ('+DAYS[d]+')':DAYS[d]);}
+
+  /* duty board */
+  var list=document.getElementById('b-list'),openEl=document.getElementById('b-open'),lampEl=document.getElementById('b-lamp'),
+      nextEl=document.getElementById('b-next'),timeEl=document.getElementById('b-time'),dayEl=document.getElementById('b-day'),
+      titleEl=document.getElementById('board-title'),dsel=document.getElementById('b-dsel'),tsel=document.getElementById('b-tsel'),nowBtn=document.getElementById('b-now');
+  var preview=false;
+
+  DAYS.forEach(function(n,i){var o=document.createElement('option');o.value=i;o.textContent=n;dsel.appendChild(o);});
+  for(var t=540;t<=1380;t+=30){var o=document.createElement('option');o.value=t;o.textContent=fmt(t);tsel.appendChild(o);}
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  function render(d,m,live){
+    titleEl.textContent=live?'On duty now':'On duty at this time';
+    timeEl.textContent=fmt(m);
+    dayEl.textContent=live?DAYS[d]+', Pakistan time':DAYS[d]+', schedule preview';
+    var o=HOURS[d],open=m>=o[0]&&m<o[1];
+    lampEl.className='lamp'+(open?' on':' shut');
+    var ot;
+    if(open)ot='<strong>'+(live?'Open now':'Open at this time')+'</strong>, closes at '+fmt(o[1])+(d===0?' on Sunday':'')+'.';
+    else if(m<o[0])ot='<strong>'+(live?'Not open yet':'Closed at this time')+'</strong>. Opens at '+fmt(o[0])+(live?' today':'')+'.';
+    else{var nd=(d+1)%7;ot='<strong>Closed for the day</strong>. Opens '+(live?'tomorrow ('+DAYS[nd]+')':DAYS[nd])+' at '+fmt(HOURS[nd][0])+'.';}
+    openEl.innerHTML=ot;
+
+    var rows=P.map(function(p,i){var s=statusAt(p,d,m);if(!open&&s.k==='in')s={k:'done',o:3,head:'Closed',sub:''};return {p:p,s:s,i:i};});
+    rows.sort(function(a,b){return a.s.o-b.s.o||((a.s.w?a.s.w[0]:0)-(b.s.w?b.s.w[0]:0))||a.i-b.i;});
+    list.innerHTML=rows.map(function(r){
+      return '<li class="'+r.s.k+'"><span class="lamp'+(r.s.k==='in'?' on':'')+'" aria-hidden="true"></span><span class="who">'+esc(r.p.n)+'</span><span class="what">'+esc(r.p.r)+'</span><span class="when"><b>'+r.s.head+'</b>'+r.s.sub+'</span></li>';
+    }).join('');
+
+    var inCount=rows.filter(function(r){return r.s.k==='in';}).length;
+    var later=rows.filter(function(r){return r.s.k==='later';});
+    var lead=inCount?'<b>'+inCount+' practitioner'+(inCount>1?'s':'')+' on shift.</b> ':(open?'No published shift is running at this time. ':'');
+    var nx='';
+    if(later.length){
+      var t0=later[0].s.w[0],grp=later.filter(function(r){return r.s.w[0]===t0;}).map(function(r){return esc(r.p.n);});
+      nx='Next to start at '+fmt(t0)+': '+(grp.length>1?grp.slice(0,-1).join(', ')+' and '+grp[grp.length-1]:grp[0]+', '+esc(later[0].p.r.split(',')[0]))+'.';
+    }
+    else{
+      for(var k=1;k<=7&&!nx;k++){
+        var dd=(d+k)%7,best=null;
+        P.forEach(function(p){var w=win(p,dd);if(w&&(!best||w[0]<best.w[0]))best={p:p,w:w};});
+        if(best)nx='Next shift: '+esc(best.p.n)+', '+esc(best.p.r.split(',')[0])+', '+(live?dayName(dd,d):DAYS[dd])+' at '+fmt(best.w[0])+'.';
+      }
+    }
+    nextEl.innerHTML=lead+nx;
+  }
+
+  function nearestSlot(m){var s=Math.round(m/30)*30;return Math.min(1380,Math.max(540,s));}
+  function tick(){
+    if(preview)return;
+    var n=karachiNow();
+    render(n.d,n.m,true);
+    dsel.value=n.d;tsel.value=nearestSlot(n.m);
+    placeNow(n);
+    markToday(n.d);
+  }
+  function onPick(){preview=true;nowBtn.hidden=false;render(+dsel.value,+tsel.value,false);}
+  dsel.addEventListener('change',onPick);tsel.addEventListener('change',onPick);
+  nowBtn.addEventListener('click',function(){preview=false;nowBtn.hidden=true;tick();dsel.focus();});
+
+  /* timeline now-line + today's hours */
+  var tl=document.getElementById('tl'),axis=document.getElementById('tl-axis'),nl=document.getElementById('tl-now'),nlt=document.getElementById('tl-now-t');
+  function placeNow(n){
+    n=n||karachiNow();
+    if(n.m<600||n.m>1320){nl.hidden=true;return;}
+    var a=axis.getBoundingClientRect(),b=tl.getBoundingClientRect();
+    if(!a.width){nl.hidden=true;return;}
+    nl.hidden=false;
+    nl.style.left=(a.left-b.left+a.width*(n.m-600)/720-1)+'px';
+    nlt.textContent='Now, '+fmt(n.m);
+  }
+  function markToday(d){[].forEach.call(document.querySelectorAll('#week div'),function(x){var on=+x.getAttribute('data-d')===d;x.classList.toggle('today',on);if(on)x.setAttribute('aria-current','date');else x.removeAttribute('aria-current');});}
+  window.addEventListener('resize',function(){placeNow();});
+
+  tick();
+  setInterval(tick,30000);
+
+  /* WhatsApp booking composer */
+  var f=document.getElementById('bk'),nameI=document.getElementById('bk-name'),svc=document.getElementById('bk-svc'),day=document.getElementById('bk-day'),
+      time=document.getElementById('bk-time'),note=document.getElementById('bk-note'),match=document.getElementById('bk-match'),
+      prev=document.getElementById('bk-preview'),send=document.getElementById('bk-send'),err=document.getElementById('bk-err');
+  var SVC={opd:'General OPD',dental:'Dental Care',physio:'Physiotherapy',lab:'Laboratory Services',hijama:'Hijama Therapy',hydra:'Hydra Facial',prp:'PRP Treatments',home:'Home Healthcare'};
+
+  function fillDays(){
+    var n=karachiNow();day.innerHTML='';
+    for(var k=0;k<7;k++){
+      var d=(n.d+k)%7,o=HOURS[d];
+      if(k===0&&n.m>=o[1]-60)continue;
+      var op=document.createElement('option');op.value=d;op.setAttribute('data-k',k);
+      op.textContent=k===0?'Today, '+DAYS[d]:(k===1?'Tomorrow, '+DAYS[d]:DAYS[d]);
+      day.appendChild(op);
+    }
+    fillTimes();
+  }
+  function fillTimes(){
+    var keep=time.value,d=+day.value,o=HOURS[d],n=karachiNow(),isToday=day.selectedOptions[0]&&day.selectedOptions[0].getAttribute('data-k')==='0';
+    time.innerHTML='';
+    for(var t=o[0];t<o[1];t+=60){
+      if(isToday&&t+60<=n.m)continue;
+      var op=document.createElement('option');op.value=t;op.textContent=fmt(t);time.appendChild(op);
+    }
+    if([].some.call(time.options,function(x){return x.value===keep;}))time.value=keep;
+  }
+  function matchText(){
+    var s=svc.value,d=+day.value,m=+time.value,on=false,txt;
+    var who=P.filter(function(p){return p.svc.indexOf(s)>-1;});
+    if(s==='hydra')txt='Dr. Shariz is listed as on call for hydra facials. Ask the centre to arrange a time.';
+    else if(s==='home')txt='Home visits are arranged by the centre. Add your area and the patient\'s needs in the note.';
+    else if(!who.length)txt='No practitioner or shift is published for '+SVC[s]+'. Ask the centre about timings in your message.';
+    else{
+      var inNow=who.filter(function(p){var w=win(p,d);return w&&m>=w[0]&&m<w[1];});
+      if(inNow.length){on=true;txt='At that time, published shifts list '+inNow.map(function(p){return p.n+' ('+p.r+')';}).join(' and ')+'.';}
+      else txt='No published '+SVC[s].toLowerCase()+' shift at that time. Shifts: '+who.map(function(p){return p.n+' '+range(p.s,p.e);}).join(', ')+'. Try another time.';
+    }
+    match.querySelector('.lamp').className='lamp'+(on?' on':'');
+    match.lastElementChild.textContent=txt;
+  }
+  function compose(){
+    matchText();
+    var dl=day.selectedOptions[0]?day.selectedOptions[0].textContent:'',tl=time.selectedOptions[0]?time.selectedOptions[0].textContent:'';
+    var msg='Assalam-o-Alaikum. I would like to book a visit at SR Sattar Medical Center.\n'+
+      'Patient: '+(nameI.value.trim()||'(patient name)')+'\n'+
+      'Service: '+SVC[svc.value]+'\n'+
+      'Preferred time: '+dl+(tl?', around '+tl:'')+'\n'+
+      (note.value.trim()?'Note: '+note.value.trim()+'\n':'')+
+      'Please confirm the time. Thank you.';
+    prev.textContent=msg;
+    send.href='https://wa.me/923712312224?text='+encodeURIComponent(msg);
+  }
+  day.addEventListener('change',function(){fillTimes();compose();});
+  [nameI,svc,time,note].forEach(function(el){el.addEventListener('input',compose);el.addEventListener('change',compose);});
+  send.addEventListener('click',function(e){
+    if(!nameI.value.trim()){e.preventDefault();err.textContent='Add the patient\'s name so the centre knows who the visit is for.';nameI.focus();return;}
+    err.textContent='';
+  });
+  f.addEventListener('submit',function(e){e.preventDefault();send.click();});
+  [].forEach.call(document.querySelectorAll('[data-service]'),function(a){a.addEventListener('click',function(){svc.value=a.getAttribute('data-service');compose();});});
+  fillDays();compose();
+})();
+</script>
+</body>
+</html>

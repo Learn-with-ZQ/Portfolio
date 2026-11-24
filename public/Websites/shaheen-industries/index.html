@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaheen Industries — terry towels and home linen from Karachi since 1973 (concept)</title>
+<meta name="description" content="Website concept for Shaheen Industries, Karachi: terry towels, bathrobes, kitchen linen and institutional linen made to each buyer's specification since 1973.">
+<meta name="theme-color" content="#0F5257">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0F5257; --teal-deep:#0B3E42; --teal-ink:#0A3337;
+  --cream:#F4EEE4; --coral:#E66A2C; --sand:#DDD3C3; --charcoal:#24211E;
+  --cream-soft:#CFDAD6; --muted:#5B544C; --line:#CBBFAD;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"Commissioner", "Segoe UI", system-ui, sans-serif;
+  --wrap:1200px; --gut:clamp(20px,4vw,48px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--charcoal);font:400 17px/1.65 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cream);color:var(--charcoal);padding:8px 14px;z-index:50}
+.skip:focus{left:8px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* concept notice */
+.notice{background:var(--charcoal);color:#E6DED1;font-size:13px;line-height:1.45}
+.notice .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;padding-block:8px}
+.notice a{color:#fff;text-underline-offset:3px}
+
+/* header */
+.top{background:var(--teal);color:var(--cream)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.mark b{font:400 32px/1 var(--serif);letter-spacing:.005em}
+.mark span{font-size:14px;font-weight:500;color:var(--cream-soft);letter-spacing:.02em}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--coral)}
+.nav .nav-cta{background:var(--cream);color:var(--teal-ink);padding:10px 18px;border-radius:999px;border:0}
+.nav .nav-cta:hover{background:#fff}
+.menu-btn{display:none;background:none;border:1.5px solid var(--cream-soft);color:var(--cream);font:500 15px var(--sans);padding:8px 16px;border-radius:999px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--teal);color:var(--cream);padding:clamp(28px,5vw,64px) 0 clamp(56px,7vw,96px);position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(32px,5vw,72px);align-items:start}
+.hero-copy{padding-top:clamp(8px,3vw,40px)}
+.hero h1{font-size:clamp(42px,5.2vw,72px);letter-spacing:-.01em;max-width:13.5ch}
+.hero .lead{font-size:clamp(17px,1.4vw,19px);color:var(--cream-soft);max-width:44ch;margin:28px 0 34px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:999px;font:600 16px/1.2 var(--sans);text-decoration:none;cursor:pointer;border:2px solid transparent}
+.btn-coral{background:var(--coral);color:var(--charcoal)}
+.btn-coral:hover{background:#F07B40}
+.btn-ghost{border-color:var(--cream-soft);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--cream)}
+.btn-teal{background:var(--teal);color:var(--cream)}
+.btn-teal:hover{background:var(--teal-deep)}
+.hero-facts{margin-top:44px;padding-top:20px;border-top:1px solid rgba(244,238,228,.22);display:grid;grid-template-columns:repeat(3,auto);gap:10px 32px;justify-content:start;font-size:14px;color:var(--cream-soft)}
+.hero-facts strong{display:block;font:400 22px/1.2 var(--serif);color:var(--cream)}
+
+/* towel stack */
+.stack-zone{display:grid;gap:22px}
+.stack-hint{font-size:14px;color:var(--cream-soft);margin:0}
+.stack{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.stack li{display:flex}
+.fold{
+  --c:#F7F2EA; --t:var(--charcoal); --w:100%; --x:0px;
+  position:relative;width:var(--w);margin-left:var(--x);height:66px;border:0;cursor:pointer;
+  border-radius:16px 34px 34px 16px;color:var(--t);text-align:left;
+  font:600 16px/1 var(--sans);padding:0 22px 0 58px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background-color:var(--c);
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 38%,rgba(0,0,0,0) 62%,rgba(0,0,0,.16) 100%),
+    repeating-linear-gradient(90deg,transparent 0 22px,rgba(0,0,0,.13) 22px 24px,transparent 24px 28px,rgba(0,0,0,.13) 28px 30px,transparent 30px 100%),
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.34) 0 1.3px,transparent 1.9px),
+    radial-gradient(circle at 50% 50%,rgba(0,0,0,.10) 0 1.3px,transparent 1.9px);
+  background-size:100% 100%,100% 100%,6px 6px,6px 6px;
+  background-position:0 0,0 0,0 0,3px 3px;
+  background-repeat:no-repeat,no-repeat,repeat,repeat;
+  box-shadow:0 2px 0 rgba(0,0,0,.18),inset -10px 0 14px -8px rgba(0,0,0,.22);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;
+}
+.fold{text-shadow:0 0 3px var(--c),0 0 6px var(--c),0 0 10px var(--c)}
+.fold .tag{font-size:13px;font-weight:500}
+.fold:hover{transform:translateX(-10px)}
+.fold[aria-pressed="true"]{transform:translateX(-30px);box-shadow:0 2px 0 rgba(0,0,0,.18),inset -10px 0 14px -8px rgba(0,0,0,.22),8px 10px 0 -2px rgba(10,51,55,.55)}
+.fold[aria-pressed="true"]::after{content:"";position:absolute;right:-14px;top:50%;width:22px;height:2px;background:var(--coral);border-radius:2px}
+.f1{--c:#F7F2EA;--w:94%;--x:4%}
+.f2{--c:var(--sand);--w:98%;--x:1%}
+.f3{--c:var(--coral);--w:92%;--x:6%}
+.f4{--c:#8FBDB7;--w:100%;--x:0%}
+.f5{--c:#EFE3CF;--w:95%;--x:3%}
+.f6{--c:#4B4540;--t:var(--cream);--w:97%;--x:2%}
+
+.label{background:var(--cream);color:var(--charcoal);border-radius:6px 22px 22px 6px;padding:24px 26px 22px;position:relative;
+  box-shadow:inset 0 0 0 1px var(--line)}
+.label::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(230,106,44,.75);border-radius:3px 17px 17px 3px;pointer-events:none}
+.label h2{font-size:28px;margin-bottom:6px}
+.label .items{margin:0 0 14px;color:var(--charcoal)}
+.label dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15px}
+.label dt{color:var(--muted)}
+.label dd{margin:0;font-weight:500}
+.label .note{font-size:13px;color:var(--muted);margin:14px 0 0}
+.label .send{margin-top:16px;background:none;border:0;padding:0;font:600 15px var(--sans);color:var(--teal);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.also{font-size:14px;color:var(--cream-soft);margin:0}
+
+@media (prefers-reduced-motion:no-preference){
+  .stack li{animation:settle .7s cubic-bezier(.2,.8,.2,1) both}
+  .stack li:nth-child(1){animation-delay:.05s}.stack li:nth-child(2){animation-delay:.13s}
+  .stack li:nth-child(3){animation-delay:.21s}.stack li:nth-child(4){animation-delay:.29s}
+  .stack li:nth-child(5){animation-delay:.37s}.stack li:nth-child(6){animation-delay:.45s}
+  @keyframes settle{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* sections */
+section{scroll-margin-top:12px}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec h2{font-size:clamp(34px,4vw,52px);letter-spacing:-.005em}
+.intro{font-size:18px;max-width:58ch;color:var(--muted);margin-top:18px}
+
+/* since 1973 */
+.story-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(36px,6vw,88px);align-items:start}
+.story-text p{max-width:58ch}
+.story-text h2{max-width:14ch;margin-bottom:28px}
+.record{margin:36px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.record li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px}
+.record b{font-weight:600}
+.record span{color:var(--muted)}
+.record small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.photo{margin:0}
+.photo img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:50% 62%;border-radius:4px 40px 40px 4px}
+.photo figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+.looms{margin-top:30px;background:var(--sand);border-radius:4px 28px 28px 4px;padding:22px 24px}
+.looms h3{font-size:24px;margin-bottom:8px}
+.looms p{margin:0;font-size:15px}
+.looms ul{margin:10px 0 12px;padding-left:20px}
+
+/* spec sheet */
+.spec{background:var(--sand)}
+.spec-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,6vw,88px);align-items:start}
+.spec-head{position:sticky;top:24px}
+.spec-head .btn{margin-top:30px}
+.sheet{background:var(--cream);border-radius:4px;box-shadow:0 1px 0 var(--line),0 18px 40px -28px rgba(36,33,30,.45)}
+.sheet-top{display:flex;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:2px solid var(--charcoal);font-size:14px;color:var(--muted)}
+.sheet-top strong{color:var(--charcoal);font-weight:600}
+.sheet table{width:100%;border-collapse:collapse;font-size:16px}
+.sheet th,.sheet td{text-align:left;vertical-align:top;padding:16px 26px;border-bottom:1px solid var(--line)}
+.sheet th{width:34%;font-weight:600}
+.sheet td{color:#3A352F}
+.sheet tr:last-child th,.sheet tr:last-child td{border-bottom:0}
+.sheet .src{font-size:13px;color:var(--muted);padding:14px 26px 20px;margin:0;border-top:1px solid var(--line)}
+
+/* quality */
+.quality{background:var(--teal-deep);color:var(--cream)}
+.quality .intro{color:var(--cream-soft)}
+.layers{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative}
+.layers::before{content:"";position:absolute;left:0;right:0;top:38px;height:2px;background:repeating-linear-gradient(90deg,var(--coral) 0 10px,transparent 10px 16px)}
+.layers li{position:relative;padding:0 clamp(16px,3vw,40px) 0 0}
+.layers .n{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;background:var(--cream);color:var(--teal-ink);font:400 38px/1 var(--serif);position:relative;margin-bottom:26px}
+.layers h3{font-size:26px;margin-bottom:12px}
+.layers p{color:var(--cream-soft);max-width:34ch;margin:0}
+.lab{margin-top:56px;padding-top:26px;border-top:1px solid rgba(244,238,228,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;color:var(--cream-soft);font-size:15px}
+.lab p{margin:0;max-width:62ch}
+.lab strong{color:var(--cream);font-weight:600}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,88px);align-items:start}
+.addr{margin-top:34px;display:grid;gap:26px}
+.addr h3{font:600 16px/1.3 var(--sans);margin-bottom:6px}
+.addr p{margin:0;color:#3A352F}
+.addr .src{font-size:13px;color:var(--muted);margin-top:4px}
+.lines{margin-top:32px;padding-top:26px;border-top:1px solid var(--line);display:grid;gap:8px}
+.lines a{font-weight:500;text-underline-offset:4px;text-decoration-color:var(--coral);text-decoration-thickness:2px;overflow-wrap:anywhere}
+.lines .big{font:400 30px/1.2 var(--serif);text-decoration:none}
+.lines .big:hover{color:var(--teal)}
+.form{background:#FBF8F3;border-radius:4px 32px 32px 4px;padding:clamp(24px,3.5vw,40px);box-shadow:inset 0 0 0 1px var(--line)}
+.form h3{font-size:30px;margin-bottom:6px}
+.form .sub{color:var(--muted);font-size:15px;margin-bottom:24px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px;margin-bottom:16px;min-width:0}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;font:400 16px/1.4 var(--sans);color:var(--charcoal);background:#fff;border:1.5px solid #B9AD9B;border-radius:8px;padding:11px 13px}
+.field textarea{min-height:112px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid rgba(15,82,87,.35);outline-offset:0;border-color:var(--teal)}
+.err{color:#A3361A;font-size:14px;margin:8px 0 0;min-height:1em}
+.preview{display:none;margin-top:18px;background:var(--cream);border-left:3px solid var(--coral);padding:14px 16px;font-size:14px;white-space:pre-wrap;font-family:var(--sans);overflow-wrap:anywhere}
+.preview.show{display:block}
+.demo{font-size:13px;color:var(--muted);margin:16px 0 0}
+
+/* footer */
+.foot{background:var(--teal-ink);color:var(--cream-soft);font-size:15px;padding:56px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.foot .mark b{color:var(--cream)}
+.foot h3{font:600 15px/1.3 var(--sans);color:var(--cream);margin-bottom:10px}
+.foot p{margin:0 0 8px}
+.foot a{text-underline-offset:3px}
+.foot-base{margin-top:44px;padding-top:20px;border-top:1px solid rgba(244,238,228,.18);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13px}
+.foot-base a{color:var(--cream)}
+
+/* responsive */
+@media (max-width:1080px){
+  .nav ul{gap:20px}
+  .hero-facts{gap:10px 22px}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero h1{max-width:16ch}
+  .stack-zone{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:28px}
+  .stack-hint,.also{grid-column:1/-1}
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--teal);display:none;z-index:20;border-top:1px solid rgba(244,238,228,.18)}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gut) 22px}
+  .nav a{display:block;padding:13px 0;font-size:17px;border-bottom:1px solid rgba(244,238,228,.12)}
+  .nav .nav-cta{margin-top:14px;text-align:center;border-bottom:0}
+  .top{position:relative}
+  .story-grid,.spec-grid,.contact-grid{grid-template-columns:1fr}
+  .spec-head{position:static}
+  .photo img{aspect-ratio:16/10}
+  .layers{grid-template-columns:1fr;gap:34px}
+  .layers::before{left:38px;right:auto;top:0;bottom:0;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--coral) 0 10px,transparent 10px 16px)}
+  .layers li{display:grid;grid-template-columns:78px 1fr;gap:0 22px;padding:0}
+  .layers .n{grid-row:span 2;margin:0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > :first-child{grid-column:1/-1}
+}
+@media (max-width:720px){
+  .stack-zone{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .mark b{font-size:27px}
+  .mark span{display:none}
+  .hero-facts{grid-template-columns:1fr 1fr}
+  .fold{height:58px;padding-left:46px;font-size:15px}
+  .fold .tag{display:none}
+  .fold[aria-pressed="true"]{transform:translateX(-14px)}
+  .row{grid-template-columns:1fr}
+  .record li{grid-template-columns:1fr;gap:2px}
+  .sheet th,.sheet td{display:block;width:auto;padding:12px 20px}
+  .sheet th{padding-bottom:0;border-bottom:0}
+  .sheet-top{flex-direction:column;gap:2px;padding:16px 20px}
+  .sheet .src{padding:14px 20px 18px}
+  .label{padding:22px 20px 20px}
+  .label dl{grid-template-columns:1fr;gap:0}
+  .label dd{margin-bottom:8px}
+  .foot-grid{grid-template-columns:1fr}
+  .lines .big{font-size:26px}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="notice" role="note">
+  <div class="wrap">
+    <span>Website concept for Shaheen Industries, not the official website. Proposed design and wordmark; stock imagery; details from public listings.</span>
+    <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Shaheen Industries, home"><b>Shaheen</b><span>Industries, Karachi</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#range">Range</a></li>
+        <li><a href="#since-1973">Since 1973</a></li>
+        <li><a href="#specification">Specification</a></li>
+        <li><a href="#quality">Quality</a></li>
+        <li><a class="nav-cta" href="#enquiry">Send your specification</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-title">Terry towels, woven to your specification since 1973.</h1>
+      <p class="lead">Shaheen Industries makes towels, bathrobes, kitchen linen and institutional linen in its own integrated unit in Karachi, for importers mainly in Europe and the USA.</p>
+      <div class="btns">
+        <a class="btn btn-coral" href="#enquiry">Send your specification</a>
+        <a class="btn btn-ghost" href="mailto:info@shaheenindustries.net">Email the export desk</a>
+      </div>
+      <div class="hero-facts">
+        <div><strong>1973</strong>Established in Karachi</div>
+        <div><strong>Europe, USA</strong>Main export markets</div>
+        <div><strong>One unit</strong>Weaving to finishing</div>
+      </div>
+    </div>
+
+    <div class="stack-zone" id="range" aria-label="Product range">
+      <p class="stack-hint" id="stack-hint">Pull a towel from the stack to see what can be made in that line.</p>
+      <ul class="stack" aria-describedby="stack-hint">
+        <li><button class="fold f1" type="button" data-k="bath" aria-pressed="true" aria-controls="label">Bath <span class="tag">towels, mats, wraps</span></button></li>
+        <li><button class="fold f2" type="button" data-k="hand" aria-pressed="false" aria-controls="label">Hand &amp; face <span class="tag">hand, face, wash cloths</span></button></li>
+        <li><button class="fold f3" type="button" data-k="beach" aria-pressed="false" aria-controls="label">Beach &amp; pool <span class="tag">beach and pool towels</span></button></li>
+        <li><button class="fold f4" type="button" data-k="robes" aria-pressed="false" aria-controls="label">Bathrobes <span class="tag">kimono, waffle, velour</span></button></li>
+        <li><button class="fold f5" type="button" data-k="kitchen" aria-pressed="false" aria-controls="label">Kitchen linen <span class="tag">tea towels, bar mops</span></button></li>
+        <li><button class="fold f6" type="button" data-k="inst" aria-pressed="false" aria-controls="label">Institutional linen <span class="tag">to buyer's specification</span></button></li>
+      </ul>
+      <div class="label" id="label" aria-live="polite">
+        <h2 id="l-title">Bath</h2>
+        <p class="items" id="l-items">Bath towels, bath mats, shower wraps and baby cap towels.</p>
+        <dl id="l-spec">
+          <dt>Yarn</dt><dd>Egyptian, ring spun or open-end spun</dd>
+          <dt>Fibre</dt><dd>100% cotton or blends</dd>
+          <dt>Finishes</dt><dd>Printed, velour or embroidered</dd>
+        </dl>
+        <p class="note" id="l-note">Options as listed on shaheenindustries.net. Anything else is agreed per order.</p>
+        <button class="send" type="button" id="l-send">Send a specification for bath towels</button>
+      </div>
+      <p class="also">Also from the same unit: terry fabric and woven ribbon.</p>
+    </div>
+  </div>
+</section>
+<section class="sec" id="since-1973" aria-labelledby="story-title">
+  <div class="wrap story-grid">
+    <div class="story-text">
+      <h2 id="story-title">A Karachi towel maker for more than five decades.</h2>
+      <p>Shaheen Industries was established in 1973 to manufacture terry towels and allied home furnishing products. It still works from its own integrated manufacturing unit in Karachi, where the weaving, dyeing and finishing teams each check the cloth as it passes through their hands.</p>
+      <p>Production is for export, mainly to buyers in Europe and the USA, and every order is made to the customer's own specification, from the choice of yarn to the dyeing.</p>
+      <ul class="record">
+        <li><b>1973</b><span>Established to make terry towels and allied home furnishing products.<small>Company website</small></span></li>
+        <li><b>TMA</b><span>On the Towel Manufacturers' Association list of members for 2026–27, membership no. 3074.<small>towelassociation.com</small></span></li>
+        <li><b>FBATI</b><span>Member of the F.B. Area trade and industry association. Partner Muhammad Haroon Shamsi was elected its Senior Vice President for 2026–2028.<small>fbati.com</small></span></li>
+      </ul>
+    </div>
+    <div>
+      <figure class="photo">
+        <img src="https://images.unsplash.com/photo-1639298109207-5a9ccc254481?w=900&q=70&auto=format&fit=crop" width="900" height="1125" alt="Two folded terry towels, one burgundy and one turquoise, on a white surface" loading="lazy">
+        <figcaption>Stock photograph of folded terry towels, for illustration only. Not a Shaheen Industries product.</figcaption>
+      </figure>
+      <div class="looms">
+        <h3>On the looms</h3>
+        <p>The company's Towel Manufacturers' Association profile lists three kinds of loom:</p>
+        <ul>
+          <li>Needle looms</li>
+          <li>Vamatex looms</li>
+          <li>Shuttleless plain looms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec spec" id="specification" aria-labelledby="spec-title">
+  <div class="wrap spec-grid">
+    <div class="spec-head">
+      <h2 id="spec-title">Made to your sheet.</h2>
+      <p class="intro">Every order is produced to the customer's specification. These are the yarns, constructions and finishes the company publishes. Bring the sizes, weights, colours and packing you need.</p>
+      <a class="btn btn-teal" href="#enquiry">Send your specification</a>
+    </div>
+    <div class="sheet">
+      <div class="sheet-top"><strong>Published options</strong><span>Your figures go in the enquiry</span></div>
+      <table>
+        <caption class="vh">Published product and specification options</caption>
+        <tr><th scope="row">Terry yarn</th><td>Egyptian, ring spun or open-end spun</td></tr>
+        <tr><th scope="row">Fibre</th><td>100% cotton, or blends</td></tr>
+        <tr><th scope="row">Towels</th><td>Bath, hand, face, beach and pool towels; wash cloths, wash gloves, bath mats, bar mops, tea towels, shower wraps, baby cap towels</td></tr>
+        <tr><th scope="row">Towel finishes</th><td>Printed, velour or embroidered</td></tr>
+        <tr><th scope="row">Bathrobes</th><td>Kimono, waffle or velour; with or without hood</td></tr>
+        <tr><th scope="row">Bathrobe dyeing</th><td>Piece-dyed or yarn-dyed</td></tr>
+        <tr><th scope="row">Kitchen linen</th><td>Single rib or double rib; 16/1 or 10/1 yarn</td></tr>
+        <tr><th scope="row">Dyeing standard</th><td>OEKO-TEX dyeing when the buyer requires it</td></tr>
+        <tr><th scope="row">Also made</th><td>Institutional linen, terry fabric, woven ribbon</td></tr>
+      </table>
+      <p class="src">From the home, about and quality pages of shaheenindustries.net. Sizes, weights, colours and packing are not published; they are set by each buyer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec quality" id="quality" aria-labelledby="q-title">
+  <div class="wrap">
+    <h2 id="q-title">Checked three times, the last against your standard.</h2>
+    <p class="intro">The company describes its quality assurance in three layers, from the loom to the final inspection.</p>
+    <ol class="layers">
+      <li><span class="n" aria-hidden="true">1</span><h3>In-line checks</h3><p>The weaving, dyeing and finishing teams check the work at their own stage, as it moves through the unit.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>A separate QC team</h3><p>A quality control team, apart from production, works under the daily supervision of the Quality Manager.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Final inspection</h3><p>Finished goods are inspected against the buyer's own quality standard.</p></li>
+    </ol>
+    <div class="lab">
+      <p><strong>Outside testing.</strong> Products are tested regularly at an outside standard laboratory.</p>
+      <p><strong>OEKO-TEX.</strong> Dyeing to OEKO-TEX is done when the customer asks for it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="enquiry" aria-labelledby="c-title">
+  <div class="wrap contact-grid">
+    <div>
+      <h2 id="c-title">Send your specification.</h2>
+      <p class="intro">Write to the export desk with the product, yarn and quantities you have in mind. Public listings give two Karachi addresses for the company.</p>
+      <div class="addr">
+        <div>
+          <h3>F.B. Industrial Area</h3>
+          <p>L-19/A-1, Block 22, F.B. Area,<br>Karachi 75950, Pakistan</p>
+          <p class="src">As listed on shaheenindustries.net and in the FBATI directory</p>
+        </div>
+        <div>
+          <h3>North Karachi Industrial Area</h3>
+          <p>DP-31/6, Sector 6-B, North Karachi Industrial Area,<br>Karachi 75850, Pakistan</p>
+          <p class="src">As listed in the Towel Manufacturers' Association member profile</p>
+        </div>
+      </div>
+      <div class="lines">
+        <a class="big" href="tel:+922136829791">+92 21 3682 9791</a>
+        <a href="mailto:info@shaheenindustries.net">info@shaheenindustries.net</a>
+        <a href="mailto:info@shaheenindustries.biz">info@shaheenindustries.biz</a>
+        <a href="mailto:shaheenind@cyber.net">shaheenind@cyber.net</a>
+      </div>
+    </div>
+
+    <form class="form" id="enq" novalidate>
+      <h3>Buyer enquiry</h3>
+      <p class="sub">Fills in an email to info@shaheenindustries.net for you to check and send.</p>
+      <div class="row">
+        <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-country">Country</label><input id="f-country" name="country" autocomplete="country-name"></div>
+        <div class="field"><label for="f-qty">Quantity</label><input id="f-qty" name="qty" placeholder="Pieces per order"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-line">Product line</label>
+          <select id="f-line" name="line">
+            <option value="bath">Bath towels</option>
+            <option value="hand">Hand and face towels</option>
+            <option value="beach">Beach and pool towels</option>
+            <option value="robes">Bathrobes</option>
+            <option value="kitchen">Kitchen linen</option>
+            <option value="inst">Institutional linen</option>
+            <option value="fabric">Terry fabric</option>
+            <option value="ribbon">Woven ribbon</option>
+            <option value="multi">More than one line</option>
+          </select></div>
+        <div class="field"><label for="f-yarn">Yarn</label>
+          <select id="f-yarn" name="yarn">
+            <option>Not decided</option><option>Egyptian</option><option>Ring spun</option><option>Open-end spun</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-spec">Specification</label><textarea id="f-spec" name="spec" placeholder="Sizes, weight, colours, finish, packing and the ship date you are working to"></textarea></div>
+      <button class="btn btn-coral" type="submit">Email the export desk</button>
+      <p class="err" id="f-err" role="alert"></p>
+      <div class="preview" id="preview" aria-live="polite"></div>
+      <p class="demo">Concept demo: nothing is sent from this page. The button opens your own email app with the message ready to review.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="mark" href="#top" aria-label="Shaheen Industries, back to top"><b>Shaheen</b><span>Industries, Karachi</span></a>
+        <p style="margin-top:16px;max-width:40ch">Terry towels and allied home textiles, made in Karachi to each buyer's specification since 1973.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>L-19/A-1, Block 22, F.B. Area, Karachi 75950</p>
+        <p><a href="tel:+922136829791">+92 21 3682 9791</a><br><a href="mailto:info@shaheenindustries.net">info@shaheenindustries.net</a></p>
+      </div>
+      <div>
+        <h3>Sources</h3>
+        <p><a href="https://www.shaheenindustries.net/" target="_blank" rel="noopener">shaheenindustries.net</a><br>
+        <a href="https://towelassociation.com/member/shaheen%20industries/home" target="_blank" rel="noopener">TMA member profile</a><br>
+        <a href="https://fbati.com/members" target="_blank" rel="noopener">FBATI members</a></p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>Homepage concept, not the official Shaheen Industries website and not endorsed by the company. Wordmark proposed; photograph is stock.</span>
+      <span>Concept by <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Muhammad Zaid Qasim</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';}});
+
+  var terry=[['Yarn','Egyptian, ring spun or open-end spun'],['Fibre','100% cotton or blends']];
+  var D={
+    bath:{t:'Bath',i:'Bath towels, bath mats, shower wraps and baby cap towels.',s:terry.concat([['Finishes','Printed, velour or embroidered']]),n:'bath towels'},
+    hand:{t:'Hand & face',i:'Hand towels, face towels, wash cloths and wash gloves.',s:terry.concat([['Finishes','Printed, velour or embroidered']]),n:'hand and face towels'},
+    beach:{t:'Beach & pool',i:'Beach towels and pool towels.',s:terry.concat([['Finishes','Printed, velour or embroidered']]),n:'beach and pool towels'},
+    robes:{t:'Bathrobes',i:'Kimono, waffle and velour bathrobes.',s:[['Hood','With or without'],['Dyeing','Piece-dyed or yarn-dyed']],n:'bathrobes'},
+    kitchen:{t:'Kitchen linen',i:'Kitchen towels, tea towels and bar mops.',s:[['Weave','Single rib or double rib'],['Yarn','16/1 or 10/1']],n:'kitchen linen'},
+    inst:{t:'Institutional linen',i:'Listed by the company as a product line. Constructions are not published.',s:[['Specification','Set by the buyer']],n:'institutional linen'}
+  };
+  var cur='bath', folds=document.querySelectorAll('.fold');
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function show(k){
+    var d=D[k]; cur=k;
+    folds.forEach(function(f){f.setAttribute('aria-pressed',f.dataset.k===k?'true':'false');});
+    document.getElementById('l-title').textContent=d.t;
+    document.getElementById('l-items').textContent=d.i;
+    document.getElementById('l-spec').innerHTML=d.s.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>';}).join('');
+    document.getElementById('l-send').textContent='Send a specification for '+d.n;
+  }
+  folds.forEach(function(f){f.addEventListener('click',function(){show(f.dataset.k);});});
+  document.getElementById('l-send').addEventListener('click',function(){
+    document.getElementById('f-line').value=cur;
+    document.getElementById('enquiry').scrollIntoView();
+    setTimeout(function(){document.getElementById('f-co').focus({preventScroll:true});},400);
+  });
+
+  var form=document.getElementById('enq'), err=document.getElementById('f-err'), pv=document.getElementById('preview');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var co=form.company.value.trim();
+    if(!co){err.textContent='Add your company name so the export desk knows who the enquiry is from.';form.company.focus();return;}
+    err.textContent='';
+    var line=form.line.options[form.line.selectedIndex].text;
+    var L=['Buyer enquiry for Shaheen Industries','',
+      'Company: '+co+(form.name.value.trim()?' ('+form.name.value.trim()+')':''),
+      'Country: '+(form.country.value.trim()||'Not given'),
+      'Product line: '+line,
+      'Yarn: '+form.yarn.value,
+      'Quantity: '+(form.qty.value.trim()||'Not given')];
+    if(form.spec.value.trim())L.push('','Specification:',form.spec.value.trim());
+    var body=L.join('\n');
+    pv.textContent=body; pv.classList.add('show');
+    window.location.href='mailto:info@shaheenindustries.net?subject='+encodeURIComponent('Specification enquiry: '+line+' ('+co+')')+'&body='+encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>

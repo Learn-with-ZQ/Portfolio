@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NTC Auto Parts — brake, clutch and ignition parts (concept)</title>
+<meta name="description" content="Website concept for NTC Auto Parts: ASUKI, ASUKI ADVANCED, ULTIMA, ZAM ZAM and PROTEC brake, clutch and ignition parts through counters in Karachi, Lahore, Peshawar, Quetta and a franchise in Swat.">
+<meta name="theme-color" content="#16171B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#16171B;
+  --asphalt-2:#1E2026;
+  --asphalt-3:#2A2D34;
+  --red:#E10A17;
+  --red-deep:#B50812;
+  --silver:#C7CCD3;
+  --silver-2:#E4E7EB;
+  --cobalt:#0B3A8C;
+  --white:#FFFFFF;
+  --mute:#A3A9B2;
+  --wrap:1240px;
+  --heat:.12;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--asphalt);color:var(--white);font-family:"Anybody",system-ui,sans-serif;font-stretch:100%;font-weight:400;font-size:17px;line-height:1.55;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--silver);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.wide{font-stretch:150%}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.02;letter-spacing:-.01em}
+h2{font-stretch:140%;font-size:clamp(34px,4.6vw,60px)}
+p{margin:0}
+.lede{color:var(--mute);max-width:58ch;font-size:18px}
+
+/* concept notice */
+.notice{background:#0E0F12;color:#B9BEC6;font-size:13px;line-height:1.45;border-bottom:1px solid var(--asphalt-3)}
+.notice .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px 20px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.notice a{color:var(--white);text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(22,23,27,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--asphalt-3)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:70px}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--white);line-height:1}
+.mark b{font-stretch:150%;font-weight:900;font-size:30px;letter-spacing:.02em;position:relative;padding-bottom:5px}
+.mark b::after{content:"";position:absolute;left:0;bottom:0;width:58%;height:4px;background:var(--red)}
+.mark span{font-stretch:75%;font-weight:500;font-size:19px;color:var(--silver)}
+.nav{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav a{text-decoration:none;font-size:15px;font-weight:600;font-stretch:115%;color:var(--silver)}
+.nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:3px;text-decoration:none;font-weight:700;font-stretch:120%;font-size:16px;line-height:1.1;cursor:pointer;border:2px solid transparent;transition:background-color .15s,border-color .15s,color .15s}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-deep)}
+.btn-line{border-color:var(--silver);color:var(--white);background:transparent}
+.btn-line:hover{border-color:var(--white);background:var(--asphalt-2)}
+.btn svg{width:20px;height:20px;flex:none}
+.top .btn{min-height:42px;padding:8px 16px;font-size:14px}
+.menu-btn{display:none;margin-left:auto;background:none;border:2px solid var(--asphalt-3);border-radius:3px;padding:8px 14px;font-weight:700;font-stretch:120%;font-size:14px;cursor:pointer;color:var(--white)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--asphalt-3)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);align-items:center;gap:24px;min-height:min(780px,calc(100vh - 106px));padding-top:56px;padding-bottom:64px}
+.hero h1{font-stretch:150%;font-weight:850;font-size:clamp(50px,7vw,112px);line-height:.92;letter-spacing:-.02em}
+.hero h1 .l2{display:block;color:var(--silver);font-weight:300;font-stretch:118%;white-space:nowrap}
+.hero .sub{margin-top:30px;max-width:46ch;font-size:19px;color:#D7DBE0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero .lines{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px 26px;color:var(--mute);font-size:14px;font-stretch:115%;font-weight:600}
+.hero .lines span{display:flex;align-items:center;gap:8px}
+.hero .lines span::before{content:"";width:10px;height:10px;border:2px solid var(--red);border-radius:50%}
+.disc{position:relative;justify-self:end;width:min(680px,52vw);margin-right:-120px}
+.disc svg{width:100%;height:auto;overflow:visible}
+.rotor{transform-box:view-box;transform-origin:300px 300px;will-change:transform}
+.glow{opacity:var(--heat);transition:opacity .35s ease-out}
+.halo{opacity:calc(var(--heat) * .9);transition:opacity .35s ease-out}
+.disc figcaption{margin:6px 140px 0 0;text-align:right;font-size:12.5px;color:#8E949D}
+
+/* brands: parts counter */
+.sec{padding:112px 0}
+.counter-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:52px}
+.counter-head p{color:var(--mute);max-width:52ch}
+.counter{display:grid;grid-template-columns:minmax(260px,380px) minmax(0,1fr);border:1px solid var(--asphalt-3);border-radius:4px;overflow:hidden;background:var(--asphalt-2)}
+.drawers{display:flex;flex-direction:column;border-right:1px solid var(--asphalt-3)}
+.drawer{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;border-bottom:1px solid var(--asphalt-3);position:relative;color:var(--silver)}
+.drawer:last-child{border-bottom:0}
+.drawer b{font-stretch:150%;font-weight:800;font-size:22px;letter-spacing:.01em;line-height:1.1}
+.drawer small{font-size:13px;color:#8E949D;white-space:nowrap;font-stretch:110%}
+.drawer:hover{background:var(--asphalt-3);color:var(--white)}
+.drawer[aria-selected="true"]{background:var(--silver);color:var(--asphalt)}
+.drawer[aria-selected="true"] small{color:#454A53}
+.drawer[aria-selected="true"]::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red)}
+.drawer:focus-visible{outline-offset:-4px}
+.bin{background:var(--silver-2);color:var(--asphalt);padding:44px 48px 48px;min-height:460px}
+.bin[hidden]{display:none}
+.bin h3{font-stretch:150%;font-size:clamp(30px,3.4vw,46px);font-weight:900;letter-spacing:.01em}
+.bin .what{margin-top:12px;max-width:56ch;color:#3A3F47}
+.bin-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:start;margin-top:30px}
+.labels{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:2px solid var(--asphalt)}
+.labels li{padding:13px 14px 13px 0;border-bottom:1px solid #B7BDC5;font-weight:600;font-stretch:108%;font-size:16px;display:flex;gap:12px;align-items:baseline}
+.labels li:nth-child(odd){padding-right:22px}
+.labels li:nth-child(even){padding-left:18px;border-left:1px solid #B7BDC5}
+.labels li::before{content:"";flex:none;width:8px;height:8px;background:var(--red);transform:translateY(-2px)}
+.labels.one{grid-template-columns:1fr}
+.labels.one li:nth-child(even){padding-left:0;border-left:0}
+.part-art{width:210px}
+.part-art figcaption{font-size:12px;color:#565C66;margin-top:8px}
+.tbc{margin-top:26px;border:2px dashed #8A919B;padding:22px 24px;max-width:52ch}
+.tbc strong{display:block;font-stretch:120%;font-size:15px;margin-bottom:4px}
+.tbc p{color:#3A3F47;font-size:15.5px}
+.bin .ask{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.bin .ask a.inl{color:var(--cobalt);font-weight:700;text-underline-offset:3px}
+.ask-wa{background:var(--asphalt);color:var(--white)}
+.ask-wa:hover{background:var(--cobalt)}
+.since{margin-top:40px;color:var(--mute);font-size:15.5px;max-width:70ch}
+
+/* outlets: counter tickets */
+.outlets{background:var(--asphalt-2);border-top:1px solid var(--asphalt-3);border-bottom:1px solid var(--asphalt-3)}
+.out-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+.out-head .ho{max-width:420px;color:var(--mute);font-size:15.5px}
+.out-head .ho strong{display:block;color:var(--white);font-stretch:120%;font-size:16px;margin-bottom:4px}
+.out-head .ho a{color:var(--white);font-weight:700;text-underline-offset:3px}
+.tickets{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.ticket{--notch:var(--asphalt-2);position:relative;background:var(--white);color:var(--asphalt);border-radius:4px;display:flex;flex-direction:column;
+  -webkit-mask:radial-gradient(circle 11px at 0 112px,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 112px,#0000 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 11px at 0 112px,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 112px,#0000 98%,#000) right/51% 100% no-repeat}
+.ticket .stub{height:112px;padding:20px 20px 0;display:flex;flex-direction:column;justify-content:space-between;border-bottom:2px dashed #B7BDC5}
+.ticket .kind{font-size:13px;font-weight:700;font-stretch:115%;color:var(--red-deep);display:flex;align-items:center;gap:8px}
+.ticket .kind::before{content:"";width:18px;height:4px;background:var(--red)}
+.ticket h3{font-stretch:132%;font-weight:900;font-size:clamp(19px,1.55vw,24px);padding-bottom:18px;letter-spacing:0}
+.ticket .addr{padding:20px 20px 0;font-size:15px;line-height:1.5;flex:1;font-style:normal}
+.ticket .map{display:inline-block;margin:18px 20px 22px;color:var(--cobalt);font-weight:700;font-size:14.5px;text-underline-offset:3px}
+.ticket.fr{background:var(--silver)}
+.ticket.fr .stub{border-bottom-color:#8A919B}
+.ticket.fr .kind{color:var(--cobalt)}
+.ticket.fr .kind::before{background:var(--cobalt)}
+.out-note{margin-top:26px;font-size:14px;color:#8E949D;max-width:72ch}
+
+/* distributor band */
+.dist{background:var(--red);color:var(--white);position:relative;overflow:hidden}
+.dist .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start;padding-top:104px;padding-bottom:104px;position:relative}
+.dist h2{font-stretch:125%;font-size:clamp(34px,4.2vw,58px)}
+.dist .lede{color:#FFE9EA;margin-top:22px}
+.dist ul.asks{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:44ch}
+.dist ul.asks li{display:flex;gap:14px;align-items:baseline;font-weight:500}
+.dist ul.asks li::before{content:"";flex:none;width:12px;height:3px;background:var(--white);transform:translateY(-4px)}
+.ring{position:absolute;left:-180px;bottom:-260px;width:560px;height:560px;border-radius:50%;border:70px solid rgba(255,255,255,.07);pointer-events:none}
+.ring::after{content:"";position:absolute;inset:90px;border-radius:50%;border:2px solid rgba(255,255,255,.1)}
+.compose{background:var(--asphalt);border-radius:4px;padding:34px;box-shadow:0 30px 60px -30px rgba(60,0,4,.7)}
+.compose h3{font-stretch:130%;font-size:22px;font-weight:800;margin-bottom:22px}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.fld label,.fld legend{font-size:14px;font-weight:600;color:var(--silver);font-stretch:110%}
+.fld input,.fld textarea{background:var(--asphalt-2);border:1px solid #3A3E47;border-radius:3px;padding:12px 14px;color:var(--white);min-height:48px;width:100%}
+.fld textarea{min-height:84px;resize:vertical}
+.fld input::placeholder,.fld textarea::placeholder{color:#7D838D}
+.fld input:focus,.fld textarea:focus{border-color:var(--silver);outline:none}
+.fld input:focus-visible,.fld textarea:focus-visible{outline:3px solid var(--silver);outline-offset:1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+fieldset.fld{border:0;padding:0;margin:0 0 18px;min-width:0}
+fieldset.fld legend{padding:0;margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;border:1px solid #3A3E47;border-radius:3px;font-weight:700;font-stretch:125%;font-size:14px;color:var(--silver);background:var(--asphalt-2)}
+.chip input:checked+span{background:var(--silver);color:var(--asphalt);border-color:var(--silver)}
+.chip input:focus-visible+span{outline:3px solid var(--white);outline-offset:2px}
+.preview{margin:6px 0 20px;background:#0E0F12;border-left:4px solid var(--red);padding:14px 16px;font-size:14px;line-height:1.55;white-space:pre-wrap;color:#D7DBE0;min-height:110px;font-family:inherit}
+.preview-l{font-size:14px;font-weight:600;color:var(--silver);font-stretch:110%}
+.compose .demo{margin-top:14px;font-size:13px;color:#9AA0A9}
+
+/* contact */
+.contact{background:var(--white);color:var(--asphalt)}
+.contact .wrap{padding-top:104px;padding-bottom:104px}
+.contact .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;align-items:start;margin-top:40px}
+.bignum{display:block;font-stretch:150%;font-weight:900;font-size:clamp(34px,5.4vw,76px);line-height:1;text-decoration:none;color:var(--asphalt);letter-spacing:-.01em}
+.bignum:hover{color:var(--red-deep)}
+.contact .how{margin-top:18px;color:#454A53;max-width:50ch}
+.contact .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.contact .btn-dark{background:var(--asphalt);color:var(--white)}
+.contact .btn-dark:hover{background:var(--cobalt)}
+.contact .btn-out{border-color:var(--asphalt);color:var(--asphalt)}
+.contact .btn-out:hover{background:var(--silver-2)}
+.facts{margin:0;display:grid;gap:0;border-top:2px solid var(--asphalt)}
+.facts div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--silver)}
+.facts dt{font-weight:700;font-stretch:115%;font-size:14px;color:#454A53;padding-top:2px}
+.facts dd{margin:0;font-size:16px}
+.facts a{color:var(--cobalt);font-weight:600;text-underline-offset:3px}
+
+/* footer */
+.foot{background:#0E0F12;color:var(--mute);font-size:14.5px}
+.foot .wrap{padding-top:56px;padding-bottom:36px}
+.foot .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+.foot .who{max-width:46ch}
+.foot .who p{margin-top:16px}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot nav a{color:var(--silver);text-decoration:none;font-weight:600}
+.foot nav a:hover{color:var(--white);text-decoration:underline}
+.foot .fine{margin-top:44px;padding-top:20px;border-top:1px solid var(--asphalt-3);display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;font-size:13px;color:#8E949D}
+.foot .fine a{color:var(--white);text-underline-offset:3px}
+
+/* responsive */
+@media (max-width:1180px){
+  .tickets{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:1024px){
+  .wrap{padding:0 28px}
+  .nav{gap:18px}
+  .hero .wrap{grid-template-columns:1fr 1fr;min-height:0}
+  .disc{width:min(520px,50vw);margin-right:-50px}
+  .disc figcaption{margin-right:60px}
+  .counter{grid-template-columns:300px minmax(0,1fr)}
+  .drawer b{font-size:18px;white-space:nowrap}
+  .bin{padding:36px 34px 40px}
+  .bin-grid{grid-template-columns:1fr}
+  .part-art{width:220px}
+  .dist .wrap{grid-template-columns:1fr;gap:40px}
+  .contact .grid{grid-template-columns:1fr;gap:44px}
+}
+@media (max-width:880px){
+  .nav,.top .btn{display:none}
+  .menu-btn{display:inline-block}
+  .nav.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--asphalt);border-bottom:1px solid var(--asphalt-3);padding:8px 28px 18px}
+  .nav.open a{padding:14px 0;border-bottom:1px solid var(--asphalt-3);font-size:17px}
+  .nav.open .btn{display:flex;margin-top:14px}
+  .hero .wrap{grid-template-columns:1fr;padding-top:24px}
+  .disc{order:-1;justify-self:center;width:min(500px,92vw);margin:0}
+  .disc figcaption{margin-right:0;text-align:center}
+  .counter-head{grid-template-columns:1fr;gap:18px}
+  .counter{grid-template-columns:1fr}
+  .drawers{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--asphalt-3);scrollbar-width:thin}
+  .drawer{flex:none;border-bottom:0;border-right:1px solid var(--asphalt-3);flex-direction:column;align-items:flex-start;gap:4px;padding:16px 20px}
+  .drawer[aria-selected="true"]::before{top:auto;right:0;width:auto;height:5px}
+  .drawer b{font-size:18px;white-space:nowrap}
+  .tickets{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .nav.open{padding:8px 18px 18px}
+  .mark b{font-size:26px}
+  .mark span{font-size:17px}
+  .hero h1{font-size:clamp(40px,12.4vw,56px)}
+  .hero .sub{font-size:17px;margin-top:22px}
+  .hero .ctas .btn{width:100%}
+  .sec{padding:76px 0}
+  .bin{padding:28px 20px 32px;min-height:0}
+  .labels{grid-template-columns:1fr}
+  .labels li:nth-child(even){padding-left:0;border-left:0}
+  .labels li:nth-child(odd){padding-right:0}
+  .tickets{grid-template-columns:1fr}
+  .dist .wrap,.contact .wrap{padding-top:76px;padding-bottom:76px}
+  .compose{padding:24px 18px}
+  .two{grid-template-columns:1fr}
+  .facts div{grid-template-columns:1fr;gap:4px}
+  .bignum{font-size:clamp(24px,8.4vw,36px);font-stretch:118%;white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  :root{--heat:.5}
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body id="top">
+<div class="notice" role="note"><div class="wrap">
+  <span>Website concept for NTC Auto Parts, not the official website. Proposed design; drawn illustrations; details from public pages and listings.</span>
+  <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Concept by Muhammad Zaid Qasim</a>
+</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="NTC Auto Parts, home"><b>NTC</b><span>Auto Parts</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#brands">Brands</a>
+      <a href="#outlets">Outlets</a>
+      <a href="#distributor">Become a distributor</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-red" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20please%20share%20your%20parts%20list." target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-h">History<span class="l2">in braking</span></h1>
+      <p class="sub">Brake, clutch and ignition parts from ASUKI, ULTIMA, ZAM ZAM and PROTEC, for mechanics and parts shops, from counters in Karachi, Lahore, Peshawar and Quetta and a franchise in Swat.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20please%20share%20your%20parts%20list." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          WhatsApp for a parts list</a>
+        <a class="btn btn-line" href="#distributor">Become a distributor</a>
+      </div>
+      <p class="lines" aria-label="Product groups"><span>Brake pads and shoes</span><span>Clutch and brake repair kits</span><span>Ignition and plug wires</span></p>
+    </div>
+
+    <figure class="disc" id="disc">
+      <svg viewBox="0 0 600 600" role="img" aria-labelledby="disc-t">
+        <title id="disc-t">Drawing of a drilled brake disc held by a red caliper</title>
+        <defs>
+          <radialGradient id="g-halo" gradientUnits="userSpaceOnUse" cx="300" cy="300" r="320">
+            <stop offset=".7" stop-color="#E10A17" stop-opacity="0"/>
+            <stop offset=".8" stop-color="#E10A17" stop-opacity=".45"/>
+            <stop offset="1" stop-color="#E10A17" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="g-face" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#E9ECEF"/>
+            <stop offset=".45" stop-color="#C7CCD3"/>
+            <stop offset=".7" stop-color="#9BA2AC"/>
+            <stop offset="1" stop-color="#D3D7DC"/>
+          </linearGradient>
+          <linearGradient id="g-hat" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7C838D"/>
+            <stop offset="1" stop-color="#A9AFB8"/>
+          </linearGradient>
+          <radialGradient id="g-heat" gradientUnits="userSpaceOnUse" cx="300" cy="300" r="252">
+            <stop offset=".54" stop-color="#FF8A2A" stop-opacity="0"/>
+            <stop offset=".64" stop-color="#FF8A2A" stop-opacity=".85"/>
+            <stop offset=".8" stop-color="#E10A17" stop-opacity=".9"/>
+            <stop offset=".95" stop-color="#8A0610" stop-opacity=".75"/>
+            <stop offset="1" stop-color="#5A0309" stop-opacity=".4"/>
+          </radialGradient>
+          <linearGradient id="g-cal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F2333F"/>
+            <stop offset=".5" stop-color="#E10A17"/>
+            <stop offset="1" stop-color="#A30710"/>
+          </linearGradient>
+        </defs>
+        <circle class="halo" cx="300" cy="300" r="320" fill="url(#g-halo)"/>
+        <g class="rotor" id="rotor">
+          <circle cx="300" cy="300" r="252" fill="url(#g-face)" stroke="#5E646D" stroke-width="3"/>
+          <g fill="none" stroke="#7E858F" stroke-opacity=".35" stroke-width="1">
+            <circle cx="300" cy="300" r="244"/><circle cx="300" cy="300" r="226"/><circle cx="300" cy="300" r="212"/><circle cx="300" cy="300" r="190"/><circle cx="300" cy="300" r="168"/><circle cx="300" cy="300" r="150"/>
+          </g>
+          <circle class="glow" cx="300" cy="300" r="252" fill="url(#g-heat)"/>
+          <g fill="#1E2026" stroke="#5E646D" stroke-width="1.5">
+            <circle cx="476.0" cy="300.0" r="7.5"/><circle cx="452.4" cy="388.0" r="7.5"/><circle cx="388.0" cy="452.4" r="7.5"/><circle cx="300.0" cy="476.0" r="7.5"/><circle cx="212.0" cy="452.4" r="7.5"/><circle cx="147.6" cy="388.0" r="7.5"/><circle cx="124.0" cy="300.0" r="7.5"/><circle cx="147.6" cy="212.0" r="7.5"/><circle cx="212.0" cy="147.6" r="7.5"/><circle cx="300.0" cy="124.0" r="7.5"/><circle cx="388.0" cy="147.6" r="7.5"/><circle cx="452.4" cy="212.0" r="7.5"/><circle cx="502.0" cy="328.4" r="7.5"/><circle cx="460.8" cy="425.6" r="7.5"/><circle cx="376.4" cy="489.1" r="7.5"/><circle cx="271.6" cy="502.0" r="7.5"/><circle cx="174.4" cy="460.8" r="7.5"/><circle cx="110.9" cy="376.4" r="7.5"/><circle cx="98.0" cy="271.6" r="7.5"/><circle cx="139.2" cy="174.4" r="7.5"/><circle cx="223.6" cy="110.9" r="7.5"/><circle cx="328.4" cy="98.0" r="7.5"/><circle cx="425.6" cy="139.2" r="7.5"/><circle cx="489.1" cy="223.6" r="7.5"/><circle cx="523.0" cy="363.9" r="7.5"/><circle cx="461.2" cy="466.9" r="7.5"/><circle cx="356.1" cy="525.1" r="7.5"/><circle cx="236.1" cy="523.0" r="7.5"/><circle cx="133.1" cy="461.2" r="7.5"/><circle cx="74.9" cy="356.1" r="7.5"/><circle cx="77.0" cy="236.1" r="7.5"/><circle cx="138.8" cy="133.1" r="7.5"/><circle cx="243.9" cy="74.9" r="7.5"/><circle cx="363.9" cy="77.0" r="7.5"/><circle cx="466.9" cy="138.8" r="7.5"/><circle cx="525.1" cy="243.9" r="7.5"/>
+          </g>
+          <circle cx="300" cy="300" r="136" fill="#4A4F57"/>
+          <circle cx="300" cy="300" r="128" fill="url(#g-hat)"/>
+          <circle cx="300" cy="300" r="104" fill="none" stroke="#5E646D" stroke-width="2"/>
+          <g fill="#16171B" stroke="#5E646D" stroke-width="2">
+            <circle cx="300.0" cy="222.0" r="13"/><circle cx="374.2" cy="275.9" r="13"/><circle cx="345.8" cy="363.1" r="13"/><circle cx="254.2" cy="363.1" r="13"/><circle cx="225.8" cy="275.9" r="13"/>
+          </g>
+          <circle cx="300" cy="300" r="42" fill="#16171B" stroke="#5E646D" stroke-width="5"/>
+        </g>
+        <g class="caliper">
+          <path d="M527.2 146.8 A274 274 0 0 1 527.2 453.2 L437.6 392.8 A166 166 0 0 0 437.6 207.2 Z" fill="url(#g-cal)" stroke="#8A0610" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M542.4 211.8 A258 258 0 0 1 542.4 388.2 L478.5 365.0 A190 190 0 0 0 478.5 235.0 Z" fill="#F23A45" stroke="#B50812" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M530.4 167 A266 266 0 0 1 530.4 433" fill="none" stroke="#FFFFFF" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="496" cy="200" r="9" fill="#C7CCD3" stroke="#5E646D" stroke-width="2"/>
+          <circle cx="496" cy="400" r="9" fill="#C7CCD3" stroke="#5E646D" stroke-width="2"/>
+        </g>
+      </svg>
+      <figcaption>Drawn for this concept. Scroll or point at the disc to warm it up.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="sec" id="brands" aria-labelledby="brands-h">
+  <div class="wrap">
+    <div class="counter-head">
+      <h2 id="brands-h">Five brands on the counter</h2>
+      <p>Pick a brand to see the lines it covers. NTC describes its work as brake and clutch products and plug wires; these are the product lines listed on the company's own site.</p>
+    </div>
+
+    <div class="counter">
+      <div class="drawers" role="tablist" aria-label="Brands">
+        <button class="drawer" role="tab" id="t-asuki" aria-controls="p-asuki" aria-selected="true"><b>ASUKI</b><small>2 lines</small></button>
+        <button class="drawer" role="tab" id="t-adv" aria-controls="p-adv" aria-selected="false" tabindex="-1"><b>ASUKI ADVANCED</b><small>1 line</small></button>
+        <button class="drawer" role="tab" id="t-ultima" aria-controls="p-ultima" aria-selected="false" tabindex="-1"><b>ULTIMA</b><small>13 lines</small></button>
+        <button class="drawer" role="tab" id="t-zamzam" aria-controls="p-zamzam" aria-selected="false" tabindex="-1"><b>ZAM ZAM</b><small>List to come</small></button>
+        <button class="drawer" role="tab" id="t-protec" aria-controls="p-protec" aria-selected="false" tabindex="-1"><b>PROTEC</b><small>List to come</small></button>
+      </div>
+
+      <div class="bin" role="tabpanel" id="p-asuki" aria-labelledby="t-asuki" tabindex="0">
+        <h3>ASUKI</h3>
+        <p class="what">Brake friction parts: shoes and pads for the disc brake.</p>
+        <div class="bin-grid">
+          <ul class="labels one"><li>Disc brake shoes</li><li>Disc brake pads</li></ul>
+          <figure class="part-art" style="margin:0">
+            <svg viewBox="0 0 220 170" role="img" aria-label="Drawing of a brake shoe and a brake pad">
+              <path d="M19.4 107.7 A100 100 0 0 1 200.6 107.7" fill="none" stroke="#2A2D34" stroke-width="16" stroke-linecap="round"/>
+              <path d="M30.2 112.8 A88 88 0 0 1 189.8 112.8 L169.8 122.1 A66 66 0 0 0 50.2 122.1 Z" fill="#7C838D" stroke="#5E646D" stroke-width="2"/>
+              <circle cx="110" cy="74" r="5" fill="#E4E7EB"/>
+              <g transform="translate(58 112)">
+                <path d="M4 14 Q52 -2 100 14 L96 52 Q52 42 8 52 Z" fill="#5E646D"/>
+                <path d="M16 20 Q52 8 88 20 L85 44 Q52 36 19 44 Z" fill="#2A2D34"/>
+                <line x1="52" y1="13" x2="52" y2="39" stroke="#C7CCD3" stroke-width="3"/>
+                <circle cx="9" cy="30" r="3.5" fill="#E4E7EB"/><circle cx="95" cy="30" r="3.5" fill="#E4E7EB"/>
+              </g>
+            </svg>
+            <figcaption>Drawn shapes, not ASUKI product photos.</figcaption>
+          </figure>
+        </div>
+        <div class="ask">
+          <a class="btn ask-wa" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20I%20need%20ASUKI%20brake%20pads%20and%20shoes.%20Please%20share%20the%20list." target="_blank" rel="noopener">Ask for ASUKI stock</a>
+          <a class="inl" href="#distributor" data-brand="ASUKI">Add ASUKI to a distributor enquiry</a>
+        </div>
+      </div>
+
+      <div class="bin" role="tabpanel" id="p-adv" aria-labelledby="t-adv" tabindex="0" hidden>
+        <h3>ASUKI ADVANCED</h3>
+        <p class="what">The second ASUKI line, listed for disc brake pads.</p>
+        <div class="bin-grid">
+          <ul class="labels one"><li>Disc brake pads</li></ul>
+          <figure class="part-art" style="margin:0">
+            <svg viewBox="0 0 220 130" role="img" aria-label="Drawing of a disc brake pad">
+              <path d="M14 34 Q110 0 206 34 L198 112 Q110 90 22 112 Z" fill="#5E646D"/>
+              <path d="M38 44 Q110 20 182 44 L176 96 Q110 80 44 96 Z" fill="#2A2D34"/>
+              <line x1="110" y1="30" x2="110" y2="86" stroke="#C7CCD3" stroke-width="4"/>
+              <circle cx="24" cy="72" r="6" fill="#E4E7EB"/><circle cx="196" cy="72" r="6" fill="#E4E7EB"/>
+            </svg>
+            <figcaption>Drawn shape, not an ASUKI ADVANCED product photo.</figcaption>
+          </figure>
+        </div>
+        <div class="ask">
+          <a class="btn ask-wa" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20I%20need%20ASUKI%20ADVANCED%20disc%20brake%20pads.%20Please%20share%20the%20list." target="_blank" rel="noopener">Ask for ASUKI ADVANCED stock</a>
+          <a class="inl" href="#distributor" data-brand="ASUKI ADVANCED">Add ASUKI ADVANCED to a distributor enquiry</a>
+        </div>
+      </div>
+
+      <div class="bin" role="tabpanel" id="p-ultima" aria-labelledby="t-ultima" tabindex="0" hidden>
+        <h3>ULTIMA</h3>
+        <p class="what">Repair kits, hydraulics, rubber parts, brake fluid and the ignition side: coils, caps, rotors and plug wire.</p>
+        <ul class="labels" style="margin-top:30px">
+          <li>Clutch and brake repair kits</li><li>Sports plug wire</li>
+          <li>DOT-3 brake fluid</li><li>BMC/CMC rubber parts</li>
+          <li>Brake booster</li><li>Ignition coils</li>
+          <li>Distributor cap</li><li>Condenser</li>
+          <li>Timing components</li><li>Disc brake seal kits</li>
+          <li>Contact point</li><li>Distributor rotor</li>
+          <li>Hydraulic cylinders</li>
+        </ul>
+        <div class="ask">
+          <a class="btn ask-wa" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20please%20share%20the%20ULTIMA%20parts%20list." target="_blank" rel="noopener">Ask for ULTIMA stock</a>
+          <a class="inl" href="#distributor" data-brand="ULTIMA">Add ULTIMA to a distributor enquiry</a>
+        </div>
+      </div>
+
+      <div class="bin" role="tabpanel" id="p-zamzam" aria-labelledby="t-zamzam" tabindex="0" hidden>
+        <h3>ZAM ZAM</h3>
+        <p class="what">Named among NTC's brands. Its product lines are not listed publicly yet.</p>
+        <div class="tbc"><strong>Sample space: to be supplied by NTC</strong><p>The ZAM ZAM product lines go here, in the same label format as ASUKI and ULTIMA.</p></div>
+        <div class="ask">
+          <a class="btn ask-wa" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20what%20do%20you%20supply%20under%20ZAM%20ZAM%3F" target="_blank" rel="noopener">Ask what ZAM ZAM covers</a>
+          <a class="inl" href="#distributor" data-brand="ZAM ZAM">Add ZAM ZAM to a distributor enquiry</a>
+        </div>
+      </div>
+
+      <div class="bin" role="tabpanel" id="p-protec" aria-labelledby="t-protec" tabindex="0" hidden>
+        <h3>PROTEC</h3>
+        <p class="what">Named among NTC's brands. Its product lines are not listed publicly yet.</p>
+        <div class="tbc"><strong>Sample space: to be supplied by NTC</strong><p>The PROTEC product lines go here, in the same label format as ASUKI and ULTIMA.</p></div>
+        <div class="ask">
+          <a class="btn ask-wa" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20what%20do%20you%20supply%20under%20PROTEC%3F" target="_blank" rel="noopener">Ask what PROTEC covers</a>
+          <a class="inl" href="#distributor" data-brand="PROTEC">Add PROTEC to a distributor enquiry</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="since">The company says it first imported branded vehicle parts from China and Taiwan in 1984.</p>
+  </div>
+</section>
+
+<section class="sec outlets" id="outlets" aria-labelledby="outlets-h">
+  <div class="wrap">
+    <div class="out-head">
+      <div>
+        <h2 id="outlets-h">Counters in four cities</h2>
+        <p class="lede" style="margin-top:16px">Plus a franchise in Swat. Walk in with the old part or the vehicle details.</p>
+      </div>
+      <div class="ho">
+        <strong>Head office</strong>
+        38-C, Sunset Lane# 1, DHA, Karachi. Outlet numbers are not published; for stock at any counter, call or WhatsApp <a href="tel:+923179996180">+92 317 9996180</a>.
+      </div>
+    </div>
+    <ul class="tickets">
+      <li class="ticket">
+        <div class="stub"><span class="kind">Outlet</span><h3>Karachi</h3></div>
+        <address class="addr">Shop No. 13, Al Noor Market Tibet Centre, M. A. Jinnah Road</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Al%20Noor%20Market%20Tibet%20Centre%20M.%20A.%20Jinnah%20Road%20Karachi" target="_blank" rel="noopener">Open in Maps</a>
+      </li>
+      <li class="ticket">
+        <div class="stub"><span class="kind">Outlet</span><h3>Lahore</h3></div>
+        <address class="addr">Shop# 84, Phase-2, Badami Bagh Center, Badami Bagh</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Badami%20Bagh%20Center%20Badami%20Bagh%20Lahore" target="_blank" rel="noopener">Open in Maps</a>
+      </li>
+      <li class="ticket">
+        <div class="stub"><span class="kind">Outlet</span><h3>Peshawar</h3></div>
+        <address class="addr">Shop No. 23, Marwat Plaza, Shoba Bazar</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Marwat%20Plaza%20Shoba%20Bazar%20Peshawar" target="_blank" rel="noopener">Open in Maps</a>
+      </li>
+      <li class="ticket">
+        <div class="stub"><span class="kind">Outlet</span><h3>Quetta</h3></div>
+        <address class="addr">Shop No. 2, Street No. 2, Agha Sheer Ali Market, Kabari Gali, Chandni Chowk</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Agha%20Sheer%20Ali%20Market%20Kabari%20Gali%20Quetta" target="_blank" rel="noopener">Open in Maps</a>
+      </li>
+      <li class="ticket fr">
+        <div class="stub"><span class="kind">Franchise</span><h3>Swat</h3></div>
+        <address class="addr">Shahdara Chowk, Madain Road, Kanju Mechanical Area, Mingora-Swat</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shahdara%20Chowk%20Madain%20Road%20Mingora%20Swat" target="_blank" rel="noopener">Open in Maps</a>
+      </li>
+    </ul>
+    <p class="out-note">Addresses as listed on the company's outlets page. Map links search the address and may land near, not on, the shop.</p>
+  </div>
+</section>
+
+<section class="dist" id="distributor" aria-labelledby="dist-h">
+  <i class="ring" aria-hidden="true"></i>
+  <div class="wrap">
+    <div>
+      <h2 id="dist-h">Become a distributor</h2>
+      <p class="lede">Run a parts shop in a city without an NTC counter? Tell the head office where you are, what your shop is called and which brands you want to carry. The form writes the message; you send it from your own WhatsApp.</p>
+      <p class="lede">Prefer to talk it through? Call <a href="tel:+923179996180" style="color:#fff;font-weight:700;text-underline-offset:3px">+92 317 9996180</a>.</p>
+    </div>
+    <form class="compose" id="dform" onsubmit="return false">
+      <h3>Distributor enquiry</h3>
+      <div class="two">
+        <div class="fld"><label for="d-name">Your name</label><input id="d-name" autocomplete="name" placeholder="e.g. Imran Ali"></div>
+        <div class="fld"><label for="d-city">City and market</label><input id="d-city" placeholder="e.g. Hyderabad, Station Road"></div>
+      </div>
+      <div class="fld"><label for="d-shop">Shop or company name</label><input id="d-shop" autocomplete="organization" placeholder="e.g. Ali Autos"></div>
+      <fieldset class="fld">
+        <legend>Brands you want to stock</legend>
+        <div class="chips" id="d-brands">
+          <label class="chip"><input type="checkbox" value="ASUKI"><span>ASUKI</span></label>
+          <label class="chip"><input type="checkbox" value="ASUKI ADVANCED"><span>ASUKI ADVANCED</span></label>
+          <label class="chip"><input type="checkbox" value="ULTIMA"><span>ULTIMA</span></label>
+          <label class="chip"><input type="checkbox" value="ZAM ZAM"><span>ZAM ZAM</span></label>
+          <label class="chip"><input type="checkbox" value="PROTEC"><span>PROTEC</span></label>
+        </div>
+      </fieldset>
+      <div class="fld"><label for="d-note">Anything else (optional)</label><textarea id="d-note" placeholder="e.g. We already sell brake parts to workshops in the area."></textarea></div>
+      <p class="preview-l" id="pv-l">Your message</p>
+      <p class="preview" id="d-out" aria-live="polite" aria-labelledby="pv-l"></p>
+      <a class="btn btn-red" id="d-send" href="https://wa.me/923179996180" target="_blank" rel="noopener">Send on WhatsApp</a>
+      <p class="demo">Opens WhatsApp with this message addressed to +92 317 9996180. Nothing is sent from this page; terms are agreed directly with NTC.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 id="contact-h">Reach the head office</h2>
+    <div class="grid">
+      <div>
+        <a class="bignum" href="tel:+923179996180">+92 317 9996180</a>
+        <p class="how">One number for calls and WhatsApp. Send a parts list, ask which counter has stock, or ask about distribution.</p>
+        <div class="ctas">
+          <a class="btn btn-dark" href="https://wa.me/923179996180?text=Assalam%20o%20Alaikum%2C%20please%20share%20your%20parts%20list." target="_blank" rel="noopener">WhatsApp for a parts list</a>
+          <a class="btn btn-out" href="tel:+923179996180">Call head office</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Head office</dt><dd>38-C, Sunset Lane# 1, DHA, Karachi</dd></div>
+        <div><dt>Karachi outlet</dt><dd>Shop No. 13, Al Noor Market Tibet Centre, M. A. Jinnah Road</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@ntc-autoparts.com">info@ntc-autoparts.com</a></dd></div>
+        <div><dt>Social</dt><dd><a href="https://m.facebook.com/ntc021" target="_blank" rel="noopener">Facebook</a> &nbsp;&nbsp; <a href="https://www.linkedin.com/company/ntcautoparts/" target="_blank" rel="noopener">LinkedIn</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div class="who">
+        <a class="mark" href="#top" aria-label="NTC Auto Parts, back to top"><b>NTC</b><span>Auto Parts</span></a>
+        <p>Brake, clutch and ignition parts. Noor Trading Company is the company name given in public business listings.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="#brands">Brands</a><a href="#outlets">Outlets</a><a href="#distributor">Become a distributor</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="fine">
+      <span>Website concept for NTC Auto Parts, not the official website. Proposed design and wordmark; drawn illustrations; details from public pages and listings.</span>
+      <a href="https://muhammadzaidqasim.vercel.app/" target="_blank" rel="noopener">Concept by Muhammad Zaid Qasim</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* mobile menu */
+  var mb=document.querySelector(".menu-btn"),nav=document.getElementById("nav");
+  mb.addEventListener("click",function(){var o=mb.getAttribute("aria-expanded")==="true";mb.setAttribute("aria-expanded",String(!o));nav.classList.toggle("open",!o);mb.textContent=o?"Menu":"Close";});
+  nav.addEventListener("click",function(e){if(e.target.closest("a")&&nav.classList.contains("open"))mb.click();});
+
+  /* brake disc: scroll turns the rotor and builds heat; pointer adds heat */
+  var root=document.documentElement,rotor=document.getElementById("rotor"),disc=document.getElementById("disc");
+  var still=window.matchMedia("(prefers-reduced-motion: reduce)").matches,hover=false,tick=false;
+  function paint(){
+    tick=false;
+    var y=window.scrollY||0,h=Math.min(1,.12+y/520);
+    if(hover)h=Math.max(h,.95);
+    root.style.setProperty("--heat",h.toFixed(3));
+    rotor.style.transform="rotate("+(y*.35).toFixed(1)+"deg)";
+  }
+  if(!still){
+    window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(paint);}},{passive:true});
+    disc.addEventListener("pointerenter",function(){hover=true;paint();});
+    disc.addEventListener("pointerleave",function(){hover=false;paint();});
+    paint();
+  }
+
+  /* brand counter tabs */
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute("aria-controls")).hidden=!on;});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click",function(){select(t);});
+    t.addEventListener("keydown",function(e){
+      var k=e.key,n=null;
+      if(k==="ArrowDown"||k==="ArrowRight")n=tabs[(i+1)%tabs.length];
+      else if(k==="ArrowUp"||k==="ArrowLeft")n=tabs[(i-1+tabs.length)%tabs.length];
+      else if(k==="Home")n=tabs[0];else if(k==="End")n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true);}
+    });
+  });
+
+  /* distributor composer */
+  var f=document.getElementById("dform"),out=document.getElementById("d-out"),send=document.getElementById("d-send");
+  var boxes=[].slice.call(document.querySelectorAll("#d-brands input"));
+  function v(id){return document.getElementById(id).value.trim();}
+  function compose(){
+    var b=boxes.filter(function(x){return x.checked;}).map(function(x){return x.value;});
+    var t="Assalam o Alaikum NTC Auto Parts,\nI would like to become a distributor.\n\n";
+    t+="Name: "+(v("d-name")||"(your name)")+"\n";
+    t+="Shop: "+(v("d-shop")||"(shop or company)")+"\n";
+    t+="City: "+(v("d-city")||"(city and market)")+"\n";
+    t+="Brands: "+(b.length?b.join(", "):"(choose brands)");
+    if(v("d-note"))t+="\n\n"+v("d-note");
+    out.textContent=t;
+    send.href="https://wa.me/923179996180?text="+encodeURIComponent(t);
+  }
+  f.addEventListener("input",compose);f.addEventListener("change",compose);
+  [].forEach.call(document.querySelectorAll("[data-brand]"),function(a){
+    a.addEventListener("click",function(){boxes.forEach(function(x){if(x.value===a.dataset.brand)x.checked=true;});compose();});
+  });
+  compose();
+})();
+</script>
+</body>
+</html>
